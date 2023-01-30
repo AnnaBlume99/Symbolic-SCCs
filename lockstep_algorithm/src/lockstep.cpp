@@ -11,8 +11,6 @@
 
 #include "lockstep.h"
 #include "bdd_utilities.h"
-#include "petriTranslation.h"
-#include "print.h"
 
 //Picks a single assignment in a given nodeSet. It takes the false path in the BDD as much as possible until finding a true leaf,
 // and uses this path as assignment
@@ -22,7 +20,219 @@ sylvan::Bdd pick(const sylvan::Bdd &nodeSet, const sylvan::BddSet &cube) {
 	return picked;
 }
 
-//LOCKSTEP SATURATION ITERATIVE ##########################################################################
+// OLD SKELETON ####################################################################################
+std::pair<std::list<sylvan::Bdd>, int> oldSkeleton(const Graph &fullGraph) {
+  int symbolicSteps = 0;
+
+  std::list<sylvan::Bdd> sccList = {};
+  if(fullGraph.nodes == leaf_false()) {
+    std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
+    return result;
+  }
+
+  const sylvan::Bdd allNodes = fullGraph.nodes;
+  const sylvan::BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  std::stack<std::pair<sylvan::Bdd, std::pair<sylvan::Bdd, sylvan::Bdd>>> callStack;
+  const sylvan::Bdd startNode = pick(allNodes, fullCube);
+  const sylvan::Bdd skeleton = leaf_false();
+  const std::pair<sylvan::Bdd, sylvan::Bdd> skelNodePair = {skeleton, startNode};
+  std::pair<sylvan::Bdd, std::pair<sylvan::Bdd, sylvan::Bdd>> pushPair = {allNodes, skelNodePair};
+  callStack.push(pushPair);
+  
+  while(!callStack.empty()) {
+    const std::pair<sylvan::Bdd, std::pair<sylvan::Bdd, sylvan::Bdd>> nodeSetSkelStartNode = callStack.top();
+    callStack.pop();
+    const sylvan::Bdd nodeSet = std::get<0>(nodeSetSkelStartNode);
+    const std::pair<sylvan::Bdd, sylvan::Bdd> skelStartNode = std::get<1>(nodeSetSkelStartNode);
+    const sylvan::Bdd skeleton = std::get<0>(skelStartNode);
+    const sylvan::Bdd startNode = std::get<1>(skelStartNode);
+
+    //Find skeleton
+    Graph forwardGraph = {};
+    forwardGraph.nodes = nodeSet;
+    forwardGraph.cube = fullCube;
+    forwardGraph.relations = relationDeque;
+
+    std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skelRes = skeletonForward(forwardGraph, startNode);
+    const std::pair<sylvan::Bdd, sylvan::Bdd> forwardSkel = std::get<0>(skelRes);
+    const sylvan::Bdd forwardSet = std::get<0>(forwardSkel);
+    const sylvan::Bdd newSkeleton = std::get<1>(forwardSkel);
+    const std::pair<sylvan::Bdd, int> nodeSteps = std::get<1>(skelRes);
+    const sylvan::Bdd newStartNode = std::get<0>(nodeSteps);
+    const int symbolicStepsSkel = std::get<1>(nodeSteps);
+    symbolicSteps = symbolicSteps + symbolicStepsSkel;
+
+    //find SCC
+    sylvan::Bdd scc = startNode;
+    while(true) {
+      sylvan::Bdd relPrevScc = leaf_false();
+      for(int i = 0 ; i < relationDeque.size(); i++) {
+        sylvan::Bdd currentRelation = relationDeque[i].relationBdd;
+        sylvan::BddSet currentRelationCube = relationDeque[i].cube;
+
+        sylvan::Bdd relResultBack = intersectBdd(scc.RelPrev(currentRelation, currentRelationCube), nodeSet);
+        symbolicSteps = symbolicSteps + 1;
+
+        relPrevScc = unionBdd(relPrevScc, relResultBack);
+      }
+
+      sylvan::Bdd toAdd = differenceBdd(intersectBdd(relPrevScc, forwardSet), scc);
+      scc = unionBdd(scc, toAdd);
+      if(toAdd == leaf_false()) {
+        break;
+      }
+    }
+
+    //Report the SCC
+    sccList.push_back(scc);
+
+    //Create "recursive" calls
+    const sylvan::Bdd recBdd1 = differenceBdd(nodeSet, forwardSet);
+    if(recBdd1 != leaf_false()) {
+      const sylvan::Bdd recSkel1 = differenceBdd(skeleton, scc);
+
+      sylvan::Bdd sccSkel = intersectBdd(scc, skeleton);
+      sylvan::Bdd relPrevSccSkel = leaf_false();
+      for(int i = 0 ; i < relationDeque.size(); i++) {
+        sylvan::Bdd currentRelation = relationDeque[i].relationBdd;
+        sylvan::BddSet currentRelationCube = relationDeque[i].cube;
+
+        sylvan::Bdd relResultBack = intersectBdd(sccSkel.RelPrev(currentRelation, currentRelationCube), nodeSet);
+        symbolicSteps = symbolicSteps + 1;
+
+        relPrevSccSkel = unionBdd(relPrevSccSkel, relResultBack);
+      }
+
+      sylvan::Bdd recNode1 = leaf_false();
+      if(recSkel1 != leaf_false()) {
+        recNode1 = intersectBdd(relPrevSccSkel, differenceBdd(skeleton, scc));
+      } else {
+        recNode1 = pick(recBdd1, fullCube);
+      }
+      
+      const std::pair<sylvan::Bdd, sylvan::Bdd> recSkelNode1 = {recSkel1, recNode1};
+      const std::pair<sylvan::Bdd, std::pair<sylvan::Bdd, sylvan::Bdd>> recSet1 = {recBdd1, recSkelNode1};
+      callStack.push(recSet1);
+    }
+
+    const sylvan::Bdd recBdd2 = differenceBdd(forwardSet, scc);
+    if(recBdd2 != leaf_false()) {
+      const sylvan::Bdd recSkel2 = differenceBdd(newSkeleton, scc);
+
+      sylvan::Bdd recNode2 = leaf_false();
+      if(recSkel2 != leaf_false()) {
+        recNode2 = differenceBdd(newStartNode, scc);
+      } else {
+        recNode2 = pick(recBdd2, fullCube);
+      }
+
+      const std::pair<sylvan::Bdd, sylvan::Bdd> recSkelNode2 = {recSkel2, recNode2};
+      const std::pair<sylvan::Bdd, std::pair<sylvan::Bdd, sylvan::Bdd>> recSet2 = {recBdd2, recSkelNode2};
+      callStack.push(recSet2);
+    }
+  }
+
+  //Return SCC list and number of symbolic steps
+  std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
+  return result;
+}
+
+// NEW SKELETON ####################################################################################
+std::pair<std::list<sylvan::Bdd>, int> newSkeleton(const Graph &fullGraph) {
+  int symbolicSteps = 0;
+
+  std::list<sylvan::Bdd> sccList = {};
+  if(fullGraph.nodes == leaf_false()) {
+    std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
+    return result;
+  }
+
+  const sylvan::Bdd allNodes = fullGraph.nodes;
+  const sylvan::BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  std::stack<std::pair<sylvan::Bdd, sylvan::Bdd>> callStack;
+  const sylvan::Bdd startNode = pick(allNodes, fullCube);
+  const std::pair<sylvan::Bdd, sylvan::Bdd> pushPair = {allNodes, startNode};
+  callStack.push(pushPair);
+  
+  while(!callStack.empty()) {
+    const std::pair<sylvan::Bdd, sylvan::Bdd> nodeSetAndStartNode = callStack.top();
+    callStack.pop();
+    const sylvan::Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
+    const sylvan::Bdd startNode = std::get<1>(nodeSetAndStartNode);
+
+    //Compute the forward transitive closure and keep the last layer of the computation
+    Graph forwardGraph = {};
+    forwardGraph.nodes = nodeSet;
+    forwardGraph.cube = fullCube;
+    forwardGraph.relations = relationDeque;
+    const std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> transForward = reachabilityForwardRelationUnionLastLayer(forwardGraph, startNode);
+    const std::pair<sylvan::Bdd, sylvan::Bdd> forwardSetAndLastLayer = std::get<0>(transForward);
+    const sylvan::Bdd forwardSet = std::get<0>(forwardSetAndLastLayer);
+    const sylvan::Bdd lastForwardLayer = std::get<1>(forwardSetAndLastLayer);
+    const int symbolicStepsForward = std::get<1>(transForward);
+    symbolicSteps = symbolicSteps + symbolicStepsForward;
+
+    //Compute the backward transitive closure on the result of forward (result is the SCC)
+    Graph backwardGraph = {};
+    backwardGraph.nodes = forwardSet;
+    backwardGraph.cube = fullCube;
+    backwardGraph.relations = relationDeque;
+    const std::pair<sylvan::Bdd, int> transBackward = reachabilityBackwardRelationUnion(backwardGraph, startNode);
+    const sylvan::Bdd scc = std::get<0>(transBackward);
+    const int symbolicStepsBackward = std::get<1>(transBackward);
+    symbolicSteps = symbolicSteps + symbolicStepsBackward;
+
+    //Report the SCC
+    sccList.push_back(scc);
+
+    //Create "recursive" calls
+    const sylvan::Bdd recBdd1 = differenceBdd(forwardSet, scc);
+    if(recBdd1 != leaf_false()) {
+      const sylvan::Bdd recNodeSet1 = differenceBdd(lastForwardLayer, scc);
+      sylvan::Bdd recNode1;
+      if(recNodeSet1 != leaf_false()) {
+        recNode1 = pick(recNodeSet1, fullCube);
+      } else {
+        recNode1 = pick(recBdd1, fullCube);
+      }
+      const std::pair<sylvan::Bdd, sylvan::Bdd> recPair1 = {recBdd1, recNode1};
+      callStack.push(recPair1);
+    }
+
+    const sylvan::Bdd recBdd2 = differenceBdd(nodeSet, forwardSet);
+    if(recBdd2 != leaf_false()) {
+      sylvan::Bdd relPrevScc = leaf_false();
+      for(int i = 0 ; i < relationDeque.size(); i++) {
+        sylvan::Bdd currentRelation = relationDeque[i].relationBdd;
+        sylvan::BddSet currentRelationCube = relationDeque[i].cube;
+
+        sylvan::Bdd relResultBack = scc.RelPrev(currentRelation, currentRelationCube);
+        symbolicSteps = symbolicSteps + 1;
+
+        relPrevScc = unionBdd(relPrevScc, relResultBack);
+      }
+      sylvan::Bdd recNodeSet2 = intersectBdd(relPrevScc, differenceBdd(nodeSet, forwardSet));
+      sylvan::Bdd recNode2;
+      if(recNodeSet2 != leaf_false()) {
+        recNode2 = pick(recNodeSet2, fullCube);
+      } else {
+        recNode2 = pick(recBdd2, fullCube);
+      }
+      std::pair<sylvan::Bdd, sylvan::Bdd> recPair2 = {recBdd2, recNode2};
+      callStack.push(recPair2);
+    }
+  }
+
+  //Return SCC list and number of symbolic steps
+  std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
+  return result;
+}
+
+// LOCKSTEP ########################################################################################
 std::pair<std::list<sylvan::Bdd>, int> lockstepSaturation(const Graph &fullGraph) {
   /*auto start = std::chrono::high_resolution_clock::now();
   auto stop = std::chrono::high_resolution_clock::now();
@@ -44,22 +254,18 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepSaturation(const Graph &fullGraph
   const std::deque<Relation> relationDeque = fullGraph.relations;
 
   while(!callStack.empty()) {
-    /*stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    if((int)duration.count() > 900000) {
-      std::cout << "Took too long " << (int)duration.count() << std::endl;
-      return {{},0};
-    }*/
-
     const sylvan::Bdd nodeSet = callStack.top();
     callStack.pop();
 
     sylvan::Bdd v = pick(nodeSet, fullCube);
     sylvan::Bdd forwardSet = v;
+    //printBdd(forwardSet);
     sylvan::Bdd backwardSet = v;
 
     int relFrontI = 0;
-    sylvan::Bdd relFront = relationDeque[relFrontI].relationBdd;
+    Relation r = relationDeque[relFrontI];
+    sylvan::Bdd relFront = r.relationBdd;
+    //printBdd(relFront);
     sylvan::BddSet relFrontCube = relationDeque[relFrontI].cube;
 
     int relBackI = 0;
@@ -111,7 +317,6 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepSaturation(const Graph &fullGraph
       forwardSet = nonConverged;
     }
 
-
     while(relFrontI < relationDeque.size()) {
       sylvan::Bdd relResultFront = differenceBdd(intersectBdd(forwardSet.RelNext(relFront, relFrontCube), backwardSet), forwardSet);
       symbolicSteps++;
@@ -161,13 +366,11 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepSaturation(const Graph &fullGraph
     }
   }
 
-  std::cout << "[LockstepSat] Number of symbolic steps: " << symbolicSteps << std::endl;
   //Return SCC list and number of symbolic steps
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
 
-//LOCKSTEP RELATION UNION ITERATIVE ##########################################################################
 std::pair<std::list<sylvan::Bdd>, int> lockstepRelationUnion(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
@@ -320,12 +523,12 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepRelationUnion(const Graph &fullGr
     }
   }
 
-  std::cout << "[LockstepRelUn] Number of symbolic steps: " << symbolicSteps << std::endl;
   //Return SCC list and number of symbolic steps
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
 
+// XIE-BEEREL ######################################################################################
 std::pair<std::list<sylvan::Bdd>, int> xieBeerelForwardSaturation(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
@@ -384,7 +587,6 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelForwardSaturation(const Graph &f
     }
   }
 
-  std::cout << "[xbForwardSat] Number of symbolic steps: " << symbolicSteps << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
@@ -448,11 +650,9 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelSaturation(const Graph &fullGrap
     }
   }
 
-  std::cout << "[xbSat] Number of symbolic steps: " << symbolicSteps << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
-
 
 std::pair<std::list<sylvan::Bdd>, int> xieBeerelForwardRelationUnion(const Graph &fullGraph) {
   int symbolicSteps = 0;
@@ -514,7 +714,6 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelForwardRelationUnion(const Graph
     }
   }
 
-  std::cout << "[XBForwardRelUn] Number of symbolic steps: " << symbolicSteps << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
@@ -579,12 +778,11 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelRelationUnion(const Graph &fullG
     }
   }
 
-  std::cout << "[XBRelUn] Number of symbolic steps: " << symbolicSteps << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
 
-//Computes the nodes reachable from the node(s) in the Graph given using saturation
+// REACHABILITY ####################################################################################
 std::pair<sylvan::Bdd, int> reachabilityForwardSaturation(const Graph &graph, sylvan::Bdd nodes) {
   sylvan::BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
@@ -598,18 +796,7 @@ std::pair<sylvan::Bdd, int> reachabilityForwardSaturation(const Graph &graph, sy
 
   int symbolicSteps = 0;
 
-  /*auto start = std::chrono::high_resolution_clock::now();
-  auto stop = std::chrono::high_resolution_clock::now();
-  std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);*/
-
   while(relFrontI < relationDeque.size()) {
-    /*stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    if((int)duration.count() > 300000) {
-      std::cout << "Took too long reachability " << (int)duration.count() << std::endl;
-      return {leaf_false(),0};
-    }*/
-
     sylvan::Bdd relResultFront = differenceBdd(intersectBdd(forwardSet.RelNext(relFront, relFrontCube), nodeSet), forwardSet);
     symbolicSteps++;
 
@@ -631,7 +818,6 @@ std::pair<sylvan::Bdd, int> reachabilityForwardSaturation(const Graph &graph, sy
   return result;
 }
 
-//Computes the nodes reachable from the node(s) in the Graph given using saturation
 std::pair<sylvan::Bdd, int> reachabilityBackwardSaturation(const Graph &graph, sylvan::Bdd nodes) {
   sylvan::BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
@@ -668,7 +854,6 @@ std::pair<sylvan::Bdd, int> reachabilityBackwardSaturation(const Graph &graph, s
   return result;
 }
 
-//Computes the nodes reachable from the node(s) in the Graph given using relation union
 std::pair<sylvan::Bdd, int> reachabilityForwardRelationUnion(const Graph &graph, sylvan::Bdd nodes) {
   sylvan::BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
@@ -710,9 +895,7 @@ std::pair<sylvan::Bdd, int> reachabilityForwardRelationUnion(const Graph &graph,
   return result;
 }
 
-//Computes the nodes reachable from the node(s) in the Graph given using relation union
 std::pair<sylvan::Bdd, int> reachabilityBackwardRelationUnion(const Graph &graph, sylvan::Bdd nodes) {
-  sylvan::BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
   sylvan::Bdd backwardSet = nodes;
@@ -751,6 +934,125 @@ std::pair<sylvan::Bdd, int> reachabilityBackwardRelationUnion(const Graph &graph
 
   std::pair<sylvan::Bdd, int> result = {backwardSet, symbolicSteps};
   return result;
+}
+
+std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, sylvan::Bdd nodes) {
+  sylvan::BddSet cube = graph.cube;
+  std::deque<Relation> relationDeque = graph.relations;
+
+  sylvan::Bdd forwardSet = nodes;
+  sylvan::Bdd nodeSet = graph.nodes;
+
+  sylvan::Bdd forwardFront = nodes;
+  sylvan::Bdd forwardAcc = leaf_false();
+  sylvan::Bdd relResultFront;
+
+  sylvan::Bdd currentRelation;
+  sylvan::BddSet currentRelationCube;
+
+  int symbolicSteps = 0;
+
+  sylvan::Bdd lastLayer;
+
+  bool somethingChanged = true;
+  while(somethingChanged) {
+    somethingChanged = false;
+
+    for(int i = 0 ; i < relationDeque.size(); i++) {
+      currentRelation = relationDeque[i].relationBdd;
+      currentRelationCube = relationDeque[i].cube;
+
+      sylvan::Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
+      symbolicSteps++;
+      forwardAcc = unionBdd(forwardAcc, relResultFront);
+    }
+
+    forwardFront = differenceBdd(forwardAcc, forwardSet);
+    forwardSet = unionBdd(forwardSet, forwardFront);
+
+    if(forwardFront != leaf_false()) {
+      somethingChanged = true;
+      lastLayer = forwardFront;
+    }
+
+    forwardAcc = leaf_false();
+  }
+  std::pair<sylvan::Bdd, sylvan::Bdd> setAndLastLayer = {forwardSet, lastLayer};
+  std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> result = {setAndLastLayer, symbolicSteps};
+  return result;
+}
+
+std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skeletonForward(const Graph &graph, sylvan::Bdd nodes) {
+  sylvan::BddSet cube = graph.cube;
+  std::deque<Relation> relationDeque = graph.relations;
+  sylvan::Bdd nodeSet = graph.nodes;
+
+  std::stack<sylvan::Bdd> skelStack;
+
+  sylvan::Bdd forwardSet = nodes;
+  skelStack.push(forwardSet);
+
+  sylvan::Bdd forwardFront = nodes;
+  sylvan::Bdd forwardAcc = leaf_false();
+  sylvan::Bdd relResultFront;
+
+  sylvan::Bdd currentRelation;
+  sylvan::BddSet currentRelationCube;
+
+  int symbolicSteps = 0;
+
+  bool somethingChanged = true;
+  while(somethingChanged) {
+    somethingChanged = false;
+
+    for(int i = 0 ; i < relationDeque.size(); i++) {
+      currentRelation = relationDeque[i].relationBdd;
+      currentRelationCube = relationDeque[i].cube;
+
+      relResultFront = intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet);
+      symbolicSteps++;
+      forwardAcc = unionBdd(forwardAcc, relResultFront);
+    }
+
+    forwardFront = differenceBdd(forwardAcc, forwardSet);
+    forwardSet = unionBdd(forwardSet, forwardFront);
+
+    if(forwardFront != leaf_false()) {
+      somethingChanged = true;
+      skelStack.push(forwardFront);
+    }
+
+    forwardAcc = leaf_false();
+  }
+
+  sylvan::Bdd layer = skelStack.top();
+  skelStack.pop();
+  sylvan::Bdd newStartNode = pick(layer, cube);
+  sylvan::Bdd newSkeleton = newStartNode;
+  while(!skelStack.empty()) {
+    layer = skelStack.top();
+    skelStack.pop();
+
+    sylvan::Bdd relPrevSkel = leaf_false();
+    for(int i = 0 ; i < relationDeque.size(); i++) {
+      sylvan::Bdd currentRelation = relationDeque[i].relationBdd;
+      sylvan::BddSet currentRelationCube = relationDeque[i].cube;
+
+      sylvan::Bdd relResultBack = intersectBdd(newSkeleton.RelPrev(currentRelation, currentRelationCube), nodeSet);
+      symbolicSteps = symbolicSteps + 1;
+
+      relPrevSkel = unionBdd(relPrevSkel, relResultBack);
+    }
+
+    sylvan::Bdd prevIntersectLayer = intersectBdd(relPrevSkel, layer);
+    sylvan::Bdd pickNodeFromPrev = pick(prevIntersectLayer, cube);
+    newSkeleton = unionBdd(newSkeleton, pickNodeFromPrev);
+  }
+
+  std::pair<sylvan::Bdd, sylvan::Bdd> forwardSkel = {forwardSet, newSkeleton};
+  std::pair<sylvan::Bdd, int> nodeSteps = {newStartNode, symbolicSteps};
+  std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> res = {forwardSkel, nodeSteps};
+  return res;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -905,7 +1207,6 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepSaturationBDDSize(const Graph &fu
     }
   }
 
-  std::cout << "[LockstepSat] Peak BDD size: " << peakBdd << std::endl;
   //Return SCC list and number of symbolic steps
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, (int)peakBdd};
   return result;
@@ -1064,7 +1365,6 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepRelationUnionBDDSize(const Graph 
     }
   }
 
-  std::cout << "[LockstepRelUn] Peak BDD size: " << peakBdd << std::endl;
   //Return SCC list and number of symbolic steps
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, (int)peakBdd};
   return result;
@@ -1206,12 +1506,9 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelSaturationBDDSize(const Graph &f
     }
   }
 
-  std::cout << "[xbSat] Peak BDD size: " << peakBdd << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, (int)peakBdd};
   return result;
 }
-
-
 
 //Computes the nodes reachable from the node(s) in the Graph given using relation union
 std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const Graph &graph, sylvan::Bdd nodes) {
@@ -1363,11 +1660,9 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelRelationUnionBDDSize(const Graph
     }
   }
 
-  std::cout << "[XBRelUn] Peak BDD size: " << peakBdd << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, (int)peakBdd};
   return result;
 }
-
 
 
 
@@ -1397,8 +1692,6 @@ int findFirstOverlap(int relI, std::deque<Relation> relationDeque) {
   return rel;
 }
 
-
-
 //LOCKSTEP SATURATION ITERATIVE OPTIMIZED ##########################################################################
 std::pair<std::list<sylvan::Bdd>, int> lockstepSaturationOptimized(const Graph &fullGraph) {
   /*auto start = std::chrono::high_resolution_clock::now();
@@ -1421,13 +1714,6 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepSaturationOptimized(const Graph &
   const std::deque<Relation> relationDeque = fullGraph.relations;
 
   while(!callStack.empty()) {
-    /*stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    if((int)duration.count() > 900000) {
-      std::cout << "Took too long " << (int)duration.count() << std::endl;
-      return {{},0};
-    }*/
-
     const sylvan::Bdd nodeSet = callStack.top();
     callStack.pop();
 
@@ -1538,14 +1824,10 @@ std::pair<std::list<sylvan::Bdd>, int> lockstepSaturationOptimized(const Graph &
     }
   }
 
-  std::cout << "[LockstepSatOpt] Number of symbolic steps: " << symbolicSteps << std::endl;
   //Return SCC list and number of symbolic steps
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
-
-
-
 
 //XIE-BEEREL SATURATION ITERATIVE OPTIMIZED ##########################################################################
 std::pair<std::list<sylvan::Bdd>, int> xieBeerelSaturationOptimized(const Graph &fullGraph) {
@@ -1607,13 +1889,9 @@ std::pair<std::list<sylvan::Bdd>, int> xieBeerelSaturationOptimized(const Graph 
     }
   }
 
-  std::cout << "[xbSatOpt] Number of symbolic steps: " << symbolicSteps << std::endl;
   std::pair<std::list<sylvan::Bdd>, int> result = {sccList, symbolicSteps};
   return result;
 }
-
-
-
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
 std::pair<sylvan::Bdd, int> reachabilityForwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes) {
@@ -1652,8 +1930,6 @@ std::pair<sylvan::Bdd, int> reachabilityForwardSaturationOpt(const Graph &graph,
   std::pair<sylvan::Bdd, int> result = {forwardSet, symbolicSteps};
   return result;
 }
-
-
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
 std::pair<sylvan::Bdd, int> reachabilityBackwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes) {

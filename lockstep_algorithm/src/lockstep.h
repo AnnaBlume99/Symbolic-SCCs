@@ -16,6 +16,12 @@ This contains:
 - Pick function
 */
 
+//Old skeleton algorithm
+std::pair<std::list<sylvan::Bdd>, int> oldSkeleton(const Graph &fullGraph);
+
+//New skeleton algorithm
+std::pair<std::list<sylvan::Bdd>, int> newSkeleton(const Graph &fullGraph);
+
 //Lockstep
 std::pair<std::list<sylvan::Bdd>, int> lockstepSaturation(const Graph &fullGraph);
 std::pair<std::list<sylvan::Bdd>, int> lockstepRelationUnion(const Graph &fullGraph);
@@ -32,6 +38,8 @@ std::pair<sylvan::Bdd, int> reachabilityForwardSaturation(const Graph &graph, sy
 std::pair<sylvan::Bdd, int> reachabilityBackwardSaturation(const Graph &graph, sylvan::Bdd nodes);
 std::pair<sylvan::Bdd, int> reachabilityForwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
 std::pair<sylvan::Bdd, int> reachabilityBackwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
+std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, sylvan::Bdd nodes);
+std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skeletonForward(const Graph &graph, sylvan::Bdd nodes);
 
 //Pick a single node from a nodeSet
 sylvan::Bdd pick(const sylvan::Bdd &nodeSet, const sylvan::BddSet &cube);
