@@ -9,6 +9,11 @@
 
 #include "petriTranslation.h"
 
+struct SccResult {
+  std::list<sylvan::Bdd> sccs;
+  int symbolicSteps;
+};
+
 /*
 This contains:
 - Iterative versions of SCC-finding algorithms lockstep and Xie Beerel, both with and without Saturation
@@ -17,7 +22,7 @@ This contains:
 */
 
 //Old skeleton algorithm
-std::pair<std::list<sylvan::Bdd>, int> oldSkeleton(const Graph &fullGraph);
+SccResult oldSkeleton(const Graph &fullGraph);
 
 //New skeleton algorithm
 std::pair<std::list<sylvan::Bdd>, int> newSkeleton(const Graph &fullGraph);
@@ -25,7 +30,6 @@ std::pair<std::list<sylvan::Bdd>, int> newSkeleton(const Graph &fullGraph);
 //Lockstep
 std::pair<std::list<sylvan::Bdd>, int> lockstepSaturation(const Graph &fullGraph);
 std::pair<std::list<sylvan::Bdd>, int> lockstepRelationUnion(const Graph &fullGraph);
-
 
 //Xie-Beerel
 std::pair<std::list<sylvan::Bdd>, int> xieBeerelForwardSaturation(const Graph &fullGraph);
@@ -44,7 +48,6 @@ std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skel
 //Pick a single node from a nodeSet
 sylvan::Bdd pick(const sylvan::Bdd &nodeSet, const sylvan::BddSet &cube);
 
-
 //BDD counting
 std::pair<std::list<sylvan::Bdd>, int> lockstepRelationUnionBDDSize(const Graph &fullGraph);
 std::pair<std::list<sylvan::Bdd>, int> lockstepSaturationBDDSize(const Graph &fullGraph);
@@ -56,12 +59,10 @@ std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardSaturationBDDSize(
 std::pair<sylvan::Bdd, unsigned long long> reachabilityBackwardRelationUnionBDDSize(const Graph &graph, sylvan::Bdd nodes);
 std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const Graph &graph, sylvan::Bdd nodes);
 
-
 //Optimized saturation
 std::pair<std::list<sylvan::Bdd>, int> lockstepSaturationOptimized(const Graph &fullGraph);
 std::pair<std::list<sylvan::Bdd>, int> xieBeerelSaturationOptimized(const Graph &fullGraph);
 std::pair<sylvan::Bdd, int> reachabilityForwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
 std::pair<sylvan::Bdd, int> reachabilityBackwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
-
 
 #endif  //LOCKSTEP_H
