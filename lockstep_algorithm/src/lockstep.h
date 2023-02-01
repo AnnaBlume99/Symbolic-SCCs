@@ -14,6 +14,11 @@ struct SccResult {
   int symbolicSteps;
 };
 
+struct ReachResult {
+  sylvan::Bdd set;
+  int symbolicSteps;
+};
+
 /*
 This contains:
 - Iterative versions of SCC-finding algorithms lockstep and Xie Beerel, both with and without Saturation
@@ -38,10 +43,10 @@ SccResult xieBeerelSaturation(const Graph &fullGraph);
 SccResult xieBeerelRelationUnion(const Graph &fullGraph);
 
 //Reachability
-std::pair<sylvan::Bdd, int> reachabilityForwardSaturation(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, int> reachabilityBackwardSaturation(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, int> reachabilityForwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, int> reachabilityBackwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityForwardSaturation(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityBackwardSaturation(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityForwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityBackwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
 std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, sylvan::Bdd nodes);
 std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skeletonForward(const Graph &graph, sylvan::Bdd nodes);
 
@@ -62,7 +67,7 @@ std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSi
 //Optimized saturation
 SccResult lockstepSaturationOptimized(const Graph &fullGraph);
 SccResult xieBeerelSaturationOptimized(const Graph &fullGraph);
-std::pair<sylvan::Bdd, int> reachabilityForwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, int> reachabilityBackwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityForwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityBackwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
 
 #endif  //LOCKSTEP_H

@@ -291,8 +291,8 @@ Graph PNMLtoGraph(std::string fileString, bool useInitialMarking) {
   if(useInitialMarking) {
     std::cout << "Using reachability from initial marking to limit state space" << std::endl;
     pnmlGraph.nodes = leaf_true();
-    std::pair<sylvan::Bdd, int> reachabilityResult = reachabilityForwardSaturation(pnmlGraph, initialBdd);
-    pnmlGraph.nodes = reachabilityResult.first;
+    ReachResult reachabilityResult = reachabilityForwardSaturation(pnmlGraph, initialBdd);
+    pnmlGraph.nodes = reachabilityResult.set;
   } else {
     std::cout << "Using the entire state space (ignoring initial marking)" << std::endl;
     pnmlGraph.nodes = leaf_true();

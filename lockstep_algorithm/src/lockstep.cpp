@@ -23,9 +23,16 @@ Bdd pick(const Bdd &nodeSet, const BddSet &cube) {
 	return picked;
 }
 
-SccResult createSccResult(const std::list<Bdd> sccs, const int symbolicSteps) {
+SccResult createSccResult(const std::list<Bdd> &sccs, const int symbolicSteps) {
   SccResult result = {};
   result.sccs = sccs;
+  result.symbolicSteps = symbolicSteps;
+  return result;
+}
+
+ReachResult createReachResult(const Bdd &set, const int symbolicSteps) {
+  ReachResult result = {};
+  result.set = set;
   result.symbolicSteps = symbolicSteps;
   return result;
 }
@@ -188,10 +195,9 @@ SccResult chain(const Graph &fullGraph) {
     backwardGraph.nodes = forwardSet;
     backwardGraph.cube = fullCube;
     backwardGraph.relations = relationDeque;
-    const std::pair<Bdd, int> transBackward = reachabilityBackwardRelationUnion(backwardGraph, startNode);
-    const Bdd scc = std::get<0>(transBackward);
-    const int symbolicStepsBackward = std::get<1>(transBackward);
-    symbolicSteps = symbolicSteps + symbolicStepsBackward;
+    const ReachResult transBackward = reachabilityBackwardRelationUnion(backwardGraph, startNode);
+    const Bdd scc = transBackward.set;
+    symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
 
     //Report the SCC
     sccList.push_back(scc);
@@ -559,15 +565,15 @@ SccResult xieBeerelForwardSaturation(const Graph &fullGraph) {
     Bdd backwardSet = v;
 
     workingGraph.nodes = nodeSet;
-    std::pair<Bdd, int> res1 = reachabilityForwardSaturation(workingGraph, forwardSet);
-    forwardSet = res1.first;
-    symbolicSteps = symbolicSteps + res1.second;
+    ReachResult res1 = reachabilityForwardSaturation(workingGraph, forwardSet);
+    forwardSet = res1.set;
+    symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
     workingGraph.nodes = forwardSet;
 
-    std::pair<Bdd, int> res2 = reachabilityBackwardSaturation(workingGraph, backwardSet);
-    backwardSet = res2.first;
-    symbolicSteps = symbolicSteps + res2.second;
+    ReachResult res2 = reachabilityBackwardSaturation(workingGraph, backwardSet);
+    backwardSet = res2.set;
+    symbolicSteps = symbolicSteps + res2.symbolicSteps;
 
     //Create SCC
     Bdd scc = intersectBdd(forwardSet, backwardSet);
@@ -620,15 +626,15 @@ SccResult xieBeerelSaturation(const Graph &fullGraph) {
 
     workingGraph.nodes = nodeSet;
 
-    std::pair<Bdd, int> res2 = reachabilityBackwardSaturation(workingGraph, backwardSet);
-    backwardSet = res2.first;
-    symbolicSteps = symbolicSteps + res2.second;
+    ReachResult res2 = reachabilityBackwardSaturation(workingGraph, backwardSet);
+    backwardSet = res2.set;
+    symbolicSteps = symbolicSteps + res2.symbolicSteps;
 
     workingGraph.nodes = backwardSet;
 
-    std::pair<Bdd, int> res1 = reachabilityForwardSaturation(workingGraph, forwardSet);
-    forwardSet = res1.first;
-    symbolicSteps = symbolicSteps + res1.second;
+    ReachResult res1 = reachabilityForwardSaturation(workingGraph, forwardSet);
+    forwardSet = res1.set;
+    symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
     //Create SCC
     Bdd scc = intersectBdd(forwardSet, backwardSet);
@@ -682,15 +688,15 @@ SccResult xieBeerelForwardRelationUnion(const Graph &fullGraph) {
 
     workingGraph.nodes = nodeSet;
 
-    std::pair<Bdd, int> res1 = reachabilityForwardRelationUnion(workingGraph, forwardSet);
-    forwardSet = res1.first;
-    symbolicSteps = symbolicSteps + res1.second;
+    ReachResult res1 = reachabilityForwardRelationUnion(workingGraph, forwardSet);
+    forwardSet = res1.set;
+    symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
     workingGraph.nodes = forwardSet;
 
-    std::pair<Bdd, int> res2 = reachabilityBackwardRelationUnion(workingGraph, backwardSet);
-    backwardSet = res2.first;
-    symbolicSteps = symbolicSteps + res2.second;
+    ReachResult res2 = reachabilityBackwardRelationUnion(workingGraph, backwardSet);
+    backwardSet = res2.set;
+    symbolicSteps = symbolicSteps + res2.symbolicSteps;
 
     //Create SCC
     Bdd scc = intersectBdd(forwardSet, backwardSet);
@@ -744,15 +750,15 @@ SccResult xieBeerelRelationUnion(const Graph &fullGraph) {
 
     workingGraph.nodes = nodeSet;
 
-    std::pair<Bdd, int> res2 = reachabilityBackwardRelationUnion(workingGraph, backwardSet);
-    backwardSet = res2.first;
-    symbolicSteps = symbolicSteps + res2.second;
+    ReachResult res2 = reachabilityBackwardRelationUnion(workingGraph, backwardSet);
+    backwardSet = res2.set;
+    symbolicSteps = symbolicSteps + res2.symbolicSteps;
 
     workingGraph.nodes = backwardSet;
 
-    std::pair<Bdd, int> res1 = reachabilityForwardRelationUnion(workingGraph, forwardSet);
-    forwardSet = res1.first;
-    symbolicSteps = symbolicSteps + res1.second;
+    ReachResult res1 = reachabilityForwardRelationUnion(workingGraph, forwardSet);
+    forwardSet = res1.set;
+    symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
     //Create SCC
     Bdd scc = intersectBdd(forwardSet, backwardSet);
@@ -777,7 +783,7 @@ SccResult xieBeerelRelationUnion(const Graph &fullGraph) {
 }
 
 // REACHABILITY ####################################################################################
-std::pair<Bdd, int> reachabilityForwardSaturation(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityForwardSaturation(const Graph &graph, Bdd nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -808,11 +814,10 @@ std::pair<Bdd, int> reachabilityForwardSaturation(const Graph &graph, Bdd nodes)
     forwardSet = unionBdd(forwardSet, relResultFront);
   }
 
-  std::pair<Bdd, int> result = {forwardSet, symbolicSteps};
-  return result;
+  return createReachResult(forwardSet, symbolicSteps);
 }
 
-std::pair<Bdd, int> reachabilityBackwardSaturation(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityBackwardSaturation(const Graph &graph, Bdd nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -844,11 +849,10 @@ std::pair<Bdd, int> reachabilityBackwardSaturation(const Graph &graph, Bdd nodes
     backwardSet = unionBdd(backwardSet, relResultBack);
   }
 
-  std::pair<Bdd, int> result = {backwardSet, symbolicSteps};
-  return result;
+  return createReachResult(backwardSet, symbolicSteps);
 }
 
-std::pair<Bdd, int> reachabilityForwardRelationUnion(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityForwardRelationUnion(const Graph &graph, Bdd nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -885,11 +889,11 @@ std::pair<Bdd, int> reachabilityForwardRelationUnion(const Graph &graph, Bdd nod
     forwardFront = differenceBdd(forwardAcc, forwardFront);
     forwardAcc = leaf_false();
   }
-  std::pair<Bdd, int> result = {forwardSet, symbolicSteps};
-  return result;
+
+  return createReachResult(forwardSet, symbolicSteps);
 }
 
-std::pair<Bdd, int> reachabilityBackwardRelationUnion(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityBackwardRelationUnion(const Graph &graph, Bdd nodes) {
   std::deque<Relation> relationDeque = graph.relations;
 
   Bdd backwardSet = nodes;
@@ -926,8 +930,7 @@ std::pair<Bdd, int> reachabilityBackwardRelationUnion(const Graph &graph, Bdd no
     backwardAcc = leaf_false();
   }
 
-  std::pair<Bdd, int> result = {backwardSet, symbolicSteps};
-  return result;
+  return createReachResult(backwardSet, symbolicSteps);
 }
 
 std::pair<std::pair<Bdd, Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, Bdd nodes) {
@@ -1759,7 +1762,6 @@ SccResult lockstepSaturationOptimized(const Graph &fullGraph) {
       forwardSet = nonConverged;
     }
 
-
     while(relFrontI < relationDeque.size()) {
       Bdd relResultFront = differenceBdd(intersectBdd(forwardSet.RelNext(relFront, relFrontCube), backwardSet), forwardSet);
       symbolicSteps++;
@@ -1843,15 +1845,15 @@ SccResult xieBeerelSaturationOptimized(const Graph &fullGraph) {
 
     workingGraph.nodes = nodeSet;
 
-    std::pair<Bdd, int> res2 = reachabilityBackwardSaturationOpt(workingGraph, backwardSet);
-    backwardSet = res2.first;
-    symbolicSteps = symbolicSteps + res2.second;
+    ReachResult res2 = reachabilityBackwardSaturationOpt(workingGraph, backwardSet);
+    backwardSet = res2.set;
+    symbolicSteps = symbolicSteps + res2.symbolicSteps;
 
     workingGraph.nodes = backwardSet;
 
-    std::pair<Bdd, int> res1 = reachabilityForwardSaturationOpt(workingGraph, forwardSet);
-    forwardSet = res1.first;
-    symbolicSteps = symbolicSteps + res1.second;
+    ReachResult res1 = reachabilityForwardSaturationOpt(workingGraph, forwardSet);
+    forwardSet = res1.set;
+    symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
     //Create SCC
     Bdd scc = intersectBdd(forwardSet, backwardSet);
@@ -1876,7 +1878,7 @@ SccResult xieBeerelSaturationOptimized(const Graph &fullGraph) {
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
-std::pair<Bdd, int> reachabilityForwardSaturationOpt(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityForwardSaturationOpt(const Graph &graph, Bdd nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1909,12 +1911,11 @@ std::pair<Bdd, int> reachabilityForwardSaturationOpt(const Graph &graph, Bdd nod
     forwardSet = unionBdd(forwardSet, relResultFront);
   }
 
-  std::pair<Bdd, int> result = {forwardSet, symbolicSteps};
-  return result;
+  return createReachResult(forwardSet, symbolicSteps);
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
-std::pair<Bdd, int> reachabilityBackwardSaturationOpt(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityBackwardSaturationOpt(const Graph &graph, Bdd nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1946,6 +1947,5 @@ std::pair<Bdd, int> reachabilityBackwardSaturationOpt(const Graph &graph, Bdd no
     backwardSet = unionBdd(backwardSet, relResultBack);
   }
 
-  std::pair<Bdd, int> result = {backwardSet, symbolicSteps};
-  return result;
+  return createReachResult(backwardSet, symbolicSteps);
 }

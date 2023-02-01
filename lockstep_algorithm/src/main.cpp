@@ -38,16 +38,6 @@ int main() {
     std::string fileName = algoToString(algo) + "_xb_worst";
     benchmark(pathStrings, fileName, algorithms, 0);
   }
-  /*for(algorithmType algo : runTypes) {
-    std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + "_new_run_2";
-    benchmark(pathStrings, fileName, algorithms);
-  }
-  for(algorithmType algo : runTypes) {
-    std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + "_new_run_3";
-    benchmark(pathStrings, fileName, algorithms);
-  }*/
 
   //analyzeAllRelations(pathStrings);
 
