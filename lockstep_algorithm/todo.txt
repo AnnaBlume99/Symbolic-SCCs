@@ -24,3 +24,11 @@ Møde med Jaco og Andreas:
 
 -------------------------------------------------
 *Made By Mathias Weller* (Han tager fuldt ansvar) M.I.S.
+
+
+
+
+
+Ny TODO:
+
+1. BDDSize verisonerne af metoderne skal være mindre hacky

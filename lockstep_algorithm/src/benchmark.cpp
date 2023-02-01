@@ -298,7 +298,7 @@ std::vector<std::vector<std::string>> timeAll(const Graph &graph, std::list<algo
 //Runs the specified algorithm on the graph and returns how long it took and the number of symbolic steps
 //Also prints timing and results
 std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int> timeRun(const Graph &graph, algorithmType runType) {
-  std::pair<std::list<sylvan::Bdd>, int> sccAndSteps;
+  SccResult sccAndSteps;
   std::list<sylvan::Bdd> sccList;
   int steps = 0;
   auto start = std::chrono::high_resolution_clock::now();
@@ -343,8 +343,8 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
 
   auto stop = std::chrono::high_resolution_clock::now();
   std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  sccList = sccAndSteps.first;
-  steps = sccAndSteps.second;
+  sccList = sccAndSteps.sccs;
+  steps = sccAndSteps.symbolicSteps;
   std::cout << "Time elapsed (" << algoToString(runType) << "): " << duration.count() << " milliseconds" << std::endl;
   std::cout << "Found " << sccList.size() << " SCCs" << std::endl << std::endl;
   std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int> result = {sccList, duration, steps};

@@ -148,13 +148,12 @@ SccResult oldSkeleton(const Graph &fullGraph) {
 }
 
 // NEW SKELETON ####################################################################################
-std::pair<std::list<Bdd>, int> newSkeleton(const Graph &fullGraph) {
+SccResult chain(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   const Bdd allNodes = fullGraph.nodes;
@@ -236,12 +235,11 @@ std::pair<std::list<Bdd>, int> newSkeleton(const Graph &fullGraph) {
   }
 
   //Return SCC list and number of symbolic steps
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
 // LOCKSTEP ########################################################################################
-std::pair<std::list<Bdd>, int> lockstepSaturation(const Graph &fullGraph) {
+SccResult lockstepSaturation(const Graph &fullGraph) {
   /*auto start = std::chrono::high_resolution_clock::now();
   auto stop = std::chrono::high_resolution_clock::now();
   std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);*/
@@ -253,8 +251,7 @@ std::pair<std::list<Bdd>, int> lockstepSaturation(const Graph &fullGraph) {
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   //Things pulled out from while-loop
@@ -375,11 +372,10 @@ std::pair<std::list<Bdd>, int> lockstepSaturation(const Graph &fullGraph) {
   }
 
   //Return SCC list and number of symbolic steps
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
-std::pair<std::list<Bdd>, int> lockstepRelationUnion(const Graph &fullGraph) {
+SccResult lockstepRelationUnion(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::stack<Bdd> callStack;
@@ -387,8 +383,7 @@ std::pair<std::list<Bdd>, int> lockstepRelationUnion(const Graph &fullGraph) {
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   //Things pulled out from while-loop
@@ -532,12 +527,11 @@ std::pair<std::list<Bdd>, int> lockstepRelationUnion(const Graph &fullGraph) {
   }
 
   //Return SCC list and number of symbolic steps
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
 // XIE-BEEREL ######################################################################################
-std::pair<std::list<Bdd>, int> xieBeerelForwardSaturation(const Graph &fullGraph) {
+SccResult xieBeerelForwardSaturation(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::stack<Bdd> callStack;
@@ -545,8 +539,7 @@ std::pair<std::list<Bdd>, int> xieBeerelForwardSaturation(const Graph &fullGraph
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -595,11 +588,10 @@ std::pair<std::list<Bdd>, int> xieBeerelForwardSaturation(const Graph &fullGraph
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
-std::pair<std::list<Bdd>, int> xieBeerelSaturation(const Graph &fullGraph) {
+SccResult xieBeerelSaturation(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::stack<Bdd> callStack;
@@ -607,8 +599,7 @@ std::pair<std::list<Bdd>, int> xieBeerelSaturation(const Graph &fullGraph) {
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -658,11 +649,10 @@ std::pair<std::list<Bdd>, int> xieBeerelSaturation(const Graph &fullGraph) {
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
-std::pair<std::list<Bdd>, int> xieBeerelForwardRelationUnion(const Graph &fullGraph) {
+SccResult xieBeerelForwardRelationUnion(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::stack<Bdd> callStack;
@@ -670,8 +660,7 @@ std::pair<std::list<Bdd>, int> xieBeerelForwardRelationUnion(const Graph &fullGr
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -722,11 +711,10 @@ std::pair<std::list<Bdd>, int> xieBeerelForwardRelationUnion(const Graph &fullGr
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
-std::pair<std::list<Bdd>, int> xieBeerelRelationUnion(const Graph &fullGraph) {
+SccResult xieBeerelRelationUnion(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::stack<Bdd> callStack;
@@ -734,8 +722,7 @@ std::pair<std::list<Bdd>, int> xieBeerelRelationUnion(const Graph &fullGraph) {
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -786,8 +773,7 @@ std::pair<std::list<Bdd>, int> xieBeerelRelationUnion(const Graph &fullGraph) {
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
 // REACHABILITY ####################################################################################
@@ -1084,7 +1070,7 @@ unsigned long long findLargestBdd(Bdd bdd, unsigned long long peak) {
 }
 
 //LOCKSTEP SATURATION ITERATIVE ##########################################################################
-std::pair<std::list<Bdd>, int> lockstepSaturationBDDSize(const Graph &fullGraph) {
+SccResult lockstepSaturationBDDSize(const Graph &fullGraph) {
   /*auto start = std::chrono::high_resolution_clock::now();
   auto stop = std::chrono::high_resolution_clock::now();
   std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);*/
@@ -1096,8 +1082,7 @@ std::pair<std::list<Bdd>, int> lockstepSaturationBDDSize(const Graph &fullGraph)
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-    return result;
+    return createSccResult(sccList, (int)peakBdd);
   }
 
   //Things pulled out from while-loop
@@ -1216,12 +1201,11 @@ std::pair<std::list<Bdd>, int> lockstepSaturationBDDSize(const Graph &fullGraph)
   }
 
   //Return SCC list and number of symbolic steps
-  std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-  return result;
+  return createSccResult(sccList, (int)peakBdd);
 }
 
 //LOCKSTEP RELATION UNION ITERATIVE ##########################################################################
-std::pair<std::list<Bdd>, int> lockstepRelationUnionBDDSize(const Graph &fullGraph) {
+SccResult lockstepRelationUnionBDDSize(const Graph &fullGraph) {
   unsigned long long peakBdd = 0;
 
   std::stack<Bdd> callStack;
@@ -1229,8 +1213,7 @@ std::pair<std::list<Bdd>, int> lockstepRelationUnionBDDSize(const Graph &fullGra
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-    return result;
+    return createSccResult(sccList, (int)peakBdd);
   }
 
   //Things pulled out from while-loop
@@ -1374,8 +1357,7 @@ std::pair<std::list<Bdd>, int> lockstepRelationUnionBDDSize(const Graph &fullGra
   }
 
   //Return SCC list and number of symbolic steps
-  std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-  return result;
+  return createSccResult(sccList, (int)peakBdd);
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
@@ -1451,7 +1433,7 @@ std::pair<Bdd, unsigned long long> reachabilityBackwardSaturationBDDSize(const G
   return result;
 }
 
-std::pair<std::list<Bdd>, int> xieBeerelSaturationBDDSize(const Graph &fullGraph) {
+SccResult xieBeerelSaturationBDDSize(const Graph &fullGraph) {
   unsigned long long peakBdd = 0;
 
   std::stack<Bdd> callStack;
@@ -1459,8 +1441,7 @@ std::pair<std::list<Bdd>, int> xieBeerelSaturationBDDSize(const Graph &fullGraph
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-    return result;
+    return createSccResult(sccList, (int)peakBdd);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -1514,8 +1495,7 @@ std::pair<std::list<Bdd>, int> xieBeerelSaturationBDDSize(const Graph &fullGraph
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-  return result;
+  return createSccResult(sccList, (int)peakBdd);
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using relation union
@@ -1604,7 +1584,7 @@ std::pair<Bdd, unsigned long long> reachabilityBackwardRelationUnionBDDSize(cons
   return result;
 }
 
-std::pair<std::list<Bdd>, int> xieBeerelRelationUnionBDDSize(const Graph &fullGraph) {
+SccResult xieBeerelRelationUnionBDDSize(const Graph &fullGraph) {
   unsigned long long peakBdd = 0;
 
   std::stack<Bdd> callStack;
@@ -1612,8 +1592,7 @@ std::pair<std::list<Bdd>, int> xieBeerelRelationUnionBDDSize(const Graph &fullGr
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-    return result;
+    return createSccResult(sccList, (int)peakBdd);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -1668,8 +1647,7 @@ std::pair<std::list<Bdd>, int> xieBeerelRelationUnionBDDSize(const Graph &fullGr
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, (int)peakBdd};
-  return result;
+  return createSccResult(sccList, (int)peakBdd);
 }
 
 
@@ -1701,7 +1679,7 @@ int findFirstOverlap(int relI, std::deque<Relation> relationDeque) {
 }
 
 //LOCKSTEP SATURATION ITERATIVE OPTIMIZED ##########################################################################
-std::pair<std::list<Bdd>, int> lockstepSaturationOptimized(const Graph &fullGraph) {
+SccResult lockstepSaturationOptimized(const Graph &fullGraph) {
   /*auto start = std::chrono::high_resolution_clock::now();
   auto stop = std::chrono::high_resolution_clock::now();
   std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);*/
@@ -1713,8 +1691,7 @@ std::pair<std::list<Bdd>, int> lockstepSaturationOptimized(const Graph &fullGrap
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);;
   }
 
   //Things pulled out from while-loop
@@ -1833,12 +1810,11 @@ std::pair<std::list<Bdd>, int> lockstepSaturationOptimized(const Graph &fullGrap
   }
 
   //Return SCC list and number of symbolic steps
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);;
 }
 
 //XIE-BEEREL SATURATION ITERATIVE OPTIMIZED ##########################################################################
-std::pair<std::list<Bdd>, int> xieBeerelSaturationOptimized(const Graph &fullGraph) {
+SccResult xieBeerelSaturationOptimized(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::stack<Bdd> callStack;
@@ -1846,8 +1822,7 @@ std::pair<std::list<Bdd>, int> xieBeerelSaturationOptimized(const Graph &fullGra
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
-    std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-    return result;
+    return createSccResult(sccList, symbolicSteps);
   }
 
   const BddSet fullCube = fullGraph.cube;
@@ -1897,8 +1872,7 @@ std::pair<std::list<Bdd>, int> xieBeerelSaturationOptimized(const Graph &fullGra
     }
   }
 
-  std::pair<std::list<Bdd>, int> result = {sccList, symbolicSteps};
-  return result;
+  return createSccResult(sccList, symbolicSteps);
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
