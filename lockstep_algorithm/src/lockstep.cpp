@@ -783,7 +783,7 @@ SccResult xieBeerelRelationUnion(const Graph &fullGraph) {
 }
 
 // REACHABILITY ####################################################################################
-ReachResult reachabilityForwardSaturation(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityForwardSaturation(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -817,7 +817,7 @@ ReachResult reachabilityForwardSaturation(const Graph &graph, Bdd nodes) {
   return createReachResult(forwardSet, symbolicSteps);
 }
 
-ReachResult reachabilityBackwardSaturation(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityBackwardSaturation(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -852,7 +852,7 @@ ReachResult reachabilityBackwardSaturation(const Graph &graph, Bdd nodes) {
   return createReachResult(backwardSet, symbolicSteps);
 }
 
-ReachResult reachabilityForwardRelationUnion(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityForwardRelationUnion(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -893,7 +893,7 @@ ReachResult reachabilityForwardRelationUnion(const Graph &graph, Bdd nodes) {
   return createReachResult(forwardSet, symbolicSteps);
 }
 
-ReachResult reachabilityBackwardRelationUnion(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityBackwardRelationUnion(const Graph &graph, const Bdd &nodes) {
   std::deque<Relation> relationDeque = graph.relations;
 
   Bdd backwardSet = nodes;
@@ -933,7 +933,7 @@ ReachResult reachabilityBackwardRelationUnion(const Graph &graph, Bdd nodes) {
   return createReachResult(backwardSet, symbolicSteps);
 }
 
-std::pair<std::pair<Bdd, Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, Bdd nodes) {
+std::pair<std::pair<Bdd, Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -979,7 +979,7 @@ std::pair<std::pair<Bdd, Bdd>, int> reachabilityForwardRelationUnionLastLayer(co
   return result;
 }
 
-std::pair<std::pair<Bdd, Bdd>, std::pair<Bdd, int>> skeletonForward(const Graph &graph, Bdd nodes) {
+std::pair<std::pair<Bdd, Bdd>, std::pair<Bdd, int>> skeletonForward(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
   Bdd nodeSet = graph.nodes;
@@ -1364,7 +1364,7 @@ SccResult lockstepRelationUnionBDDSize(const Graph &fullGraph) {
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
-std::pair<Bdd, unsigned long long> reachabilityForwardSaturationBDDSize(const Graph &graph, Bdd nodes) {
+std::pair<Bdd, unsigned long long> reachabilityForwardSaturationBDDSize(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1400,7 +1400,7 @@ std::pair<Bdd, unsigned long long> reachabilityForwardSaturationBDDSize(const Gr
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
-std::pair<Bdd, unsigned long long> reachabilityBackwardSaturationBDDSize(const Graph &graph, Bdd nodes) {
+std::pair<Bdd, unsigned long long> reachabilityBackwardSaturationBDDSize(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1502,7 +1502,7 @@ SccResult xieBeerelSaturationBDDSize(const Graph &fullGraph) {
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using relation union
-std::pair<Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const Graph &graph, Bdd nodes) {
+std::pair<Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1545,7 +1545,7 @@ std::pair<Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using relation union
-std::pair<Bdd, unsigned long long> reachabilityBackwardRelationUnionBDDSize(const Graph &graph, Bdd nodes) {
+std::pair<Bdd, unsigned long long> reachabilityBackwardRelationUnionBDDSize(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1878,7 +1878,7 @@ SccResult xieBeerelSaturationOptimized(const Graph &fullGraph) {
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
-ReachResult reachabilityForwardSaturationOpt(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityForwardSaturationOpt(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 
@@ -1915,7 +1915,7 @@ ReachResult reachabilityForwardSaturationOpt(const Graph &graph, Bdd nodes) {
 }
 
 //Computes the nodes reachable from the node(s) in the Graph given using saturation
-ReachResult reachabilityBackwardSaturationOpt(const Graph &graph, Bdd nodes) {
+ReachResult reachabilityBackwardSaturationOpt(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
 

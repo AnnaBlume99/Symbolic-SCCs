@@ -26,10 +26,13 @@ This contains:
 - Pick function
 */
 
+//Pick a single node from a nodeSet
+sylvan::Bdd pick(const sylvan::Bdd &nodeSet, const sylvan::BddSet &cube);
+
 //Old skeleton algorithm
 SccResult oldSkeleton(const Graph &fullGraph);
 
-//New skeleton algorithm
+//Chain algorithm (new skeleton algorithm)
 SccResult chain(const Graph &fullGraph);
 
 //Lockstep
@@ -43,15 +46,12 @@ SccResult xieBeerelSaturation(const Graph &fullGraph);
 SccResult xieBeerelRelationUnion(const Graph &fullGraph);
 
 //Reachability
-ReachResult reachabilityForwardSaturation(const Graph &graph, sylvan::Bdd nodes);
-ReachResult reachabilityBackwardSaturation(const Graph &graph, sylvan::Bdd nodes);
-ReachResult reachabilityForwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
-ReachResult reachabilityBackwardRelationUnion(const Graph &graph, sylvan::Bdd nodes);
-std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, sylvan::Bdd nodes);
-std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skeletonForward(const Graph &graph, sylvan::Bdd nodes);
-
-//Pick a single node from a nodeSet
-sylvan::Bdd pick(const sylvan::Bdd &nodeSet, const sylvan::BddSet &cube);
+ReachResult reachabilityForwardSaturation(const Graph &graph, const sylvan::Bdd &nodes);
+ReachResult reachabilityBackwardSaturation(const Graph &graph, const sylvan::Bdd &nodes);
+ReachResult reachabilityForwardRelationUnion(const Graph &graph, const sylvan::Bdd &nodes);
+ReachResult reachabilityBackwardRelationUnion(const Graph &graph, const sylvan::Bdd &nodes);
+std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, int> reachabilityForwardRelationUnionLastLayer(const Graph &graph, const sylvan::Bdd &nodes);
+std::pair<std::pair<sylvan::Bdd, sylvan::Bdd>, std::pair<sylvan::Bdd, int>> skeletonForward(const Graph &graph, const sylvan::Bdd &nodes);
 
 //BDD counting
 SccResult lockstepRelationUnionBDDSize(const Graph &fullGraph);
@@ -59,15 +59,15 @@ SccResult lockstepSaturationBDDSize(const Graph &fullGraph);
 SccResult xieBeerelSaturationBDDSize(const Graph &fullGraph);
 SccResult xieBeerelRelationUnionBDDSize(const Graph &fullGraph);
 
-std::pair<sylvan::Bdd, unsigned long long> reachabilityBackwardSaturationBDDSize(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardSaturationBDDSize(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, unsigned long long> reachabilityBackwardRelationUnionBDDSize(const Graph &graph, sylvan::Bdd nodes);
-std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const Graph &graph, sylvan::Bdd nodes);
+std::pair<sylvan::Bdd, unsigned long long> reachabilityBackwardSaturationBDDSize(const Graph &graph, const sylvan::Bdd &nodes);
+std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardSaturationBDDSize(const Graph &graph, const sylvan::Bdd &nodes);
+std::pair<sylvan::Bdd, unsigned long long> reachabilityBackwardRelationUnionBDDSize(const Graph &graph, const sylvan::Bdd &nodes);
+std::pair<sylvan::Bdd, unsigned long long> reachabilityForwardRelationUnionBDDSize(const Graph &graph, const sylvan::Bdd &nodes);
 
 //Optimized saturation
 SccResult lockstepSaturationOptimized(const Graph &fullGraph);
 SccResult xieBeerelSaturationOptimized(const Graph &fullGraph);
-ReachResult reachabilityForwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
-ReachResult reachabilityBackwardSaturationOpt(const Graph &graph, sylvan::Bdd nodes);
+ReachResult reachabilityForwardSaturationOpt(const Graph &graph, const sylvan::Bdd &nodes);
+ReachResult reachabilityBackwardSaturationOpt(const Graph &graph, const sylvan::Bdd &nodes);
 
 #endif  //LOCKSTEP_H
