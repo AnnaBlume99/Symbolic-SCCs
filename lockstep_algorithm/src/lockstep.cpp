@@ -50,6 +50,8 @@ SccResult skeletonAlg(const Graph &fullGraph) {
   std::pair<Bdd, std::pair<Bdd, Bdd>> pushPair = {allNodes, skelNodePair};
   callStack.push(pushPair);
   
+  RelationUnion rel;
+
   while(!callStack.empty()) {
     const std::pair<Bdd, std::pair<Bdd, Bdd>> nodeSetSkelStartNode = callStack.top();
     callStack.pop();
@@ -64,7 +66,7 @@ SccResult skeletonAlg(const Graph &fullGraph) {
     forwardGraph.cube = fullCube;
     forwardGraph.relations = relationDeque;
 
-    SkeletonResult skelRes = skeletonForward(forwardGraph, startNode);
+    SkeletonResult skelRes = rel.forwardSkeleton(forwardGraph, startNode);
     const Bdd forwardSet = skelRes.forwardSet;
     const Bdd newSkeleton = skelRes.skeleton;
     const Bdd newStartNode = skelRes.node;
@@ -163,6 +165,8 @@ SccResult chainAlg(const Graph &fullGraph) {
   const std::pair<Bdd, Bdd> pushPair = {allNodes, startNode};
   callStack.push(pushPair);
   
+  RelationUnion rel;
+
   while(!callStack.empty()) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
@@ -174,7 +178,7 @@ SccResult chainAlg(const Graph &fullGraph) {
     forwardGraph.nodes = nodeSet;
     forwardGraph.cube = fullCube;
     forwardGraph.relations = relationDeque;
-    const ChainResult transForward = reachabilityForwardRelationUnionLastLayer(forwardGraph, startNode);
+    const ChainResult transForward = rel.forwardSetLastLayer(forwardGraph, startNode);
     const Bdd forwardSet = transForward.forwardSet;
     const Bdd lastForwardLayer = transForward.lastLayer;
     const int symbolicStepsForward = transForward.symbolicSteps;
@@ -522,255 +526,4 @@ SccResult lockstepRelationUnion(const Graph &fullGraph) {
 
   //Return SCC list and number of symbolic steps
   return createSccResult(sccList, symbolicSteps);
-}
-
-// XIE-BEEREL ######################################################################################
-SccResult xieBeerelSaturation(const Graph &fullGraph) {
-  int symbolicSteps = 0;
-
-  std::stack<Bdd> callStack;
-  callStack.push(fullGraph.nodes);
-
-  std::list<Bdd> sccList = {};
-  if(fullGraph.nodes == leaf_false()) {
-    return createSccResult(sccList, symbolicSteps);
-  }
-
-  const BddSet fullCube = fullGraph.cube;
-  const std::deque<Relation> relationDeque = fullGraph.relations;
-
-  Graph workingGraph;
-  workingGraph.cube = fullCube;
-  workingGraph.relations = relationDeque;
-  workingGraph.nodes = leaf_false();
-
-  Saturation sat;
-
-  while(!callStack.empty()) {
-    const Bdd nodeSet = callStack.top();
-    callStack.pop();
-
-    Bdd v = pick(nodeSet, fullCube);
-    Bdd forwardSet = v;
-    Bdd backwardSet = v;
-
-    workingGraph.nodes = nodeSet;
-    ReachResult res1 = sat.forwardSet(workingGraph, forwardSet);
-    forwardSet = res1.set;
-    symbolicSteps = symbolicSteps + res1.symbolicSteps;
-
-    workingGraph.nodes = forwardSet;
-
-    ReachResult res2 = sat.backwardSet(workingGraph, backwardSet);
-    backwardSet = res2.set;
-    symbolicSteps = symbolicSteps + res2.symbolicSteps;
-
-    //Create SCC
-    Bdd scc = intersectBdd(forwardSet, backwardSet);
-    //Add scc to scclist
-    sccList.push_back(scc);
-
-    //Emulating recursive calls by pushing to the stack
-    //"Call" 1
-    Bdd recBdd1 = differenceBdd(forwardSet, scc);
-    if(recBdd1 != leaf_false()) {
-      callStack.push(recBdd1);
-    }
-
-    //"Call" 2
-    Bdd recBdd2 = differenceBdd(nodeSet, forwardSet);
-    if(recBdd2 != leaf_false()) {
-      callStack.push(recBdd2);
-    }
-  }
-
-  return createSccResult(sccList, symbolicSteps);
-}
-
-SccResult xieBeerelRelationUnion(const Graph &fullGraph) {
-  int symbolicSteps = 0;
-
-  std::stack<Bdd> callStack;
-  callStack.push(fullGraph.nodes);
-
-  std::list<Bdd> sccList = {};
-  if(fullGraph.nodes == leaf_false()) {
-    return createSccResult(sccList, symbolicSteps);
-  }
-
-  const BddSet fullCube = fullGraph.cube;
-  const std::deque<Relation> relationDeque = fullGraph.relations;
-
-  Graph workingGraph;
-  workingGraph.cube = fullCube;
-  workingGraph.relations = relationDeque;
-  workingGraph.nodes = leaf_false();
-
-  RelationUnion rel;
-
-  while(!callStack.empty()) {
-    const Bdd nodeSet = callStack.top();
-    callStack.pop();
-
-    Bdd v = pick(nodeSet, fullCube);
-    Bdd forwardSet = v;
-    Bdd backwardSet = v;
-
-    workingGraph.nodes = nodeSet;
-
-    ReachResult res1 = rel.forwardSet(workingGraph, forwardSet);
-    forwardSet = res1.set;
-    symbolicSteps = symbolicSteps + res1.symbolicSteps;
-
-    workingGraph.nodes = forwardSet;
-
-    ReachResult res2 = rel.backwardSet(workingGraph, backwardSet);
-    backwardSet = res2.set;
-    symbolicSteps = symbolicSteps + res2.symbolicSteps;
-
-    //Create SCC
-    Bdd scc = intersectBdd(forwardSet, backwardSet);
-    //Add scc to scclist
-    sccList.push_back(scc);
-
-    //Emulating recursive calls by pushing to the stack
-    //"Call" 1
-    Bdd recBdd1 = differenceBdd(forwardSet, scc);
-    if(recBdd1 != leaf_false()) {
-      callStack.push(recBdd1);
-    }
-
-    //"Call" 2
-    Bdd recBdd2 = differenceBdd(nodeSet, forwardSet);
-    if(recBdd2 != leaf_false()) {
-      callStack.push(recBdd2);
-    }
-  }
-
-  return createSccResult(sccList, symbolicSteps);
-}
-
-// REACHABILITY ####################################################################################
-ChainResult reachabilityForwardRelationUnionLastLayer(const Graph &graph, const Bdd &nodes) {
-  BddSet cube = graph.cube;
-  std::deque<Relation> relationDeque = graph.relations;
-
-  Bdd forwardSet = nodes;
-  Bdd nodeSet = graph.nodes;
-
-  Bdd forwardFront = nodes;
-  Bdd forwardAcc = leaf_false();
-  Bdd relResultFront;
-
-  Bdd currentRelation;
-  BddSet currentRelationCube;
-
-  int symbolicSteps = 0;
-
-  Bdd lastLayer;
-
-  bool somethingChanged = true;
-  while(somethingChanged) {
-    somethingChanged = false;
-
-    for(int i = 0 ; i < relationDeque.size(); i++) {
-      currentRelation = relationDeque[i].relationBdd;
-      currentRelationCube = relationDeque[i].cube;
-
-      Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
-      symbolicSteps++;
-      forwardAcc = unionBdd(forwardAcc, relResultFront);
-    }
-
-    forwardFront = differenceBdd(forwardAcc, forwardSet);
-    forwardSet = unionBdd(forwardSet, forwardFront);
-
-    if(forwardFront != leaf_false()) {
-      somethingChanged = true;
-      lastLayer = forwardFront;
-    }
-
-    forwardAcc = leaf_false();
-  }
-
-  ChainResult result = {};
-  result.forwardSet = forwardSet;
-  result.lastLayer = lastLayer;
-  result.symbolicSteps = symbolicSteps;
-  return result;
-}
-
-SkeletonResult skeletonForward(const Graph &graph, const Bdd &nodes) {
-  BddSet cube = graph.cube;
-  std::deque<Relation> relationDeque = graph.relations;
-  Bdd nodeSet = graph.nodes;
-
-  std::stack<Bdd> skelStack;
-
-  Bdd forwardSet = nodes;
-  skelStack.push(forwardSet);
-
-  Bdd forwardFront = nodes;
-  Bdd forwardAcc = leaf_false();
-  Bdd relResultFront;
-
-  Bdd currentRelation;
-  BddSet currentRelationCube;
-
-  int symbolicSteps = 0;
-
-  bool somethingChanged = true;
-  while(somethingChanged) {
-    somethingChanged = false;
-
-    for(int i = 0 ; i < relationDeque.size(); i++) {
-      currentRelation = relationDeque[i].relationBdd;
-      currentRelationCube = relationDeque[i].cube;
-
-      relResultFront = intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet);
-      symbolicSteps++;
-      forwardAcc = unionBdd(forwardAcc, relResultFront);
-    }
-
-    forwardFront = differenceBdd(forwardAcc, forwardSet);
-    forwardSet = unionBdd(forwardSet, forwardFront);
-
-    if(forwardFront != leaf_false()) {
-      somethingChanged = true;
-      skelStack.push(forwardFront);
-    }
-
-    forwardAcc = leaf_false();
-  }
-
-  Bdd layer = skelStack.top();
-  skelStack.pop();
-  Bdd newStartNode = pick(layer, cube);
-  Bdd newSkeleton = newStartNode;
-  while(!skelStack.empty()) {
-    layer = skelStack.top();
-    skelStack.pop();
-
-    Bdd relPrevSkel = leaf_false();
-    for(int i = 0 ; i < relationDeque.size(); i++) {
-      Bdd currentRelation = relationDeque[i].relationBdd;
-      BddSet currentRelationCube = relationDeque[i].cube;
-
-      Bdd relResultBack = intersectBdd(newSkeleton.RelPrev(currentRelation, currentRelationCube), nodeSet);
-      symbolicSteps = symbolicSteps + 1;
-
-      relPrevSkel = unionBdd(relPrevSkel, relResultBack);
-    }
-
-    Bdd prevIntersectLayer = intersectBdd(relPrevSkel, layer);
-    Bdd pickNodeFromPrev = pick(prevIntersectLayer, cube);
-    newSkeleton = unionBdd(newSkeleton, pickNodeFromPrev);
-  }
-
-  SkeletonResult result = {};
-  result.forwardSet = forwardSet;
-  result.skeleton = newSkeleton;
-  result.node = newStartNode;
-  result.symbolicSteps = symbolicSteps;
-  return result;
 }

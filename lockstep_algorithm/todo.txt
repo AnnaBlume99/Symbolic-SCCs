@@ -1,4 +1,3 @@
 TODO:
 
-1. BDDSize versionerne af metoderne skal være mindre hacky
-2. Indfør templates
+1. Indfør templates i lockstep

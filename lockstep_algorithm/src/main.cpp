@@ -31,15 +31,13 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsSlow();
 
-  std::list<algorithmType> runTypes = {lockstepSat, xbSat, skeleton, chain};
+  std::list<algorithmType> runTypes = {xbRelUnion, xbSat, skeleton, chain};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};
     std::string fileName = algoToString(algo) + "_xb_worst";
     benchmark(pathStrings, fileName, algorithms, 0);
   }
-
-  //analyzeAllRelations(pathStrings);
 
   std::cout << "Goodbye :)" << std::endl;
 

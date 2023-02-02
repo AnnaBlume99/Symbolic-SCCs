@@ -310,10 +310,10 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
       sccAndSteps = lockstepRelationUnion(graph);
       break;
     case xbSat:
-      sccAndSteps = xieBeerelSaturation(graph);
+      sccAndSteps = xieBeerel<Saturation>(graph);
       break;
     case xbRelUnion:
-      sccAndSteps = xieBeerelRelationUnion(graph);
+      sccAndSteps = xieBeerel<RelationUnion>(graph);
       break;
     case skeleton:
       sccAndSteps = skeletonAlg(graph);
