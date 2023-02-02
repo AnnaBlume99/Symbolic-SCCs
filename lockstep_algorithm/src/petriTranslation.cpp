@@ -20,6 +20,7 @@
 #include "graph_creation.h"
 #include "print.h"
 #include "lockstep.h"
+#include "reachability.h"
 
 //Gets the local filePath to the file given as argument
 inline std::string getPNMLFilePath(std::string file) {
@@ -291,7 +292,8 @@ Graph PNMLtoGraph(std::string fileString, bool useInitialMarking) {
   if(useInitialMarking) {
     std::cout << "Using reachability from initial marking to limit state space" << std::endl;
     pnmlGraph.nodes = leaf_true();
-    ReachResult reachabilityResult = reachabilityForwardSaturation(pnmlGraph, initialBdd);
+    Saturation sat;
+    ReachResult reachabilityResult = sat.forwardSet(pnmlGraph, initialBdd);
     pnmlGraph.nodes = reachabilityResult.set;
   } else {
     std::cout << "Using the entire state space (ignoring initial marking)" << std::endl;

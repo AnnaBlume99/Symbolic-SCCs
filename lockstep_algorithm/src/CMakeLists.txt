@@ -5,6 +5,7 @@ add_executable(main main.cpp
                benchmark.cpp
                graph_creation.cpp
                interface.cpp
+               reachability.cpp
                ../test/graph_examples.cpp
                ../test/test_sccListCorrectness.cpp)
 

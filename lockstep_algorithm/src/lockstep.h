@@ -8,14 +8,10 @@
 #include <sylvan_obj.hpp>
 
 #include "petriTranslation.h"
+#include "reachability.h"
 
 struct SccResult {
   std::list<sylvan::Bdd> sccs;
-  int symbolicSteps;
-};
-
-struct ReachResult {
-  sylvan::Bdd set;
   int symbolicSteps;
 };
 
@@ -56,13 +52,7 @@ SccResult lockstepRelationUnion(const Graph &fullGraph);
 SccResult xieBeerelSaturation(const Graph &fullGraph);
 SccResult xieBeerelRelationUnion(const Graph &fullGraph);
 
-//Reachability
-ReachResult reachabilityForwardSaturation(const Graph &graph, const sylvan::Bdd &nodes);
-ReachResult reachabilityBackwardSaturation(const Graph &graph, const sylvan::Bdd &nodes);
-
-ReachResult reachabilityForwardRelationUnion(const Graph &graph, const sylvan::Bdd &nodes);
-ReachResult reachabilityBackwardRelationUnion(const Graph &graph, const sylvan::Bdd &nodes);
-
+//Reachability TODO: move to reachability.cpp
 ChainResult reachabilityForwardRelationUnionLastLayer(const Graph &graph, const sylvan::Bdd &nodes);
 SkeletonResult skeletonForward(const Graph &graph, const sylvan::Bdd &nodes);
 
