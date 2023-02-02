@@ -129,10 +129,10 @@ std::list<std::string> getPathStringsSlow() {
   // XB worst-case graphs
   resultList.push_back("xb_slow100.pnml");
   resultList.push_back("xb_slow200.pnml");
-  resultList.push_back("xb_slow300.pnml");
+  /*resultList.push_back("xb_slow300.pnml");
   resultList.push_back("xb_slow400.pnml");
   resultList.push_back("xb_slow500.pnml");
-  resultList.push_back("xb_slow600.pnml");
+  resultList.push_back("xb_slow600.pnml");*/
 
   return resultList;
 }
@@ -309,35 +309,17 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
     case lockstepRelUnion:
       sccAndSteps = lockstepRelationUnion(graph);
       break;
-    case xbForwardSat:
-      sccAndSteps = xieBeerelForwardSaturation(graph);
-      break;
-    case xbForwardRelUnion:
-      sccAndSteps = xieBeerelForwardRelationUnion(graph);
-      break;
     case xbSat:
       sccAndSteps = xieBeerelSaturation(graph);
       break;
     case xbRelUnion:
       sccAndSteps = xieBeerelRelationUnion(graph);
       break;
-    case lockstepRelUnionBDDSize:
-      sccAndSteps = lockstepRelationUnionBDDSize(graph);
+    case skeleton:
+      sccAndSteps = skeletonAlg(graph);
       break;
-    case lockstepSatBDDSize:
-      sccAndSteps = lockstepSaturationBDDSize(graph);
-      break;
-    case xbSatBDDSize:
-      sccAndSteps = xieBeerelSaturationBDDSize(graph);
-      break;
-    case xbRelUnionBDDSize:
-      sccAndSteps = xieBeerelRelationUnionBDDSize(graph);
-      break;
-    case lockstepSatOpt:
-      sccAndSteps = lockstepSaturationOptimized(graph);
-      break;
-    case xbSatOpt:
-      sccAndSteps = xieBeerelSaturationOptimized(graph);
+    case chain:
+      sccAndSteps = chainAlg(graph);
       break;
   }
 
@@ -385,8 +367,6 @@ std::vector<std::vector<std::string>> initCsvGrid(int noOfExperimentGraphs, int 
   return grid;
 }
 
-
-
 ////////////////////////////////////////////////////////////////////////////////
 //Pre-processing
 ////////////////////////////////////////////////////////////////////////////////
@@ -432,8 +412,6 @@ std::pair<Graph, int> graphPreprocessingFixedPointWithMax(const Graph &graph, in
   std::cout << "Finished pre-processing of graph" << std::endl;
   return result;
 }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //SCC list verification

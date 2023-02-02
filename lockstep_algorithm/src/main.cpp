@@ -31,7 +31,7 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsSlow();
 
-  std::list<algorithmType> runTypes = {lockstepSatBDDSize, xbSatBDDSize};
+  std::list<algorithmType> runTypes = {lockstepSat, xbSat, skeleton, chain};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};

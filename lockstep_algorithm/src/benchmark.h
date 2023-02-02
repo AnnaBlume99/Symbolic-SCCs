@@ -12,15 +12,10 @@ enum algorithmType
   lockstepRelUnion,
   xbSat,
   xbRelUnion,
-  xbForwardSat,
-  xbForwardRelUnion,
-  lockstepRelUnionBDDSize,
-  lockstepSatBDDSize,
-  xbSatBDDSize,
-  xbRelUnionBDDSize,
-  lockstepSatOpt,
-  xbSatOpt
+  skeleton,
+  chain
 };
+
 //ToString on the runnable function enums
 inline const std::string algoToString(algorithmType runType) {
   switch (runType)
@@ -33,27 +28,14 @@ inline const std::string algoToString(algorithmType runType) {
       return "Xie-Beerel saturation";
     case xbRelUnion:
       return "Xie-Beerel relation union";
-    case xbForwardSat:
-      return "Xie-Beerel forward saturation";
-    case xbForwardRelUnion:
-      return "Xie-Beerel forward relation union";
-    case lockstepSatBDDSize:
-      return "Lockstep saturation BDD size";
-    case lockstepRelUnionBDDSize:
-      return "Lockstep relation union BDD size";
-    case xbSatBDDSize:
-      return "Xie-Beerel saturation BDD size";
-    case xbRelUnionBDDSize:
-      return "Xie-Beerel relation union BDD size";
-    case lockstepSatOpt:
-      return "Lockstep saturation optimized";
-    case xbSatOpt:
-      return "Xie-Beerel saturation optimized";
+    case skeleton:
+      return "Skeleton";
+    case chain:
+      return "Chain";
     default:
       return "[Unknown algorithm type]";
   }
 }
-
 
 //Timing / benchmark functions
 //Main benchmark function
@@ -73,11 +55,9 @@ Graph graphPreprocessing(const Graph &graph, int pruningSteps);
 Graph graphPreprocessingFixedPoint(const Graph &graph);
 std::pair<Graph, int> graphPreprocessingFixedPointWithMax(const Graph &graph, int maxPruning);
 
-
 //CSV writing functions
 void writeToCSV(std::string fileName, std::vector<std::vector<std::string>> grid);
 std::vector<std::vector<std::string>> initCsvGrid(int noOfExperimentGraphs, int noOfAlgorithms);
-
 
 //Functions returning paths to PNML petri nets
 std::list<std::string> getPathStringsAll();
