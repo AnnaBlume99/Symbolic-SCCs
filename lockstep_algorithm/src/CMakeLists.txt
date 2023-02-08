@@ -1,5 +1,5 @@
 add_executable(main main.cpp
-               lockstep.cpp
+               scc.cpp
                print.cpp
                petriTranslation.cpp
                benchmark.cpp

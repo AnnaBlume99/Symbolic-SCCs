@@ -3,7 +3,7 @@ add_executable(test test_lockstep.cpp
                test_sccListCorrectness.cpp
                graph_examples.cpp
                ../src/graph_creation.cpp
-               ../src/lockstep.cpp
+               ../src/scc.cpp
                ../src/petriTranslation.cpp
                ../src/print.cpp
                ../src/benchmark.cpp)

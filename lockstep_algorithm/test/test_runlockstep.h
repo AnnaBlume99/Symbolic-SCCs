@@ -10,7 +10,7 @@
 #include <sylvan_obj.hpp>
 
 #include "graph_examples.h"
-#include "../src/lockstep.h"
+#include "../src/scc.h"
 #include "../src/bdd_utilities.h"
 #include "../src/petriTranslation.h"
 #include "../src/benchmark.h"

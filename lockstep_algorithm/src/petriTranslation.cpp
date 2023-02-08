@@ -19,7 +19,7 @@
 #include "bdd_utilities.h"
 #include "graph_creation.h"
 #include "print.h"
-#include "lockstep.h"
+#include "scc.h"
 #include "reachability.h"
 
 //Gets the local filePath to the file given as argument

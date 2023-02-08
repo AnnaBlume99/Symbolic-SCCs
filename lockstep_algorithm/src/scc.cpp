@@ -9,7 +9,7 @@
 #include <sylvan_table.h>
 #include <sylvan_obj.hpp>
 
-#include "lockstep.h"
+#include "scc.h"
 #include "bdd_utilities.h"
 
 using sylvan::Bdd;

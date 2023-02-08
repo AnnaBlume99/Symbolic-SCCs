@@ -15,7 +15,7 @@
 #include <sylvan_obj.hpp>
 
 #include "benchmark.h"
-#include "lockstep.h"
+#include "scc.h"
 #include "petriTranslation.h"
 #include "bdd_utilities.h"
 #include "graph_creation.h"

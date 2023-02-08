@@ -11,7 +11,7 @@
 #include "../src/benchmark.h"
 #include "../src/print.h"
 #include "../src/bdd_utilities.h"
-#include "../src/lockstep.h"
+#include "../src/scc.h"
 
 bool testSccCorrectnessLen() {
   std::string n0 = "00000"; std::string n1 = "00001";
