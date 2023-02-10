@@ -17,6 +17,16 @@ ReachResult createReachResult(const Bdd &set, const int symbolicSteps) {
   return result;
 }
 
+ReachResultBottom createReachResultBottom(const Bdd &set, const int symbolicSteps, const bool isBscc) {
+  ReachResultBottom result = {};
+  result.set = set;
+  result.symbolicSteps = symbolicSteps;
+  result.isBscc = isBscc;
+  return result;
+}
+
+
+//### Relation union reachability
 ReachResult RelationUnion::forwardSet(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
@@ -222,12 +232,55 @@ SkeletonResult RelationUnion::forwardSkeleton(const Graph &graph, const Bdd &nod
   return result;
 }
 
+ReachResultBottom RelationUnion::forwardSetShortcut(const Graph &graph, const Bdd &nodes, const Bdd &backwardSet) {
+  BddSet cube = graph.cube;
+  std::deque<Relation> relationDeque = graph.relations;
+
+  Bdd forwardSet = nodes;
+  Bdd nodeSet = graph.nodes;
+
+  Bdd forwardFront = nodes;
+  Bdd forwardAcc = leaf_false();
+  Bdd relResultFront;
+
+  Bdd currentRelation;
+  BddSet currentRelationCube;
+
+  int symbolicSteps = 0;
+
+  bool somethingChanged = true;
+  while(somethingChanged) {
+    somethingChanged = false;
+
+    for(int i = 0 ; i < relationDeque.size(); i++) {
+      currentRelation = relationDeque[i].relationBdd;
+      currentRelationCube = relationDeque[i].cube;
+
+      Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
+      symbolicSteps++;
+      forwardAcc = unionBdd(forwardAcc, relResultFront);
+    }
+
+    if(forwardAcc != leaf_false()) {
+      somethingChanged = true;
+    }
+    forwardSet = unionBdd(forwardSet, forwardAcc);
+
+    //Bail out if forwardSet contains things not in backwardSet
+    if(differenceBdd(forwardSet, backwardSet) != leaf_false()) {
+      return createReachResultBottom(leaf_false(), symbolicSteps, false);
+    }
+
+    forwardFront = differenceBdd(forwardAcc, forwardFront);
+    forwardAcc = leaf_false();
+  }
+
+  return createReachResultBottom(forwardSet, symbolicSteps, true);
+}
 
 
 
-
-
-
+//### Saturation reachability
 ReachResult Saturation::forwardSet(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
   std::deque<Relation> relationDeque = graph.relations;
@@ -295,4 +348,43 @@ ReachResult Saturation::backwardSet(const Graph &graph, const Bdd &nodes) {
   }
 
   return createReachResult(backwardSet, symbolicSteps);
+}
+
+ReachResultBottom Saturation::forwardSetShortcut(const Graph &graph, const Bdd &nodes, const sylvan::Bdd &backwardSet) {
+  BddSet cube = graph.cube;
+  std::deque<Relation> relationDeque = graph.relations;
+
+  Bdd forwardSet = nodes;
+  Bdd nodeSet = graph.nodes;
+
+  int relFrontI = 0;
+  Bdd relFront = relationDeque[relFrontI].relationBdd;
+  BddSet relFrontCube = relationDeque[relFrontI].cube;
+
+  int symbolicSteps = 0;
+
+  while(relFrontI < relationDeque.size()) {
+    Bdd relResultFront = differenceBdd(intersectBdd(forwardSet.RelNext(relFront, relFrontCube), nodeSet), forwardSet);
+    symbolicSteps++;
+
+    if(relResultFront == leaf_false()) {
+      relFrontI++;
+      relFront = relationDeque[relFrontI].relationBdd;
+      relFrontCube = relationDeque[relFrontI].cube;
+    } else {
+      relFrontI = 0;
+      relFront = relationDeque[relFrontI].relationBdd;
+      relFrontCube = relationDeque[relFrontI].cube;
+    }
+
+	  //Add to the forward set
+    forwardSet = unionBdd(forwardSet, relResultFront);
+
+    //Bail out if forwardSet contains things not in backwardSet
+    if(differenceBdd(forwardSet, backwardSet) != leaf_false()) {
+      return createReachResultBottom(leaf_false(), symbolicSteps, false);
+    }
+  }
+
+  return createReachResultBottom(forwardSet, symbolicSteps, true);
 }

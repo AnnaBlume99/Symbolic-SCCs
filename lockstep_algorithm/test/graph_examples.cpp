@@ -84,6 +84,7 @@ Graph graphExample1oneRel() {
   return result;
 }
 
+#1
 Graph graphExample1multRel() {
   std::list<std::pair<int, int>> r1 =
     {{0,1},{1,0},{0,2},{4,5},{4,6},{4,7},{5,6}};
@@ -96,6 +97,7 @@ Graph graphExample1multRel() {
   return result;
 }
 
+#2
 Graph graphExample2oneRel() {
   std::list<std::pair<int, int>> r1 =
     {{0,1},
@@ -133,6 +135,7 @@ Graph graphExample2multRel() {
   return result;
 }
 
+#3
 Graph graphExample3oneRel() {
   std::list<std::pair<int, int>> r1 =
     {{0,1},{1,2},{2,3},{3,4},{4,0},{1,0},{2,0},{3,0}};
@@ -151,5 +154,35 @@ Graph graphExample3multRel() {
   return result;
 }
 
+
+Graph graphExampleBscc1oneRel() {
+
+  std::list<std::pair<int, int>> r1 = 
+    {{0,1}, {1,0}, {0,2}, {0,3}, {1,4}, {1,5}, {5,6}, {6,5}};
+    const std::list<std::list<std::pair<int, int>>> relationList = {r1};
+    Graph result = makeGraph(7, relationList);
+    return result;
+}
+
+
+Graph graphExampleBscc1multRel() {
+  std::list<std::pair<int, int>> r1 = 
+    {{0,1}, {1,0}, {0,2}, {0,3}};
+  std::list<std::pair<int, int>> r2 = 
+    {{1,4}, {1,5}, {5,6}, {6,5}};
+  const std::list<std::list<std::pair<int, int>>> relationList = {r1, r2};
+  Graph result = makeGraph(7, relationList);
+  return result;
+}
+
+
+Graph graphExampleBscc2oneRel() {
+  std::list<std::pair<int, int>> r1 = 
+    {{2,1}, {2,0}, {2,3}, {1,0}, {1,4}, {1,5}, {0,5}, {0,6}, {3,6}, {3,7}, {3,8}};
+    const std::list<std::list<std::pair<int, int>>> relationList = {r1};
+    Graph result = makeGraph(9, relationList);
+    return result;
+
+}
 
 

@@ -56,6 +56,25 @@ bool success = (fails == 0);
   }
 }
 
+void runAllBsccTests() {
+  int fails = 0;
+  //fails += runWithAllBsccAlgorithms("testBscc1oneRel", testBscc1oneRel);
+  //fails += runWithAllBsccAlgorithms("testBscc1multRel", testBscc1multRel);
+  fails += runWithAllBsccAlgorithms("testBscc2oneRel", testBscc2oneRel);
+
+  bool success = (fails == 0);
+
+  if(success) {
+    std::cout << "All tests passed!" << std::endl;
+  } else {
+    std::cout << "Number of fails: " << fails << std::endl;
+  }
+
+}
+
+
+
+
 int main() {
   // Init LACE
   lace_start(1, 1000000);
@@ -72,8 +91,8 @@ int main() {
 
   std::cout << "Hello Test World!" << std::endl;
 
-  runAllTests();
-
+  //runAllTests();
+  runAllBsccTests();
   std::cout << "Goodbye :)" << std::endl;
 
   sylvan::sylvan_quit();

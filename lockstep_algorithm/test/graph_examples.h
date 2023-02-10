@@ -29,4 +29,9 @@ Graph graphExample2multRel();
 Graph graphExample3oneRel();
 Graph graphExample3multRel();
 
+//Bscc tests
+Graph graphExampleBscc1oneRel();
+Graph graphExampleBscc1multRel();
+Graph graphExampleBscc2oneRel();
+
 #endif //GRAPH_EXAMPLES_H

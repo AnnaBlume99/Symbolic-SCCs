@@ -25,6 +25,12 @@ struct ChainResult {
   int symbolicSteps;
 };
 
+struct ReachResultBottom {
+  sylvan::Bdd set;
+  int symbolicSteps;
+  bool isBscc;
+};
+
 //Reachability methods using the union of the relations
 class RelationUnion {
   public:
@@ -36,6 +42,10 @@ class RelationUnion {
 
     //Reachability for the Skeleton Algorithm
     SkeletonResult forwardSkeleton(const Graph &graph, const sylvan::Bdd &nodes);
+
+    //Shortcutting forward-set for BSCCs
+    ReachResultBottom forwardSetShortcut(const Graph &graph, const sylvan::Bdd &nodes, const sylvan::Bdd &backwardSet);
+
 };
 
 //Reachability methods using the saturation heuristic
@@ -43,6 +53,9 @@ class Saturation {
   public:
     ReachResult forwardSet(const Graph &graph, const sylvan::Bdd &nodes);
     ReachResult backwardSet(const Graph &graph, const sylvan::Bdd &nodes);
+
+    //Shortcutting forward-set for BSCCs
+    ReachResultBottom forwardSetShortcut(const Graph &graph, const sylvan::Bdd &nodes, const sylvan::Bdd &backwardSet);
 };
 
 #endif //REACHABILITY_H

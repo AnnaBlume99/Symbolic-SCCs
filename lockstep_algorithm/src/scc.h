@@ -1,5 +1,5 @@
-#ifndef LOCKSTEP_H
-#define LOCKSTEP_H
+#ifndef SCC_H
+#define SCC_H
 
 #include <deque>
 #include<list>
@@ -70,22 +70,22 @@ SccResult xieBeerel(const Graph &fullGraph) {
     callStack.pop();
 
     Bdd v = pick(nodeSet, fullCube);
-    Bdd forwardSet = v;
-    Bdd backwardSet = v;
+    Bdd forwardSet;
+    Bdd backwardSet;
 
     workingGraph.nodes = nodeSet;
-    ReachResult res1 = reach.forwardSet(workingGraph, forwardSet);
+    ReachResult res1 = reach.forwardSet(workingGraph, v);
     forwardSet = res1.set;
     symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
     workingGraph.nodes = forwardSet;
 
-    ReachResult res2 = reach.backwardSet(workingGraph, backwardSet);
+    ReachResult res2 = reach.backwardSet(workingGraph, v);
     backwardSet = res2.set;
     symbolicSteps = symbolicSteps + res2.symbolicSteps;
 
     //Create SCC
-    Bdd scc = intersectBdd(forwardSet, backwardSet);
+    Bdd scc = backwardSet;
     //Add scc to scclist
     sccList.push_back(scc);
 
@@ -106,4 +106,4 @@ SccResult xieBeerel(const Graph &fullGraph) {
   return createSccResult(sccList, symbolicSteps);
 }
 
-#endif  //LOCKSTEP_H
+#endif  //SCC_H

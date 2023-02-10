@@ -29,13 +29,13 @@ int main() {
 
   std::cout << "Hello SCC-finding World!" << std::endl;
 
-  std::list<std::string> pathStrings = getPathStringsSlow();
+  std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {xbRelUnion, xbSat, skeleton, chain};
+  std::list<algorithmType> runTypes = {chainBottomAdvanced};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + "_xb_worst";
+    std::string fileName = algoToString(algo) + "_bscc";
     benchmark(pathStrings, fileName, algorithms, 0);
   }
 

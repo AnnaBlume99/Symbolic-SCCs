@@ -13,7 +13,11 @@ enum algorithmType
   xbSat,
   xbRelUnion,
   skeleton,
-  chain
+  chain,
+  xbSatBottom,
+  xbRelUnionBottom,
+  chainBottomBasic,
+  chainBottomAdvanced
 };
 
 //ToString on the runnable function enums
@@ -32,6 +36,14 @@ inline const std::string algoToString(algorithmType runType) {
       return "Skeleton";
     case chain:
       return "Chain";
+    case xbSatBottom:
+      return "Xie-Beerel saturation bottom";
+    case xbRelUnionBottom:
+      return "Xie-Beerel relation union bottom";
+    case chainBottomBasic:
+      return "Chain bottom basic";
+    case chainBottomAdvanced:
+      return "Chain bottom advanced";
     default:
       return "[Unknown algorithm type]";
   }
@@ -62,6 +74,7 @@ std::vector<std::vector<std::string>> initCsvGrid(int noOfExperimentGraphs, int 
 //Functions returning paths to PNML petri nets
 std::list<std::string> getPathStringsAll();
 std::list<std::string> getPathStringsSlow();
+std::list<std::string> getPathStringsBscc();
 
 //Correctness of results
 bool sccListCorrectness(const std::list<sylvan::Bdd> sccList1, const std::list<sylvan::Bdd> sccList2);

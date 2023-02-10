@@ -1,5 +1,6 @@
 add_executable(main main.cpp
                scc.cpp
+               bscc.cpp
                print.cpp
                petriTranslation.cpp
                benchmark.cpp

@@ -9,6 +9,7 @@
 
 #include "graph_examples.h"
 #include "../src/scc.h"
+#include "../src/bscc.h"
 #include "../src/bdd_utilities.h"
 #include "../src/petriTranslation.h"
 #include "../src/graph_creation.h"
@@ -16,34 +17,42 @@
 #include "../src/print.h"
 
 bool testGraph(const Graph &graph, const std::list<sylvan::Bdd> &expectedSCCs, algorithmType algorithm) {
-  std::pair<std::list<sylvan::Bdd>, int> sccAndSteps;
+  SccResult sccAndSteps;
   std::cout << "Called testGraph" << std::endl;
   std::list<sylvan::Bdd> result;
   switch (algorithm)
   {
     case lockstepSat:
       sccAndSteps = lockstepSaturation(graph);
-      result = sccAndSteps.first;
+      result = sccAndSteps.sccs;
       break;
     case lockstepRelUnion:
       sccAndSteps = lockstepRelationUnion(graph);
-      result = sccAndSteps.first;
+      result = sccAndSteps.sccs;
       break;
     case xbSat:
-      sccAndSteps = xieBeerelSaturation(graph);
-      result = sccAndSteps.first;
+      sccAndSteps = xieBeerel<Saturation>(graph);
+      result = sccAndSteps.sccs;
       break;
     case xbRelUnion:
-      sccAndSteps = xieBeerelRelationUnion(graph);
-      result = sccAndSteps.first;
+      sccAndSteps = xieBeerel<RelationUnion>(graph);
+      result = sccAndSteps.sccs;
       break;
-    case xbForwardSat:
-      sccAndSteps = xieBeerelForwardSaturation(graph);
-      result = sccAndSteps.first;
+    case xbRelUnionBottom:
+      sccAndSteps = xieBeerelBottom<RelationUnion>(graph);
+      result = sccAndSteps.sccs;
       break;
-    case xbForwardRelUnion:
-      sccAndSteps = xieBeerelForwardRelationUnion(graph);
-      result = sccAndSteps.first;
+    case xbSatBottom:
+      sccAndSteps = xieBeerelBottom<Saturation>(graph);
+      result = sccAndSteps.sccs;
+      break;
+    case chainBottomBasic:
+      sccAndSteps = chainAlgBottomBasic(graph);
+      result = sccAndSteps.sccs;
+      break;
+    case chainBottomAdvanced:
+      sccAndSteps = chainAlgBottomAdvanced(graph);
+      result = sccAndSteps.sccs;
       break;
   }
 
@@ -76,16 +85,6 @@ int runWithAllAlgorithmTypes(std::string testFunctionString, std::function<bool(
     fails++;
   }
 
-  if(!testFunction(xbForwardSat)) {
-    std::cout << testFunctionString << " " << algoToString(xbForwardSat) << " failed" << std::endl;
-    fails++;
-  }
-
-  if(!testFunction(xbForwardRelUnion)) {
-    std::cout << testFunctionString << " " << algoToString(xbForwardRelUnion) << " failed" << std::endl;
-    fails++;
-  }
-
   if(!testFunction(xbRelUnion)) {
     std::cout << testFunctionString << " " << algoToString(xbRelUnion) << " failed" << std::endl;
     fails++;
@@ -98,6 +97,36 @@ int runWithAllAlgorithmTypes(std::string testFunctionString, std::function<bool(
 
   return fails;
 }
+
+
+int runWithAllBsccAlgorithms(std::string testFunctionString, std::function<bool(algorithmType)> testFunction){
+  int fails = 0;
+  if(!testFunction(xbRelUnionBottom)) {
+    std::cout << testFunctionString << " " << algoToString(xbRelUnionBottom) << " failed" << std::endl;
+    fails++;
+  }
+
+  if(!testFunction(xbSatBottom)) {
+    std::cout << testFunctionString << " " << algoToString(xbSatBottom) << " failed" << std::endl;
+    fails++;
+  }
+
+  if(!testFunction(chainBottomBasic)) {
+    std::cout << testFunctionString << " " << algoToString(chainBottomBasic) << " failed" << std::endl;
+    fails++;
+  }
+
+  if(!testFunction(chainBottomAdvanced)) {
+    std::cout << testFunctionString << " " << algoToString(chainBottomAdvanced) << " failed" << std::endl;
+    fails++;
+  }
+
+  return fails;
+
+}
+
+
+
 
 bool runTest(std::string testFunctionString, std::function<bool()> testFunction, bool expectedResult) {
   if(testFunction() == expectedResult) {
@@ -321,3 +350,85 @@ bool testGraphExample3multRel(algorithmType algorithm) {
   return testGraph(graph, expectedSccList, algorithm);
 }
 
+
+
+
+
+bool testBscc1oneRel(algorithmType algorithm) {
+  std::string n0 = "000";
+  std::string n1 = "001";
+  std::string n2 = "010";
+  std::string n3 = "011";
+  std::string n4 = "100";
+  std::string n5 = "101";
+  std::string n6 = "110";
+
+  std::list<std::string> nodeList1 = {n2};
+  std::list<std::string> nodeList2 = {n3};
+  std::list<std::string> nodeList3 = {n4};
+  std::list<std::string> nodeList4 = {n5,n6};
+  sylvan::Bdd scc1 = makeNodes(nodeList1);
+  sylvan::Bdd scc2 = makeNodes(nodeList2);
+  sylvan::Bdd scc3 = makeNodes(nodeList3);
+  sylvan::Bdd scc4 = makeNodes(nodeList4);
+
+  std::list<sylvan::Bdd> expectedSccList = {scc1, scc2, scc3, scc4};
+
+  const Graph graph = graphExampleBscc1oneRel();
+  return testGraph(graph, expectedSccList, algorithm);
+
+}
+
+bool testBscc1multRel(algorithmType algorithm) {
+  std::string n0 = "000";
+  std::string n1 = "001";
+  std::string n2 = "010";
+  std::string n3 = "011";
+  std::string n4 = "100";
+  std::string n5 = "101";
+  std::string n6 = "110";
+
+  std::list<std::string> nodeList1 = {n2};
+  std::list<std::string> nodeList2 = {n3};
+  std::list<std::string> nodeList3 = {n4};
+  std::list<std::string> nodeList4 = {n5,n6};
+  sylvan::Bdd scc1 = makeNodes(nodeList1);
+  sylvan::Bdd scc2 = makeNodes(nodeList2);
+  sylvan::Bdd scc3 = makeNodes(nodeList3);
+  sylvan::Bdd scc4 = makeNodes(nodeList4);
+
+  std::list<sylvan::Bdd> expectedSccList = {scc1, scc2, scc3, scc4};
+
+  const Graph graph = graphExampleBscc1multRel();
+  return testGraph(graph, expectedSccList, algorithm);
+
+}
+
+bool testBscc2oneRel(algorithmType algorithm) {
+  std::string n0 = "0000";
+  std::string n1 = "0001";
+  std::string n2 = "0010";
+  std::string n3 = "0011";
+  std::string n4 = "0100";
+  std::string n5 = "0101";
+  std::string n6 = "0110";
+  std::string n7 = "0111";
+  std::string n8 = "1000";
+
+  std::list<std::string> nodeList1 = {n4};
+  std::list<std::string> nodeList2 = {n5};
+  std::list<std::string> nodeList3 = {n6};
+  std::list<std::string> nodeList4 = {n7};
+  std::list<std::string> nodeList5 = {n8};
+  sylvan::Bdd scc1 = makeNodes(nodeList1);
+  sylvan::Bdd scc2 = makeNodes(nodeList2);
+  sylvan::Bdd scc3 = makeNodes(nodeList3);
+  sylvan::Bdd scc4 = makeNodes(nodeList4);
+  sylvan::Bdd scc5 = makeNodes(nodeList5);
+
+  std::list<sylvan::Bdd> expectedSccList = {scc1, scc2, scc3, scc4, scc5};
+
+  const Graph graph = graphExampleBscc2oneRel();
+  return testGraph(graph, expectedSccList, algorithm);
+
+}

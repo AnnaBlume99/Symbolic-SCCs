@@ -29,6 +29,16 @@ bool testGraphExample2oneRel(algorithmType algorithm);
 bool testGraphExample2multRel(algorithmType algorithm);
 bool testGraphExample3oneRel(algorithmType algorithm);
 bool testGraphExample3multRel(algorithmType algorithm);
+
+
+//Bscc testing
+bool testBscc1multRel(algorithmType algorithm);
+bool testBscc1oneRel(algorithmType algorithm);
+bool testBscc2oneRel(algorithmType algorithm);
+
+int runWithAllBsccAlgorithms(std::string testFunctionString, std::function<bool(algorithmType)> testFunction);
+
+
 int runWithAllAlgorithmTypes(std::string testFunctionString, std::function<bool(algorithmType)> testFunction);
 bool runTest(std::string testFunctionString, std::function<bool()> testFunction, bool expectedResult);
 
