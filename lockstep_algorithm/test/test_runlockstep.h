@@ -35,6 +35,7 @@ bool testGraphExample3multRel(algorithmType algorithm);
 bool testBscc1multRel(algorithmType algorithm);
 bool testBscc1oneRel(algorithmType algorithm);
 bool testBscc2oneRel(algorithmType algorithm);
+bool testBscc3oneRel(algorithmType algorithm);
 
 int runWithAllBsccAlgorithms(std::string testFunctionString, std::function<bool(algorithmType)> testFunction);
 

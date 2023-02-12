@@ -33,5 +33,6 @@ Graph graphExample3multRel();
 Graph graphExampleBscc1oneRel();
 Graph graphExampleBscc1multRel();
 Graph graphExampleBscc2oneRel();
+Graph graphExampleBscc3oneRel();
 
 #endif //GRAPH_EXAMPLES_H

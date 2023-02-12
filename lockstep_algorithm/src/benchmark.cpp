@@ -27,10 +27,10 @@ std::list<std::string> getPathStringsBscc() {
   std::list<std::string> resultList = {};
 
   // < 15 minutes
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_001_a_17place.pnml");        //1 BSCCs / 16 SCCs
+  //resultList.push_back("ShieldRVs/PT/shield_s_rv_001_a_17place.pnml");        //1 BSCCs / 16 SCCs
   resultList.push_back("GPUForwardProgress/PT/gpufp_04_a_24place.pnml");      //16 BSCCs / 360 SCCs
   resultList.push_back("ShieldRVs/PT/shield_s_rv_002_a_31place.pnml");        //8 BSCCs / 2362 SCCs
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
+  /*resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
   resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs
   resultList.push_back("GPUForwardProgress/PT/gpufp_08_a_40place.pnml");      //256 BSCCs / 118208 SCCs
   resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
@@ -40,7 +40,7 @@ std::list<std::string> getPathStringsBscc() {
   resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
   resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
   resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
-  resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
+  resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs */
 
   // > 15 minutes - not checked yet for only 1 SCC
   /*resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56

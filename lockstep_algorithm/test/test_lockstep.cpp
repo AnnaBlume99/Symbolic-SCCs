@@ -58,9 +58,10 @@ bool success = (fails == 0);
 
 void runAllBsccTests() {
   int fails = 0;
-  //fails += runWithAllBsccAlgorithms("testBscc1oneRel", testBscc1oneRel);
-  //fails += runWithAllBsccAlgorithms("testBscc1multRel", testBscc1multRel);
+  fails += runWithAllBsccAlgorithms("testBscc1oneRel", testBscc1oneRel);
+  fails += runWithAllBsccAlgorithms("testBscc1multRel", testBscc1multRel);
   fails += runWithAllBsccAlgorithms("testBscc2oneRel", testBscc2oneRel);
+  fails += runWithAllBsccAlgorithms("testBscc3oneRel", testBscc3oneRel);
 
   bool success = (fails == 0);
 

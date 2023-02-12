@@ -124,7 +124,7 @@ ChainResult RelationUnion::forwardSetLastLayer(const Graph &graph, const Bdd &no
 
   int symbolicSteps = 0;
 
-  Bdd lastLayer;
+  Bdd lastLayer = nodes;
 
   bool somethingChanged = true;
   while(somethingChanged) {

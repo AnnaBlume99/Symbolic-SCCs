@@ -432,3 +432,55 @@ bool testBscc2oneRel(algorithmType algorithm) {
   return testGraph(graph, expectedSccList, algorithm);
 
 }
+
+
+bool testBscc3oneRel(algorithmType algorithm) {
+  std::string n0 = "00000";
+  std::string n1 = "00001";
+  std::string n2 = "00010";
+  std::string n3 = "00011";
+  std::string n4 = "00100";
+  std::string n5 = "00101";
+  std::string n6 = "00110";
+  std::string n7 = "00111";
+  std::string n8 = "01000";
+  std::string n9 = "01001";
+  std::string n10 = "01010";
+  std::string n11 = "01011";
+  std::string n12 = "01100";
+  std::string n13 = "01101";
+  std::string n14 = "01110";
+  std::string n15 = "01111";
+  std::string n16 = "10000";
+  std::string n17 = "10001";
+  std::string n18 = "10010";
+
+
+
+  std::list<std::string> nodeList1 = {n4};
+  std::list<std::string> nodeList2 = {n5};
+  std::list<std::string> nodeList3 = {n6};
+  std::list<std::string> nodeList4 = {n7};
+  std::list<std::string> nodeList5 = {n8};
+  std::list<std::string> nodeList6 = {n13};
+  std::list<std::string> nodeList7 = {n14};
+  std::list<std::string> nodeList8 = {n15};
+  std::list<std::string> nodeList9 = {n16};
+  std::list<std::string> nodeList10 = {n17};
+  sylvan::Bdd scc1 = makeNodes(nodeList1);
+  sylvan::Bdd scc2 = makeNodes(nodeList2);
+  sylvan::Bdd scc3 = makeNodes(nodeList3);
+  sylvan::Bdd scc4 = makeNodes(nodeList4);
+  sylvan::Bdd scc5 = makeNodes(nodeList5);
+  sylvan::Bdd scc6 = makeNodes(nodeList6);
+  sylvan::Bdd scc7 = makeNodes(nodeList7);
+  sylvan::Bdd scc8 = makeNodes(nodeList8);
+  sylvan::Bdd scc9 = makeNodes(nodeList9);
+  sylvan::Bdd scc10 = makeNodes(nodeList10);
+
+  std::list<sylvan::Bdd> expectedSccList = {scc1, scc2, scc3, scc4, scc5, scc6, scc7, scc8, scc9, scc10};
+
+  const Graph graph = graphExampleBscc3oneRel();
+  return testGraph(graph, expectedSccList, algorithm);
+
+}

@@ -182,6 +182,19 @@ Graph graphExampleBscc2oneRel() {
     const std::list<std::list<std::pair<int, int>>> relationList = {r1};
     Graph result = makeGraph(9, relationList);
     return result;
+}
+
+
+Graph graphExampleBscc3oneRel(){
+  std::list<std::pair<int, int>> r1 = 
+    {{2,1}, {2,0}, {2,3}, {1,0}, {1,4}, {1,5}, {0,5}, {0,6}, {3,6}, {3,7}, {3,8}
+    ,{11,10}, {11,9}, {11,12}, {10,9}, {10,13}, {10,14}, {9,14}, {9,15}, {12,15}, {12,16}, {12,17}
+    ,{18,0}, {18,9}
+    };
+    const std::list<std::list<std::pair<int, int>>> relationList = {r1};
+    Graph result = makeGraph(19, relationList);
+    return result;
+
 
 }
 
