@@ -31,11 +31,11 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomAdvanced};
+  std::list<algorithmType> runTypes = {chainBottomSingleRecForwardLoop, chainBottomSpecialFWD};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + "_bscc";
+    std::string fileName = algoToString(algo) + "_bscc_2";
     benchmark(pathStrings, fileName, algorithms, 0);
   }
 

@@ -48,16 +48,16 @@ ReachResult RelationUnion::forwardSet(const Graph &graph, const Bdd &nodes) {
     somethingChanged = false;
 
     for(int i = 0 ; i < relationDeque.size(); i++) {
-    currentRelation = relationDeque[i].relationBdd;
-    currentRelationCube = relationDeque[i].cube;
+      currentRelation = relationDeque[i].relationBdd;
+      currentRelationCube = relationDeque[i].cube;
 
-    Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
-    symbolicSteps++;
-    forwardAcc = unionBdd(forwardAcc, relResultFront);
+      Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
+      symbolicSteps++;
+      forwardAcc = unionBdd(forwardAcc, relResultFront);
     }
 
     if(forwardAcc != leaf_false()) {
-    somethingChanged = true;
+      somethingChanged = true;
     }
     forwardSet = unionBdd(forwardSet, forwardAcc);
 
@@ -387,4 +387,47 @@ ReachResultBottom Saturation::forwardSetShortcut(const Graph &graph, const Bdd &
   }
 
   return createReachResultBottom(forwardSet, symbolicSteps, true);
+}
+
+
+
+
+ReachResult RelationUnion::forwardStep(const Graph &graph, const sylvan::Bdd &nodes) {
+  std::deque<Relation> relationDeque = graph.relations;
+  Bdd nodeSet = graph.nodes;
+  int symbolicSteps = 0;
+
+  Bdd step = leaf_false();
+  for(int i = 0 ; i < relationDeque.size(); i++) {
+    Bdd currentRelation = relationDeque[i].relationBdd;
+    BddSet currentRelationCube = relationDeque[i].cube;
+
+    Bdd relResult = nodes.RelNext(currentRelation, currentRelationCube);
+    symbolicSteps = symbolicSteps + 1;
+
+    step = unionBdd(step, relResult);
+  }
+  step = intersectBdd(nodeSet, step);
+
+  return createReachResult(step, symbolicSteps);
+}
+
+ReachResult RelationUnion::backwardStep(const Graph &graph, const sylvan::Bdd &nodes) {
+  std::deque<Relation> relationDeque = graph.relations;
+  Bdd nodeSet = graph.nodes;
+  int symbolicSteps = 0;
+
+  Bdd step = leaf_false();
+  for(int i = 0 ; i < relationDeque.size(); i++) {
+    Bdd currentRelation = relationDeque[i].relationBdd;
+    BddSet currentRelationCube = relationDeque[i].cube;
+
+    Bdd relResult = nodes.RelPrev(currentRelation, currentRelationCube);
+    symbolicSteps = symbolicSteps + 1;
+
+    step = unionBdd(step, relResult);
+  }
+  step = intersectBdd(nodeSet, step);
+
+  return createReachResult(step, symbolicSteps);
 }

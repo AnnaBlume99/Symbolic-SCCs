@@ -121,6 +121,11 @@ int runWithAllBsccAlgorithms(std::string testFunctionString, std::function<bool(
     fails++;
   }
 
+  if(!testFunction(chainBottomForwardLoop)) {
+    std::cout << testFunctionString << " " << algoToString(chainBottomForwardLoop) << " failed" << std::endl;
+    fails++;
+  }
+
   return fails;
 
 }

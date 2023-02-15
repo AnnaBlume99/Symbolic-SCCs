@@ -1,3 +1,6 @@
 TODO:
 
-1. Indfør templates i lockstep
+1. Implementer Reach som reachability-mulighed
+2. Afprøv saturation/reach i BWD i Chain
+3. Afprøv reach i XB
+4. Implementer ITGR?

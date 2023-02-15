@@ -18,8 +18,13 @@ using sylvan::Bdd;
 using sylvan::BddSet;
 
 SccResult chainAlgBottomBasic(const Graph &fullGraph);
-SccResult chainAlgBottomAdvanced(const Graph &fullGraph);
 
+SccResult chainAlgBottomAdvanced(const Graph &fullGraph);
+SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph);
+SccResult chainAlgBottomForwardLoop(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph);
 
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {

@@ -103,6 +103,18 @@ SccResult xieBeerel(const Graph &fullGraph) {
     }
   }
 
+  //Check how many BSCC's in the graph
+  // int bsccCounter = 0;
+  // for(Bdd scc : sccList) {
+  //   ReachResult fwd = reach.forwardSet(fullGraph, scc);
+  //   if(differenceBdd(fwd.set, scc) == leaf_false()) {
+  //     bsccCounter = bsccCounter + 1;
+  //   }
+  // }
+  // std::cout << "bsccCounter: " << bsccCounter << std::endl;
+
+
+
   return createSccResult(sccList, symbolicSteps);
 }
 

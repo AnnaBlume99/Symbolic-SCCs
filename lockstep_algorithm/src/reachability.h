@@ -34,6 +34,9 @@ struct ReachResultBottom {
 //Reachability methods using the union of the relations
 class RelationUnion {
   public:
+    ReachResult forwardStep(const Graph &graph, const sylvan::Bdd &nodes);
+    ReachResult backwardStep(const Graph &graph, const sylvan::Bdd &nodes);
+
     ReachResult forwardSet(const Graph &graph, const sylvan::Bdd &nodes);
     ReachResult backwardSet(const Graph &graph, const sylvan::Bdd &nodes);
 
