@@ -223,7 +223,7 @@ SccResult chainAlgBottomAdvanced(const Graph &fullGraph) {
     }
 
     //"Call" 2 on V \ (FWD U bsccBasin), picking from everything
-    workingGraph.nodes = allNodes;
+    workingGraph.nodes = nodeSet;
     //We do a single BWD step from the recBdd1 = FWD \ bsccBasin in the full nodeset, since we might have edges going to this set, that we cannot see in the recursive call
     //Everything pointing to this will be safe to delete, since our rec calls are SCC closed and it therefore won't be bscc's
     //If there is such an edge, we remove the node's basin
@@ -231,10 +231,14 @@ SccResult chainAlgBottomAdvanced(const Graph &fullGraph) {
     symbolicSteps = symbolicSteps + stepBackBdd1.symbolicSteps;
 
     const Bdd recBdd2_first_try = differenceBdd(nodeSet, unionBdd(transForward.forwardSet, bsccBasin));
-    ReachResult extraBasin = rel.backwardSet(workingGraph, intersectBdd(recBdd2_first_try, stepBackBdd1.set)); 
-    symbolicSteps = symbolicSteps + extraBasin.symbolicSteps;
-    const Bdd recBdd2 = differenceBdd(recBdd2_first_try, extraBasin.set);
-
+    const Bdd outsideEdges = intersectBdd(recBdd2_first_try, stepBackBdd1.set);
+    Bdd extraBasin = leaf_false();
+    if(outsideEdges != leaf_false()) {
+      ReachResult extraBasinReach = rel.backwardSet(workingGraph, outsideEdges); 
+      symbolicSteps = symbolicSteps + extraBasinReach.symbolicSteps;
+      extraBasin = extraBasinReach.set;
+    }
+    const Bdd recBdd2 = differenceBdd(recBdd2_first_try, extraBasin);
     if(recBdd2 != leaf_false()) {
       Bdd recNode2 = pick(recBdd2, fullCube);
       const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
@@ -348,7 +352,7 @@ SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph) {
     }
 
     //"Call" 2 on V \ (FWD U bsccBasin), picking from everything
-    workingGraph.nodes = allNodes;
+    workingGraph.nodes = nodeSet;
     //We do a single BWD step from the recBdd1 = FWD \ bsccBasin in the full nodeset, since we might have edges going to this set, that we cannot see in the recursive call
     //Everything pointing to this will be safe to delete, since our rec calls are SCC closed and it therefore won't be bscc's
     //If there is such an edge, we remove the node's basin
@@ -356,10 +360,14 @@ SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph) {
     symbolicSteps = symbolicSteps + stepBackBdd1.symbolicSteps;
 
     const Bdd recBdd2_first_try = differenceBdd(nodeSet, unionBdd(transForward.forwardSet, bsccBasin));
-    ReachResult extraBasin = rel.backwardSet(workingGraph, intersectBdd(recBdd2_first_try, stepBackBdd1.set)); 
-    symbolicSteps = symbolicSteps + extraBasin.symbolicSteps;
-    const Bdd recBdd2 = differenceBdd(recBdd2_first_try, extraBasin.set);
-
+    const Bdd outsideEdges = intersectBdd(recBdd2_first_try, stepBackBdd1.set);
+    Bdd extraBasin = leaf_false();
+    if(outsideEdges != leaf_false()) {
+      ReachResult extraBasinReach = rel.backwardSet(workingGraph, outsideEdges); 
+      symbolicSteps = symbolicSteps + extraBasinReach.symbolicSteps;
+      extraBasin = extraBasinReach.set;
+    }
+    const Bdd recBdd2 = differenceBdd(recBdd2_first_try, extraBasin);
     if(recBdd2 != leaf_false()) {
       Bdd recNode2 = pick(recBdd2, fullCube);
       const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
@@ -488,15 +496,22 @@ SccResult chainAlgBottomForwardLoop(const Graph &fullGraph) {
     }
 
     //"Call" 2 on V \ (FWD U bsccBasin), picking from everything
-    workingGraph.nodes = allNodes;
+    workingGraph.nodes = nodeSet;
+    //We do a single BWD step from the recBdd1 = FWD \ bsccBasin in the full nodeset, since we might have edges going to this set, that we cannot see in the recursive call
+    //Everything pointing to this will be safe to delete, since our rec calls are SCC closed and it therefore won't be bscc's
+    //If there is such an edge, we remove the node's basin
     ReachResult stepBackBdd1 = rel.backwardStep(workingGraph, recBdd1);
     symbolicSteps = symbolicSteps + stepBackBdd1.symbolicSteps;
 
     const Bdd recBdd2_first_try = differenceBdd(nodeSet, unionBdd(transForward.forwardSet, bsccBasin));
-    ReachResult extraBasin = rel.backwardSet(workingGraph, intersectBdd(recBdd2_first_try, stepBackBdd1.set)); 
-    symbolicSteps = symbolicSteps + extraBasin.symbolicSteps;
-    const Bdd recBdd2 = differenceBdd(recBdd2_first_try, extraBasin.set);
-
+    const Bdd outsideEdges = intersectBdd(recBdd2_first_try, stepBackBdd1.set);
+    Bdd extraBasin = leaf_false();
+    if(outsideEdges != leaf_false()) {
+      ReachResult extraBasinReach = rel.backwardSet(workingGraph, outsideEdges); 
+      symbolicSteps = symbolicSteps + extraBasinReach.symbolicSteps;
+      extraBasin = extraBasinReach.set;
+    }
+    const Bdd recBdd2 = differenceBdd(recBdd2_first_try, extraBasin);
     if(recBdd2 != leaf_false()) {
       Bdd recNode2 = pick(recBdd2, fullCube);
       const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
@@ -817,3 +832,4 @@ SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph) {
   //Return SCC list and number of symbolic steps
   return createSccResult(sccList, symbolicSteps);
 }
+
