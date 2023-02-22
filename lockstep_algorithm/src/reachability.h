@@ -61,10 +61,10 @@ class Saturation {
     ReachResultBottom forwardSetShortcut(const Graph &graph, const sylvan::Bdd &nodes, const sylvan::Bdd &backwardSet);
 };
 
-class Reach {
+/*class Reach {
   public:
     ReachResult forwardSet(const Graph &graph, const sylvan::Bdd &nodes);
     ReachResult backwardSet(const Graph &graph, const sylvan::Bdd &nodes);
-};
+};*/
 
 #endif //REACHABILITY_H

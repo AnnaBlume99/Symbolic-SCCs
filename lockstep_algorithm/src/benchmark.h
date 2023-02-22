@@ -18,11 +18,9 @@ enum algorithmType
   xbRelUnionBottom,
   chainBottomBasic,
   chainBottomAdvanced,
-  chainBottomForwardLoop,
   chainBottomSingleRec,
   chainBottomSingleRecSpecialFWD,
-  chainBottomSpecialFWD,
-  chainBottomSingleRecForwardLoop
+  chainBottomSpecialFWD
 };
 
 //ToString on the runnable function enums
@@ -49,14 +47,10 @@ inline const std::string algoToString(algorithmType runType) {
       return "Chain bottom basic";
     case chainBottomAdvanced:
       return "Chain bottom advanced";
-    case chainBottomForwardLoop:
-      return "Chain bottom forward loop";
     case chainBottomSingleRec:
       return "Chain bottom single recursion";
     case chainBottomSingleRecSpecialFWD:
       return "Chain bottom single recursion special FWD";
-    case chainBottomSingleRecForwardLoop:
-      return "Chain bottom single recursion Forward Loop";
     case chainBottomSpecialFWD:
       return "Chain bottom special FWD";
     default:

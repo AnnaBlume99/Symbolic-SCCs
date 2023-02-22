@@ -31,7 +31,7 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSpecialFWD, chainBottomForwardLoop};
+  std::list<algorithmType> runTypes = {chainBottomSingleRecSpecialFWD};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};
