@@ -480,7 +480,6 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
   return createSccResult(sccList, symbolicSteps);
 }
 
-
 //Version with only one recursive call where we treat the first FWD differently
 //by not finding the SCC and picking directly in lastLayer
 SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph) {
@@ -652,7 +651,17 @@ ReachResult sourceRemoval(const Graph &fullGraph) {
 
 
 //Version where we swith between XB and Chain behavior
-SccResult chainAlgBottomSingleRecSpecialFWDNew(const Graph &fullGraph) {
+SccResult chainAlgBottomSingleRecSwitch(const Graph &fullGraph) {
+  //start timer
+  auto start = std::chrono::high_resolution_clock::now();
+  int dur = 300000;
+  auto stop = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+  SccResult defRes = {};
+  defRes.sccs = {};
+  defRes.symbolicSteps = 0;
+
   int symbolicSteps = 0;
 
   std::list<Bdd> sccList = {};
@@ -677,6 +686,14 @@ SccResult chainAlgBottomSingleRecSpecialFWDNew(const Graph &fullGraph) {
   workingGraph.relations = relationDeque;
 
   while(!callStack.empty()) {
+    //timer stuff
+    stop = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    if((int)duration.count() > dur) {
+      std::cout << "Took too long " << (int)duration.count() << std::endl;
+      return defRes;
+    }
+
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
@@ -684,21 +701,53 @@ SccResult chainAlgBottomSingleRecSpecialFWDNew(const Graph &fullGraph) {
 
     //While-loop setup
     bool bottomSCC = false;
-    ChainResult newForward;
+    ChainResultData newForward;
     Bdd bscc;
     Bdd v2;
 
     //We find the first FWD* without finding the SCC
     workingGraph.nodes = nodeSet;
-    ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
+    ChainResultData transForward = rel.forwardSetLastLayerData(workingGraph, startNode);
     v2 = pick(transForward.lastLayer, fullCube);
-    workingGraph.nodes = transForward.forwardSet;   
+    workingGraph.nodes = transForward.forwardSet;
+
+    bool xb_behavior = false;
+    //These are to check for changes over iterations and use this as basis for xb_behavior
+    int oldForwardLayerCount = transForward.forwardLayers;
+    int oldForwardLayerBreadth = transForward.forwardLayers;
 
     //WHILE-SEARCH
     while(!bottomSCC) {
+      stop = std::chrono::high_resolution_clock::now();
+      duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+      if((int)duration.count() > dur) {
+        std::cout << "Took too long " << (int)duration.count() << std::endl;
+        return defRes;
+      }
+
       //Compute FWD in the current forward set from a node in the last layer
-      newForward = rel.forwardSetLastLayer(workingGraph, v2);
+      newForward = rel.forwardSetLastLayerData(workingGraph, v2);
       symbolicSteps = symbolicSteps + newForward.symbolicSteps;
+
+
+
+      //deal with data stuff
+
+      //Magic constants
+      int forwardLayerConstant = 50; //Probably in the range 10-100
+      int lastLayerBreadthConstant = 40; //We don't rememeber any values here - we just have to test (maybe 10-100 as well)
+
+      //Variable sizes
+      bool layersSmaller = newForward.forwardLayers <= oldForwardLayerCount;
+      oldForwardLayerCount = newForward.forwardLayers;
+      bool breadthSmaller = newForward.lastLayerBreadth <= oldForwardLayerBreadth;
+      oldForwardLayerBreadth = newForward.lastLayerBreadth;
+      if(newForward.forwardLayers >= forwardLayerConstant) {
+        xb_behavior = true;
+      }
+
+
+
 
       //Compute the backward transitive closure on the result of FWD from last layer (result is the SCC)
       workingGraph.nodes = newForward.forwardSet;
@@ -725,21 +774,43 @@ SccResult chainAlgBottomSingleRecSpecialFWDNew(const Graph &fullGraph) {
           v2 = pick(newForward.lastLayer, fullCube);
         }        
       }
+
+      if(xb_behavior) {
+        bscc = scc;
+        break;
+      }
     }
 
-    //Restore the workinggraph to be the original FWD since the basin of the bscc might reach anything in this scc-closed set
-    workingGraph.nodes = nodeSet;
-    ReachResult basinReach = rel.backwardSet(workingGraph, bscc);
-    Bdd bsccBasin = basinReach.set;
-    symbolicSteps = symbolicSteps + basinReach.symbolicSteps;
+    if(xb_behavior && !bottomSCC) {
+      //find basin
+      workingGraph.nodes = nodeSet;
+      ReachResult res1 = rel.backwardSet(workingGraph, bscc);
+      Bdd basin = res1.set;
+      symbolicSteps = symbolicSteps + res1.symbolicSteps;
 
-    //Create "recursive" call
-    //"Call" on V \ bsccBasin, picking from everything
-    const Bdd recBdd2 = differenceBdd(nodeSet, bsccBasin);
-    if(recBdd2 != leaf_false()) {
-      Bdd recNode2 = pick(recBdd2, fullCube);
-      const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
-      callStack.push(recPair2);
+      //make "recursive" call
+      Bdd recBdd = differenceBdd(nodeSet, basin);
+      if(recBdd != leaf_false()) {
+        Bdd recNode = pick(recBdd, fullCube);
+        const std::pair<Bdd, Bdd> recPair = {recBdd, recNode};
+        callStack.push(recPair);
+      }
+    } else {
+      //Restore the workinggraph to be the original FWD since the basin of the bscc
+      //might reach anything in this scc-closed set
+      workingGraph.nodes = nodeSet;
+      ReachResult basinReach = rel.backwardSet(workingGraph, bscc);
+      Bdd bsccBasin = basinReach.set;
+      symbolicSteps = symbolicSteps + basinReach.symbolicSteps;
+
+      //Create "recursive" call
+      //"Call" on V \ bsccBasin, picking from everything
+      const Bdd recBdd = differenceBdd(nodeSet, bsccBasin);
+      if(recBdd != leaf_false()) {
+        Bdd recNode = pick(recBdd, fullCube);
+        const std::pair<Bdd, Bdd> recPair = {recBdd, recNode};
+        callStack.push(recPair);
+      }
     }
   }
 

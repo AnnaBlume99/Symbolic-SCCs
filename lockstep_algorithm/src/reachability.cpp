@@ -123,7 +123,6 @@ ChainResult RelationUnion::forwardSetLastLayer(const Graph &graph, const Bdd &no
   BddSet currentRelationCube;
 
   int symbolicSteps = 0;
-  int forwardLayers = 0;
 
   Bdd lastLayer = nodes;
 
@@ -149,18 +148,12 @@ ChainResult RelationUnion::forwardSetLastLayer(const Graph &graph, const Bdd &no
     }
 
     forwardAcc = leaf_false();
-    forwardLayers++;
   }
 
   ChainResult result = {};
   result.forwardSet = forwardSet;
   result.lastLayer = lastLayer;
   result.symbolicSteps = symbolicSteps;
-
-  long long breadthLastLayer = lastLayer.NodeCount();
-
-  std::cout << "Layers of forward set: " << forwardLayers << std::endl;
-  std::cout << "Breadth of last layer: " << breadthLastLayer << std::endl;
 
   return result;
 }
@@ -438,4 +431,68 @@ ReachResult RelationUnion::backwardStep(const Graph &graph, const sylvan::Bdd &n
   step = intersectBdd(nodeSet, step);
 
   return createReachResult(step, symbolicSteps);
+}
+
+
+
+
+
+
+ChainResultData RelationUnion::forwardSetLastLayerData(const Graph &graph, const Bdd &nodes) {
+  BddSet cube = graph.cube;
+  std::deque<Relation> relationDeque = graph.relations;
+
+  Bdd forwardSet = nodes;
+  Bdd nodeSet = graph.nodes;
+
+  Bdd forwardFront = nodes;
+  Bdd forwardAcc = leaf_false();
+  Bdd relResultFront;
+
+  Bdd currentRelation;
+  BddSet currentRelationCube;
+
+  int symbolicSteps = 0;
+  int forwardLayers = 0;
+
+  Bdd lastLayer = nodes;
+
+  bool somethingChanged = true;
+  while(somethingChanged) {
+    somethingChanged = false;
+
+    for(int i = 0 ; i < relationDeque.size(); i++) {
+      currentRelation = relationDeque[i].relationBdd;
+      currentRelationCube = relationDeque[i].cube;
+
+      Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
+      symbolicSteps++;
+      forwardAcc = unionBdd(forwardAcc, relResultFront);
+    }
+
+    forwardFront = differenceBdd(forwardAcc, forwardSet);
+    forwardSet = unionBdd(forwardSet, forwardFront);
+
+    if(forwardFront != leaf_false()) {
+      somethingChanged = true;
+      lastLayer = forwardFront;
+    }
+
+    forwardAcc = leaf_false();
+    forwardLayers++;
+  }
+  long long breadthLastLayer = lastLayer.NodeCount();
+
+  ChainResultData result = {};
+  result.forwardSet = forwardSet;
+  result.lastLayer = lastLayer;
+  result.symbolicSteps = symbolicSteps;
+  result.lastLayerBreadth = breadthLastLayer;
+  result.forwardLayers = forwardLayers;
+
+
+  //std::cout << "Layers of forward set: " << forwardLayers << std::endl;
+  //std::cout << "Breadth of last layer: " << breadthLastLayer << std::endl;
+
+  return result;
 }

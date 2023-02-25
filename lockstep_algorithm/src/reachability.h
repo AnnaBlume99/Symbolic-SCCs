@@ -25,6 +25,15 @@ struct ChainResult {
   int symbolicSteps;
 };
 
+struct ChainResultData {
+  sylvan::Bdd forwardSet;
+  sylvan::Bdd lastLayer;
+  int symbolicSteps;
+  int forwardLayers;
+  int lastLayerBreadth;
+};
+
+
 struct ReachResultBottom {
   sylvan::Bdd set;
   int symbolicSteps;
@@ -42,6 +51,9 @@ class RelationUnion {
 
     //Reachability for the Chain Algorithm
     ChainResult forwardSetLastLayer(const Graph &graph, const sylvan::Bdd &nodes);
+
+    //Chain reachability with extra metadata for switching to XB when necessary
+    ChainResultData forwardSetLastLayerData(const Graph &graph, const sylvan::Bdd &nodes);
 
     //Reachability for the Skeleton Algorithm
     SkeletonResult forwardSkeleton(const Graph &graph, const sylvan::Bdd &nodes);

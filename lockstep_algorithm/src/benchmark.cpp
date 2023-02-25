@@ -31,47 +31,47 @@ std::list<std::string> getPathStringsBscc() {
   resultList.push_back("GPUForwardProgress/PT/gpufp_04_a_24place.pnml");      //16 BSCCs / 368 SCCs
   resultList.push_back("ShieldRVs/PT/shield_s_rv_002_a_31place.pnml");        //8 BSCCs / 2362 SCCs
   resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
-  resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs*/
+  resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs
   resultList.push_back("GPUForwardProgress/PT/gpufp_08_a_40place.pnml");      //256 BSCCs / 118208 SCCs
-  /*resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
+  resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
   resultList.push_back("ShieldRVs/PT/shield_s_rv_001_b_43place.pnml");        //1 BSCCs / 479 SCCs
   resultList.push_back("SmartHome/PT/smhome_03_45place.pnml");                //1 BSCCs / 76 SCCs
   resultList.push_back("ShieldRVs/PT/shield_s_rv_003_a_45place.pnml");        //51 BSCCs / 327762 SCCs
   resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs*/
+  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
   resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
-  /*resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs*/
+  resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
 
   // > 15 minutes - not checked yet for only 1 SCC
-  /*resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_004_a_59place.pnml");                        //59
-  resultList.push_back("DiscoveryGPU/PT/discovery_06_a_63place.pnml");                        //63
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_002_a_65place.pnml");                      //65
-  resultList.push_back("GPUForwardProgress/PT/gpufp_16_a_72place.pnml");                      //72
-  resultList.push_back("DiscoveryGPU/PT/discovery_07_a_73place.pnml");                        //73
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_005_a_73place.pnml");                        //73
-  resultList.push_back("ShieldPPPt/PT/shield_t_ppp_001_b_81place.pnml");                      //81
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_002_b_83place.pnml");                        //83
-  resultList.push_back("DiscoveryGPU/PT/discovery_08_a_83place.pnml");                        //83
-  resultList.push_back("GPUForwardProgress/PT/gpufp_20_a_88place.pnml");                      //88
-  resultList.push_back("DiscoveryGPU/PT/discovery_09_a_93place.pnml");                        //93
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_003_a_96place.pnml");                      //96
-  resultList.push_back("ShieldRVt/PT/shield_t_rv_002_b_103place.pnml");                       //103
-  resultList.push_back("DiscoveryGPU/PT/discovery_10_a_103place.pnml");                       //103
-  resultList.push_back("GPUForwardProgress/PT/gpufp_24_a_104place.pnml");                     //104
-  resultList.push_back("GPUForwardProgress/PT/gpufp_04_b_112place.pnml");                     //112
-  resultList.push_back("DiscoveryGPU/PT/discovery_11_a_113place.pnml");                       //113
-  resultList.push_back("HealthRecord/PT/hrec_01_117place.pnml");                              //117
-  resultList.push_back("HealthRecord/PT/hrec_02_119place.pnml");                              //119
-  resultList.push_back("GPUForwardProgress/PT/gpufp_28_a_120place.pnml");                     //120
-  resultList.push_back("HealthRecord/PT/hrec_03_121place.pnml");                              //121
-  resultList.push_back("HealthRecord/PT/hrec_04_123place.pnml");                              //123
-  resultList.push_back("DiscoveryGPU/PT/discovery_12_a_123place.pnml");                       //123
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_003_b_123place.pnml");                       //123
-  resultList.push_back("HealthRecord/PT/hrec_05_125place.pnml");                              //125
-  resultList.push_back("DiscoveryGPU/PT/discovery_13_a_133place.pnml");                       //133
-  resultList.push_back("GPUForwardProgress/PT/gpufp_32_a_136place.pnml");                     //136
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_002_b_139place.pnml");                     //139
+  resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56 - 90s
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_004_a_59place.pnml");                        //59 - 4 min
+  //resultList.push_back("DiscoveryGPU/PT/discovery_06_a_63place.pnml");                        //63 - 1 SCC
+  //resultList.push_back("ShieldPPPs/PT/shield_s_ppp_002_a_65place.pnml");                      //65 - slow
+  //resultList.push_back("GPUForwardProgress/PT/gpufp_16_a_72place.pnml");                      //72 - slow
+  //resultList.push_back("DiscoveryGPU/PT/discovery_07_a_73place.pnml");                        //73 - 1 SCC
+  //resultList.push_back("ShieldRVs/PT/shield_s_rv_005_a_73place.pnml");                        //73 - slow
+  resultList.push_back("ShieldPPPt/PT/shield_t_ppp_001_b_81place.pnml");                      //81 - 30s
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_002_b_83place.pnml");                        //83 - 30s
+  //resultList.push_back("DiscoveryGPU/PT/discovery_08_a_83place.pnml");                        //83 - 1 SCC
+  //resultList.push_back("GPUForwardProgress/PT/gpufp_20_a_88place.pnml");                      //88 - slow
+  //resultList.push_back("DiscoveryGPU/PT/discovery_09_a_93place.pnml");                        //93 - 1 SCC
+  //resultList.push_back("ShieldPPPs/PT/shield_s_ppp_003_a_96place.pnml");                      //96 - slow
+  resultList.push_back("ShieldRVt/PT/shield_t_rv_002_b_103place.pnml");                       //103 - 100s
+  //resultList.push_back("DiscoveryGPU/PT/discovery_10_a_103place.pnml");                       //103 - 1 SCC
+  resultList.push_back("GPUForwardProgress/PT/gpufp_24_a_104place.pnml");                     //104 - slow
+  resultList.push_back("GPUForwardProgress/PT/gpufp_04_b_112place.pnml");                     //112 - 15s
+  resultList.push_back("DiscoveryGPU/PT/discovery_11_a_113place.pnml");                       //113 - 1 SCC
+  resultList.push_back("HealthRecord/PT/hrec_01_117place.pnml");                              //117 - 8s
+  resultList.push_back("HealthRecord/PT/hrec_02_119place.pnml");                              //119 - 15s
+  resultList.push_back("GPUForwardProgress/PT/gpufp_28_a_120place.pnml");                     //120 - slow
+  resultList.push_back("HealthRecord/PT/hrec_03_121place.pnml");                              //121 - 25s
+  resultList.push_back("HealthRecord/PT/hrec_04_123place.pnml");                              //123 - 30s
+  resultList.push_back("DiscoveryGPU/PT/discovery_12_a_123place.pnml");                       //123 - 1 SCC
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_003_b_123place.pnml");                       //123 - slow
+  resultList.push_back("HealthRecord/PT/hrec_05_125place.pnml");                              //125 - 40s
+  resultList.push_back("DiscoveryGPU/PT/discovery_13_a_133place.pnml");                       //133 - 2s
+  resultList.push_back("GPUForwardProgress/PT/gpufp_32_a_136place.pnml");                     //136 - slow
+  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_002_b_139place.pnml");                     //139 - slow*/
   resultList.push_back("DiscoveryGPU/PT/discovery_14_a_143place.pnml");                       //143
   resultList.push_back("ShieldIIPt/PT/shield_t_iip_002_b_143place.pnml");                     //143
   resultList.push_back("ShieldRVs/PT/shield_s_rv_010_a_143place.pnml");                       //143
@@ -98,7 +98,7 @@ std::list<std::string> getPathStringsBscc() {
   resultList.push_back("ShieldRVt/PT/shield_t_rv_004_b_203place.pnml");                       //203
   resultList.push_back("ShieldRVs/PT/shield_s_rv_005_b_203place.pnml");                       //203
   resultList.push_back("DiscoveryGPU/PT/discovery_07_b_212place.pnml");                       //212
-  resultList.push_back("ShieldIIPt/PT/shield_t_iip_003_b_213place.pnml");                     //213*/
+  resultList.push_back("ShieldIIPt/PT/shield_t_iip_003_b_213place.pnml");                     //213
 
   return resultList;
 }
@@ -420,6 +420,9 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
       break;
     case chainBottomSingleRecSpecialFWD:
       sccAndSteps = chainAlgBottomSingleRecSpecialFWD(graph);
+      break;
+    case chainBottomSingleRecSwitch:
+      sccAndSteps = chainAlgBottomSingleRecSwitch(graph);
       break;
   }
 

@@ -25,6 +25,8 @@ SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph);
 
+SccResult chainAlgBottomSingleRecSwitch(const Graph &fullGraph);
+
 
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
