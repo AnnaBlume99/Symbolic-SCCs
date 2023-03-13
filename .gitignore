@@ -1,2 +1,4 @@
 lockstep_algorithm/build
 .vscode
+*.csv
+*.xlsx

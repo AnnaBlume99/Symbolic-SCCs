@@ -26,6 +26,7 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph);
 
 SccResult chainAlgBottomSingleRecSwitch(const Graph &fullGraph);
+SccResult chainAlgBottomCumulativeBasin(const Graph &fullGraph);
 
 
 template<class ReachType>

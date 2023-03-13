@@ -31,11 +31,11 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSingleRecSwitch};
+  std::list<algorithmType> runTypes = {chainBottomCumulativeBasin};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + "_bscc_2";
+    std::string fileName = algoToString(algo) + "_basinTestLarge";
     benchmark(pathStrings, fileName, algorithms, 0);
   }
 
