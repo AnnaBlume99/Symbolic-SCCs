@@ -296,6 +296,7 @@ SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph) {
     ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
     v2 = pick(transForward.lastLayer, fullCube);
     workingGraph.nodes = transForward.forwardSet;   
+    symbolicSteps = symbolicSteps + transForward.symbolicSteps;
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -491,7 +492,7 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
 SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph) {
   int symbolicSteps = 0;
   long long nodeCount = 0;
-  int spurioursScc = 0;
+  int spuriousScc = 0;
   long long bsccSize = 0;
 
   std::list<Bdd> sccList = {};
@@ -532,6 +533,7 @@ SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph) {
     ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
     v2 = pick(transForward.lastLayer, fullCube);
     workingGraph.nodes = transForward.forwardSet;   
+    symbolicSteps = symbolicSteps + transForward.symbolicSteps;
     nodeCount += transForward.forwardSet.SatCount(fullCube);
 
     //WHILE-SEARCH
@@ -547,7 +549,7 @@ SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph) {
       const Bdd scc = transBackward.set;
       symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
       nodeCount += transBackward.set.SatCount(fullCube);
-      spurioursScc++;
+      spuriousScc++;
       if(differenceBdd(newForward.forwardSet, scc) == leaf_false()) {
         //If BSCC, report the BSCC
         bottomSCC = true;
@@ -590,7 +592,7 @@ SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph) {
       callStack.push(recPair2);
     }
   }
-  std::cout << ";" << spurioursScc << ";" << nodeCount;
+  std::cout << ";" << spuriousScc << ";" << nodeCount;
   std::cout << ";" << bsccSize;
 
   //Return SCC list and number of symbolic steps
@@ -667,7 +669,7 @@ ReachResult sourceRemoval(const Graph &fullGraph) {
 
 
 //Version where we swith between XB and Chain behavior
-SccResult chainAlgBottomSingleRecSwitch(const Graph &fullGraph) {
+SccResult chainAlgBottomSingleRecSwitchOld(const Graph &fullGraph) {
   int symbolicSteps = 0;
 
   std::list<Bdd> sccList = {};
@@ -850,7 +852,8 @@ SccResult chainAlgBottomCumulativeBasin(const Graph &fullGraph) {
     workingGraph.nodes = nodeSet;
     ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
     v2 = pick(transForward.lastLayer, fullCube);
-    workingGraph.nodes = transForward.forwardSet;   
+    workingGraph.nodes = transForward.forwardSet;  
+    symbolicSteps = symbolicSteps + transForward.symbolicSteps; 
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -948,7 +951,8 @@ SccResult chainAlgBottomRunningBasin(const Graph &fullGraph) {
     workingGraph.nodes = nodeSet;
     ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
     v2 = pick(transForward.lastLayer, fullCube);
-    workingGraph.nodes = transForward.forwardSet;   
+    workingGraph.nodes = transForward.forwardSet;
+    symbolicSteps = symbolicSteps + transForward.symbolicSteps;   
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -1051,6 +1055,7 @@ SccResult chainAlgBottomCumulativeRunningBasin(const Graph &fullGraph) {
     ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
     v2 = pick(transForward.lastLayer, fullCube);
     workingGraph.nodes = transForward.forwardSet;   
+    symbolicSteps = symbolicSteps + transForward.symbolicSteps;
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -1114,10 +1119,10 @@ SccResult chainAlgBottomCumulativeRunningBasin(const Graph &fullGraph) {
 
 
 
-SccResult chainAlgBottomSwitchBetter(const Graph &fullGraph) {
+SccResult chainAlgBottomSingleRecSwitch(const Graph &fullGraph) {
   int symbolicSteps = 0;
   long long nodeCount = 0;
-  int spurioursScc = 0;
+  int spuriousScc = 0;
   long long bsccSize = 0;
 
   std::list<Bdd> sccList = {};
@@ -1161,6 +1166,7 @@ SccResult chainAlgBottomSwitchBetter(const Graph &fullGraph) {
     workingGraph.nodes = transForward.forwardSet;  
     long long fwSize = transForward.forwardSet.SatCount(fullCube);
     nodeCount += fwSize;
+    symbolicSteps = symbolicSteps + transForward.symbolicSteps;
 
     long long setSize = nodeSet.SatCount(fullCube);
     float switch_ratio = 0.9;
@@ -1174,7 +1180,8 @@ SccResult chainAlgBottomSwitchBetter(const Graph &fullGraph) {
       ReachResult transBackward = rel.backwardSet(workingGraph, v2);
       Bdd scc = intersectBdd(transBackward.set, transForward.forwardSet);
       nodeCount += transBackward.set.SatCount(fullCube);
-      spurioursScc++;
+      spuriousScc++;
+      symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
       if(differenceBdd(transForward.forwardSet, scc) == leaf_false()) {
         //If BSCC, report the BSCC
         bottomSCC = true;
@@ -1191,6 +1198,8 @@ SccResult chainAlgBottomSwitchBetter(const Graph &fullGraph) {
         callStack.push(recPair2);
       }
 
+
+
     } else {
         
         //WHILE-SEARCH
@@ -1206,7 +1215,7 @@ SccResult chainAlgBottomSwitchBetter(const Graph &fullGraph) {
           const Bdd scc = transBackward.set;
           symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
           nodeCount += transBackward.set.SatCount(fullCube);
-          spurioursScc++;
+          spuriousScc++;
           if(differenceBdd(newForward.forwardSet, scc) == leaf_false()) {
             //If BSCC, report the BSCC
             bottomSCC = true;
@@ -1252,7 +1261,7 @@ SccResult chainAlgBottomSwitchBetter(const Graph &fullGraph) {
     }
 
     
-  std::cout << ";" << spurioursScc << ";" << nodeCount;
+  std::cout << ";" << spuriousScc << ";" << nodeCount;
   std::cout << ";" << bsccSize;
 
   //Return SCC list and number of symbolic steps
