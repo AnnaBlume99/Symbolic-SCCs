@@ -32,6 +32,8 @@ SccResult chainAlgBottomCumulativeBasin(const Graph &fullGraph);
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
   int symbolicSteps = 0;
+  long long nodeCount = 0;
+  int recCalls = 0;
 
   //callstack used to emulate recursive calls
   std::stack<Bdd> callStack;
@@ -67,12 +69,14 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
     ReachResult res1 = reach.backwardSet(workingGraph, v);
     backwardSet = res1.set;
     symbolicSteps = symbolicSteps + res1.symbolicSteps;
+    nodeCount += res1.set.SatCount(fullCube);
 
     //Find the forwardset and stop quickly if the forwardset goes beyond the backwardset since the SCC is not a BSCC
     ReachResultBottom res2 = reach.forwardSetShortcut(workingGraph, v, backwardSet);
     forwardSet = res2.set;
     symbolicSteps = symbolicSteps + res2.symbolicSteps;
     bool isBscc = res2.isBscc;
+    nodeCount += res2.set.SatCount(fullCube);
 
     //Add scc to bscclist if it is a BSCC
     if(isBscc) {
@@ -84,10 +88,11 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
     //Delete the entire backward set from recursive call
     Bdd recBdd = differenceBdd(nodeSet, backwardSet);
     if(recBdd != leaf_false()) {
+      recCalls++;
       callStack.push(recBdd);
     }
   }
-
+  std::cout << ";" << recCalls << ";" << nodeCount;
   return createSccResult(bsccList, symbolicSteps);  
 }
 
