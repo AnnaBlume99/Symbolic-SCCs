@@ -439,11 +439,11 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
     case chainBottomSingleRecSpecialFWD:
       sccAndSteps = chainAlgBottomSingleRecSpecialFWD(graph);
       break;
-    case chainBottomSingleRecSwitch:
-      sccAndSteps = chainAlgBottomSingleRecSwitch(graph);
+    case chainBottomSingleRecForwardLoop:
+      sccAndSteps = chainAlgBottomSingleRecForwardLoop(graph);
       break;
-    case chainBottomCumulativeBasin:
-      sccAndSteps = chainAlgBottomCumulativeBasin(graph);
+    case chainBottomForwardLoop:
+      sccAndSteps = chainAlgBottomForwardLoop(graph);
       break;
   }
 

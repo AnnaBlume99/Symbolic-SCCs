@@ -17,17 +17,14 @@
 using sylvan::Bdd;
 using sylvan::BddSet;
 
-SccResult chainAlgBottomBasic(const Graph &fullGraph);
-
 SccResult chainAlgBottomAdvanced(const Graph &fullGraph);
 SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph);
 
 SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph);
 
-SccResult chainAlgBottomSingleRecSwitch(const Graph &fullGraph);
-SccResult chainAlgBottomCumulativeBasin(const Graph &fullGraph);
-
+SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph);
+SccResult chainAlgBottomForwardLoop(const Graph &fullGraph);
 
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
@@ -67,14 +64,14 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
 
     workingGraph.nodes = nodeSet;
     ReachResult res1 = reach.backwardSet(workingGraph, v);
-    backwardSet = res1.set;
     symbolicSteps = symbolicSteps + res1.symbolicSteps;
+    backwardSet = res1.set;
     nodeCount += res1.set.SatCount(fullCube);
 
     //Find the forwardset and stop quickly if the forwardset goes beyond the backwardset since the SCC is not a BSCC
     ReachResultBottom res2 = reach.forwardSetShortcut(workingGraph, v, backwardSet);
-    forwardSet = res2.set;
     symbolicSteps = symbolicSteps + res2.symbolicSteps;
+    forwardSet = res2.set;
     bool isBscc = res2.isBscc;
     nodeCount += res2.set.SatCount(fullCube);
 
