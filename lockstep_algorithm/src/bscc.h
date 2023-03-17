@@ -29,6 +29,7 @@ SccResult chainAlgBottomForwardLoop(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallCumulative(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallExtra(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallSwitch(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecCallSwitchAndBasin(const Graph &fullGraph);
 
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
@@ -101,6 +102,8 @@ template<class ReachType>
 SccResult xieBeerelBottomInitState(const Graph &initGraph) {
   int symbolicSteps = 0;
 
+
+  std::list<Bdd> bsccList = {};
   //Return if graph is empty
   if(initGraph.nodes == leaf_false()) {
     return createSccResult(bsccList, symbolicSteps);
@@ -110,15 +113,15 @@ SccResult xieBeerelBottomInitState(const Graph &initGraph) {
   ReachType reach;
 
   //Initialize the set of relations and graph
-  const BddSet fullCube = fullGraph.cube;
-  const std::deque<Relation> relationDeque = fullGraph.relations;
+  const BddSet fullCube = initGraph.cube;
+  const std::deque<Relation> relationDeque = initGraph.relations;
 
   Graph workingGraph;
   workingGraph.cube = fullCube;
   workingGraph.relations = relationDeque;
   workingGraph.nodes = leaf_true();
 
-  const ReachResult allNodesResult = rel.forwardSet(workingGraph, initGraph.nodes); 
+  const ReachResult allNodesResult = reach.forwardSet(workingGraph, initGraph.nodes); 
   const Bdd allNodes = allNodesResult.set;
   symbolicSteps += allNodesResult.symbolicSteps;
   workingGraph.nodes = allNodes;
@@ -127,7 +130,6 @@ SccResult xieBeerelBottomInitState(const Graph &initGraph) {
   std::stack<Bdd> callStack;
   callStack.push(allNodes);
 
-  std::list<Bdd> bsccList = {};
   
   while(!callStack.empty()) {
     const Bdd nodeSet = callStack.top();

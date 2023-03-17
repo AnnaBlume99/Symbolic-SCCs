@@ -25,7 +25,8 @@ enum algorithmType
   chainBottomSingleRecForwardLoop,
   chainBottomSingleRecCumulative,
   chainBottomSingleRecExtra,
-  chainBottomSingleRecSwitch
+  chainBottomSingleRecSwitch,
+  chainBottomSingleRecSwitchAndBasin
 };
 
 //ToString on the runnable function enums
@@ -68,6 +69,8 @@ inline const std::string algoToString(algorithmType runType) {
       return "Chain bottom single rec extra info";
     case chainBottomSingleRecSwitch:
       return "Chain bottom single rec switch";
+    case chainBottomSingleRecSwitchAndBasin:
+      return "Chain bottom single rec switch and basin";
     default:
       return "[Unknown algorithm type]";
   }
