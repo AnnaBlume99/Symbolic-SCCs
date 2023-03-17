@@ -424,9 +424,6 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
     case xbSatBottom:
       sccAndSteps = xieBeerelBottom<Saturation>(graph);
       break;
-    case chainBottomBasic:
-      sccAndSteps = chainAlgBottomBasic(graph);
-      break;
     case chainBottomAdvanced:
       sccAndSteps = chainAlgBottomAdvanced(graph);
       break;
@@ -444,6 +441,15 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
       break;
     case chainBottomForwardLoop:
       sccAndSteps = chainAlgBottomForwardLoop(graph);
+      break;
+    case chainBottomSingleRecCumulative:
+      sccAndSteps = chainAlgBottomSingleRecCallCumulative(graph);
+      break;
+    case chainBottomSingleRecExtra:
+      sccAndSteps = chainAlgBottomSingleRecCallExtra(graph);
+      break;
+    case chainBottomSingleRecSwitch:
+      sccAndSteps = chainAlgBottomSingleRecCallSwitch(graph);
       break;
   }
 

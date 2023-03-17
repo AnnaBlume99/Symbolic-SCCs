@@ -31,7 +31,7 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomAdvanced};
+  std::list<algorithmType> runTypes = {chainBottomSingleRecCumulative};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};

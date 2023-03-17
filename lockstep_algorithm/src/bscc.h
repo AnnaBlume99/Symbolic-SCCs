@@ -26,6 +26,10 @@ SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph);
 SccResult chainAlgBottomForwardLoop(const Graph &fullGraph);
 
+SccResult chainAlgBottomSingleRecCallCumulative(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecCallExtra(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecCallSwitch(const Graph &fullGraph);
+
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
   int symbolicSteps = 0;
@@ -90,6 +94,74 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
     }
   }
   std::cout << ";" << recCalls << ";" << nodeCount;
+  return createSccResult(bsccList, symbolicSteps);  
+}
+
+template<class ReachType>
+SccResult xieBeerelBottomInitState(const Graph &initGraph) {
+  int symbolicSteps = 0;
+
+  //Return if graph is empty
+  if(initGraph.nodes == leaf_false()) {
+    return createSccResult(bsccList, symbolicSteps);
+  }
+
+  //The type of reachability used - relationUnion or saturation
+  ReachType reach;
+
+  //Initialize the set of relations and graph
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  Graph workingGraph;
+  workingGraph.cube = fullCube;
+  workingGraph.relations = relationDeque;
+  workingGraph.nodes = leaf_true();
+
+  const ReachResult allNodesResult = rel.forwardSet(workingGraph, initGraph.nodes); 
+  const Bdd allNodes = allNodesResult.set;
+  symbolicSteps += allNodesResult.symbolicSteps;
+  workingGraph.nodes = allNodes;
+
+  //callstack used to emulate recursive calls
+  std::stack<Bdd> callStack;
+  callStack.push(allNodes);
+
+  std::list<Bdd> bsccList = {};
+  
+  while(!callStack.empty()) {
+    const Bdd nodeSet = callStack.top();
+    callStack.pop();
+
+    Bdd v = pick(nodeSet, fullCube);
+    Bdd forwardSet;
+    Bdd backwardSet;
+
+    workingGraph.nodes = nodeSet;
+    ReachResult res1 = reach.backwardSet(workingGraph, v);
+    symbolicSteps = symbolicSteps + res1.symbolicSteps;
+    backwardSet = res1.set;
+
+    //Find the forwardset and stop quickly if the forwardset goes beyond the backwardset since the SCC is not a BSCC
+    ReachResultBottom res2 = reach.forwardSetShortcut(workingGraph, v, backwardSet);
+    symbolicSteps = symbolicSteps + res2.symbolicSteps;
+    forwardSet = res2.set;
+    bool isBscc = res2.isBscc;
+
+    //Add scc to bscclist if it is a BSCC
+    if(isBscc) {
+      Bdd scc = forwardSet;
+      bsccList.push_back(scc);
+    }
+
+    //Emulating a recursive call by pushing to the stack
+    //Delete the entire backward set from recursive call
+    Bdd recBdd = differenceBdd(nodeSet, backwardSet);
+    if(recBdd != leaf_false()) {
+      callStack.push(recBdd);
+    }
+  }
+
   return createSccResult(bsccList, symbolicSteps);  
 }
 
