@@ -1375,7 +1375,43 @@ SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd>
     approx.pop_front();
 
     //find BSCC in bigBscc
-    Bdd startNode = 
+    Bdd startNode = pick(bigBscc, fullCube);
+
+    while(!bottomSCC) {
+      //Compute FWD in the current forward set from a node in the last layer
+      newForward = rel.forwardSetLastLayer(workingGraph, v2);
+      symbolicSteps = symbolicSteps + newForward.symbolicSteps;
+
+      //Compute the backward transitive closure on the result of FWD from last layer (result is the SCC)
+      workingGraph.nodes = newForward.forwardSet;
+      const ReachResult transBackward = rel.backwardSet(workingGraph, v2);
+      symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
+      const Bdd scc = transBackward.set;
+
+      if(differenceBdd(newForward.forwardSet, scc) == leaf_false()) {
+        //If BSCC, report the BSCC
+        bottomSCC = true;
+        bscc = scc;
+        sccList.push_back(bscc);
+      } else {
+        //Not a BSCC, initialize next loop of while
+        //Update the current forward set we work on and subtract the scc (which is not bscc) from the lastlayer and forwardset
+        newForward.forwardSet = differenceBdd(newForward.forwardSet, scc);
+        newForward.lastLayer = differenceBdd(newForward.lastLayer, scc);
+        workingGraph.nodes = newForward.forwardSet;
+        if(newForward.lastLayer == leaf_false()) {
+          //lastLayer is empty - pick next pivot v2 from the forward set instead
+          ReachResult sccNext = rel.forwardStep(workingGraph, scc);
+          symbolicSteps += sccNext.symbolicSteps;
+          v2 = pick(sccNext.set, fullCube);
+        } else {
+          //lastLayer not empty - pick next pivot v2 from it
+          v2 = pick(newForward.lastLayer, fullCube);
+        }        
+      }
+    }
+
+    /////////////////////////////////////////
 
     approx.remove_if([](Bdd a){ return a.isZero(); });
   }
