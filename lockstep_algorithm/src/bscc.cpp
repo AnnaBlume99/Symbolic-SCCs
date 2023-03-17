@@ -320,7 +320,6 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
     workingGraph.nodes = nodeSet;
     v2 = startNode;   
 
-    bool firstForward = true;
     //WHILE-SEARCH
     while(!bottomSCC) {
       //Compute FWD in the current forward set from a node in the last layer
@@ -1117,6 +1116,132 @@ SccResult chainAlgBottomSingleRecCallSwitch(const Graph &fullGraph) {
   return createSccResult(sccList, symbolicSteps);
 }
 
+//Version with only one recursive call and switching
+SccResult chainAlgBottomSingleRecCallSwitchAndBasin(const Graph &fullGraph) {
+  int symbolicSteps = 0;
+
+  std::list<Bdd> sccList = {};
+  if(fullGraph.nodes == leaf_false()) {
+    return createSccResult(sccList, symbolicSteps);
+  }
+
+  const Bdd allNodes = fullGraph.nodes;
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  std::stack<std::pair<Bdd, Bdd>> callStack;
+  const Bdd startNode = pick(allNodes, fullCube);
+  const std::pair<Bdd, Bdd> pushPair = {allNodes, startNode};
+  callStack.push(pushPair);
+  
+  RelationUnion rel;
+
+  Graph workingGraph = {};
+  workingGraph.nodes = allNodes;
+  workingGraph.cube = fullCube;
+  workingGraph.relations = relationDeque;
+
+  while(!callStack.empty()) {
+    const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
+    callStack.pop();
+    const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
+    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+
+    //While-loop setup
+    bool bottomSCC = false;
+    ChainResult newForward;
+    Bdd bscc;
+    Bdd v2;
+
+    workingGraph.nodes = nodeSet;
+    v2 = startNode;   
+
+    Bdd allScc = leaf_false(); //New for Cumulativebasin
+
+
+    bool xbSwitch = false;
+    Bdd switchBasin = leaf_false();
+    long long setSize = nodeSet.SatCount(fullCube);
+
+    //WHILE-SEARCH
+    while(!bottomSCC) {
+      //Compute FWD in the current forward set from a node in the last layer
+      newForward = rel.forwardSetLastLayer(workingGraph, v2);
+      symbolicSteps = symbolicSteps + newForward.symbolicSteps;
+
+      long long fwSize = newForward.forwardSet.SatCount(fullCube);
+      float switch_ratio = 0.9;
+      xbSwitch = ((float)fwSize / (float)setSize) >= switch_ratio;
+      //Compute the backward transitive closure on the result of FWD from last layer (result is the SCC)
+      
+      Bdd scc = leaf_false();
+      if(xbSwitch){
+        workingGraph.nodes = nodeSet;
+        const ReachResult transBackward = rel.backwardSet(workingGraph, v2);
+        switchBasin = transBackward.set;
+        symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
+        scc = intersectBdd(switchBasin, newForward.forwardSet);
+      } else {
+        workingGraph.nodes = newForward.forwardSet;
+        const ReachResult transBackward = rel.backwardSet(workingGraph, v2);
+        symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
+        scc = transBackward.set;
+      }
+      allScc = unionBdd(allScc, scc); //New for cumulativebasin
+      
+      if(differenceBdd(newForward.forwardSet, scc) == leaf_false()) {
+        //If BSCC, report the BSCC
+        bottomSCC = true;
+        bscc = scc;
+        sccList.push_back(bscc);
+      } else {
+        if(xbSwitch) {
+          break;
+        }
+
+        //Not a BSCC, initialize next loop of while
+        //Update the current forward set we work on and subtract the scc (which is not bscc) from the lastlayer and forwardset
+        newForward.forwardSet = differenceBdd(newForward.forwardSet, scc);
+        newForward.lastLayer = differenceBdd(newForward.lastLayer, scc);
+        workingGraph.nodes = newForward.forwardSet;
+        if(newForward.lastLayer == leaf_false()) {
+          //lastLayer is empty - pick next pivot v2 from the forward set instead
+          ReachResult sccNext = rel.forwardStep(workingGraph, scc);
+          symbolicSteps += sccNext.symbolicSteps;
+          v2 = pick(sccNext.set, fullCube);
+        } else {
+          //lastLayer not empty - pick next pivot v2 from it
+          v2 = pick(newForward.lastLayer, fullCube);
+        }        
+      }
+    }
+
+    //Restore the workinggraph to be the original FWD since the basin of the bscc
+    //might reach anything in this scc-closed set
+    Bdd bsccBasin = leaf_false();
+    if(xbSwitch) {
+      bsccBasin = switchBasin;
+    } else {
+      workingGraph.nodes = nodeSet;
+      ReachResult basinReach = rel.backwardSet(workingGraph, allScc);
+      symbolicSteps = symbolicSteps + basinReach.symbolicSteps;
+      bsccBasin = basinReach.set;
+    }
+
+    //Create "recursive" call
+    //"Call" on V \ bsccBasin, picking from everything
+    const Bdd recBdd2 = differenceBdd(nodeSet, bsccBasin);
+    if(recBdd2 != leaf_false()) {
+      Bdd recNode2 = pick(recBdd2, fullCube);
+      const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
+      callStack.push(recPair2);
+    }
+  }
+
+  //Return SCC list and number of symbolic steps
+  return createSccResult(sccList, symbolicSteps);
+}
+
 ///////////////////////////// INITIAL STATE VERSIONS /////////////////////////////////
 
 //Version with only one recursive call which only knows Init at first
@@ -1170,6 +1295,119 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
         firstFwd = false;
         nodeSet = newForward.forwardSet;
       }
+
+      //Compute the backward transitive closure on the result of FWD from last layer (result is the SCC)
+      workingGraph.nodes = newForward.forwardSet;
+      const ReachResult transBackward = rel.backwardSet(workingGraph, v2);
+      symbolicSteps = symbolicSteps + transBackward.symbolicSteps;
+      const Bdd scc = transBackward.set;
+
+      if(differenceBdd(newForward.forwardSet, scc) == leaf_false()) {
+        //If BSCC, report the BSCC
+        bottomSCC = true;
+        bscc = scc;
+        sccList.push_back(bscc);
+      } else {
+        //Not a BSCC, initialize next loop of while
+        //Update the current forward set we work on and subtract the scc (which is not bscc) from the lastlayer and forwardset
+        newForward.forwardSet = differenceBdd(newForward.forwardSet, scc);
+        newForward.lastLayer = differenceBdd(newForward.lastLayer, scc);
+        workingGraph.nodes = newForward.forwardSet;
+        if(newForward.lastLayer == leaf_false()) {
+          //lastLayer is empty - pick next pivot v2 from the forward set instead
+          ReachResult sccNext = rel.forwardStep(workingGraph, scc);
+          symbolicSteps += sccNext.symbolicSteps;
+          v2 = pick(sccNext.set, fullCube);
+        } else {
+          //lastLayer not empty - pick next pivot v2 from it
+          v2 = pick(newForward.lastLayer, fullCube);
+        }        
+      }
+    }
+
+    //Restore the workinggraph to be the original FWD since the basin of the bscc might reach anything in this scc-closed set
+    workingGraph.nodes = nodeSet;
+    ReachResult basinReach = rel.backwardSet(workingGraph, bscc);
+    symbolicSteps = symbolicSteps + basinReach.symbolicSteps;
+    Bdd bsccBasin = basinReach.set;
+
+    //Create "recursive" call
+    //"Call" on V \ bsccBasin, picking from everything
+    const Bdd recBdd2 = differenceBdd(nodeSet, bsccBasin);
+    if(recBdd2 != leaf_false()) {
+      Bdd recNode2 = pick(recBdd2, fullCube);
+      const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
+      callStack.push(recPair2);
+    }
+  }
+
+  //Return SCC list and number of symbolic steps
+  return createSccResult(sccList, symbolicSteps);
+}
+
+///////////////////////////// Projections ////////////////////////////
+//Version with only one recursive call given projections
+SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd> &approx) {
+  int symbolicSteps = 0;
+
+  std::list<Bdd> sccList = {};
+  if(fullGraph.nodes == leaf_false()) {
+    return createSccResult(sccList, symbolicSteps);
+  }
+
+  if(approx.empty()) {
+    return chainAlgBottomSingleRecCall(fullGraph);
+  }
+
+  const Bdd allNodes = fullGraph.nodes;
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  Graph workingGraph = {};
+  workingGraph.nodes = allNodes;
+  workingGraph.cube = fullCube;
+  workingGraph.relations = relationDeque;
+
+  RelationUnion rel;
+
+  while(!approx.empty()) {
+    Bdd bigBscc = approx.front();
+    approx.pop_front();
+
+    //find BSCC in bigBscc
+    Bdd startNode = 
+
+    approx.remove_if([](Bdd a){ return a.isZero(); });
+  }
+
+  //call to normal chain, and add results before returning.
+
+
+  std::stack<std::pair<Bdd, Bdd>> callStack;
+  const Bdd startNode = pick(allNodes, fullCube);
+  const std::pair<Bdd, Bdd> pushPair = {allNodes, startNode};
+  callStack.push(pushPair);
+  
+  while(!callStack.empty()) {
+    const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
+    callStack.pop();
+    const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
+    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+
+    //While-loop setup
+    bool bottomSCC = false;
+    ChainResult newForward;
+    Bdd bscc;
+    Bdd v2;
+
+    workingGraph.nodes = nodeSet;
+    v2 = startNode;   
+
+    //WHILE-SEARCH
+    while(!bottomSCC) {
+      //Compute FWD in the current forward set from a node in the last layer
+      newForward = rel.forwardSetLastLayer(workingGraph, v2);
+      symbolicSteps = symbolicSteps + newForward.symbolicSteps;
 
       //Compute the backward transitive closure on the result of FWD from last layer (result is the SCC)
       workingGraph.nodes = newForward.forwardSet;
