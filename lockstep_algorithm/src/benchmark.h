@@ -16,7 +16,6 @@ enum algorithmType
   chain,
   xbSatBottom,
   xbRelUnionBottom,
-  chainBottomBasic,
   chainBottomAdvanced,
   chainBottomSingleRec,
   chainBottomSingleRecSpecialFWD,
@@ -26,7 +25,9 @@ enum algorithmType
   chainBottomSingleRecCumulative,
   chainBottomSingleRecExtra,
   chainBottomSingleRecSwitch,
-  chainBottomSingleRecSwitchAndBasin
+  chainBottomSingleRecSwitchAndBasin,
+  chainBottomApproxPick,
+  xbBottomApproxPick
 };
 
 //ToString on the runnable function enums
@@ -49,8 +50,6 @@ inline const std::string algoToString(algorithmType runType) {
       return "Xie-Beerel saturation bottom";
     case xbRelUnionBottom:
       return "Xie-Beerel relation union bottom";
-    case chainBottomBasic:
-      return "Chain bottom basic";
     case chainBottomAdvanced:
       return "Chain bottom advanced";
     case chainBottomSingleRec:
@@ -71,6 +70,10 @@ inline const std::string algoToString(algorithmType runType) {
       return "Chain bottom single rec switch";
     case chainBottomSingleRecSwitchAndBasin:
       return "Chain bottom single rec switch and basin";
+    case chainBottomApproxPick:
+      return "Chain bottom with overapproximations";
+    case xbBottomApproxPick:
+      return "XB bottom with overapproximations";
     default:
       return "[Unknown algorithm type]";
   }

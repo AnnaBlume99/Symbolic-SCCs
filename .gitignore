@@ -2,3 +2,4 @@ lockstep_algorithm/build
 .vscode
 *.csv
 *.xlsx
+lockstep_algorithm/Results.xlsx

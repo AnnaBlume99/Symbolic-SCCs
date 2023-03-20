@@ -27,37 +27,37 @@ std::list<std::string> getPathStringsBscc() {
   std::list<std::string> resultList = {};
 
   // < 15 minutes
-  // resultList.push_back("ShieldRVs/PT/shield_s_rv_001_a_17place.pnml");        //1 BSCCs / 16 SCCs
-  // resultList.push_back("GPUForwardProgress/PT/gpufp_04_a_24place.pnml");      //16 BSCCs / 368 SCCs
-  // resultList.push_back("ShieldRVs/PT/shield_s_rv_002_a_31place.pnml");        //8 BSCCs / 2362 SCCs
-  // resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
-  // resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs
-  // resultList.push_back("GPUForwardProgress/PT/gpufp_08_a_40place.pnml");      //256 BSCCs / 118208 SCCs
-  // resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
-  // resultList.push_back("ShieldRVs/PT/shield_s_rv_001_b_43place.pnml");        //1 BSCCs / 479 SCCs
-  // resultList.push_back("SmartHome/PT/smhome_03_45place.pnml");                //1 BSCCs / 76 SCCs
-  // resultList.push_back("ShieldRVs/PT/shield_s_rv_003_a_45place.pnml");        //51 BSCCs / 327762 SCCs
-  // resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
-  // resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
-  // resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
-  // resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_001_a_17place.pnml");        //1 BSCCs / 16 SCCs
+  resultList.push_back("GPUForwardProgress/PT/gpufp_04_a_24place.pnml");      //16 BSCCs / 368 SCCs
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_002_a_31place.pnml");        //8 BSCCs / 2362 SCCs
+  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
+  resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs
+  resultList.push_back("GPUForwardProgress/PT/gpufp_08_a_40place.pnml");      //256 BSCCs / 118208 SCCs
+  resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_001_b_43place.pnml");        //1 BSCCs / 479 SCCs
+  resultList.push_back("SmartHome/PT/smhome_03_45place.pnml");                //1 BSCCs / 76 SCCs
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_003_a_45place.pnml");        //51 BSCCs / 327762 SCCs
+  resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
+  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
+  resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
+  resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
 
 
   // Feasible bsccs of the larger ones *These are also in the list below*
-  // resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56 - 90s // 4096 BSCCs
+  resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56 - 90s // 4096 BSCCs
   
   
-  // // resultList.push_back("ShieldRVs/PT/shield_s_rv_004_a_59place.pnml");                        //59 - 4 min // ??
-  resultList.push_back("ShieldPPPt/PT/shield_t_ppp_001_b_81place.pnml");                      //81 - 30s // 3 BSCCs
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_002_b_83place.pnml");                        //83 - 30s // 8 BSCCs
-  //resultList.push_back("ShieldRVt/PT/shield_t_rv_002_b_103place.pnml");                       //103 - 100s //146 BSCCs
-  resultList.push_back("GPUForwardProgress/PT/gpufp_04_b_112place.pnml");                     //112 - 15s //??
-  resultList.push_back("HealthRecord/PT/hrec_01_117place.pnml");                              //117 - 8s //15 BSCCs
-  resultList.push_back("HealthRecord/PT/hrec_02_119place.pnml");                              //119 - 15s //27 BSCCs
-  resultList.push_back("HealthRecord/PT/hrec_03_121place.pnml");                              //121 - 25s //51 BSCCs
-  resultList.push_back("HealthRecord/PT/hrec_04_123place.pnml");                              //123 - 30s //99 BSCCs
-  resultList.push_back("HealthRecord/PT/hrec_05_125place.pnml");                              //125 - 40s //195 BSCCs
-  resultList.push_back("DiscoveryGPU/PT/discovery_13_a_133place.pnml");                       //133 - 2s //1 BSCCs
+  // resultList.push_back("ShieldRVs/PT/shield_s_rv_004_a_59place.pnml");                        //59 - 4 min // ??
+  // resultList.push_back("ShieldPPPt/PT/shield_t_ppp_001_b_81place.pnml");                      //81 - 30s // 3 BSCCs
+  // resultList.push_back("ShieldRVs/PT/shield_s_rv_002_b_83place.pnml");                        //83 - 30s // 8 BSCCs
+  // //resultList.push_back("ShieldRVt/PT/shield_t_rv_002_b_103place.pnml");                       //103 - 100s //146 BSCCs
+  // resultList.push_back("GPUForwardProgress/PT/gpufp_04_b_112place.pnml");                     //112 - 15s //??
+  // resultList.push_back("HealthRecord/PT/hrec_01_117place.pnml");                              //117 - 8s //15 BSCCs
+  // resultList.push_back("HealthRecord/PT/hrec_02_119place.pnml");                              //119 - 15s //27 BSCCs
+  // resultList.push_back("HealthRecord/PT/hrec_03_121place.pnml");                              //121 - 25s //51 BSCCs
+  // resultList.push_back("HealthRecord/PT/hrec_04_123place.pnml");                              //123 - 30s //99 BSCCs
+  // resultList.push_back("HealthRecord/PT/hrec_05_125place.pnml");                              //125 - 40s //195 BSCCs
+  // resultList.push_back("DiscoveryGPU/PT/discovery_13_a_133place.pnml");                       //133 - 2s //1 BSCCs
 
 
   // > 15 minutes - not checked yet for only 1 SCC
@@ -453,6 +453,12 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
       break;
     case chainBottomSingleRecSwitchAndBasin:
       sccAndSteps = chainAlgBottomSingleRecCallSwitchAndBasin(graph);
+      break;
+    case chainBottomApproxPick:
+      sccAndSteps = chainAlgBottomApproxPick(graph);
+      break;
+    case xbBottomApproxPick:
+      sccAndSteps = xbAlgBottomApproxPick(graph);
       break;
   }
 

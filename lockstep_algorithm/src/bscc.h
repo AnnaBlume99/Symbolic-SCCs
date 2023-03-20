@@ -31,6 +31,10 @@ SccResult chainAlgBottomSingleRecCallExtra(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallSwitch(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallSwitchAndBasin(const Graph &fullGraph);
 
+SccResult chainAlgBottomApproxPick(const Graph &fullGraph);
+
+SccResult xbAlgBottomApproxPick(const Graph &fullGraph);
+
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
   int symbolicSteps = 0;

@@ -13,6 +13,7 @@
 #include "scc.h"
 #include "bdd_utilities.h"
 #include "print.h"
+#include "bscc.h"
 
 using sylvan::Bdd;
 using sylvan::BddSet;
@@ -46,17 +47,15 @@ SccResult chainAlgBottomAdvanced(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     ChainResult transForward;
     Bdd bscc;
-    Bdd v2;
 
-    workingGraph.nodes = nodeSet;
-    v2 = startNode;   
+    workingGraph.nodes = nodeSet; 
 
     bool firstForward = true;
     //WHILE-SEARCH
@@ -179,17 +178,16 @@ SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
 
     //We find the first FWD* without finding the SCC
     workingGraph.nodes = nodeSet;
-    ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
+    ChainResult transForward = rel.forwardSetLastLayer(workingGraph, v2);
     symbolicSteps = symbolicSteps + transForward.symbolicSteps;
     v2 = pick(transForward.lastLayer, fullCube);
     workingGraph.nodes = transForward.forwardSet;   
@@ -309,16 +307,13 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
-
-    workingGraph.nodes = nodeSet;
-    v2 = startNode;   
+    workingGraph.nodes = nodeSet; 
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -405,17 +400,16 @@ SccResult chainAlgBottomSingleRecSpecialFWD(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
 
     //We find the first FWD* without finding the SCC
     workingGraph.nodes = nodeSet;
-    ChainResult transForward = rel.forwardSetLastLayer(workingGraph, startNode);
+    ChainResult transForward = rel.forwardSetLastLayer(workingGraph, v2);
     symbolicSteps = symbolicSteps + transForward.symbolicSteps;
     v2 = pick(transForward.lastLayer, fullCube);
     workingGraph.nodes = transForward.forwardSet;   
@@ -507,17 +501,15 @@ SccResult chainAlgBottomForwardLoop(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     ChainResult transForward;
     Bdd bscc;
-    Bdd v2;
 
     workingGraph.nodes = nodeSet;
-    v2 = startNode;   
 
     bool firstForward = true;
     //WHILE-SEARCH
@@ -644,17 +636,14 @@ SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     ChainResult transForward;
     Bdd bscc;
-    Bdd v2;
-
-    workingGraph.nodes = nodeSet;
-    v2 = startNode;   
+    workingGraph.nodes = nodeSet; 
 
     bool firstForward = true;
     //WHILE-SEARCH
@@ -822,18 +811,16 @@ SccResult chainAlgBottomSingleRecCallCumulative(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
 
     Bdd allScc = leaf_false(); //New for Cumulativebasin
 
     workingGraph.nodes = nodeSet;
-    v2 = startNode;   
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -923,16 +910,14 @@ SccResult chainAlgBottomSingleRecCallExtra(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
 
-    workingGraph.nodes = nodeSet;
-    v2 = startNode;   
+    workingGraph.nodes = nodeSet;  
 
     //WHILE-SEARCH
     while(!bottomSCC) {
@@ -1023,16 +1008,14 @@ SccResult chainAlgBottomSingleRecCallSwitch(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
 
     workingGraph.nodes = nodeSet;
-    v2 = startNode;   
 
     bool xbSwitch = false;
     Bdd switchBasin = leaf_false();
@@ -1145,16 +1128,14 @@ SccResult chainAlgBottomSingleRecCallSwitchAndBasin(const Graph &fullGraph) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
 
-    workingGraph.nodes = nodeSet;
-    v2 = startNode;   
+    workingGraph.nodes = nodeSet; 
 
     Bdd allScc = leaf_false(); //New for Cumulativebasin
 
@@ -1257,11 +1238,6 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
   const BddSet fullCube = initGraph.cube;
   const std::deque<Relation> relationDeque = initGraph.relations;
 
-  std::stack<std::pair<Bdd, Bdd>> callStack;
-  const Bdd startNode = pick(initNodes, fullCube);
-  const std::pair<Bdd, Bdd> pushPair = {initNodes, startNode};
-  callStack.push(pushPair);
-  
   RelationUnion rel;
 
   Graph workingGraph = {};
@@ -1269,32 +1245,33 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
   workingGraph.cube = fullCube;
   workingGraph.relations = relationDeque;
 
-  bool firstFwd = true;
+  //Finds the full graph from the start nodes
+  ChainResult fullGraph = rel.forwardSetLastLayer(workingGraph, initNodes);
+  symbolicSteps += fullGraph.symbolicSteps;
 
+  //Setup the callstack, instead of making the first pick randomly, we can pick from lastlayer, found when finding the full graph initially
+  std::stack<std::pair<Bdd, Bdd>> callStack;
+  const Bdd startNode = pick(fullGraph.lastLayer, fullCube);
+  const std::pair<Bdd, Bdd> pushPair = {fullGraph.forwardSet, startNode};
+  callStack.push(pushPair);
+  
   while(!callStack.empty()) {
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
-    const Bdd startNode = std::get<1>(nodeSetAndStartNode);
+    Bdd v2 = std::get<1>(nodeSetAndStartNode);
 
     //While-loop setup
     bool bottomSCC = false;
     ChainResult newForward;
     Bdd bscc;
-    Bdd v2;
-
     workingGraph.nodes = nodeSet;
-    v2 = startNode;   
 
     //WHILE-SEARCH
     while(!bottomSCC) {
       //Compute FWD in the current forward set from a node in the last layer
       newForward = rel.forwardSetLastLayer(workingGraph, v2);
       symbolicSteps = symbolicSteps + newForward.symbolicSteps;
-      if(firstFwd) {
-        firstFwd = false;
-        nodeSet = newForward.forwardSet;
-      }
 
       //Compute the backward transitive closure on the result of FWD from last layer (result is the SCC)
       workingGraph.nodes = newForward.forwardSet;
@@ -1347,6 +1324,8 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
 
 ///////////////////////////// Projections ////////////////////////////
 //Version with only one recursive call given projections
+
+//TODO make exhaustive version
 SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd> &approx) {
   int symbolicSteps = 0;
 
@@ -1370,11 +1349,16 @@ SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd>
   Bdd currentAll = allNodes;
 
   RelationUnion rel;
+  
+  //std::cout << "Approx list length:" << approx.size() << std::endl;
+  
+  for(Bdd bigBscc : approx) {
+    bigBscc = intersectBdd(currentAll, bigBscc);
+    if(bigBscc == leaf_false()) {
+      continue;
+    }
 
-  while(!approx.empty()) {
-    Bdd bigBscc = approx.front();
     workingGraph.nodes = bigBscc;
-    approx.pop_front();
 
     //find BSCC in bigBscc
     Bdd startNode = pick(bigBscc, fullCube);
@@ -1415,18 +1399,12 @@ SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd>
         }        
       }
     }
-
+    //std::cout << "Done with for loop..." << std::endl;
     workingGraph.nodes = currentAll;
     ReachResult bsccBasinReach = rel.backwardSet(workingGraph, bscc);
     symbolicSteps += bsccBasinReach.symbolicSteps;
     Bdd bsccBasin = bsccBasinReach.set;
     currentAll = differenceBdd(currentAll, bsccBasin);
-
-    for(Bdd a : approx) {
-      a = differenceBdd(a, bsccBasin);
-    }
-
-    approx.remove_if([](Bdd a){ return a.isZero(); });
   }
 
   //call to normal chain, and add results before returning.
@@ -1436,7 +1414,135 @@ SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd>
   newGraph.relations = relationDeque;
   SccResult chainRes = chainAlgBottomSingleRecCall(newGraph);
 
+  //std::cout << "Done with finding rest of bsccs..." << std::endl;
+
   //Return total SCC list and number of symbolic steps
   sccList.splice(sccList.end(), chainRes.sccs);
   return createSccResult(sccList, symbolicSteps + chainRes.symbolicSteps);
+}
+
+Graph createApproximateGraph(const Graph &fullGraph) {
+  const Bdd allNodes = fullGraph.nodes;
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  std::deque<Relation> newRelations;
+
+  Bdd currentRelation;
+  BddSet currentRelationCube;
+  for(int i = 0 ; i < relationDeque.size(); i++) {
+    currentRelation = relationDeque[i].relationBdd;
+    currentRelationCube = relationDeque[i].cube;
+
+    //create new relation!
+    Relation newRel = {};
+    newRel.relationBdd = currentRelation;
+    newRel.cube = fullCube;
+    newRel.top = 0;
+    newRel.bottom = 0;
+    newRelations.push_back(newRel);
+  }
+
+  Graph newGraph = {};
+  newGraph.nodes = allNodes;
+  newGraph.cube = fullCube;
+  newGraph.relations = newRelations;
+
+  return newGraph;
+}
+
+SccResult chainAlgBottomApproxPick(const Graph &fullGraph) {
+  Graph overApproximationGraph = createApproximateGraph(fullGraph);
+
+  //std::cout << "done with over approx graph..." << std::endl;
+  SccResult overApproxBdds = chainAlgBottomSingleRecCall(overApproximationGraph);
+
+  //std::cout << "done with finding overapprox bdds..." << std::endl;
+
+  SccResult realRes = chainAlgBottomSingleRecCallProj(fullGraph, overApproxBdds.sccs);
+  
+  //std::cout << "done with finding actual bdds..." << std::endl;
+
+  int symbolicSteps = overApproxBdds.symbolicSteps + realRes.symbolicSteps;
+
+  return createSccResult(realRes.sccs, symbolicSteps); 
+}
+
+
+//Version with only one recursive call given projections
+SccResult xbBottomProj(const Graph &fullGraph, std::list<Bdd> &approx) {
+  int symbolicSteps = 0;
+
+  std::list<Bdd> sccList = {};
+  if(fullGraph.nodes == leaf_false()) {
+    return createSccResult(sccList, symbolicSteps);
+  }
+
+  if(approx.empty()) {
+    return chainAlgBottomSingleRecCall(fullGraph);
+  }
+
+  const Bdd allNodes = fullGraph.nodes;
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  Graph workingGraph = {};
+  workingGraph.nodes = allNodes;
+  workingGraph.cube = fullCube;
+  workingGraph.relations = relationDeque;
+  Bdd currentAll = allNodes;
+
+  RelationUnion rel;
+
+  for(Bdd bigBscc : approx) {
+    bigBscc = intersectBdd(currentAll, bigBscc);
+    if(bigBscc == leaf_false()) {
+      continue;
+    }
+
+    bool bottomSCC = false;
+
+    while(!bottomSCC) {
+      workingGraph.nodes = currentAll;
+
+      //find BSCC in bigBscc
+      Bdd startNode = pick(bigBscc, fullCube);
+      ReachResult basinReach = rel.backwardSet(workingGraph, startNode);
+      symbolicSteps += basinReach.symbolicSteps;
+      Bdd bsccBasin = basinReach.set;
+
+      ReachResultBottom forwardReach = rel.forwardSetShortcut(workingGraph, startNode, bsccBasin);
+      symbolicSteps += forwardReach.symbolicSteps;
+      bool isBscc = forwardReach.isBscc;
+      if(isBscc) {
+        Bdd bscc = forwardReach.set;
+        sccList.push_back(bscc);
+      }
+      bottomSCC = isBscc;
+      
+      currentAll = differenceBdd(currentAll, bsccBasin);
+      bigBscc = differenceBdd(bigBscc, bsccBasin);
+    }
+  }
+
+  //call to normal xb, and add results before returning.
+  Graph newGraph;
+  newGraph.nodes = currentAll;
+  newGraph.cube = fullCube;
+  newGraph.relations = relationDeque;
+  SccResult xbRes = xieBeerelBottom<RelationUnion>(newGraph);
+
+  //Return total SCC list and number of symbolic steps
+  sccList.splice(sccList.end(), xbRes.sccs);
+  return createSccResult(sccList, symbolicSteps + xbRes.symbolicSteps);
+}
+
+SccResult xbAlgBottomApproxPick(const Graph &fullGraph) {
+  Graph overApproximationGraph = createApproximateGraph(fullGraph);
+  SccResult overApproxBdds = xieBeerelBottom<RelationUnion>(overApproximationGraph);
+
+  SccResult realRes = xbBottomProj(fullGraph, overApproxBdds.sccs);
+  int symbolicSteps = overApproxBdds.symbolicSteps + realRes.symbolicSteps;
+
+  return createSccResult(realRes.sccs, symbolicSteps); 
 }
