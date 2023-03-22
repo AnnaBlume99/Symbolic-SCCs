@@ -31,11 +31,11 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {xbBottomApproxPick};
+  std::list<algorithmType> runTypes = {xbBottomApproxPick, chainBottomApproxPick};
 
   for(algorithmType algo : runTypes) {
     std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + " hulu2";
+    std::string fileName = algoToString(algo) + " hu";
     benchmark(pathStrings, fileName, algorithms, 0);
   }
 

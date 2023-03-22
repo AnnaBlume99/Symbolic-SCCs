@@ -98,7 +98,7 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
       callStack.push(recBdd);
     }
   }
-  std::cout << ";" << recCalls << ";" << nodeCount;
+  //std::cout << ";" << recCalls << ";" << nodeCount;
   return createSccResult(bsccList, symbolicSteps);  
 }
 

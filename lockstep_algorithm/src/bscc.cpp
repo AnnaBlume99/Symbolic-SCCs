@@ -333,13 +333,15 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
         bscc = scc;
         sccList.push_back(bscc);
       } else {
+        //std::cout << "Here 3 " << std::endl;
+
         //Not a BSCC, initialize next loop of while
         //Update the current forward set we work on and subtract the scc (which is not bscc) from the lastlayer and forwardset
         newForward.forwardSet = differenceBdd(newForward.forwardSet, scc);
+
         newForward.lastLayer = differenceBdd(newForward.lastLayer, scc);
         workingGraph.nodes = newForward.forwardSet;
         if(newForward.lastLayer == leaf_false()) {
-          //lastLayer is empty - pick next pivot v2 from the forward set instead
           ReachResult sccNext = rel.forwardStep(workingGraph, scc);
           symbolicSteps += sccNext.symbolicSteps;
           v2 = pick(sccNext.set, fullCube);
@@ -349,7 +351,6 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
         }        
       }
     }
-
     //Restore the workinggraph to be the original FWD since the basin of the bscc might reach anything in this scc-closed set
     workingGraph.nodes = nodeSet;
     ReachResult basinReach = rel.backwardSet(workingGraph, bscc);
@@ -1451,22 +1452,7 @@ Graph createApproximateGraph(const Graph &fullGraph) {
   return newGraph;
 }
 
-SccResult chainAlgBottomApproxPick(const Graph &fullGraph) {
-  Graph overApproximationGraph = createApproximateGraph(fullGraph);
 
-  //std::cout << "done with over approx graph..." << std::endl;
-  SccResult overApproxBdds = chainAlgBottomSingleRecCall(overApproximationGraph);
-
-  //std::cout << "done with finding overapprox bdds..." << std::endl;
-
-  SccResult realRes = chainAlgBottomSingleRecCallProj(fullGraph, overApproxBdds.sccs);
-  
-  //std::cout << "done with finding actual bdds..." << std::endl;
-
-  int symbolicSteps = overApproxBdds.symbolicSteps + realRes.symbolicSteps;
-
-  return createSccResult(realRes.sccs, symbolicSteps); 
-}
 
 
 //Version with only one recursive call given projections
@@ -1536,6 +1522,17 @@ SccResult xbBottomProj(const Graph &fullGraph, std::list<Bdd> &approx) {
   sccList.splice(sccList.end(), xbRes.sccs);
   return createSccResult(sccList, symbolicSteps + xbRes.symbolicSteps);
 }
+
+
+SccResult chainAlgBottomApproxPick(const Graph &fullGraph) {
+  Graph overApproximationGraph = createApproximateGraph(fullGraph);
+  SccResult overApproxBdds = chainAlgBottomSingleRecCall(overApproximationGraph);
+
+  SccResult realRes = chainAlgBottomSingleRecCallProj(fullGraph, overApproxBdds.sccs);
+  int symbolicSteps = overApproxBdds.symbolicSteps + realRes.symbolicSteps;
+  return createSccResult(realRes.sccs, symbolicSteps); 
+}
+
 
 SccResult xbAlgBottomApproxPick(const Graph &fullGraph) {
   Graph overApproximationGraph = createApproximateGraph(fullGraph);

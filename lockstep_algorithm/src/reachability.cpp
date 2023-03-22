@@ -397,19 +397,17 @@ ReachResult RelationUnion::forwardStep(const Graph &graph, const sylvan::Bdd &no
   std::deque<Relation> relationDeque = graph.relations;
   Bdd nodeSet = graph.nodes;
   int symbolicSteps = 0;
-
   Bdd step = leaf_false();
   for(int i = 0 ; i < relationDeque.size(); i++) {
     Bdd currentRelation = relationDeque[i].relationBdd;
     BddSet currentRelationCube = relationDeque[i].cube;
 
-    Bdd relResult = nodes.RelNext(currentRelation, currentRelationCube);
+    Bdd relResult = differenceBdd(intersectBdd(nodes.RelNext(currentRelation, currentRelationCube), nodeSet), nodes);
     symbolicSteps = symbolicSteps + 1;
 
     step = unionBdd(step, relResult);
-  }
-  step = intersectBdd(nodeSet, step);
 
+  }
   return createReachResult(step, symbolicSteps);
 }
 
@@ -423,12 +421,11 @@ ReachResult RelationUnion::backwardStep(const Graph &graph, const sylvan::Bdd &n
     Bdd currentRelation = relationDeque[i].relationBdd;
     BddSet currentRelationCube = relationDeque[i].cube;
 
-    Bdd relResult = nodes.RelPrev(currentRelation, currentRelationCube);
+    Bdd relResult = differenceBdd(intersectBdd(nodes.RelPrev(currentRelation, currentRelationCube), nodeSet), nodes);
     symbolicSteps = symbolicSteps + 1;
 
     step = unionBdd(step, relResult);
   }
-  step = intersectBdd(nodeSet, step);
 
   return createReachResult(step, symbolicSteps);
 }
