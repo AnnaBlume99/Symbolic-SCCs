@@ -1330,6 +1330,10 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
 SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd> &approx) {
   int symbolicSteps = 0;
 
+  //Sort relations
+
+
+
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
     return createSccResult(sccList, symbolicSteps);
@@ -1453,6 +1457,48 @@ Graph createApproximateGraph(const Graph &fullGraph) {
 }
 
 
+Graph createApproximateGraphv2(const Graph &fullGraph) {
+  const Bdd allNodes = fullGraph.nodes;
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  std::deque<Relation> newRelations;
+
+  Bdd currentRelation;
+  BddSet currentRelationCube;
+  for(int i = 0 ; i < relationDeque.size(); i++) {
+    currentRelation = relationDeque[i].relationBdd;
+    currentRelationCube = relationDeque[i].cube;
+
+    //create new relation!
+    Relation newRel = {};
+    BddSet newCube = sylvan::BddSet();
+    for(int j = relationDeque[i].top; j <= fullCube.size()*2; j++){
+      newCube.add(j);
+    }
+
+    newRel.relationBdd = currentRelation;
+    newRel.cube = newCube;
+    newRel.top = 0;
+    newRel.bottom = 0;
+    newRelations.push_back(newRel);
+  }
+
+  // std::cout << "printing fullcube:" << fullCube.size() << std::endl;
+  // std::vector<uint32_t> full = fullCube.toVector(); 
+  // for(uint32_t elem : full) {
+  //   std::cout << elem << ", ";
+  // }
+  // std::cout << std::endl;
+
+  Graph newGraph = {};
+  newGraph.nodes = allNodes;
+  newGraph.cube = fullCube;
+  newGraph.relations = newRelations;
+
+  return newGraph;
+}
+
 
 
 //Version with only one recursive call given projections
@@ -1525,7 +1571,7 @@ SccResult xbBottomProj(const Graph &fullGraph, std::list<Bdd> &approx) {
 
 
 SccResult chainAlgBottomApproxPick(const Graph &fullGraph) {
-  Graph overApproximationGraph = createApproximateGraph(fullGraph);
+  Graph overApproximationGraph = createApproximateGraphv2(fullGraph);
   SccResult overApproxBdds = chainAlgBottomSingleRecCall(overApproximationGraph);
 
   SccResult realRes = chainAlgBottomSingleRecCallProj(fullGraph, overApproxBdds.sccs);
@@ -1543,3 +1589,7 @@ SccResult xbAlgBottomApproxPick(const Graph &fullGraph) {
 
   return createSccResult(realRes.sccs, symbolicSteps); 
 }
+
+
+
+

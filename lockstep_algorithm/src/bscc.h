@@ -35,6 +35,7 @@ SccResult chainAlgBottomApproxPick(const Graph &fullGraph);
 
 SccResult xbAlgBottomApproxPick(const Graph &fullGraph);
 
+
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
   int symbolicSteps = 0;
