@@ -30,17 +30,17 @@ std::list<std::string> getPathStringsBscc() {
   resultList.push_back("ShieldRVs/PT/shield_s_rv_001_a_17place.pnml");        //1 BSCCs / 16 SCCs
   resultList.push_back("GPUForwardProgress/PT/gpufp_04_a_24place.pnml");      //16 BSCCs / 368 SCCs
   resultList.push_back("ShieldRVs/PT/shield_s_rv_002_a_31place.pnml");        //8 BSCCs / 2362 SCCs
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
-  resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs
-  resultList.push_back("GPUForwardProgress/PT/gpufp_08_a_40place.pnml");      //256 BSCCs / 118208 SCCs
-  resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_001_b_43place.pnml");        //1 BSCCs / 479 SCCs
-  resultList.push_back("SmartHome/PT/smhome_03_45place.pnml");                //1 BSCCs / 76 SCCs
-  resultList.push_back("ShieldRVs/PT/shield_s_rv_003_a_45place.pnml");        //51 BSCCs / 327762 SCCs
-  resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
-  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
-  resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
-  resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
+  // resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_a_34place.pnml");      //3 BSCCs / 406 SCCs
+  // resultList.push_back("SmartHome/PT/smhome_01_38place.pnml");                //1 BSCCs / 76 SCCs
+  // resultList.push_back("GPUForwardProgress/PT/gpufp_08_a_40place.pnml");      //256 BSCCs / 118208 SCCs
+  // resultList.push_back("SmartHome/PT/smhome_02_41place.pnml");                //1 BSCCs / 76 SCCs
+  // resultList.push_back("ShieldRVs/PT/shield_s_rv_001_b_43place.pnml");        //1 BSCCs / 479 SCCs
+  // resultList.push_back("SmartHome/PT/smhome_03_45place.pnml");                //1 BSCCs / 76 SCCs
+  // resultList.push_back("ShieldRVs/PT/shield_s_rv_003_a_45place.pnml");        //51 BSCCs / 327762 SCCs
+  // resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
+  // resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
+  // resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
+  // resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
 
 
   // Feasible bsccs of the larger ones *These are also in the list below*
@@ -247,6 +247,20 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
   //The current csv row to insert results into
   int csvRow = 0;
 
+  if(minPreprocess < 0) {
+        minPreprocess = 0;
+  }
+  if(maxPreprocess < minPreprocess) {
+    minPreprocess = maxPreprocess;
+  }    
+  if(maxPreprocess < 0){
+      grid[0].insert(grid[0].end(), {"Nodes" , "SCCs","Algorithm type", "Running time (ms)", "Symbolic steps"});
+
+  } else if(maxPreprocess == 0) {
+    grid[0].insert(grid[0].end(), {"Nodes", "SCCs", "Algorithm type", "Running time (ms)", "Symbolic steps" });
+
+  }
+
   //Read all the files, create their graphs and run the algorithms on them
   for(std::string pathString : pathStrings) {
     std::cout << "###### Running experiment on file at path: " << pathString << std::endl;
@@ -258,14 +272,13 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
     std::string noOfRelations = std::to_string(graph.relations.size());
     int i = 1;
     for(algorithmType algo : runTypes) {
-      grid[csvRow+i].insert(grid[csvRow+i].end(), {algoToString(algo), noOfPlaces, noOfRelations});
+      grid[csvRow+i].insert(grid[csvRow+i].end(), {pathString, noOfPlaces, noOfRelations});
       i++;
     }
-
     grid = preprocessAndRun(graph, maxPreprocess, minPreprocess, runTypes, grid, csvRow);
 
-    //Move down in the csv grid to make way for the next run
-    csvRow = csvRow+noAlgorithms+2;
+    //Move down in the csv grid to make way for running all algorithms on next graph
+    csvRow = csvRow+noAlgorithms;
   }
   writeToCSV(fileName, grid);
 }
@@ -275,12 +288,6 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
 std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int maxPruning, int minPruning,
                                                        std::list<algorithmType> runTypes,
                                                        std::vector<std::vector<std::string>> grid, int row) {
-  if(minPruning < 0) {
-    minPruning = 0;
-  }
-  if(maxPruning < minPruning) {
-    minPruning = maxPruning;
-  }
   if(maxPruning < 0) {
     std::cout << "### With pre-processing (fixed point)" << std::endl;
     Graph processedGraph = graphPreprocessingFixedPoint(graph);
@@ -299,8 +306,6 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
 
     grid = timeAll(processedGraph, runTypes, grid, row);
     std::cout << std::endl;
-
-    grid[row].insert(grid[row].end(), {"Nodes" , "SCCs", "Running time (ms)", "SSCs/ms", "Symbolic steps"});
   }
   else {
     if(maxPruning == 0) {
@@ -319,7 +324,6 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
       }
 
       grid = timeAll(graph, runTypes, grid, row);
-      grid[row].insert(grid[row].end(), {"Nodes", "SCC's", std::to_string(0) + " pruning steps (ms)", "SCC/ms", "Symbolic steps" });
     }
     else {
       std::cout << "### With pre-processing (" << std::to_string(maxPruning) << " or fixed-point)" << std::endl;
@@ -342,7 +346,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
 
       grid = timeAll(processedGraph, runTypes, grid, row);
       std::cout << std::endl;
-      grid[row].insert(grid[row].end(), {"Nodes", "SCC's", std::to_string(newMax) + " pruning steps (ms)", "SCC/ms", "Symbolic steps" });
+      grid[row].insert(grid[row].end(), {"Nodes", "SCC's", "Algorithm type", std::to_string(newMax) + " pruning steps (ms)", "Symbolic steps" });
 
       for(int i = newMax2Pow; i >= minPruning; i = floor(i/2)) {
         std::cout << "### With pre-processing (" << std::to_string(i) << ")" << std::endl;
@@ -362,12 +366,13 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
         grid = timeAll(processedGraph, runTypes, grid, row);
         std::cout << std::endl;
 
-        grid[row].insert(grid[row].end(), {"Nodes", "SCC's", std::to_string(i) + " pruning steps (ms)", "SCC/ms", "Symbolic steps" });
+        grid[row].insert(grid[row].end(), {"Nodes", "SCC's","Algorithm type", std::to_string(i) + " pruning steps runtime (ms)", "Symbolic steps" });
 
         if(i == 0 || i == minPruning) {
           break;
         }
       }
+      row = row + runTypes.size();
     }
   }
   return grid;
@@ -382,9 +387,7 @@ std::vector<std::vector<std::string>> timeAll(const Graph &graph, std::list<algo
     std::list<sylvan::Bdd> sccList = std::get<0>(runResults);
     std::chrono::duration<long, std::milli> duration = std::get<1>(runResults);
 
-    std::string annoyingFloatString =  std::to_string((float)sccList.size() / duration.count());
-    std::replace(annoyingFloatString.begin(), annoyingFloatString.end(), '.', ',');
-    grid[row+i].insert(grid[row+i].end(), {std::to_string(sccList.size()), std::to_string(duration.count()), annoyingFloatString, std::to_string(std::get<2>(runResults))});
+    grid[row+i].insert(grid[row+i].end(), {std::to_string(sccList.size()), algoToString(runType), std::to_string(duration.count()), std::to_string(std::get<2>(runResults))});
 
     i++;
   }
@@ -496,13 +499,9 @@ void writeToCSV(std::string fileName, std::vector<std::vector<std::string>> grid
 
 //Initializes an empty csv grid with the appropriate amount of rows to insert into
 std::vector<std::vector<std::string>> initCsvGrid(int noOfExperimentGraphs, int noOfAlgorithms) {
-  int noOfRows = (noOfExperimentGraphs) * (noOfAlgorithms+2);
-
+  int noOfRows = (noOfExperimentGraphs) * (noOfAlgorithms) + 1;
   std::vector<std::vector<std::string>> grid(noOfRows, std::vector<std::string>(0));
-
-  for(int i = 0; i < noOfRows; i = i+noOfAlgorithms+2) {
-    grid[i].insert(grid[i].end(), {"Algorithm run", "Places", "Relations"});
-  }
+  grid[0].insert(grid[0].end(), {"File", "Places", "Relations"});
   return grid;
 }
 

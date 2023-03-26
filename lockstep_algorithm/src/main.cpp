@@ -34,9 +34,10 @@ int main() {
   std::list<algorithmType> runTypes = {chainBottomApproxPick};
 
   for(algorithmType algo : runTypes) {
-    std::list<algorithmType> algorithms = {algo};
-    std::string fileName = algoToString(algo) + "bigtest_newcube";
-    benchmark(pathStrings, fileName, algorithms, 0);
+    //Running all benchmark files with a single algorithm type
+    std::list<algorithmType> algorithm = {algo};
+    std::string fileName = algoToString(algo) + "csvtest";
+    benchmark(pathStrings, fileName, algorithm, 0);
   }
 
   std::cout << "Goodbye :)" << std::endl;
