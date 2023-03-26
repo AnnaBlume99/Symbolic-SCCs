@@ -1470,7 +1470,7 @@ Graph createApproximateGraphv2(const Graph &fullGraph) {
     currentRelation = relationDeque[i].relationBdd;
     currentRelationCube = relationDeque[i].cube;
 
-    printRelation(relationDeque[i]);
+    //printRelation(relationDeque[i]);
 
     //create new relation!
     Relation newRel = {};

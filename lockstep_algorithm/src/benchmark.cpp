@@ -286,7 +286,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
     Graph processedGraph = graphPreprocessingFixedPoint(graph);
 
 
-    std::cout << "Counting with SatCount..:" << std::endl;
+    //std::cout << "Counting with SatCount..:" << std::endl;
     double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
     std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
@@ -307,7 +307,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
       std::cout << "### With no pre-processing" << std::endl;
       Graph processedGraph = graphPreprocessing(graph, 0);
 
-      std::cout << "Counting with SatCount..:" << std::endl;
+      //std::cout << "Counting with SatCount..:" << std::endl;
       double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
       std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
@@ -326,7 +326,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
       std::pair<Graph, int> result = graphPreprocessingFixedPointWithMax(graph, maxPruning);
       Graph processedGraph = result.first;
 
-      std::cout << "Counting with SatCount..:" << std::endl;
+      //std::cout << "Counting with SatCount..:" << std::endl;
       double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
       std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
@@ -348,7 +348,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
         std::cout << "### With pre-processing (" << std::to_string(i) << ")" << std::endl;
         processedGraph = graphPreprocessing(graph, i);
 
-        std::cout << "Counting with SatCount..:" << std::endl;
+        //std::cout << "Counting with SatCount..:" << std::endl;
         double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
         std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
@@ -466,7 +466,8 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
   sccList = sccAndSteps.sccs;
   steps = sccAndSteps.symbolicSteps;
   std::cout << "Time elapsed (" << algoToString(runType) << "): " << duration.count() << " milliseconds" << std::endl;
-  std::cout << "Found " << sccList.size() << " SCCs" << std::endl << std::endl;
+  std::cout << "Found " << sccList.size() << " SCCs" << std::endl;
+  std::cout << "Used " << steps << " symbolic steps" << std::endl << std::endl;
   std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int> result = {sccList, duration, steps};
   return result;
 }
@@ -519,8 +520,10 @@ Graph graphPreprocessing(const Graph &graph, int pruningSteps) {
   }
 
   double prunedNodes = differenceBdd(graph.nodes, resultGraph.nodes).SatCount(graph.cube);
-  std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
-  std::cout << "Finished pre-processing of graph" << std::endl;
+  if(prunedNodes > 0) {
+    std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
+    std::cout << "Finished pre-processing of graph" << std::endl;
+  }
   return resultGraph;
 }
 

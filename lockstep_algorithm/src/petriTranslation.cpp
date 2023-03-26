@@ -31,7 +31,7 @@ inline std::string getPNMLFilePath(std::string file) {
 
   theString.erase(chop, std::string::npos);
   std::string newPath = theString + "PNMLFiles/" + file;
-  std::cout << "Current working directory: " << newPath << std::endl;
+  //std::cout << "Current working directory: " << newPath << std::endl;
   return newPath;
 }
 
