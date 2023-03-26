@@ -1471,13 +1471,23 @@ Graph createApproximateGraphv2(const Graph &fullGraph) {
     currentRelationCube = relationDeque[i].cube;
 
     //printRelation(relationDeque[i]);
+    //printCube(currentRelationCube);
 
     //create new relation!
     Relation newRel = {};
     BddSet newCube = sylvan::BddSet();
-    for(int j = relationDeque[i].top; j <= fullCube.size()*2; j++){
+
+
+    //Open cube from top to highest variable
+    // for(int j = relationDeque[i].top; j <= fullCube.size()*2; j++){
+    //   newCube.add(j);
+    // }
+
+    //Open cube from bottom to lowest variable
+    for(int j = relationDeque[i].bottom; j >= 0; j = j-2){
       newCube.add(j);
     }
+
 
     newRel.relationBdd = currentRelation;
     newRel.cube = newCube;

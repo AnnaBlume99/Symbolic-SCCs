@@ -280,6 +280,16 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
     //Move down in the csv grid to make way for running all algorithms on next graph
     csvRow = csvRow+noAlgorithms;
   }
+  int totalSteps = 0;
+  int totalTime = 0;
+  for(int i = 1; i < grid.size()-1; i++ ){
+    totalSteps = totalSteps + stoi(grid[i][7]);
+    totalTime = totalTime + stoi(grid[i][6]);
+  }
+  std::cout << "---------------------------------------------" << std::endl;
+  std::cout << "Total steps: " << totalSteps << ", total time: " << totalTime << std::endl;
+  grid[grid.size()-1].insert(grid[grid.size()-1].end(), {"Total", "", "", "", "", "", std::to_string(totalTime), std::to_string(totalSteps) });
+
   writeToCSV(fileName, grid);
 }
 
@@ -499,7 +509,7 @@ void writeToCSV(std::string fileName, std::vector<std::vector<std::string>> grid
 
 //Initializes an empty csv grid with the appropriate amount of rows to insert into
 std::vector<std::vector<std::string>> initCsvGrid(int noOfExperimentGraphs, int noOfAlgorithms) {
-  int noOfRows = (noOfExperimentGraphs) * (noOfAlgorithms) + 1;
+  int noOfRows = (noOfExperimentGraphs) * (noOfAlgorithms) + 2;
   std::vector<std::vector<std::string>> grid(noOfRows, std::vector<std::string>(0));
   grid[0].insert(grid[0].end(), {"File", "Places", "Relations"});
   return grid;

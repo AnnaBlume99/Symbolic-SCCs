@@ -36,7 +36,7 @@ int main() {
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
-    std::string fileName = algoToString(algo) + "csvtest";
+    std::string fileName = algoToString(algo) + std::to_string(time(NULL)) +"csvtest";
     benchmark(pathStrings, fileName, algorithm, 0);
   }
 
