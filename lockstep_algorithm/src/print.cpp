@@ -137,7 +137,7 @@ void printBddListAsString(const int nodes, const std::list<sylvan::Bdd> bdds) {
 
 //Print a single relation as a string
 void printSingleRelationAsString(const sylvan::Bdd relation) {
-    std::cout << "Here is a relation: " << std::endl;
+    std::cout << "Relation BDD as string: " << std::endl;
     std::pair<std::string, std::string> pair("","");
     std::list<std::pair<std::string, std::string>> pathList = __printRelationsAsString(pair, relation);
     for(std::pair<std::string, std::string> path : pathList) {

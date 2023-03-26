@@ -1470,6 +1470,8 @@ Graph createApproximateGraphv2(const Graph &fullGraph) {
     currentRelation = relationDeque[i].relationBdd;
     currentRelationCube = relationDeque[i].cube;
 
+    printRelation(relationDeque[i]);
+
     //create new relation!
     Relation newRel = {};
     BddSet newCube = sylvan::BddSet();
@@ -1484,12 +1486,7 @@ Graph createApproximateGraphv2(const Graph &fullGraph) {
     newRelations.push_back(newRel);
   }
 
-  // std::cout << "printing fullcube:" << fullCube.size() << std::endl;
-  // std::vector<uint32_t> full = fullCube.toVector(); 
-  // for(uint32_t elem : full) {
-  //   std::cout << elem << ", ";
-  // }
-  // std::cout << std::endl;
+  
 
   Graph newGraph = {};
   newGraph.nodes = allNodes;
@@ -1593,3 +1590,24 @@ SccResult xbAlgBottomApproxPick(const Graph &fullGraph) {
 
 
 
+
+void printCube(BddSet cube) {
+  std::cout << "Cube size: " << cube.size() << ", with the following variables:" <<std::endl;
+  std::vector<uint32_t> full = cube.toVector(); 
+  for(uint32_t elem : full) {
+    std::cout << elem << ", ";
+  }
+  std::cout << std::endl;
+}
+
+
+
+void printRelation(Relation rel) {
+  std::cout << "------------------------------------------------------------" << std::endl;
+  std::cout << "Printing relation with top, bottom:" << rel.top << ", " << rel.bottom << std::endl;
+  printCube(rel.cube);
+  std::cout << "Bdd:" << std::endl;
+  printBdd(rel.relationBdd);
+  printSingleRelationAsString(rel.relationBdd);
+  std::cout << "------------------------------------------------------------" << std::endl;
+}
