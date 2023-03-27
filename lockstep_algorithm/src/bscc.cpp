@@ -1479,24 +1479,32 @@ Graph createApproximateGraphv2(const Graph &fullGraph) {
 
 
     //Open cube from top to highest variable
-    // for(int j = relationDeque[i].top; j <= fullCube.size()*2; j++){
-    //   newCube.add(j);
-    // }
-
-    //Open cube from bottom to lowest variable
-    for(int j = relationDeque[i].bottom; j >= 0; j = j-2){
+    for(int j = relationDeque[i].top; j <= fullCube.size()*2; j++){
       newCube.add(j);
     }
 
+    //Open cube from bottom to lowest variable
+    // for(int j = relationDeque[i].bottom; j >= 0; j = j-2){
+    //   newCube.add(j);
+    // }
 
-    newRel.relationBdd = currentRelation;
-    newRel.cube = newCube;
+    
+    // BddSet existsCube = sylvan::BddSet();
+    // for(int j = relationDeque[i].bottom; j <= relationDeque[i].top; j = j+2) {
+    //   existsCube.add(j);
+    // }
+    //newRel.relationBdd = currentRelation.ExistAbstract(currentRelationCube);
+    
+    newRel.relationBdd = leaf_true();
+    newRel.cube = currentRelationCube;
     newRel.top = 0;
     newRel.bottom = 0;
     newRelations.push_back(newRel);
+    // std::cout << "Before:" << std::endl;
+    // printRelation(relationDeque[i]);
+    // std::cout << "After:" << std::endl;
+    // printRelation(newRel);
   }
-
-  
 
   Graph newGraph = {};
   newGraph.nodes = allNodes;
