@@ -35,6 +35,9 @@ SccResult chainAlgBottomApproxPick(const Graph &fullGraph);
 
 SccResult xbAlgBottomApproxPick(const Graph &fullGraph);
 
+
+
+
 void printCube(BddSet cube);
 void printRelation(Relation rel);
 

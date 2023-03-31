@@ -7,6 +7,7 @@ add_executable(main main.cpp
                graph_creation.cpp
                interface.cpp
                reachability.cpp
+               tgr.cpp
                ../test/graph_examples.cpp
                ../test/test_sccListCorrectness.cpp)
 

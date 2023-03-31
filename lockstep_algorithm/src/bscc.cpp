@@ -14,6 +14,7 @@
 #include "bdd_utilities.h"
 #include "print.h"
 #include "bscc.h"
+#include "tgr.h"
 
 using sylvan::Bdd;
 using sylvan::BddSet;
@@ -286,6 +287,10 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
   if(fullGraph.nodes == leaf_false()) {
     return createSccResult(sccList, symbolicSteps);
   }
+
+  //TGR Testing:
+  std::pair<Graph, int> reducedGraph = TGR(fullGraph);
+
 
   const Bdd allNodes = fullGraph.nodes;
   const BddSet fullCube = fullGraph.cube;
@@ -1330,9 +1335,6 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
 SccResult chainAlgBottomSingleRecCallProj(const Graph &fullGraph, std::list<Bdd> &approx) {
   int symbolicSteps = 0;
 
-  //Sort relations
-
-
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
@@ -1470,7 +1472,7 @@ Graph createApproximateGraphv2(const Graph &fullGraph) {
     currentRelation = relationDeque[i].relationBdd;
     currentRelationCube = relationDeque[i].cube;
 
-    //printRelation(relationDeque[i]);
+    printRelation(relationDeque[i]);
     //printCube(currentRelationCube);
 
     //create new relation!
@@ -1607,6 +1609,7 @@ SccResult xbAlgBottomApproxPick(const Graph &fullGraph) {
 
 
 
+//MISC
 
 
 void printCube(BddSet cube) {
