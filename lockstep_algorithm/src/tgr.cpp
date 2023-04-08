@@ -24,20 +24,20 @@ std::pair<std::vector<Bdd>,int>  relationFireSets(const Graph &fullGraph) {
   int symbolicSteps = 0;
   RelationUnion reach;
   std::deque<Relation> relations = fullGraph.relations;
-  Bdd nodes = fullGraph.nodes;
   std::vector<Bdd> fireSets;
   Graph workingGraph = {};
-  workingGraph.nodes = nodes;
+  workingGraph.nodes = fullGraph.nodes;
   workingGraph.cube = fullGraph.cube;
   workingGraph.relations = fullGraph.relations;
 
   for(Relation rel : relations) {
     std::deque<Relation> relDeque = {rel};
     workingGraph.relations = relDeque;
-    ReachResult fwd = reach.forwardStep(workingGraph, nodes);
+    ReachResult fwd = reach.forwardStep2(workingGraph, fullGraph.nodes);
     symbolicSteps += fwd.symbolicSteps;
-    ReachResult fireSet = reach.backwardStep(workingGraph, fwd.set);
+    ReachResult fireSet = reach.backwardStep2(workingGraph, fwd.set); //Do we have self-loops?
     symbolicSteps += fireSet.symbolicSteps;
+    //printBdd(fireSet.set);
     fireSets.push_back(fireSet.set);
   }
   return {fireSets, symbolicSteps};
@@ -61,7 +61,7 @@ std::pair<Graph, int> reduce(Bdd pivots, Graph universe){
   Bdd extendedComponent = bwd.set;
   Bdd bottom = differenceBdd(fwd, extendedComponent);
 
-  if( universe.nodes != fwd) {
+  if(universe.nodes != fwd) {
     //Workinggraph nodes already fwd.set
     ReachResult fwdBasin = rel.backwardSet(universe, fwd);
     Bdd basin = fwdBasin.set;
@@ -88,9 +88,11 @@ std::pair<Graph, int> TGR(Graph universe) {
   int noDeletions = 0;
   for(int i = 0; i < fireSets.size(); i++) {
     Bdd fireSet = fireSets[i];
+    //printBdd(fireSet);
     if(intersectBdd(fireSet, universe.nodes) == leaf_false()){
+      //std::cout << i<<"Deleting 1 on place" << i- noDeletions << "with " << noDeletions <<" deletions" << std::endl;
       //This is possible.. right?
-      universe.relations.erase(universe.relations.begin()+i+ noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
+      universe.relations.erase(universe.relations.begin()+i- noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
       noDeletions++;
       continue;
     }
@@ -98,10 +100,13 @@ std::pair<Graph, int> TGR(Graph universe) {
     universe = reduceRes.first;
     symbolicSteps += reduceRes.second;
     if(intersectBdd(fireSet, universe.nodes) == leaf_false()){
-      universe.relations.erase(universe.relations.begin()+i+noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
+      //std::cout << "Deleting 2 on place" << i- noDeletions << "with " << noDeletions <<" deletions" << std::endl;
+      universe.relations.erase(universe.relations.begin()+i-noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
       noDeletions++;
     }
   }
+  std::cout << "Returning universe with " << universe.relations.size() << " relations left" << std::endl;
+  std::cout << "And " << universe.nodes.SatCount(universe.cube) << " nodes left " << std::endl;
   return {universe, symbolicSteps};
 }
 

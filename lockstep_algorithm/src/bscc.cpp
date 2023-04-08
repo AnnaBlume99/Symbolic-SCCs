@@ -290,11 +290,17 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
 
   //TGR Testing:
   std::pair<Graph, int> reducedGraph = TGR(fullGraph);
+  symbolicSteps += reducedGraph.second;
+
+  const Bdd allNodes = reducedGraph.first.nodes;
+  const BddSet fullCube = reducedGraph.first.cube;
+  const std::deque<Relation> relationDeque = reducedGraph.first.relations;
 
 
-  const Bdd allNodes = fullGraph.nodes;
-  const BddSet fullCube = fullGraph.cube;
-  const std::deque<Relation> relationDeque = fullGraph.relations;
+  //Normal code
+  //const Bdd allNodes = fullGraph.nodes;
+  //const BddSet fullCube = fullGraph.cube;
+  //const std::deque<Relation> relationDeque = fullGraph.relations;
 
   std::stack<std::pair<Bdd, Bdd>> callStack;
   const Bdd startNode = pick(allNodes, fullCube);

@@ -46,6 +46,12 @@ class RelationUnion {
     ReachResult forwardStep(const Graph &graph, const sylvan::Bdd &nodes);
     ReachResult backwardStep(const Graph &graph, const sylvan::Bdd &nodes);
 
+    ReachResult forwardStepNoDiff(const Graph &graph, const sylvan::Bdd &nodes);
+    ReachResult backwardStepNoDiff(const Graph &graph, const sylvan::Bdd &nodes);
+
+    ReachResult forwardStep2(const Graph &graph, const sylvan::Bdd &nodes);
+    ReachResult backwardStep2(const Graph &graph, const sylvan::Bdd &nodes);
+
     ReachResult forwardSet(const Graph &graph, const sylvan::Bdd &nodes);
     ReachResult backwardSet(const Graph &graph, const sylvan::Bdd &nodes);
 
