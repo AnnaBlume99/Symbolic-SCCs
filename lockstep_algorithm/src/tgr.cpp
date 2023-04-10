@@ -35,10 +35,11 @@ std::pair<std::vector<Bdd>,int>  relationFireSets(const Graph &fullGraph) {
     workingGraph.relations = relDeque;
     ReachResult fwd = reach.forwardStep2(workingGraph, fullGraph.nodes);
     symbolicSteps += fwd.symbolicSteps;
-    ReachResult fireSet = reach.backwardStep2(workingGraph, fwd.set); //Do we have self-loops?
+    ReachResult fireSet = reach.backwardStep2(workingGraph, fwd.set); //Do we have self-loops? TODO: Figure out why it works with the difference version (originial backwardstep)
     symbolicSteps += fireSet.symbolicSteps;
     //printBdd(fireSet.set);
     fireSets.push_back(fireSet.set);
+    //std::cout << "fireset:" << fireSet.set.SatCount(fullGraph.cube) << std::endl;
   }
   return {fireSets, symbolicSteps};
 }

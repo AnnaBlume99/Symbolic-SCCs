@@ -8,6 +8,7 @@ add_executable(main main.cpp
                interface.cpp
                reachability.cpp
                tgr.cpp
+               deadlock.cpp
                ../test/graph_examples.cpp
                ../test/test_sccListCorrectness.cpp)
 

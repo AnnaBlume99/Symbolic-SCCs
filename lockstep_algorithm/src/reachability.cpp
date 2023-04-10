@@ -499,7 +499,7 @@ ReachResult RelationUnion::backwardStep2(const Graph &graph, const sylvan::Bdd &
     Bdd currentRelation = relationDeque[i].relationBdd;
     BddSet currentRelationCube = relationDeque[i].cube;
 
-    Bdd relRes = differenceBdd(intersectBdd(nodes.RelPrev(currentRelation, currentRelationCube), nodeSet), nodes);
+    Bdd relRes = intersectBdd(nodes.RelPrev(currentRelation, currentRelationCube), nodeSet);
     symbolicSteps = symbolicSteps + 1;
     Bdd inter = intersectBdd(relRes, nodes);
     Bdd relResult = unionBdd(differenceBdd(relRes, nodes), inter);

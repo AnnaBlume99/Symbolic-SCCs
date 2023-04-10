@@ -26,11 +26,11 @@ std::pair<SccResult, Graph> deadlockRemoval(const Graph &fullGraph) {
   std::list<Bdd> sccList = {};
   const BddSet fullCube = fullGraph.cube;
 
-  ReachResult postAll = rel.forwardStep(fullGraph, nodes);
+  ReachResult postAll = rel.forwardStep2(fullGraph, nodes);
   symbolicSteps = symbolicSteps + postAll.symbolicSteps;
   Bdd post = postAll.set;
 
-  ReachResult prePostAll = rel.backwardStep(fullGraph, post);
+  ReachResult prePostAll = rel.backwardStep2(fullGraph, post);
   symbolicSteps = symbolicSteps + prePostAll.symbolicSteps;
   Bdd hasSuccessor = prePostAll.set;
 

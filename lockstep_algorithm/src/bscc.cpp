@@ -15,6 +15,7 @@
 #include "print.h"
 #include "bscc.h"
 #include "tgr.h"
+#include "deadlock.h"
 
 using sylvan::Bdd;
 using sylvan::BddSet;
@@ -289,18 +290,34 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
   }
 
   //TGR Testing:
-  std::pair<Graph, int> reducedGraph = TGR(fullGraph);
-  symbolicSteps += reducedGraph.second;
+  // std::pair<Graph, int> reducedGraph = TGR(fullGraph);
+  // symbolicSteps += reducedGraph.second;
 
-  const Bdd allNodes = reducedGraph.first.nodes;
-  const BddSet fullCube = reducedGraph.first.cube;
-  const std::deque<Relation> relationDeque = reducedGraph.first.relations;
+  // const Bdd allNodes = reducedGraph.first.nodes;
+  // const BddSet fullCube = reducedGraph.first.cube;
+  // const std::deque<Relation> relationDeque = reducedGraph.first.relations;
 
 
   //Normal code
-  //const Bdd allNodes = fullGraph.nodes;
-  //const BddSet fullCube = fullGraph.cube;
-  //const std::deque<Relation> relationDeque = fullGraph.relations;
+  // const Bdd allNodes = fullGraph.nodes;
+  // const BddSet fullCube = fullGraph.cube;
+  // const std::deque<Relation> relationDeque = fullGraph.relations;
+
+  //Deadlock detection
+  std::pair<SccResult, Graph> dl = deadlockRemoval(fullGraph);
+  symbolicSteps += dl.first.symbolicSteps;
+  for(Bdd bs : dl.first.sccs){
+    sccList.push_back(bs);
+  }
+  const Bdd allNodes = dl.second.nodes;
+  const BddSet fullCube = fullGraph.cube;
+  const std::deque<Relation> relationDeque = fullGraph.relations;
+  std::cout << "DL: " << sccList.size() << std::endl;
+  if(allNodes == leaf_false()) {
+    return createSccResult(sccList, symbolicSteps);
+  }
+  //Deadlock detection end
+
 
   std::stack<std::pair<Bdd, Bdd>> callStack;
   const Bdd startNode = pick(allNodes, fullCube);
@@ -729,68 +746,6 @@ SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph) {
   return createSccResult(sccList, symbolicSteps);
 }
 
-/////////////////////////////// DEADLOCK REMOVAL ///////////////////////////////////
-
-std::pair<SccResult, Graph> deadlockRemoval(const Graph &fullGraph) {
-  RelationUnion rel;
-  int symbolicSteps = 0;
-  Bdd nodes = fullGraph.nodes;
-  std::list<Bdd> sccList = {};
-  const BddSet fullCube = fullGraph.cube;
-
-  ReachResult postAll = rel.forwardStep(fullGraph, nodes);
-  symbolicSteps = symbolicSteps + postAll.symbolicSteps;
-  Bdd post = postAll.set;
-
-  ReachResult prePostAll = rel.backwardStep(fullGraph, post);
-  symbolicSteps = symbolicSteps + prePostAll.symbolicSteps;
-  Bdd hasSuccessor = prePostAll.set;
-
-  //These are all 1 node BSCCs
-  Bdd doesNotHaveSuccessor = differenceBdd(nodes, hasSuccessor);
-
-  //We can remove these BSCCs and their basins safely (when we have outputted them)
-  ReachResult toRemove = rel.backwardSet(fullGraph, doesNotHaveSuccessor);
-  symbolicSteps = symbolicSteps + toRemove.symbolicSteps;
-
-  //Report BSCCs
-  while(doesNotHaveSuccessor != leaf_false()) {
-    Bdd bscc = pick(doesNotHaveSuccessor, fullCube);
-    sccList.push_back(bscc);
-    doesNotHaveSuccessor = differenceBdd(doesNotHaveSuccessor, bscc);
-  }
-
-  //Output result
-  Graph graphRes = {};
-  graphRes.nodes = differenceBdd(nodes, toRemove.set);
-  graphRes.relations = fullGraph.relations;
-  graphRes.cube = fullGraph.cube;
-  SccResult sccRes = createSccResult(sccList, symbolicSteps);
-
-  std::pair<SccResult, Graph> pairRes = {sccRes, graphRes};
-  return pairRes;
-}
-
-ReachResult sourceRemoval(const Graph &fullGraph) {
-  RelationUnion rel;
-  int symbolicSteps = 0;
-  Bdd nodes = fullGraph.nodes;
-
-  ReachResult preAll = rel.backwardStep(fullGraph, nodes);
-  symbolicSteps = symbolicSteps + preAll.symbolicSteps;
-  Bdd pre = preAll.set;
-
-  ReachResult postPreAll = rel.forwardStep(fullGraph, pre);
-  symbolicSteps = symbolicSteps + postPreAll.symbolicSteps;
-  Bdd hasPredecessor = postPreAll.set;
-
-  Bdd doesNotHavePredecessor = differenceBdd(nodes, hasPredecessor);
-
-  ReachResult res = {};
-  res.set = differenceBdd(nodes, doesNotHavePredecessor);
-  res.symbolicSteps = symbolicSteps;
-  return res;
-}
 
 /////////////////////////// ADVANCED VERSIONS /////////////////////////////
 

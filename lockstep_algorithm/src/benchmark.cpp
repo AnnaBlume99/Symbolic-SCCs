@@ -44,19 +44,19 @@ std::list<std::string> getPathStringsBscc() {
 
 
   // Feasible bsccs of the larger ones *These are also in the list below*
-  // resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56 - 90s // 4096 BSCCs
+  resultList.push_back("GPUForwardProgress/PT/gpufp_12_a_56place.pnml");                      //56 - 90s // 4096 BSCCs
   
-  // resultList.push_back("ShieldRVs/PT/shield_s_rv_004_a_59place.pnml");                        //59 - 4 min // ??
-  // resultList.push_back("ShieldPPPt/PT/shield_t_ppp_001_b_81place.pnml");                      //81 - 30s // 3 BSCCs
-  // resultList.push_back("ShieldRVs/PT/shield_s_rv_002_b_83place.pnml");                        //83 - 30s // 8 BSCCs
-  // resultList.push_back("ShieldRVt/PT/shield_t_rv_002_b_103place.pnml");                       //103 - 100s //146 BSCCs
-  // resultList.push_back("GPUForwardProgress/PT/gpufp_04_b_112place.pnml");                     //112 - 15s //??
-  // resultList.push_back("HealthRecord/PT/hrec_01_117place.pnml");                              //117 - 8s //15 BSCCs
-  // resultList.push_back("HealthRecord/PT/hrec_02_119place.pnml");                              //119 - 15s //27 BSCCs
-  // resultList.push_back("HealthRecord/PT/hrec_03_121place.pnml");                              //121 - 25s //51 BSCCs
-  // resultList.push_back("HealthRecord/PT/hrec_04_123place.pnml");                              //123 - 30s //99 BSCCs
-  // resultList.push_back("HealthRecord/PT/hrec_05_125place.pnml");                              //125 - 40s //195 BSCCs
-  // resultList.push_back("DiscoveryGPU/PT/discovery_13_a_133place.pnml");                       //133 - 2s //1 BSCCs
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_004_a_59place.pnml");                        //59 - 4 min // ??
+  resultList.push_back("ShieldPPPt/PT/shield_t_ppp_001_b_81place.pnml");                      //81 - 30s // 3 BSCCs
+  resultList.push_back("ShieldRVs/PT/shield_s_rv_002_b_83place.pnml");                        //83 - 30s // 8 BSCCs
+  resultList.push_back("ShieldRVt/PT/shield_t_rv_002_b_103place.pnml");                       //103 - 100s //146 BSCCs
+  resultList.push_back("GPUForwardProgress/PT/gpufp_04_b_112place.pnml");                     //112 - 15s //??
+  resultList.push_back("HealthRecord/PT/hrec_01_117place.pnml");                              //117 - 8s //15 BSCCs
+  resultList.push_back("HealthRecord/PT/hrec_02_119place.pnml");                              //119 - 15s //27 BSCCs
+  resultList.push_back("HealthRecord/PT/hrec_03_121place.pnml");                              //121 - 25s //51 BSCCs
+  resultList.push_back("HealthRecord/PT/hrec_04_123place.pnml");                              //123 - 30s //99 BSCCs
+  resultList.push_back("HealthRecord/PT/hrec_05_125place.pnml");                              //125 - 40s //195 BSCCs
+  resultList.push_back("DiscoveryGPU/PT/discovery_13_a_133place.pnml");                       //133 - 2s //1 BSCCs
 
 
   // > 15 minutes - not checked yet for only 1 SCC
