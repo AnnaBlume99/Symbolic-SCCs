@@ -299,23 +299,23 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
 
 
   //Normal code
-  // const Bdd allNodes = fullGraph.nodes;
-  // const BddSet fullCube = fullGraph.cube;
-  // const std::deque<Relation> relationDeque = fullGraph.relations;
-
-  //Deadlock detection
-  std::pair<SccResult, Graph> dl = deadlockRemoval(fullGraph);
-  symbolicSteps += dl.first.symbolicSteps;
-  for(Bdd bs : dl.first.sccs){
-    sccList.push_back(bs);
-  }
-  const Bdd allNodes = dl.second.nodes;
+  const Bdd allNodes = fullGraph.nodes;
   const BddSet fullCube = fullGraph.cube;
   const std::deque<Relation> relationDeque = fullGraph.relations;
-  std::cout << "DL: " << sccList.size() << std::endl;
-  if(allNodes == leaf_false()) {
-    return createSccResult(sccList, symbolicSteps);
-  }
+
+  //Deadlock detection
+  // std::pair<SccResult, Graph> dl = deadlockRemoval(fullGraph);
+  // symbolicSteps += dl.first.symbolicSteps;
+  // for(Bdd bs : dl.first.sccs){
+  //   sccList.push_back(bs);
+  // }
+  // const Bdd allNodes = dl.second.nodes;
+  // const BddSet fullCube = fullGraph.cube;
+  // const std::deque<Relation> relationDeque = fullGraph.relations;
+  // std::cout << "DL: " << sccList.size() << std::endl;
+  // if(allNodes == leaf_false()) {
+  //   return createSccResult(sccList, symbolicSteps);
+  // }
   //Deadlock detection end
 
 
@@ -1549,7 +1549,8 @@ SccResult xbBottomProj(const Graph &fullGraph, std::list<Bdd> &approx) {
 
 
 SccResult chainAlgBottomApproxPick(const Graph &fullGraph) {
-  Graph overApproximationGraph = createApproximateGraphv2(fullGraph);
+  printRelationMatrix(fullGraph);
+  Graph overApproximationGraph = createApproximateGraph(fullGraph);
   SccResult overApproxBdds = chainAlgBottomSingleRecCall(overApproximationGraph);
 
   SccResult realRes = chainAlgBottomSingleRecCallProj(fullGraph, overApproxBdds.sccs);
@@ -1592,4 +1593,44 @@ void printRelation(Relation rel) {
   printBdd(rel.relationBdd);
   printSingleRelationAsString(rel.relationBdd);
   std::cout << "------------------------------------------------------------" << std::endl;
+}
+
+
+
+void printRelationMatrix(const Graph &graph) {
+  std::deque<Relation> rels = graph.relations;
+  int n = rels.size();
+  int v = graph.cube.size();
+  int gridSize = n*v;
+  int densityCounter = 0;
+  std::vector<uint32_t> cubeVars = graph.cube.toVector();
+
+  std::cout << "printRelationMatrix: Graph with " << n << " relations and" << v << " variables" << std::endl;
+  std::string header = "> ";
+  for(int i = 0; i < v; i++){
+    if(i % 10 == 9) {
+      header.append("O");
+      continue;
+    }
+    header.append(" ");
+  }
+
+  std::cout << header << std::endl;
+  for(int i = 0; i < n ; i++) {
+    std::string cubeStr = "| ";
+    Relation rel = rels[i];
+    BddSet cube = rel.cube;
+    for(uint32_t var : cubeVars){
+      if(cube.contains(var)) {
+        cubeStr.append("X");
+        densityCounter++;
+        goto skip;
+      }
+      cubeStr.append("-");
+      skip:;
+    }
+    std::cout << cubeStr << std::endl;
+  }
+  std::cout << "Relation density: " << (float)densityCounter / (float)gridSize << std::endl;
+
 }

@@ -40,6 +40,7 @@ SccResult xbAlgBottomApproxPick(const Graph &fullGraph);
 
 void printCube(BddSet cube);
 void printRelation(Relation rel);
+void printRelationMatrix(const Graph &graph);
 
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {

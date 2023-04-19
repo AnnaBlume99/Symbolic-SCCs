@@ -31,12 +31,12 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSingleRec};
+  std::list<algorithmType> runTypes = {chainBottomApproxPick};
 
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
-    std::string fileName = algoToString(algo) + std::to_string(time(NULL)) +"dlfull";
+    std::string fileName = algoToString(algo) + std::to_string(time(NULL)) +"projfull";
     benchmark(pathStrings, fileName, algorithm, 0);
   }
 
