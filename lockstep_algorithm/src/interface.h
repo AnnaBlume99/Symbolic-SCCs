@@ -24,6 +24,6 @@ std::list<sylvan::Bdd> findSCCs(std::string fileName,
 void benchmark(std::list<std::string> PNMLfileNames,
                std::string csvFileName,
                std::list<algorithmType> algorithms,
-               int pruning=-1, bool useInitialMarking=true);
+               int pruning=-1, bool useInitialMarking=false);
 
 #endif //INTERFACE_H

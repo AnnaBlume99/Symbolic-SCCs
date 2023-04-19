@@ -31,13 +31,14 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomApproxPick};
+  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState};
 
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
-    std::string fileName = algoToString(algo) + std::to_string(time(NULL)) +"projfull";
-    benchmark(pathStrings, fileName, algorithm, 0);
+    std::string fileName = algoToString(algo) + std::to_string(time(NULL)) + "projfull";
+    bool initialStates = true;
+    benchmark(pathStrings, fileName, algorithm, 0, initialStates);
   }
 
   std::cout << "Goodbye :)" << std::endl;

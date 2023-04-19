@@ -1211,15 +1211,16 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
   workingGraph.cube = fullCube;
   workingGraph.relations = relationDeque;
 
-  Bdd activeNodes = leaf_false();
+  Bdd seenNodes = leaf_false();
   Bdd deleteNodes = leaf_false();
   while(initNodes != leaf_false()) {
+    std::cout << "Outer loop" << std::endl;
     //Setup the callstack
     //instead of making the first pick randomly, we can pick from lastlayer of the forward set
     std::stack<std::pair<Bdd, Bdd>> callStack;
     const Bdd startNode = pick(initNodes, fullCube);
 
-    workingGraph.nodes = differenceBdd(leaf_true(), activeNodes);
+    workingGraph.nodes = differenceBdd(leaf_true(), seenNodes);
     const ChainResult initForwardSet = rel.forwardSetLastLayer(workingGraph, startNode);
     symbolicSteps += initForwardSet.symbolicSteps;
 
@@ -1227,9 +1228,11 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
     callStack.push(pushPair);
 
     //keep track of seen nodes
-    activeNodes = unionBdd(activeNodes, initForwardSet.forwardSet);
+    seenNodes = unionBdd(seenNodes, initForwardSet.forwardSet);
 
     while(!callStack.empty()) {
+      std::cout << "Middle loop" << std::endl;
+
       const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
       callStack.pop();
       Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
@@ -1243,7 +1246,10 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
 
       //WHILE-SEARCH
       while(!bottomSCC) {
+        std::cout << "Inner loop" << std::endl;
+
         //Compute FWD in the current forward set from a node in the last layer
+        workingGraph.nodes = differenceBdd(nodeSet, deleteNodes);
         newForward = rel.forwardSetLastLayer(workingGraph, v2);
         symbolicSteps = symbolicSteps + newForward.symbolicSteps;
 
@@ -1274,17 +1280,23 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
             v2 = pick(newForward.lastLayer, fullCube);
           }        
         }
+        std::cout << "Inner loop done" << std::endl;
       }
 
       //Restore the workinggraph to be the original FWD since the basin of the bscc might reach anything in this scc-closed set
-      workingGraph.nodes = differenceBdd(leaf_true(), deleteNodes);
+      workingGraph.nodes = leaf_true();
+      std::cout << "1" << std::endl;
+
       ReachResult basinReach = rel.backwardSet(workingGraph, bscc);
+      std::cout << "2" << std::endl;
+
       symbolicSteps = symbolicSteps + basinReach.symbolicSteps;
       Bdd bsccBasin = basinReach.set;
 
       deleteNodes = unionBdd(deleteNodes, bsccBasin);
-      activeNodes = unionBdd(activeNodes, bsccBasin);
-      initNodes = differenceBdd(initNodes, activeNodes);
+      seenNodes = unionBdd(seenNodes, bsccBasin);
+      initNodes = differenceBdd(initNodes, seenNodes);
+      std::cout << "3" << std::endl;
 
       //Create "recursive" call
       //"Call" on V \ bsccBasin, picking from everything
@@ -1294,12 +1306,15 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
         const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
         callStack.push(recPair2);
       }
+      std::cout << "Middle loop done" << std::endl;
     }
+    std::cout << "Outer loop done" << std::endl;
   }
 
   //Return SCC list and number of symbolic steps
   return createSccResult(sccList, symbolicSteps);
 }
+
 ///////////////////////////// Projections ////////////////////////////
 //Version with only one recursive call given projections
 

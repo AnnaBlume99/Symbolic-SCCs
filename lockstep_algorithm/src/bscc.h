@@ -30,6 +30,7 @@ SccResult chainAlgBottomSingleRecCallCumulative(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallExtra(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallSwitch(const Graph &fullGraph);
 SccResult chainAlgBottomSingleRecCallSwitchAndBasin(const Graph &fullGraph);
+SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph);
 
 SccResult chainAlgBottomApproxPick(const Graph &fullGraph);
 

@@ -290,14 +290,14 @@ Graph PNMLtoGraph(std::string fileString, bool useInitialMarking) {
   pnmlGraph.cube = cube;
 
   if(useInitialMarking) {
-    std::cout << "Using reachability from initial marking to limit state space" << std::endl;
+    std::cout << "Only returning the initial states" << std::endl;
+    pnmlGraph.nodes = initialBdd;
+  } else {
+    std::cout << "Using reachability from initial marking to find the state space" << std::endl;
     pnmlGraph.nodes = leaf_true();
     Saturation sat;
     ReachResult reachabilityResult = sat.forwardSet(pnmlGraph, initialBdd);
     pnmlGraph.nodes = reachabilityResult.set;
-  } else {
-    std::cout << "Using the entire state space (ignoring initial marking)" << std::endl;
-    pnmlGraph.nodes = leaf_true();
   }
 
   return pnmlGraph;
