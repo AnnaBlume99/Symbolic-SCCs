@@ -20,7 +20,7 @@ using sylvan::BddSet;
 
 
 
-std::pair<std::vector<Bdd>,int>  relationFireSets(const Graph &fullGraph) {
+std::pair<std::vector<Bdd>,int> relationFireSets(const Graph &fullGraph) {
   int symbolicSteps = 0;
   RelationUnion reach;
   std::deque<Relation> relations = fullGraph.relations;

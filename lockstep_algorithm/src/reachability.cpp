@@ -25,7 +25,6 @@ ReachResultBottom createReachResultBottom(const Bdd &set, const int symbolicStep
   return result;
 }
 
-
 //### Relation union reachability
 ReachResult RelationUnion::forwardSet(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;
@@ -84,6 +83,7 @@ ReachResult RelationUnion::backwardSet(const Graph &graph, const Bdd &nodes) {
   int symbolicSteps = 0;
 
   bool somethingChanged = true;
+
   while(somethingChanged) {
     somethingChanged = false;
 
@@ -95,12 +95,10 @@ ReachResult RelationUnion::backwardSet(const Graph &graph, const Bdd &nodes) {
       symbolicSteps++;
       backwardAcc = unionBdd(backwardAcc, relResultFront);
     }
-
     if(backwardAcc != leaf_false()) {
       somethingChanged = true;
     }
     backwardSet = unionBdd(backwardSet, backwardAcc);
-
     backwardFront = differenceBdd(backwardAcc, backwardFront);
     backwardAcc = leaf_false();
   }
@@ -157,6 +155,85 @@ ChainResult RelationUnion::forwardSetLastLayer(const Graph &graph, const Bdd &no
 
   return result;
 }
+
+
+ChainResult RelationUnion::forwardSetLastLayerInit(const Graph &graph, const Bdd &nodes, const Bdd &avoidNodes) {
+  BddSet cube = graph.cube;
+  std::deque<Relation> relationDeque = graph.relations;
+
+  Bdd forwardSet = nodes;
+  Bdd nodeSet = graph.nodes;
+
+  Bdd forwardFront = nodes;
+  Bdd forwardAcc = leaf_false();
+  Bdd relResultFront;
+
+  Bdd currentRelation;
+  BddSet currentRelationCube;
+
+  int symbolicSteps = 0;
+
+  Bdd lastLayer = nodes;
+
+  Bdd borderNodes = leaf_false();
+
+  bool somethingChanged = true;
+  while(somethingChanged) {
+    somethingChanged = false;
+
+    for(int i = 0 ; i < relationDeque.size(); i++) {
+      currentRelation = relationDeque[i].relationBdd;
+      currentRelationCube = relationDeque[i].cube;
+
+      Bdd relResultFront = differenceBdd(intersectBdd(forwardFront.RelNext(currentRelation, currentRelationCube), nodeSet), forwardSet);
+      symbolicSteps++;
+
+      //Find the nodes that go into nodes already discovered
+      Bdd badFront = intersectBdd(relResultFront, avoidNodes);
+      if (badFront != leaf_false()) {
+        borderNodes = unionBdd(borderNodes, intersectBdd(badFront.RelPrev(currentRelation, currentRelationCube), relResultFront));
+        symbolicSteps++;
+      }
+
+      forwardAcc = unionBdd(forwardAcc, differenceBdd(relResultFront, badFront));
+    }
+
+    forwardFront = differenceBdd(forwardAcc, forwardSet);
+    forwardSet = unionBdd(forwardSet, forwardFront);
+
+    if(forwardFront != leaf_false()) {
+      somethingChanged = true;
+      lastLayer = forwardFront;
+    }
+
+    forwardAcc = leaf_false();
+  }
+  
+  if(borderNodes != leaf_false()) {
+    Graph borderGraph = {};
+    borderGraph.nodes = forwardSet;
+    borderGraph.cube = cube;
+    borderGraph.relations = relationDeque;
+
+    ReachResult borderBasin = backwardSet(borderGraph, borderNodes);
+    symbolicSteps += borderBasin.symbolicSteps;
+
+    forwardSet = differenceBdd(forwardSet, borderBasin.set);
+    lastLayer = differenceBdd(lastLayer, borderBasin.set);
+  }
+
+  ChainResult result = {};
+  result.forwardSet = forwardSet;
+  result.lastLayer = lastLayer;
+  result.symbolicSteps = symbolicSteps;
+
+  return result;
+}
+
+
+
+
+
 
 SkeletonResult RelationUnion::forwardSkeleton(const Graph &graph, const Bdd &nodes) {
   BddSet cube = graph.cube;

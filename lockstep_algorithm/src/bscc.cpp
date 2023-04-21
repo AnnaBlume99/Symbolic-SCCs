@@ -1211,28 +1211,29 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
   workingGraph.cube = fullCube;
   workingGraph.relations = relationDeque;
 
-  Bdd seenNodes = leaf_false();
+  //These are all the nodes from basin computations which should be removed
   Bdd deleteNodes = leaf_false();
   while(initNodes != leaf_false()) {
-    std::cout << "Outer loop" << std::endl;
     //Setup the callstack
     //instead of making the first pick randomly, we can pick from lastlayer of the forward set
     std::stack<std::pair<Bdd, Bdd>> callStack;
     const Bdd startNode = pick(initNodes, fullCube);
 
-    workingGraph.nodes = differenceBdd(leaf_true(), seenNodes);
-    const ChainResult initForwardSet = rel.forwardSetLastLayer(workingGraph, startNode);
+    //Working graph should be all nodes minus the ones we have seen
+    //Seen nodes will either be removed nodes or part of some other SCC closed call on the stack
+    workingGraph.nodes = differenceBdd(leaf_true(), deleteNodes);
+    const ChainResult initForwardSet = rel.forwardSetLastLayerInit(workingGraph, startNode, deleteNodes);
     symbolicSteps += initForwardSet.symbolicSteps;
+
+    if(initForwardSet.forwardSet == leaf_false()) {
+      initNodes = differenceBdd(initNodes, startNode);
+      continue;
+    }
 
     const std::pair<Bdd, Bdd> pushPair = {initForwardSet.forwardSet, pick(initForwardSet.lastLayer, fullCube)};
     callStack.push(pushPair);
 
-    //keep track of seen nodes
-    seenNodes = unionBdd(seenNodes, initForwardSet.forwardSet);
-
     while(!callStack.empty()) {
-      std::cout << "Middle loop" << std::endl;
-
       const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
       callStack.pop();
       Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
@@ -1246,8 +1247,6 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
 
       //WHILE-SEARCH
       while(!bottomSCC) {
-        std::cout << "Inner loop" << std::endl;
-
         //Compute FWD in the current forward set from a node in the last layer
         workingGraph.nodes = differenceBdd(nodeSet, deleteNodes);
         newForward = rel.forwardSetLastLayer(workingGraph, v2);
@@ -1271,7 +1270,7 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
           newForward.lastLayer = differenceBdd(newForward.lastLayer, scc);
           workingGraph.nodes = newForward.forwardSet;
           if(newForward.lastLayer == leaf_false()) {
-            //lastLayer is empty - pick next pivot v2 from the forward set instead
+            //lastLayer is empty - pick next pivot v2 from the forward step instead
             ReachResult sccNext = rel.forwardStep(workingGraph, scc);
             symbolicSteps += sccNext.symbolicSteps;
             v2 = pick(sccNext.set, fullCube);
@@ -1280,23 +1279,20 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
             v2 = pick(newForward.lastLayer, fullCube);
           }        
         }
-        std::cout << "Inner loop done" << std::endl;
       }
 
-      //Restore the workinggraph to be the original FWD since the basin of the bscc might reach anything in this scc-closed set
-      workingGraph.nodes = leaf_true();
-      std::cout << "1" << std::endl;
+      //Restore the workinggraph to be the anything since the basin of the bscc might reach anything
+      workingGraph.nodes = nodeSet;
 
-      ReachResult basinReach = rel.backwardSet(workingGraph, bscc);
-      std::cout << "2" << std::endl;
+      ReachResult basinReach = rel.backwardSet(workingGraph, bscc); //Stuck here *sad violin*
 
       symbolicSteps = symbolicSteps + basinReach.symbolicSteps;
       Bdd bsccBasin = basinReach.set;
 
+      //All nodes found from a basin are safe to remove
       deleteNodes = unionBdd(deleteNodes, bsccBasin);
-      seenNodes = unionBdd(seenNodes, bsccBasin);
-      initNodes = differenceBdd(initNodes, seenNodes);
-      std::cout << "3" << std::endl;
+      //we should only keep the initial nodes which have not been seen
+      initNodes = differenceBdd(initNodes, deleteNodes);
 
       //Create "recursive" call
       //"Call" on V \ bsccBasin, picking from everything
@@ -1306,9 +1302,7 @@ SccResult chainAlgBottomSingleRecCallInitState(const Graph &initGraph) {
         const std::pair<Bdd, Bdd> recPair2 = {recBdd2, recNode2};
         callStack.push(recPair2);
       }
-      std::cout << "Middle loop done" << std::endl;
     }
-    std::cout << "Outer loop done" << std::endl;
   }
 
   //Return SCC list and number of symbolic steps

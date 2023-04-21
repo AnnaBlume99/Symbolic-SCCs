@@ -28,7 +28,8 @@ enum algorithmType
   chainBottomSingleRecSwitchAndBasin,
   chainBottomApproxPick,
   xbBottomApproxPick,
-  chainBottomSingleRecInitState
+  chainBottomSingleRecInitState,
+  xbBottomInitState
 };
 
 //ToString on the runnable function enums
@@ -77,6 +78,8 @@ inline const std::string algoToString(algorithmType runType) {
       return "XB bottom with overapproximations";
     case chainBottomSingleRecInitState:
       return "Chain bottom single rec init state";
+    case xbBottomInitState:
+      return "Xie-Beerel bottom init state";
     default:
       return "[Unknown algorithm type]";
   }

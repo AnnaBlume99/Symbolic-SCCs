@@ -114,7 +114,6 @@ template<class ReachType>
 SccResult xieBeerelBottomInitState(const Graph &initGraph) {
   int symbolicSteps = 0;
 
-
   std::list<Bdd> bsccList = {};
   //Return if graph is empty
   if(initGraph.nodes == leaf_false()) {
@@ -142,7 +141,6 @@ SccResult xieBeerelBottomInitState(const Graph &initGraph) {
   std::stack<Bdd> callStack;
   callStack.push(allNodes);
 
-  
   while(!callStack.empty()) {
     const Bdd nodeSet = callStack.top();
     callStack.pop();

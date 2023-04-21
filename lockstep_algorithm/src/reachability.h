@@ -67,6 +67,8 @@ class RelationUnion {
     //Shortcutting forward-set for BSCCs
     ReachResultBottom forwardSetShortcut(const Graph &graph, const sylvan::Bdd &nodes, const sylvan::Bdd &backwardSet);
 
+    //Reachability from init nodes in Chain
+    ChainResult forwardSetLastLayerInit(const Graph &graph, const sylvan::Bdd &nodes, const sylvan::Bdd &avoidNodes);
 };
 
 //Reachability methods using the saturation heuristic

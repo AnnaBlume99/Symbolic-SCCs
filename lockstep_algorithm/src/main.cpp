@@ -31,7 +31,7 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState};
+  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState, xbBottomInitState};
 
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
