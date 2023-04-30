@@ -160,7 +160,7 @@ inline Relation makeRelationFromTransition(Transition transition, std::map<std::
 // Takes a PNML file defining a petri net and converts it into a Graph
 // A node in the resulting graph is a configuration of markings in the petri net
 // A relation is a transition from marking to some other marking
-Graph PNMLtoGraph(std::string fileString, bool useInitialMarking) {
+Graph PNMLtoGraph(std::string fileString) {
   std::string path = getPNMLFilePath(fileString);
 
   // Read from the text file
@@ -289,16 +289,11 @@ Graph PNMLtoGraph(std::string fileString, bool useInitialMarking) {
   pnmlGraph.relations = relations;
   pnmlGraph.cube = cube;
 
-  if(useInitialMarking) {
-    std::cout << "Only returning the initial states" << std::endl;
-    pnmlGraph.nodes = initialBdd;
-  } else {
-    std::cout << "Using reachability from initial marking to find the state space" << std::endl;
-    pnmlGraph.nodes = leaf_true();
-    Saturation sat;
-    ReachResult reachabilityResult = sat.forwardSet(pnmlGraph, initialBdd);
-    pnmlGraph.nodes = reachabilityResult.set;
-  }
-
+  std::cout << "Using reachability from initial marking to find the state space" << std::endl;
+  pnmlGraph.nodes = leaf_true();
+  Saturation sat;
+  ReachResult reachabilityResult = sat.forwardSet(pnmlGraph, initialBdd);
+  pnmlGraph.nodes = reachabilityResult.set;
+  
   return pnmlGraph;
 }

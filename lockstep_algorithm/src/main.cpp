@@ -8,9 +8,6 @@
 #include "petriTranslation.h"
 #include "benchmark.h"
 #include "print.h"
-#include "interface.h"
-#include "../test/graph_examples.h"
-#include "../test/test_sccListCorrectness.h"
 
 int main() {
 
@@ -27,21 +24,15 @@ int main() {
   sylvan::sylvan_init_package();
   sylvan::sylvan_init_bdd();
 
-  std::cout << "Hello SCC-finding World!" << std::endl;
-
-  std::list<std::string> pathStrings = getPathStringsBscc();
-
-  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState};
+  std::list<std::string> pathStrings = getPathStringsFast();
+  std::list<algorithmType> runTypes = {chain};
 
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
-    std::list<algorithmType> algorithm = {algo};
-    std::string fileName = algoToString(algo) + std::to_string(time(NULL)) + "projfull";
-    bool initialStates = true;
-    benchmark(pathStrings, fileName, algorithm, 0, initialStates);
+    algorithmType algorithm = {algo};
+    std::string fileName = algoToString(algo) + std::to_string(time(NULL));
+    experiment(pathStrings, algorithm, fileName);
   }
-
-  std::cout << "Goodbye :)" << std::endl;
 
   sylvan::sylvan_quit();
   lace_stop();

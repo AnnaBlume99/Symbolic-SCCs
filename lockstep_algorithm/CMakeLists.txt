@@ -34,4 +34,3 @@ add_subdirectory (sylvan sylvan)
 # Examples
 # ============================================================================ #
 add_subdirectory (src)
-add_subdirectory (test)
