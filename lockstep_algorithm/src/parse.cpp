@@ -11,7 +11,7 @@ using sylvan::Bdd;
 using sylvan::BddSet;
 
 Bdd parseFileToBdd() {
-  std::string pathName = "../bdd.txt";
+  std::string pathName = "bdd copy.txt";
   std::ifstream readFile(pathName);
 
   if(!readFile) {
@@ -35,8 +35,8 @@ Bdd parseFileToBdd() {
       } else if(val == '>') {
         //end current AND-clause and add it to the result
         result = result.Or(currentPath);
-        std::cout << "Currentpath parsed:" << std::endl;
-        printBdd(currentPath);
+        //std::cout << "Currentpath parsed:" << std::endl;
+        //printBdd(currentPath);
         currentPath = leaf_true();
 
       } else if(val == ':') {
@@ -69,6 +69,7 @@ Bdd parseFileToBdd() {
       }
     }
   }
-  
+//std::cout << "Final BDD:" << std::endl;
+//printBdd(result);
   return result;
 }
