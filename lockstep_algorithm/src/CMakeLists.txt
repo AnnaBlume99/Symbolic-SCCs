@@ -9,6 +9,7 @@ add_executable(main main.cpp
                reachability.cpp
                tgr.cpp
                deadlock.cpp
+               parse.cpp
                ../test/graph_examples.cpp
                ../test/test_sccListCorrectness.cpp)
 

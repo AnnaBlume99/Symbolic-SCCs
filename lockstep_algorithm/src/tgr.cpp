@@ -93,7 +93,7 @@ std::pair<Graph, int> TGR(Graph universe) {
     if(intersectBdd(fireSet, universe.nodes) == leaf_false()){
       //std::cout << i<<"Deleting 1 on place" << i- noDeletions << "with " << noDeletions <<" deletions" << std::endl;
       //This is possible.. right?
-      universe.relations.erase(universe.relations.begin()+i- noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
+      universe.relations.erase(universe.relations.begin() + i - noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
       noDeletions++;
       continue;
     }

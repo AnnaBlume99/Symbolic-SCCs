@@ -11,6 +11,7 @@
 #include "interface.h"
 #include "../test/graph_examples.h"
 #include "../test/test_sccListCorrectness.h"
+#include "parse.h";
 
 int main() {
 
@@ -31,8 +32,10 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState, xbBottomInitState};
+  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState};
 
+  parseFileToBdd();
+  /*
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
@@ -40,7 +43,7 @@ int main() {
     bool initialStates = true;
     benchmark(pathStrings, fileName, algorithm, 0, initialStates);
   }
-
+  */
   std::cout << "Goodbye :)" << std::endl;
 
   sylvan::sylvan_quit();

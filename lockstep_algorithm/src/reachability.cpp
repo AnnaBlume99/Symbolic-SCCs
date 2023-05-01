@@ -582,7 +582,6 @@ ReachResult RelationUnion::backwardStep2(const Graph &graph, const sylvan::Bdd &
     Bdd relResult = unionBdd(differenceBdd(relRes, nodes), inter);
     
     step = unionBdd(step, relResult);
-    
   }
 
   return createReachResult(step, symbolicSteps);
