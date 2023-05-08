@@ -545,6 +545,7 @@ SccResult chainAlgBottomForwardLoop(const Graph &fullGraph) {
       bool forwardProgress = true;
       Bdd oldForward = leaf_false();
 
+      
       while(forwardProgress) {
         //Compute FWD in the current forward set from a node in the last layer
         newForward = rel.forwardSetLastLayer(workingGraph, v2);
@@ -558,6 +559,7 @@ SccResult chainAlgBottomForwardLoop(const Graph &fullGraph) {
           forwardProgress = false;
         } else {
           oldForward = newForward.forwardSet;
+          workingGraph.nodes = newForward.forwardSet;
           v2 = pick(newForward.lastLayer, fullCube);
         }
       }
@@ -684,7 +686,7 @@ SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph) {
         newForward = rel.forwardSetLastLayer(workingGraph, v2);
         symbolicSteps = symbolicSteps + newForward.symbolicSteps;
         if(firstForward) {
-          transForward = newForward;
+          transForward = newForward; //Not needed
           firstForward = false;
         }
 
@@ -692,6 +694,7 @@ SccResult chainAlgBottomSingleRecForwardLoop(const Graph &fullGraph) {
           forwardProgress = false;
         } else {
           oldForward = newForward.forwardSet;
+          workingGraph.nodes = newForward.forwardSet;
           v2 = pick(newForward.lastLayer, fullCube);
         }
       }
