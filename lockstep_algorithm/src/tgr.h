@@ -21,7 +21,7 @@ using sylvan::BddSet;
 std::pair<Graph, int> TGR(Graph universe);
 std::pair<Graph, int> reduce(Bdd pivots, Graph universe);
 std::pair<std::vector<Bdd>,int>  relationFireSets(const Graph &fullGraph);
-
+std::pair<Graph, int> ITGR(Graph universe);
 
 
 #endif // TGR_H

@@ -298,10 +298,20 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
   // const std::deque<Relation> relationDeque = reducedGraph.first.relations;
   //End TGR
 
+
+  //ITGR Testing:
+  std::pair<Graph, int> reducedGraph = ITGR(fullGraph);
+  symbolicSteps += reducedGraph.second;
+  const Bdd allNodes = reducedGraph.first.nodes;
+  const BddSet fullCube = reducedGraph.first.cube;
+  const std::deque<Relation> relationDeque = reducedGraph.first.relations;
+  //End ITGR
+
+
   //Normal code
-  const Bdd allNodes = fullGraph.nodes;
-  const BddSet fullCube = fullGraph.cube;
-  const std::deque<Relation> relationDeque = fullGraph.relations;
+  // const Bdd allNodes = fullGraph.nodes;
+  // const BddSet fullCube = fullGraph.cube;
+  // const std::deque<Relation> relationDeque = fullGraph.relations;
   //End Normal code
 
   //Deadlock detection

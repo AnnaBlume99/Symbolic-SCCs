@@ -32,18 +32,18 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSingleRecInitState};
+  std::list<algorithmType> runTypes = {chainBottomSingleRec};
 
-  parseFileToBdd();
-  /*
+  //parseFileToBdd();
+  
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
     std::string fileName = algoToString(algo) + std::to_string(time(NULL)) + "projfull";
-    bool initialStates = true;
+    bool initialStates = false;
     benchmark(pathStrings, fileName, algorithm, 0, initialStates);
   }
-  */
+  
   std::cout << "Goodbye :)" << std::endl;
 
   sylvan::sylvan_quit();
