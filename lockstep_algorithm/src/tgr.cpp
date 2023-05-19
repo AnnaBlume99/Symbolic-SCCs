@@ -113,7 +113,7 @@ std::pair<Graph, int> TGR(Graph universe) {
 struct ITGRWorker {
   long long weight;
   bool forwardPhase;
-  Bdd reach;
+  Bdd fwd;
   Bdd component;
   Bdd front;
   int index;
@@ -154,14 +154,10 @@ std::pair<Graph, int> ITGR(Graph universe){
     pq.push(worker);
   }
 
-  /*while(!pq.empty()) {
-    ITGRWorker p = pq.top();
-    pq.pop();
-
-    std::cout << p.weight << std:: endl;
-  }
-  std::exit(-1);*/
-
+  Graph workingGraph = {};
+  workingGraph.nodes = universe.nodes;
+  workingGraph.cube = fullCube;
+  workingGraph.relations = universe.relations;
   RelationUnion rel;
   //std::cout << "Before while" << std::endl;
   while(!pq.empty()) {
@@ -170,64 +166,71 @@ std::pair<Graph, int> ITGR(Graph universe){
     ITGRWorker p = pq.top();
     pq.pop();
 
-    if(p.forwardPhase) { //Forward Phase
+    if(p.forwardPhase) {  //Forward Phase
       //std::cout << "F-P" << std::endl;
 
-      Bdd newReach = intersectBdd(p.reach, universe.nodes);
+      Bdd fwd = intersectBdd(p.fwd, universe.nodes);
       ReachResult fwdStep = rel.forwardStep(universe, intersectBdd(universe.nodes, p.front));
       symbolicSteps += fwdStep.symbolicSteps;
-      newReach = unionBdd(newReach, fwdStep.set);
+      Bdd front = differenceBdd(fwdStep.set, fwd);
+      fwd = unionBdd(fwd, fwdStep.set);
 
-      if(differenceBdd(fwdStep.set, newReach) == leaf_false()) { //If Fixpoint
+      if(front == leaf_false()) { //If Fixpoint
       //std::cout << "F-P 1" << std::endl;
         //move to the next phase
-        if(universe.nodes != newReach) {
-          ReachResult fwdBasin = rel.backwardSet(universe, newReach);
+        fwd = intersectBdd(universe.nodes, fwd);
+        if(universe.nodes != fwd) {
+          ReachResult fwdBasin = rel.backwardSet(universe, fwd);
           Bdd basin = fwdBasin.set;
           symbolicSteps += fwdBasin.symbolicSteps;
-          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, newReach));
+          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, fwd));
         }
         Bdd component = intersectBdd(fireSets[p.index], universe.nodes);
         long long newWeight = component.SatCount(fullCube);
         ITGRWorker newP = {
           newWeight,
           false,
-          newReach, //This is FWD
+          fwd,
           component,
           component,
           p.index
         };
         pq.push(newP);
       } else {
-        std::cout << "F-P 2" << std::endl;
+        //std::cout << "F-P 2" << std::endl;
         //make another forward step
-        long long newWeight = newReach.SatCount(fullCube);
+        long long newWeight = fwd.SatCount(fullCube);
         ITGRWorker newP = {
           newWeight,
           true,
-          newReach,
+          fwd,
           p.component,
-          fwdStep.set,
+          front,
           p.index
         };
         pq.push(newP);
       }
     } else { //ExtendedComponent Phase
       //std::cout << "E-P" << std::endl;
-      Bdd newComponent = intersectBdd(p.component, universe.nodes);
-      ReachResult bwdStep = rel.backwardStep(universe, intersectBdd(universe.nodes, p.front));
-      symbolicSteps += bwdStep.symbolicSteps;
-      newComponent = unionBdd(newComponent, bwdStep.set);
+      workingGraph.nodes = intersectBdd(p.fwd, universe.nodes);
+      workingGraph.relations = universe.relations;
 
-      if(differenceBdd(bwdStep.set, newComponent) == leaf_false()) {
+      Bdd extendedComponent = intersectBdd(p.component, universe.nodes);
+      ReachResult bwdStep = rel.backwardStep(workingGraph, intersectBdd(universe.nodes, p.front));
+      symbolicSteps += bwdStep.symbolicSteps;
+      Bdd front = differenceBdd(bwdStep.set, extendedComponent);
+      extendedComponent = unionBdd(extendedComponent, bwdStep.set);
+
+      if(front == leaf_false()) {
+        extendedComponent = intersectBdd(extendedComponent, universe.nodes);
         //std::cout << "E-P 2" << std::endl;
         //all done now
-        Bdd bottom = differenceBdd(intersectBdd(p.reach, universe.nodes), newComponent);
+        Bdd bottom = differenceBdd(intersectBdd(p.fwd, universe.nodes), extendedComponent);
         if(bottom != leaf_false()) {
-            ReachResult bottomBasin = rel.backwardSet(universe, bottom);
-            Bdd basin = bottomBasin.set;
-            symbolicSteps += bottomBasin.symbolicSteps;
-            universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, bottom));
+          ReachResult bottomBasin = rel.backwardSet(universe, bottom);
+          Bdd basin = bottomBasin.set;
+          symbolicSteps += bottomBasin.symbolicSteps;
+          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, bottom));
         }
 
         if(intersectBdd(fireSets[p.index], universe.nodes) == leaf_false()){
@@ -237,8 +240,6 @@ std::pair<Graph, int> ITGR(Graph universe){
           for(int j = 0; j < i; j++) {
             noDeletions += removed[j];
           }
-          //std::cout << "Universe relations size: " << universe.relations.size() << std::endl;
-          //std::cout << "Deleting on place " << i - noDeletions << " with " << noDeletions << " deletions" << std::endl;
           universe.relations.erase(universe.relations.begin()+i-noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
           //std::cout << "E-P 2b" << std::endl;
           removed[i] = true;
@@ -247,13 +248,13 @@ std::pair<Graph, int> ITGR(Graph universe){
       } else {
         //std::cout << "E-P 3" << std::endl;
         //take another backward step
-        long long newWeight = newComponent.SatCount(fullCube);
+        long long newWeight = extendedComponent.SatCount(fullCube);
         ITGRWorker newP = {
           newWeight,
           false,
-          p.reach,
-          newComponent,
-          bwdStep.set,
+          p.fwd,
+          extendedComponent,
+          front,
           p.index
         };
         pq.push(newP);
