@@ -146,9 +146,9 @@ std::pair<Graph, int> ITGR(Graph universe){
     ITGRWorker worker = {
       weight,
       true,
-      fireSet,
-      leaf_false(),
-      fireSet,
+      fireSet, //FWD
+      leaf_false(), //Component
+      fireSet, //Front
       i
     };
     pq.push(worker);
@@ -169,41 +169,38 @@ std::pair<Graph, int> ITGR(Graph universe){
     if(p.forwardPhase) {  //Forward Phase
       //std::cout << "F-P" << std::endl;
 
-      Bdd fwd = intersectBdd(p.fwd, universe.nodes);
-      ReachResult fwdStep = rel.forwardStep(universe, intersectBdd(universe.nodes, p.front));
+      Bdd fwd = intersectBdd(p.fwd, universe.nodes); //l7
+      ReachResult fwdStep = rel.forwardStep(universe, intersectBdd(universe.nodes, p.front)); //l7
       symbolicSteps += fwdStep.symbolicSteps;
-      Bdd front = differenceBdd(fwdStep.set, fwd);
-      fwd = unionBdd(fwd, fwdStep.set);
+      Bdd front = differenceBdd(fwdStep.set, fwd); //l7
+      fwd = unionBdd(fwd, fwdStep.set); //l7
 
-      if(front == leaf_false()) { //If Fixpoint
-      //std::cout << "F-P 1" << std::endl;
+      if(front == leaf_false()) { //If Fixpoint l9
         //move to the next phase
-        fwd = intersectBdd(universe.nodes, fwd);
         if(universe.nodes != fwd) {
           ReachResult fwdBasin = rel.backwardSet(universe, fwd);
           Bdd basin = fwdBasin.set;
           symbolicSteps += fwdBasin.symbolicSteps;
           universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, fwd));
         }
-        Bdd component = intersectBdd(fireSets[p.index], universe.nodes);
-        long long newWeight = component.SatCount(fullCube);
+        Bdd component = intersectBdd(fireSets[p.index], universe.nodes); //l13
+        long long newWeight = component.SatCount(fullCube); //l14
         ITGRWorker newP = {
           newWeight,
-          false,
-          fwd,
-          component,
-          component,
+          false, //l15
+          fwd, //FWD
+          component, //Component
+          component, //Front
           p.index
         };
         pq.push(newP);
       } else {
-        //std::cout << "F-P 2" << std::endl;
         //make another forward step
-        long long newWeight = fwd.SatCount(fullCube);
-        ITGRWorker newP = {
+        long long newWeight = fwd.SatCount(fullCube); //l8
+        ITGRWorker newP = { //Update the front and the FWD and the new weight
           newWeight,
           true,
-          fwd,
+          fwd, 
           p.component,
           front,
           p.index
@@ -211,8 +208,8 @@ std::pair<Graph, int> ITGR(Graph universe){
         pq.push(newP);
       }
     } else { //ExtendedComponent Phase
-      //std::cout << "E-P" << std::endl;
       workingGraph.nodes = intersectBdd(p.fwd, universe.nodes);
+      //workingGraph.nodes = p.fwd;
       workingGraph.relations = universe.relations;
 
       Bdd extendedComponent = intersectBdd(p.component, universe.nodes);
@@ -222,8 +219,6 @@ std::pair<Graph, int> ITGR(Graph universe){
       extendedComponent = unionBdd(extendedComponent, bwdStep.set);
 
       if(front == leaf_false()) {
-        extendedComponent = intersectBdd(extendedComponent, universe.nodes);
-        //std::cout << "E-P 2" << std::endl;
         //all done now
         Bdd bottom = differenceBdd(intersectBdd(p.fwd, universe.nodes), extendedComponent);
         if(bottom != leaf_false()) {
@@ -232,21 +227,17 @@ std::pair<Graph, int> ITGR(Graph universe){
           symbolicSteps += bottomBasin.symbolicSteps;
           universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, bottom));
         }
-
-        if(intersectBdd(fireSets[p.index], universe.nodes) == leaf_false()){
-          //std::cout << "E-P 2a" << std::endl;
-          int i = p.index;
+        int i = p.index;
+        if(intersectBdd(fireSets[i], universe.nodes) == leaf_false()){
           int noDeletions = 0;
           for(int j = 0; j < i; j++) {
             noDeletions += removed[j];
           }
           universe.relations.erase(universe.relations.begin()+i-noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
-          //std::cout << "E-P 2b" << std::endl;
           removed[i] = true;
         }
         
       } else {
-        //std::cout << "E-P 3" << std::endl;
         //take another backward step
         long long newWeight = extendedComponent.SatCount(fullCube);
         ITGRWorker newP = {
