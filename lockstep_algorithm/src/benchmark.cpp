@@ -38,9 +38,9 @@ std::list<std::string> getPathStringsBscc() {
   resultList.push_back("SmartHome/PT/smhome_03_45place.pnml");                //1 BSCCs / 76 SCCs
   resultList.push_back("ShieldRVs/PT/shield_s_rv_003_a_45place.pnml");        //51 BSCCs / 327762 SCCs
   resultList.push_back("ShieldRVt/PT/shield_t_rv_001_b_53place.pnml");        //1 BSCCs / 2909 SCCs
-  // resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
-  // resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
-  // resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
+  resultList.push_back("ShieldPPPs/PT/shield_s_ppp_001_b_71place.pnml");      //3 BSCCs / 123725 SCCs
+  resultList.push_back("ShieldIIPt/PT/shield_t_iip_001_b_73place.pnml");      //1 BSCCs / 170860 SCCs
+  resultList.push_back("SmartHome/PT/smhome_04_139place.pnml");               //8 BSCCs / 10126 SCCs
 
 
   // // Feasible bsccs of the larger ones *These are also in the list below*

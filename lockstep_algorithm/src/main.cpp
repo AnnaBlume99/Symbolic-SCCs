@@ -32,7 +32,7 @@ int main() {
 
   std::list<std::string> pathStrings = getPathStringsBscc();
 
-  std::list<algorithmType> runTypes = {chainBottomSingleRec};
+  std::list<algorithmType> runTypes = {chainBottomAdvanced};
 
   //parseFileToBdd();
   
