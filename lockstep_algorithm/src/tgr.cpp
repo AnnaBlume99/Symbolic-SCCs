@@ -22,19 +22,20 @@ using sylvan::BddSet;
 std::pair<std::vector<Bdd>,int> relationFireSets(const Graph &fullGraph) {
   int symbolicSteps = 0;
   RelationUnion reach;
+  
   std::deque<Relation> relations = fullGraph.relations;
   std::vector<Bdd> fireSets;
+
   Graph workingGraph = {};
   workingGraph.nodes = fullGraph.nodes;
   workingGraph.cube = fullGraph.cube;
-  workingGraph.relations = fullGraph.relations;
 
   for(Relation rel : relations) {
     std::deque<Relation> relDeque = {rel};
     workingGraph.relations = relDeque;
-    ReachResult fwd = reach.forwardStep2(workingGraph, fullGraph.nodes);
+    ReachResult fwd = reach.forwardStepNoDiff(workingGraph, fullGraph.nodes);
     symbolicSteps += fwd.symbolicSteps;
-    ReachResult fireSet = reach.backwardStep2(workingGraph, fwd.set); //Do we have self-loops? TODO: Figure out why it works with the difference version (originial backwardstep)
+    ReachResult fireSet = reach.backwardStepNoDiff(workingGraph, fwd.set); //Do we have self-loops? TODO: Figure out why it works with the difference version (originial backwardstep)
     symbolicSteps += fireSet.symbolicSteps;
     //printBdd(fireSet.set);
     fireSets.push_back(fireSet.set);
@@ -43,7 +44,7 @@ std::pair<std::vector<Bdd>,int> relationFireSets(const Graph &fullGraph) {
   return {fireSets, symbolicSteps};
 }
 
-std::pair<Graph, int> reduce(Bdd pivots, Graph universe){
+std::pair<Graph, int> reduce(Bdd &pivots, Graph &universe){
   int symbolicSteps = 0;
   Graph workingGraph;
   workingGraph.cube = universe.cube;
@@ -78,7 +79,7 @@ std::pair<Graph, int> reduce(Bdd pivots, Graph universe){
   return {universe, symbolicSteps};
 }
 
-std::pair<Graph, int> TGR(Graph universe) {
+std::pair<Graph, int> TGR(Graph &universe) {
   int symbolicSteps = 0;
 
   std::pair<std::vector<Bdd>,int> fireSetResult = relationFireSets(universe);
@@ -121,17 +122,27 @@ struct ITGRWorker {
 
 class Comparator{
   public:
-    bool operator()(ITGRWorker a, ITGRWorker b){
+    bool operator()(ITGRWorker &a, ITGRWorker &b){
       return a.weight > b.weight;
     }
 };
 
-std::pair<Graph, int> ITGR(Graph universe){
-  int symbolicSteps = 0;
-  
-  BddSet fullCube = universe.cube;
+void printQueueStatus(const std::priority_queue<ITGRWorker, std::vector<ITGRWorker>, Comparator> &pq){
+  std::priority_queue<ITGRWorker, std::vector<ITGRWorker>, Comparator> p = pq;
+  std::cout << "Queue size:" << p.size() << std::endl;
+  while(!p.empty()){
+    std::cout << p.top().weight << ", ";
+    p.pop();
+  }
+  std::cout << std::endl;
+}
 
-  std::vector<bool> removed(universe.relations.size(), false);
+std::pair<Graph, int> ITGR(const Graph &graph) {
+  int symbolicSteps = 0;
+
+  Graph universe = {
+    graph.nodes, graph.cube, graph.relations
+  };
 
   std::pair<std::vector<Bdd>,int> fireSetResult = relationFireSets(universe);
   std::vector<Bdd> fireSets = fireSetResult.first;
@@ -141,93 +152,84 @@ std::pair<Graph, int> ITGR(Graph universe){
 
   //Initialize all worker processes and put them in the PQ
   for(int i = 0; i < fireSets.size(); i++) {
-    Bdd fireSet = fireSets[i];
-    long long weight = fireSet.SatCount(fullCube);
+    Bdd fireSet = fireSets[i]; //Reach in pseudocode
+    long long weight = fireSet.SatCount(universe.cube);
     ITGRWorker worker = {
-      weight,
-      true,
+      weight, //Weight for priority queue (size of the set)
+      true, // Forward phase = true, ext phase = false
       fireSet, //FWD
       leaf_false(), //Component
-      fireSet, //Front
-      i
+      leaf_false(), //Not in use! (Will hopefully be front at some point)
+      i //index
     };
     pq.push(worker);
   }
 
-  Graph workingGraph = {};
-  workingGraph.nodes = universe.nodes;
-  workingGraph.cube = fullCube;
-  workingGraph.relations = universe.relations;
-  RelationUnion rel;
-  //std::cout << "Before while" << std::endl;
-  while(!pq.empty()) {
-    //std::cout << "While start" << std::endl;
+  RelationUnion rel;  
+  std::vector<bool> removed(universe.relations.size(), false);
 
-    ITGRWorker p = pq.top();
+  int c = 0;
+  while(!pq.empty()) {
+    // if(c % 100 == 0) {
+    //   printQueueStatus(pq);
+    // }
+    // c++;
+    ITGRWorker w = pq.top();
     pq.pop();
 
-    if(p.forwardPhase) {  //Forward Phase
-      //std::cout << "F-P" << std::endl;
-
-      Bdd fwd = intersectBdd(p.fwd, universe.nodes); //l7
-      ReachResult fwdStep = rel.forwardStep(universe, intersectBdd(universe.nodes, p.front)); //l7
+    if(w.forwardPhase) {
+      ReachResult fwdStep = rel.forwardStepNoDiff(universe, intersectBdd(universe.nodes, w.fwd));
       symbolicSteps += fwdStep.symbolicSteps;
-      Bdd front = differenceBdd(fwdStep.set, fwd); //l7
-      fwd = unionBdd(fwd, fwdStep.set); //l7
-
-      if(front == leaf_false()) { //If Fixpoint l9
-        //move to the next phase
-        if(universe.nodes != fwd) {
-          ReachResult fwdBasin = rel.backwardSet(universe, fwd);
-          Bdd basin = fwdBasin.set;
-          symbolicSteps += fwdBasin.symbolicSteps;
-          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, fwd));
+      Bdd newFwd = unionBdd(w.fwd, fwdStep.set); 
+      
+      bool fixpoint = newFwd == w.fwd;
+      if(fixpoint) {
+        if(universe.nodes != newFwd) {
+          ReachResult basin = rel.backwardSet(universe, newFwd);
+          symbolicSteps += basin.symbolicSteps;
+          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin.set, newFwd));
         }
-        Bdd component = intersectBdd(fireSets[p.index], universe.nodes); //l13
-        long long newWeight = component.SatCount(fullCube); //l14
-        ITGRWorker newP = {
+
+        //new worker -> next phase
+        Bdd component = intersectBdd(fireSets[w.index], universe.nodes);
+        long long newWeight = component.SatCount(universe.cube);
+        ITGRWorker newWorker = {
           newWeight,
-          false, //l15
-          fwd, //FWD
+          false, //move to next phase
+          newFwd, //the whole forward set
           component, //Component
-          component, //Front
-          p.index
+          leaf_false(), //not in use
+          w.index
         };
-        pq.push(newP);
+        pq.push(newWorker);
       } else {
-        //make another forward step
-        long long newWeight = fwd.SatCount(fullCube); //l8
-        ITGRWorker newP = { //Update the front and the FWD and the new weight
+        //new worker -> same phase
+        long long newWeight = newFwd.SatCount(universe.cube);
+        ITGRWorker newWorker = {
           newWeight,
-          true,
-          fwd, 
-          p.component,
-          front,
-          p.index
+          true, //stay in this phase
+          newFwd, //fwd set being built
+          leaf_false(), //Component
+          leaf_false(), //not in use
+          w.index
         };
-        pq.push(newP);
+        pq.push(newWorker);
       }
-    } else { //ExtendedComponent Phase
-      workingGraph.nodes = intersectBdd(p.fwd, universe.nodes);
-      //workingGraph.nodes = p.fwd;
-      workingGraph.relations = universe.relations;
-
-      Bdd extendedComponent = intersectBdd(p.component, universe.nodes);
-      ReachResult bwdStep = rel.backwardStep(workingGraph, intersectBdd(universe.nodes, p.front));
+    } else {
+      Graph workingGraph = { intersectBdd(w.fwd, universe.nodes), universe.cube, universe.relations };
+      ReachResult bwdStep = rel.backwardStepNoDiff(workingGraph, w.component);
       symbolicSteps += bwdStep.symbolicSteps;
-      Bdd front = differenceBdd(bwdStep.set, extendedComponent);
-      extendedComponent = unionBdd(extendedComponent, bwdStep.set);
+      Bdd newComponent = unionBdd(w.component, bwdStep.set);
 
-      if(front == leaf_false()) {
-        //all done now
-        Bdd bottom = differenceBdd(intersectBdd(p.fwd, universe.nodes), extendedComponent);
+      bool fixpoint = newComponent == w.component;
+      if(fixpoint) {
+        Bdd bottom = differenceBdd(intersectBdd(w.fwd, universe.nodes), newComponent);
         if(bottom != leaf_false()) {
-          ReachResult bottomBasin = rel.backwardSet(universe, bottom);
-          Bdd basin = bottomBasin.set;
-          symbolicSteps += bottomBasin.symbolicSteps;
-          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin, bottom));
+          ReachResult basin = rel.backwardSet(universe, bottom);
+          symbolicSteps += basin.symbolicSteps;
+          universe.nodes = differenceBdd(universe.nodes, differenceBdd(basin.set, bottom));
         }
-        int i = p.index;
+        int i = w.index;
         if(intersectBdd(fireSets[i], universe.nodes) == leaf_false()){
           int noDeletions = 0;
           for(int j = 0; j < i; j++) {
@@ -236,24 +238,21 @@ std::pair<Graph, int> ITGR(Graph universe){
           universe.relations.erase(universe.relations.begin()+i-noDeletions); //This might be inefficent, however does not affect the symbolic steps we are interested in
           removed[i] = true;
         }
-        
       } else {
-        //take another backward step
-        long long newWeight = extendedComponent.SatCount(fullCube);
-        ITGRWorker newP = {
+        long long newWeight = newComponent.SatCount(universe.cube);
+        ITGRWorker newWorker = {
           newWeight,
-          false,
-          p.fwd,
-          extendedComponent,
-          front,
-          p.index
+          false, //stay in component phase
+          w.fwd, //fwd set being built
+          newComponent, //Component
+          leaf_false(), //not in use
+          w.index
         };
-        pq.push(newP);
+        pq.push(newWorker);
       }
     }
   }
-  std::cout << "Returning universe with " << universe.relations.size() << " relations left" << std::endl;
-  std::cout << "And " << universe.nodes.SatCount(universe.cube) << " nodes left " << std::endl;
 
   return {universe, symbolicSteps};
 }
+

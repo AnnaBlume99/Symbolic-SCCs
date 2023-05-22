@@ -300,7 +300,8 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
 
 
   //ITGR Testing:
-  std::pair<Graph, int> reducedGraph = ITGR(fullGraph);
+  
+  std::pair<Graph, int> reducedGraph = ITGR_Good(fullGraph);
   symbolicSteps += reducedGraph.second;
   const Bdd allNodes = reducedGraph.first.nodes;
   const BddSet fullCube = reducedGraph.first.cube;
