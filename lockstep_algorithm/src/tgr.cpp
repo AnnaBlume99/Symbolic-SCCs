@@ -127,16 +127,6 @@ class Comparator{
     }
 };
 
-void printQueueStatus(const std::priority_queue<ITGRWorker, std::vector<ITGRWorker>, Comparator> &pq){
-  std::priority_queue<ITGRWorker, std::vector<ITGRWorker>, Comparator> p = pq;
-  std::cout << "Queue size:" << p.size() << std::endl;
-  while(!p.empty()){
-    std::cout << p.top().weight << ", ";
-    p.pop();
-  }
-  std::cout << std::endl;
-}
-
 std::pair<Graph, int> ITGR(const Graph &graph) {
   int symbolicSteps = 0;
 
@@ -159,7 +149,7 @@ std::pair<Graph, int> ITGR(const Graph &graph) {
       true, // Forward phase = true, ext phase = false
       fireSet, //FWD
       leaf_false(), //Component
-      leaf_false(), //Not in use! (Will hopefully be front at some point)
+      fireSet, //Front
       i //index
     };
     pq.push(worker);
@@ -170,20 +160,18 @@ std::pair<Graph, int> ITGR(const Graph &graph) {
 
   int c = 0;
   while(!pq.empty()) {
-    // if(c % 100 == 0) {
-    //   printQueueStatus(pq);
-    // }
-    // c++;
     ITGRWorker w = pq.top();
     pq.pop();
 
     if(w.forwardPhase) {
-      ReachResult fwdStep = rel.forwardStepNoDiff(universe, intersectBdd(universe.nodes, w.fwd));
+      ReachResult fwdStep = rel.forwardStepNoDiff(universe, intersectBdd(universe.nodes, w.front));
       symbolicSteps += fwdStep.symbolicSteps;
-      Bdd newFwd = unionBdd(w.fwd, fwdStep.set); 
+      Bdd newFront = fwdStep.set;
+      Bdd newFwd = unionBdd(w.fwd, newFront); 
       
       bool fixpoint = newFwd == w.fwd;
       if(fixpoint) {
+        newFwd = intersectBdd(newFwd, universe.nodes); 
         if(universe.nodes != newFwd) {
           ReachResult basin = rel.backwardSet(universe, newFwd);
           symbolicSteps += basin.symbolicSteps;
@@ -198,7 +186,7 @@ std::pair<Graph, int> ITGR(const Graph &graph) {
           false, //move to next phase
           newFwd, //the whole forward set
           component, //Component
-          leaf_false(), //not in use
+          component, 
           w.index
         };
         pq.push(newWorker);
@@ -210,19 +198,21 @@ std::pair<Graph, int> ITGR(const Graph &graph) {
           true, //stay in this phase
           newFwd, //fwd set being built
           leaf_false(), //Component
-          leaf_false(), //not in use
+          newFront, 
           w.index
         };
         pq.push(newWorker);
       }
     } else {
       Graph workingGraph = { intersectBdd(w.fwd, universe.nodes), universe.cube, universe.relations };
-      ReachResult bwdStep = rel.backwardStepNoDiff(workingGraph, w.component);
+      ReachResult bwdStep = rel.backwardStepNoDiff(workingGraph, w.front);
       symbolicSteps += bwdStep.symbolicSteps;
-      Bdd newComponent = unionBdd(w.component, bwdStep.set);
+      Bdd newFront = bwdStep.set;
+      Bdd newComponent = unionBdd(w.component, newFront);
 
       bool fixpoint = newComponent == w.component;
       if(fixpoint) {
+        newComponent = intersectBdd(newComponent, universe.nodes);
         Bdd bottom = differenceBdd(intersectBdd(w.fwd, universe.nodes), newComponent);
         if(bottom != leaf_false()) {
           ReachResult basin = rel.backwardSet(universe, bottom);
@@ -243,9 +233,9 @@ std::pair<Graph, int> ITGR(const Graph &graph) {
         ITGRWorker newWorker = {
           newWeight,
           false, //stay in component phase
-          w.fwd, //fwd set being built
+          w.fwd, //full fwd set
           newComponent, //Component
-          leaf_false(), //not in use
+          newFront,
           w.index
         };
         pq.push(newWorker);
