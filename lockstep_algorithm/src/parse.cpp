@@ -1,4 +1,6 @@
 #include <fstream>
+#include <deque>
+#include <map>
 
 #include <sylvan.h>
 #include <sylvan_table.h>
@@ -10,8 +12,12 @@
 using sylvan::Bdd;
 using sylvan::BddSet;
 
-Bdd parseFileToBdd() {
-  std::string pathName = "bdd copy.txt";
+struct VarStruct {
+  int varNumber;
+};
+
+Graph parseFileToGraph() {
+  std::string pathName = "model.an";
   std::ifstream readFile(pathName);
 
   if(!readFile) {
@@ -19,57 +25,75 @@ Bdd parseFileToBdd() {
     std::exit(-1);
   }
 
-  Bdd result = leaf_false();
+  Graph result = {};
+  Bdd nodes = leaf_false();
+  BddSet fullCube = BddSet();
+  std::deque<Relation> relations;
+
   std::string myText;
+  std::map<std::string, VarStruct> varNames = {};
+  int currentVar = 0;
   while (std::getline (readFile, myText)) {
-    std::string currVar = "";
-    bool varParsing = false;
-    Bdd currentPath = leaf_true();
-    for (int i=0; i< myText.length(); i++) {
-      char val = myText[i];
-      if(val == '<') {
-        //start new AND-clause
-        varParsing = true;
-        currVar = "";
+    
+    int comment = myText.find("*");
+    int newVar = myText.find("[");
+    int transitionLine = myText.find("->");
+    if(comment != -1) {
+      //this is a comment line
+      // - skip
+      continue;
 
-      } else if(val == '>') {
-        //end current AND-clause and add it to the result
-        result = result.Or(currentPath);
-        //std::cout << "Currentpath parsed:" << std::endl;
-        //printBdd(currentPath);
-        currentPath = leaf_true();
-
-      } else if(val == ':') {
-        //next number is true/false
-        varParsing = false;        
-
-      } else if(val == ' ' || val == ',') {
-        //skip whitespace and commas
-        continue;
-
-      } else {
-        if(varParsing) {
-          //Currently parsing the number assigned to the var
-          currVar.push_back(val);
-        } else {
-          //Currently parsing the truth assignment of the var
-          int varInt = stoi(currVar);
-          if(val == '0') {
-            //false
-            currentPath = currentPath.And(nithvar(varInt));
-
+    } else if(newVar != -1) {
+      //this is a new variable declaration
+      // - check the possible values
+      bool findingName = false;
+      bool findingValues = false;
+      std::string name = "";
+      for(int i = 0; i < myText.length(); i++) {
+        char c  = myText[i];
+        if(c == '\"') {
+          findingName = !findingName;
+          continue;
+        } else if(findingName) {
+          name += c;
+        } else if(c == '[') {
+          findingValues = true;
+        } else if(c == ']') {
+          findingValues = false;
+        } else if(findingValues) {
+          if(c == '0' || c == '1' || c == ',' || c == ' ') {
+            continue;
           } else {
-            //true
-            currentPath = currentPath.And(ithvar(varInt));
+            std::cout << "Found weird char while parsing value for " << name << ": " << c << std::endl;
+            std::cout << "Maybe the file should be booleanized?" << std::endl;
+            return result;
           }
-          //this assignment is done, start the next one
-          varParsing = true;
-          currVar = "";
+        } else {
+          //???
+          continue;
         }
       }
+
+      //give the variable name its new number
+      varNames[name] = {};
+      varNames[name].varNumber = currentVar;
+      currentVar += 2;
+      std::cout << name << ", " << varNames[name].varNumber << std::endl;
+
+    } else if(transitionLine != -1) {
+      //this is a transition line
+      // - add it to the collection
+      
+      
+
+    } else {
+      //this line is whitespace or something else
+      // - skip
+      continue;
+
     }
+    //std::cout << myText << std::endl;
   }
-//std::cout << "Final BDD:" << std::endl;
-//printBdd(result);
+
   return result;
 }

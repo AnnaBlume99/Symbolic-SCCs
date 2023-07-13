@@ -17,6 +17,6 @@
 using sylvan::Bdd;
 using sylvan::BddSet;
 
-Bdd parseFileToBdd();
+Graph parseFileToGraph();
 
 #endif // PARSE_H

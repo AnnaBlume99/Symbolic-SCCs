@@ -11,7 +11,7 @@
 #include "interface.h"
 #include "../test/graph_examples.h"
 #include "../test/test_sccListCorrectness.h"
-#include "parse.h";
+#include "parse.h"
 
 int main() {
 
@@ -34,15 +34,15 @@ int main() {
 
   std::list<algorithmType> runTypes = {chainBottomAdvanced};
 
-  //parseFileToBdd();
+  parseFileToGraph();
   
-  for(algorithmType algo : runTypes) {
+  /*for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
     std::string fileName = algoToString(algo) + std::to_string(time(NULL)) + "projfull";
     bool initialStates = false;
     benchmark(pathStrings, fileName, algorithm, 0, initialStates);
-  }
+  }*/
   
   std::cout << "Goodbye :)" << std::endl;
 
