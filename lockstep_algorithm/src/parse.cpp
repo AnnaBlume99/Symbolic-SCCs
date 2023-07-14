@@ -38,6 +38,11 @@ Graph parseFileToGraph() {
     int comment = myText.find("*");
     int newVar = myText.find("[");
     int transitionLine = myText.find("->");
+
+    //Each new relation requires a cube and a BDD defining the transition
+    std::list<int> cubeVars = {};
+    sylvan::Bdd relationBDD = leaf_false();
+
     if(comment != -1) {
       //this is a comment line
       // - skip
@@ -83,12 +88,55 @@ Graph parseFileToGraph() {
     } else if(transitionLine != -1) {
       //this is a transition line
       // - add it to the collection
-      
+      bool findingVar = false;
+      bool findingVal = false;
+      bool LHS = true;
+      bool LHSstartState = true;
+      std::string currLHS = "";
+      std::string currRHS = "";
+
+      std::string fromString;
+
+      //We need to create the relations and corresponding cubes
+      for(int i = 0; i < myText.length(); i++){
+        char c = myText[i];
+        if(c == '\"') {
+          findingVar = !findingVar;
+          if(!findingVar){
+            //Reset the variable name
+            currRHS = "";
+          }
+        } else if(findingVar && LHS){
+          if(LHS){
+            currLHS += c;
+          } else{
+            currRHS += c;
+          }
+        } else if(std::isdigit(c)){
+          if(LHSstartState){
+            LHSstartState = !LHSstartState;
+            //Get the state it goes from here (always flips, so we don't need to explicitly check what comes after the arrow)
+          } else if (!LHS){
+            //Get the condition states of RHS vars
+
+            //Reset the name of the RHS variable, as we now will read a new one
+            currRHS = "";
+          }
+          //We skip the digit in "-> 0/1"
+        } else if(c == 'e'){
+          LHS = false;
+        } else {
+          continue; //Skip rest of the information
+        }
+      }
       
 
     } else {
       //this line is whitespace or something else
       // - skip
+
+      //Here we should end the previous relation, and initialize the new one
+
       continue;
 
     }
