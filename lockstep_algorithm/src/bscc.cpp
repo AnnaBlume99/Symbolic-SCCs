@@ -1780,10 +1780,10 @@ void printCube(BddSet cube) {
 
 void printRelation(Relation rel) {
   std::cout << "------------------------------------------------------------" << std::endl;
-  std::cout << "Printing relation with top, bottom:" << rel.top << ", " << rel.bottom << std::endl;
+  //std::cout << "Printing relation with top, bottom:" << rel.top << ", " << rel.bottom << std::endl;
   printCube(rel.cube);
   std::cout << "Bdd:" << std::endl;
-  printBdd(rel.relationBdd);
+  //printBdd(rel.relationBdd);
   printSingleRelationAsString(rel.relationBdd);
   std::cout << "------------------------------------------------------------" << std::endl;
 }

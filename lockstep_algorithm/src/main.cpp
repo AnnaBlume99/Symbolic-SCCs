@@ -30,19 +30,20 @@ int main() {
 
   std::cout << "Hello SCC-finding World!" << std::endl;
 
-  std::list<std::string> pathStrings = getPathStringsBscc();
+  std::list<std::string> pathStrings{"model.an"}; //getPathStringsBscc();
+  //pathStrings.push_back("model.an");
 
   std::list<algorithmType> runTypes = {chainBottomAdvanced};
 
-  parseFileToGraph();
+  //Graph pintGraph = parseFileToGraph();
   
-  /*for(algorithmType algo : runTypes) {
+  for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
     std::string fileName = algoToString(algo) + std::to_string(time(NULL)) + "projfull";
     bool initialStates = false;
     benchmark(pathStrings, fileName, algorithm, 0, initialStates);
-  }*/
+  }
   
   std::cout << "Goodbye :)" << std::endl;
 

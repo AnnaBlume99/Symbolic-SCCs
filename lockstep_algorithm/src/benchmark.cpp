@@ -22,6 +22,7 @@
 #include "print.h"
 #include "../test/graph_examples.h"
 #include "bscc.h"
+#include "parse.h"
 
 std::list<std::string> getPathStringsBscc() {
   std::list<std::string> resultList = {};
@@ -265,7 +266,8 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
   for(std::string pathString : pathStrings) {
     std::cout << "###### Running experiment on file at path: " << pathString << std::endl;
     //Create the graph from the PNML-file
-    Graph graph = PNMLtoGraph(pathString, useInitialMarking);
+    Graph graph = parseFileToGraph(pathString);
+    //Graph graph = PNMLtoGraph(pathString, useInitialMarking); //THIS IS NORMAL LINE
 
     //Write number of places and relations to csv-file
     std::string noOfPlaces = std::to_string(graph.cube.size());
