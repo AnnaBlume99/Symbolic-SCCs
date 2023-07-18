@@ -1,0 +1,101 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Ttv" [0, 1]
+"Wf" [0, 1]
+"Dlp" [0, 1]
+"Dally" [0, 1]
+"Wg" [0, 1]
+"Fz" [0, 1]
+"Arr" [0, 1]
+"Boca" [0, 1]
+"Nkd" [0, 1]
+"Dsh" [0, 1]
+"Axin" [0, 1]
+"Sgg" [0, 1]
+"APC" [0, 1]
+"CK1alpha" [0, 1]
+"Proteasome" [0, 1]
+"Hipk" [0, 1]
+"Slmb" [0, 1]
+"Arm" [0, 1]
+"Pan" [0, 1]
+"Nemo" [0, 1]
+"Lgs" [0, 1]
+"Nej" [0, 1]
+"Gro" [0, 1]
+"Hyx" [0, 1]
+"Pygo" [0, 1]
+"Targets" [0, 1]
+
+
+
+"Dlp" 1 -> 0 when "Ttv"=0
+"Dlp" 0 -> 1 when "Ttv"=1 and "Wf"=0
+"Dlp" 1 -> 0 when "Ttv"=1 and "Wf"=1
+
+"Dally" 1 -> 0 when "Ttv"=0
+"Dally" 0 -> 1 when "Ttv"=1 and "Wf"=0
+"Dally" 1 -> 0 when "Ttv"=1 and "Wf"=1
+
+
+"Fz" 1 -> 0 when "Wg"=0
+"Fz" 1 -> 0 when "Wg"=1 and "Boca"=0
+"Fz" 0 -> 1 when "Wg"=1 and "Boca"=1
+
+"Arr" 1 -> 0 when "Wg"=0
+"Arr" 0 -> 1 when "Wg"=1
+
+
+
+"Dsh" 1 -> 0 when "Fz"=0 and "Arr"=0
+"Dsh" 0 -> 1 when "Fz"=0 and "Arr"=1 and "Nkd"=0
+"Dsh" 1 -> 0 when "Fz"=0 and "Arr"=1 and "Nkd"=1
+"Dsh" 0 -> 1 when "Fz"=1 and "Nkd"=0
+"Dsh" 1 -> 0 when "Fz"=1 and "Nkd"=1
+
+"Axin" 0 -> 1 when "Dsh"=0
+"Axin" 1 -> 0 when "Dsh"=1
+
+"Sgg" 0 -> 1 when "Dsh"=0
+"Sgg" 1 -> 0 when "Dsh"=1
+
+"APC" 0 -> 1 when "Dsh"=0
+"APC" 1 -> 0 when "Dsh"=1
+
+"CK1alpha" 1 -> 0
+
+
+
+
+"Arm" 1 -> 0 when "Axin"=0 and "Sgg"=0 and "APC"=0 and "CK1alpha"=0
+"Arm" 1 -> 0 when "Axin"=0 and "Sgg"=0 and "APC"=0 and "CK1alpha"=1 and "Proteasome"=0 and "Hipk"=0
+"Arm" 0 -> 1 when "Axin"=0 and "Sgg"=0 and "APC"=0 and "CK1alpha"=1 and "Proteasome"=0 and "Hipk"=1
+"Arm" 1 -> 0 when "Axin"=0 and "Sgg"=0 and "APC"=0 and "CK1alpha"=1 and "Proteasome"=1 and "Hipk"=0
+"Arm" 0 -> 1 when "Axin"=0 and "Sgg"=0 and "APC"=0 and "CK1alpha"=1 and "Proteasome"=1 and "Hipk"=1 and "Slmb"=0
+"Arm" 1 -> 0 when "Axin"=0 and "Sgg"=0 and "APC"=0 and "CK1alpha"=1 and "Proteasome"=1 and "Hipk"=1 and "Slmb"=1
+"Arm" 1 -> 0 when "Axin"=0 and "Sgg"=0 and "APC"=1
+"Arm" 1 -> 0 when "Axin"=0 and "Sgg"=1
+"Arm" 1 -> 0 when "Axin"=1
+
+"Pan" 1 -> 0 when "Arm"=0
+"Pan" 0 -> 1 when "Arm"=1 and "Nemo"=0
+"Pan" 1 -> 0 when "Arm"=1 and "Nemo"=1
+
+
+
+
+
+
+
+"Targets" 1 -> 0 when "Pan"=0
+"Targets" 1 -> 0 when "Pan"=1 and "Lgs"=0
+"Targets" 1 -> 0 when "Pan"=1 and "Lgs"=1 and "Nej"=0
+"Targets" 1 -> 0 when "Pan"=1 and "Lgs"=1 and "Nej"=1 and "Gro"=0 and "Hyx"=0
+"Targets" 1 -> 0 when "Pan"=1 and "Lgs"=1 and "Nej"=1 and "Gro"=0 and "Hyx"=1 and "Pygo"=0
+"Targets" 0 -> 1 when "Pan"=1 and "Lgs"=1 and "Nej"=1 and "Gro"=0 and "Hyx"=1 and "Pygo"=1
+"Targets" 1 -> 0 when "Pan"=1 and "Lgs"=1 and "Nej"=1 and "Gro"=1
+

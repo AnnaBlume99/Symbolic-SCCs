@@ -1,0 +1,201 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Bcatenin_H" [0, 1]
+"CXCR4_H" [0, 1]
+"CXCR7_H" [0, 1]
+"ERK_H" [0, 1]
+"FoxO3a_H" [0, 1]
+"Gfi1_H" [0, 1]
+"GSK3B_H" [0, 1]
+"NfkB_H" [0, 1]
+"PI3KAkt_H" [0, 1]
+"ROS_H" [0, 1]
+"TLRs_H" [0, 1]
+"VLA4_H" [0, 1]
+"Cx43_M" [0, 1]
+"Bcatenin_M" [0, 1]
+"CXCL12_M" [0, 1]
+"ERK_M" [0, 1]
+"FoxO3a_M" [0, 1]
+"GSK3B_M" [0, 1]
+"NfkB_M" [0, 1]
+"ROS_M" [0, 1]
+"PI3KAkt_M" [0, 1]
+"TLRs_M" [0, 1]
+"VCAM1_M" [0, 1]
+"lTLR" [0, 1]
+"IL1" [0, 1]
+"GCSF" [0, 1]
+
+"Bcatenin_H" 0 -> 1 when "GSK3B_H"=0
+"Bcatenin_H" 1 -> 0 when "GSK3B_H"=1
+
+"CXCR4_H" 1 -> 0 when "CXCR7_H"=0 and "Gfi1_H"=0 and "CXCL12_M"=0
+"CXCR4_H" 0 -> 1 when "CXCR7_H"=0 and "Gfi1_H"=0 and "CXCL12_M"=1 and "GCSF"=0
+"CXCR4_H" 1 -> 0 when "CXCR7_H"=0 and "Gfi1_H"=0 and "CXCL12_M"=1 and "GCSF"=1
+"CXCR4_H" 1 -> 0 when "CXCR7_H"=0 and "Gfi1_H"=1
+"CXCR4_H" 1 -> 0 when "CXCR7_H"=1
+
+"CXCR7_H" 1 -> 0 when "NfkB_H"=0
+"CXCR7_H" 1 -> 0 when "NfkB_H"=1 and "CXCL12_M"=0
+"CXCR7_H" 0 -> 1 when "NfkB_H"=1 and "CXCL12_M"=1
+
+"ERK_H" 1 -> 0 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "ROS_H"=0 and "VLA4_H"=0 and "GCSF"=0
+"ERK_H" 0 -> 1 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "ROS_H"=0 and "VLA4_H"=0 and "GCSF"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "ROS_H"=0 and "VLA4_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "ROS_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=1 and "GSK3B_H"=0
+"ERK_H" 1 -> 0 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=1 and "GSK3B_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=0 and "CXCR7_H"=0 and "FoxO3a_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=0 and "CXCR7_H"=1 and "FoxO3a_H"=0 and "GSK3B_H"=0
+"ERK_H" 1 -> 0 when "CXCR4_H"=0 and "CXCR7_H"=1 and "FoxO3a_H"=0 and "GSK3B_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=0 and "CXCR7_H"=1 and "FoxO3a_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "VLA4_H"=0 and "GCSF"=0
+"ERK_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "VLA4_H"=0 and "GCSF"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "VLA4_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=0 and "PI3KAkt_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=0 and "GSK3B_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=1 and "GSK3B_H"=0
+"ERK_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "Gfi1_H"=1 and "GSK3B_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=1
+"ERK_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=1 and "FoxO3a_H"=0 and "GSK3B_H"=0
+"ERK_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=1 and "FoxO3a_H"=0 and "GSK3B_H"=1
+"ERK_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=1 and "FoxO3a_H"=1
+
+"FoxO3a_H" 1 -> 0 when "Bcatenin_H"=0 and "ERK_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0
+"FoxO3a_H" 0 -> 1 when "Bcatenin_H"=0 and "ERK_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=1
+"FoxO3a_H" 1 -> 0 when "Bcatenin_H"=0 and "ERK_H"=0 and "PI3KAkt_H"=1
+"FoxO3a_H" 1 -> 0 when "Bcatenin_H"=0 and "ERK_H"=1
+"FoxO3a_H" 0 -> 1 when "Bcatenin_H"=1 and "ERK_H"=0 and "PI3KAkt_H"=0
+"FoxO3a_H" 1 -> 0 when "Bcatenin_H"=1 and "ERK_H"=0 and "PI3KAkt_H"=1
+"FoxO3a_H" 1 -> 0 when "Bcatenin_H"=1 and "ERK_H"=1
+
+"Gfi1_H" 0 -> 1 when "TLRs_H"=0 and "GCSF"=1
+"Gfi1_H" 0 -> 1 when "TLRs_H"=1
+"Gfi1_H" 1 -> 0
+
+"GSK3B_H" 0 -> 1 when "PI3KAkt_H"=0
+"GSK3B_H" 1 -> 0 when "PI3KAkt_H"=1
+
+"NfkB_H" 1 -> 0 when "FoxO3a_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "TLRs_H"=0
+"NfkB_H" 0 -> 1 when "FoxO3a_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "TLRs_H"=1
+"NfkB_H" 0 -> 1 when "FoxO3a_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=1
+"NfkB_H" 1 -> 0 when "FoxO3a_H"=0 and "PI3KAkt_H"=1 and "ROS_H"=0 and "TLRs_H"=0 and "IL1"=0
+"NfkB_H" 0 -> 1 when "FoxO3a_H"=0 and "PI3KAkt_H"=1 and "ROS_H"=0 and "TLRs_H"=0 and "IL1"=1
+"NfkB_H" 0 -> 1 when "FoxO3a_H"=0 and "PI3KAkt_H"=1 and "ROS_H"=0 and "TLRs_H"=1
+"NfkB_H" 0 -> 1 when "FoxO3a_H"=0 and "PI3KAkt_H"=1 and "ROS_H"=1
+"NfkB_H" 1 -> 0 when "FoxO3a_H"=1
+
+"PI3KAkt_H" 1 -> 0 when "CXCR4_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=0 and "VLA4_H"=0 and "GCSF"=0
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=0 and "VLA4_H"=0 and "GCSF"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=0 and "VLA4_H"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=0 and "FoxO3a_H"=0 and "ROS_H"=1
+"PI3KAkt_H" 1 -> 0 when "CXCR4_H"=0 and "FoxO3a_H"=1
+"PI3KAkt_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=0 and "VLA4_H"=0 and "GCSF"=0
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=0 and "VLA4_H"=0 and "GCSF"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=0 and "VLA4_H"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "ROS_H"=0 and "TLRs_H"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=0 and "ROS_H"=1
+"PI3KAkt_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=0 and "FoxO3a_H"=1
+"PI3KAkt_H" 0 -> 1 when "CXCR4_H"=1 and "CXCR7_H"=1 and "FoxO3a_H"=0
+"PI3KAkt_H" 1 -> 0 when "CXCR4_H"=1 and "CXCR7_H"=1 and "FoxO3a_H"=1
+
+"ROS_H" 1 -> 0 when "FoxO3a_H"=0 and "TLRs_H"=0
+"ROS_H" 1 -> 0 when "FoxO3a_H"=0 and "TLRs_H"=1 and "IL1"=0
+"ROS_H" 0 -> 1 when "FoxO3a_H"=0 and "TLRs_H"=1 and "IL1"=1
+"ROS_H" 1 -> 0 when "FoxO3a_H"=1
+
+"TLRs_H" 1 -> 0 when "lTLR"=0
+"TLRs_H" 0 -> 1 when "lTLR"=1
+
+"VLA4_H" 1 -> 0 when "CXCR4_H"=0
+"VLA4_H" 1 -> 0 when "CXCR4_H"=1 and "VCAM1_M"=0
+"VLA4_H" 0 -> 1 when "CXCR4_H"=1 and "VCAM1_M"=1
+
+
+"Bcatenin_M" 0 -> 1 when "FoxO3a_M"=0 and "GSK3B_M"=0 and "NfkB_M"=0
+"Bcatenin_M" 1 -> 0 when "FoxO3a_M"=0 and "GSK3B_M"=0 and "NfkB_M"=1
+"Bcatenin_M" 1 -> 0 when "FoxO3a_M"=0 and "GSK3B_M"=1
+"Bcatenin_M" 1 -> 0 when "FoxO3a_M"=1
+
+"CXCL12_M" 1 -> 0 when "Cx43_M"=0
+"CXCL12_M" 0 -> 1 when "Cx43_M"=1 and "Bcatenin_M"=0 and "NfkB_M"=0 and "GCSF"=0
+"CXCL12_M" 1 -> 0 when "Cx43_M"=1 and "Bcatenin_M"=0 and "NfkB_M"=0 and "GCSF"=1
+"CXCL12_M" 1 -> 0 when "Cx43_M"=1 and "Bcatenin_M"=0 and "NfkB_M"=1
+"CXCL12_M" 1 -> 0 when "Cx43_M"=1 and "Bcatenin_M"=1
+
+"ERK_M" 1 -> 0 when "ROS_M"=0 and "TLRs_M"=0 and "GCSF"=0
+"ERK_M" 0 -> 1 when "ROS_M"=0 and "TLRs_M"=0 and "GCSF"=1
+"ERK_M" 0 -> 1 when "ROS_M"=0 and "TLRs_M"=1
+"ERK_M" 0 -> 1 when "ROS_M"=1
+
+"FoxO3a_M" 1 -> 0 when "Bcatenin_M"=0 and "ERK_M"=0 and "ROS_M"=0
+"FoxO3a_M" 0 -> 1 when "Bcatenin_M"=0 and "ERK_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=0
+"FoxO3a_M" 1 -> 0 when "Bcatenin_M"=0 and "ERK_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=1
+"FoxO3a_M" 1 -> 0 when "Bcatenin_M"=0 and "ERK_M"=1
+"FoxO3a_M" 0 -> 1 when "Bcatenin_M"=1 and "ERK_M"=0 and "PI3KAkt_M"=0
+"FoxO3a_M" 1 -> 0 when "Bcatenin_M"=1 and "ERK_M"=0 and "PI3KAkt_M"=1
+"FoxO3a_M" 1 -> 0 when "Bcatenin_M"=1 and "ERK_M"=1
+
+"GSK3B_M" 0 -> 1 when "PI3KAkt_M"=0
+"GSK3B_M" 1 -> 0 when "PI3KAkt_M"=1
+
+"NfkB_M" 1 -> 0 when "ERK_M"=0 and "PI3KAkt_M"=0 and "TLRs_M"=0
+"NfkB_M" 0 -> 1 when "ERK_M"=0 and "PI3KAkt_M"=0 and "TLRs_M"=1
+"NfkB_M" 1 -> 0 when "ERK_M"=0 and "PI3KAkt_M"=1 and "TLRs_M"=0 and "IL1"=0
+"NfkB_M" 0 -> 1 when "ERK_M"=0 and "PI3KAkt_M"=1 and "TLRs_M"=0 and "IL1"=1
+"NfkB_M" 0 -> 1 when "ERK_M"=0 and "PI3KAkt_M"=1 and "TLRs_M"=1
+"NfkB_M" 1 -> 0 when "ERK_M"=1 and "ROS_M"=0 and "PI3KAkt_M"=0 and "TLRs_M"=0
+"NfkB_M" 0 -> 1 when "ERK_M"=1 and "ROS_M"=0 and "PI3KAkt_M"=0 and "TLRs_M"=1
+"NfkB_M" 1 -> 0 when "ERK_M"=1 and "ROS_M"=0 and "PI3KAkt_M"=1 and "TLRs_M"=0 and "IL1"=0
+"NfkB_M" 0 -> 1 when "ERK_M"=1 and "ROS_M"=0 and "PI3KAkt_M"=1 and "TLRs_M"=0 and "IL1"=1
+"NfkB_M" 0 -> 1 when "ERK_M"=1 and "ROS_M"=0 and "PI3KAkt_M"=1 and "TLRs_M"=1
+"NfkB_M" 0 -> 1 when "ERK_M"=1 and "ROS_M"=1
+
+"ROS_M" 1 -> 0 when "FoxO3a_M"=0 and "TLRs_M"=0
+"ROS_M" 1 -> 0 when "FoxO3a_M"=0 and "TLRs_M"=1 and "IL1"=0
+"ROS_M" 0 -> 1 when "FoxO3a_M"=0 and "TLRs_M"=1 and "IL1"=1
+"ROS_M" 1 -> 0 when "FoxO3a_M"=1
+
+"PI3KAkt_M" 1 -> 0 when "ROS_M"=0 and "TLRs_M"=0 and "GCSF"=0
+"PI3KAkt_M" 0 -> 1 when "ROS_M"=0 and "TLRs_M"=0 and "GCSF"=1
+"PI3KAkt_M" 0 -> 1 when "ROS_M"=0 and "TLRs_M"=1
+"PI3KAkt_M" 0 -> 1 when "ROS_M"=1
+
+"TLRs_M" 1 -> 0 when "lTLR"=0
+"TLRs_M" 0 -> 1 when "lTLR"=1
+
+"VCAM1_M" 0 -> 1 when "Bcatenin_M"=0
+"VCAM1_M" 1 -> 0 when "Bcatenin_M"=1 and "NfkB_M"=0 and "PI3KAkt_M"=0
+"VCAM1_M" 0 -> 1 when "Bcatenin_M"=1 and "NfkB_M"=0 and "PI3KAkt_M"=1
+"VCAM1_M" 0 -> 1 when "Bcatenin_M"=1 and "NfkB_M"=1
+
+
+"IL1" 1 -> 0 when "NfkB_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "NfkB_M"=0 and "ROS_M"=0
+"IL1" 0 -> 1 when "NfkB_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "NfkB_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=0
+"IL1" 1 -> 0 when "NfkB_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "NfkB_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=1
+"IL1" 0 -> 1 when "NfkB_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "NfkB_M"=1 and "PI3KAkt_M"=0
+"IL1" 1 -> 0 when "NfkB_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=0 and "NfkB_M"=1 and "PI3KAkt_M"=1
+"IL1" 0 -> 1 when "NfkB_H"=0 and "PI3KAkt_H"=0 and "ROS_H"=1
+"IL1" 1 -> 0 when "NfkB_H"=0 and "PI3KAkt_H"=1 and "NfkB_M"=0 and "ROS_M"=0
+"IL1" 0 -> 1 when "NfkB_H"=0 and "PI3KAkt_H"=1 and "NfkB_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=0
+"IL1" 1 -> 0 when "NfkB_H"=0 and "PI3KAkt_H"=1 and "NfkB_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=1
+"IL1" 0 -> 1 when "NfkB_H"=0 and "PI3KAkt_H"=1 and "NfkB_M"=1 and "PI3KAkt_M"=0
+"IL1" 1 -> 0 when "NfkB_H"=0 and "PI3KAkt_H"=1 and "NfkB_M"=1 and "PI3KAkt_M"=1
+"IL1" 0 -> 1 when "NfkB_H"=1 and "PI3KAkt_H"=0
+"IL1" 1 -> 0 when "NfkB_H"=1 and "PI3KAkt_H"=1 and "NfkB_M"=0 and "ROS_M"=0
+"IL1" 0 -> 1 when "NfkB_H"=1 and "PI3KAkt_H"=1 and "NfkB_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=0
+"IL1" 1 -> 0 when "NfkB_H"=1 and "PI3KAkt_H"=1 and "NfkB_M"=0 and "ROS_M"=1 and "PI3KAkt_M"=1
+"IL1" 0 -> 1 when "NfkB_H"=1 and "PI3KAkt_H"=1 and "NfkB_M"=1 and "PI3KAkt_M"=0
+"IL1" 1 -> 0 when "NfkB_H"=1 and "PI3KAkt_H"=1 and "NfkB_M"=1 and "PI3KAkt_M"=1
+
+"GCSF" 1 -> 0 when "IL1"=0
+"GCSF" 0 -> 1 when "IL1"=1
+

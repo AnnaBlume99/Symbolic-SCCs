@@ -1,0 +1,327 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"S_21" [0, 1]
+"S_1" [0, 1]
+"S_2" [0, 1]
+"S_3" [0, 1]
+"S_4" [0, 1]
+"S_5" [0, 1]
+"S_6" [0, 1]
+"S_7" [0, 1]
+"S_8" [0, 1]
+"S_9" [0, 1]
+"S_10" [0, 1]
+"S_11" [0, 1]
+"S_12" [0, 1]
+"S_13" [0, 1]
+"S_14" [0, 1]
+"S_15" [0, 1]
+"S_16" [0, 1]
+"S_17" [0, 1]
+"S_18" [0, 1]
+"S_19" [0, 1]
+"S_20" [0, 1]
+"S_22" [0, 1]
+"S_23" [0, 1]
+"S_24" [0, 1]
+"S_25" [0, 1]
+"S_26" [0, 1]
+"S_27" [0, 1]
+"S_28" [0, 1]
+"S_29" [0, 1]
+"S_30" [0, 1]
+"S_31" [0, 1]
+"S_32" [0, 1]
+"S_33" [0, 1]
+"S_34" [0, 1]
+"S_35" [0, 1]
+"S_36" [0, 1]
+"S_37" [0, 1]
+"S_38" [0, 1]
+"S_39" [0, 1]
+"S_40" [0, 1]
+"S_41" [0, 1]
+"S_42" [0, 1]
+"S_43" [0, 1]
+"S_44" [0, 1]
+"S_45" [0, 1]
+"S_46" [0, 1]
+"S_47" [0, 1]
+"S_48" [0, 1]
+"S_49" [0, 1]
+"S_50" [0, 1]
+"S_51" [0, 1]
+"S_52" [0, 1]
+"S_53" [0, 1]
+
+
+"S_1" 1 -> 0 when "S_14"=0
+"S_1" 1 -> 0 when "S_14"=1 and "S_15"=0 and "S_30"=0
+"S_1" 1 -> 0 when "S_14"=1 and "S_15"=0 and "S_30"=1 and "S_31"=0
+"S_1" 1 -> 0 when "S_14"=1 and "S_15"=0 and "S_30"=1 and "S_31"=1 and "S_49"=0
+"S_1" 1 -> 0 when "S_14"=1 and "S_15"=0 and "S_30"=1 and "S_31"=1 and "S_49"=1 and "S_50"=0
+"S_1" 0 -> 1 when "S_14"=1 and "S_15"=0 and "S_30"=1 and "S_31"=1 and "S_49"=1 and "S_50"=1
+"S_1" 1 -> 0 when "S_14"=1 and "S_15"=1 and "S_31"=0
+"S_1" 1 -> 0 when "S_14"=1 and "S_15"=1 and "S_31"=1 and "S_49"=0
+"S_1" 0 -> 1 when "S_14"=1 and "S_15"=1 and "S_31"=1 and "S_49"=1
+
+"S_2" 1 -> 0 when "S_4"=0
+"S_2" 1 -> 0 when "S_4"=1 and "S_19"=0
+"S_2" 1 -> 0 when "S_4"=1 and "S_19"=1 and "S_22"=0
+"S_2" 0 -> 1 when "S_4"=1 and "S_19"=1 and "S_22"=1
+
+"S_3" 1 -> 0 when "S_4"=0
+"S_3" 1 -> 0 when "S_4"=1 and "S_22"=0
+"S_3" 1 -> 0 when "S_4"=1 and "S_22"=1 and "S_52"=0
+"S_3" 0 -> 1 when "S_4"=1 and "S_22"=1 and "S_52"=1
+
+"S_4" 1 -> 0 when "S_19"=0 and "S_22"=0
+"S_4" 1 -> 0 when "S_19"=0 and "S_22"=1 and "S_42"=0 and "S_52"=0
+"S_4" 0 -> 1 when "S_19"=0 and "S_22"=1 and "S_42"=0 and "S_52"=1
+"S_4" 1 -> 0 when "S_19"=0 and "S_22"=1 and "S_42"=1
+"S_4" 1 -> 0 when "S_19"=1 and "S_22"=0
+"S_4" 0 -> 1 when "S_19"=1 and "S_22"=1 and "S_42"=0
+"S_4" 1 -> 0 when "S_19"=1 and "S_22"=1 and "S_42"=1
+
+"S_5" 1 -> 0 when "S_38"=0
+"S_5" 0 -> 1 when "S_38"=1
+
+"S_6" 1 -> 0 when "S_39"=0
+"S_6" 0 -> 1 when "S_39"=1
+
+"S_7" 1 -> 0 when "S_27"=0
+"S_7" 0 -> 1 when "S_27"=1
+
+"S_8" 0 -> 1 when "S_10"=1 and "S_14"=1
+"S_8" 1 -> 0 when "S_14"=0
+
+"S_9" 1 -> 0 when "S_27"=0
+"S_9" 0 -> 1 when "S_27"=1
+
+"S_10" 0 -> 1 when "S_22"=1
+
+"S_11" 1 -> 0 when "S_21"=0 and "S_33"=0
+"S_11" 0 -> 1 when "S_21"=0 and "S_33"=1
+"S_11" 0 -> 1 when "S_21"=1
+
+"S_12" 1 -> 0 when "S_31"=0 and "S_40"=0 and "S_49"=0 and "S_51"=0
+"S_12" 0 -> 1 when "S_31"=0 and "S_40"=0 and "S_49"=0 and "S_51"=1
+"S_12" 0 -> 1 when "S_31"=0 and "S_40"=0 and "S_49"=1 and "S_51"=0 and "S_53"=0
+"S_12" 1 -> 0 when "S_31"=0 and "S_40"=0 and "S_49"=1 and "S_51"=0 and "S_53"=1
+"S_12" 0 -> 1 when "S_31"=0 and "S_40"=0 and "S_49"=1 and "S_51"=1
+"S_12" 1 -> 0 when "S_31"=0 and "S_40"=1 and "S_51"=0
+"S_12" 0 -> 1 when "S_31"=0 and "S_40"=1 and "S_51"=1
+"S_12" 0 -> 1 when "S_31"=1
+
+"S_13" 1 -> 0 when "S_18"=0
+"S_13" 0 -> 1 when "S_18"=1
+
+"S_14" 1 -> 0 when "S_45"=1
+
+"S_15" 1 -> 0 when "S_8"=0 and "S_14"=0
+"S_15" 1 -> 0 when "S_8"=0 and "S_14"=1 and "S_50"=0
+"S_15" 0 -> 1 when "S_8"=0 and "S_14"=1 and "S_50"=1
+"S_15" 1 -> 0 when "S_8"=1 and "S_14"=0
+"S_15" 0 -> 1 when "S_8"=1 and "S_14"=1
+
+"S_16" 1 -> 0 when "S_8"=0 and "S_14"=0
+"S_16" 0 -> 1 when "S_8"=0 and "S_14"=1 and "S_50"=0
+"S_16" 1 -> 0 when "S_8"=0 and "S_14"=1 and "S_50"=1
+"S_16" 1 -> 0 when "S_8"=1
+
+"S_17" 1 -> 0 when "S_25"=0 and "S_34"=0
+"S_17" 1 -> 0 when "S_25"=0 and "S_34"=1 and "S_37"=0
+"S_17" 0 -> 1 when "S_25"=0 and "S_34"=1 and "S_37"=1
+"S_17" 1 -> 0 when "S_25"=1 and "S_34"=0
+"S_17" 0 -> 1 when "S_25"=1 and "S_34"=1
+
+"S_18" 1 -> 0 when "S_4"=0 and "S_19"=0
+"S_18" 1 -> 0 when "S_4"=0 and "S_19"=1 and "S_22"=0
+"S_18" 0 -> 1 when "S_4"=0 and "S_19"=1 and "S_22"=1
+"S_18" 1 -> 0 when "S_4"=1
+
+"S_19" 1 -> 0 when "S_9"=0
+"S_19" 0 -> 1 when "S_9"=1
+
+"S_20" 1 -> 0 when "S_2"=0
+"S_20" 0 -> 1 when "S_2"=1
+
+"S_22" 1 -> 0 when "S_19"=0 and "S_52"=0
+"S_22" 0 -> 1 when "S_19"=0 and "S_52"=1
+"S_22" 0 -> 1 when "S_19"=1
+
+"S_23" 1 -> 0 when "S_13"=0 and "S_53"=0
+"S_23" 0 -> 1 when "S_13"=0 and "S_53"=1
+"S_23" 0 -> 1 when "S_13"=1
+
+"S_24" 1 -> 0 when "S_12"=0 and "S_48"=0
+"S_24" 0 -> 1 when "S_12"=0 and "S_48"=1
+"S_24" 0 -> 1 when "S_12"=1
+
+"S_25" 1 -> 0 when "S_21"=0 and "S_6"=0 and "S_13"=0 and "S_17"=0
+"S_25" 0 -> 1 when "S_21"=0 and "S_6"=0 and "S_13"=0 and "S_17"=1
+"S_25" 0 -> 1 when "S_21"=0 and "S_6"=0 and "S_13"=1
+"S_25" 0 -> 1 when "S_21"=0 and "S_6"=1
+"S_25" 1 -> 0 when "S_21"=1 and "S_6"=0 and "S_13"=0 and "S_17"=0 and "S_32"=0
+"S_25" 0 -> 1 when "S_21"=1 and "S_6"=0 and "S_13"=0 and "S_17"=0 and "S_32"=1
+"S_25" 0 -> 1 when "S_21"=1 and "S_6"=0 and "S_13"=0 and "S_17"=1
+"S_25" 0 -> 1 when "S_21"=1 and "S_6"=0 and "S_13"=1
+"S_25" 0 -> 1 when "S_21"=1 and "S_6"=1
+
+"S_26" 1 -> 0 when "S_17"=0 and "S_32"=0
+"S_26" 0 -> 1 when "S_17"=0 and "S_32"=1
+"S_26" 0 -> 1 when "S_17"=1
+
+"S_27" 1 -> 0 when "S_1"=0 and "S_11"=0 and "S_23"=0 and "S_33"=0 and "S_46"=0
+"S_27" 0 -> 1 when "S_1"=0 and "S_11"=0 and "S_23"=0 and "S_33"=0 and "S_46"=1 and "S_47"=0
+"S_27" 1 -> 0 when "S_1"=0 and "S_11"=0 and "S_23"=0 and "S_33"=0 and "S_46"=1 and "S_47"=1
+"S_27" 0 -> 1 when "S_1"=0 and "S_11"=0 and "S_23"=0 and "S_33"=1 and "S_47"=0
+"S_27" 1 -> 0 when "S_1"=0 and "S_11"=0 and "S_23"=0 and "S_33"=1 and "S_47"=1
+"S_27" 1 -> 0 when "S_1"=0 and "S_11"=0 and "S_23"=1
+"S_27" 0 -> 1 when "S_1"=0 and "S_11"=1 and "S_23"=0 and "S_47"=0
+"S_27" 1 -> 0 when "S_1"=0 and "S_11"=1 and "S_23"=0 and "S_47"=1
+"S_27" 1 -> 0 when "S_1"=0 and "S_11"=1 and "S_23"=1
+"S_27" 0 -> 1 when "S_1"=1 and "S_23"=0 and "S_47"=0
+"S_27" 1 -> 0 when "S_1"=1 and "S_23"=0 and "S_47"=1
+"S_27" 1 -> 0 when "S_1"=1 and "S_23"=1
+
+"S_28" 1 -> 0 when "S_29"=0
+"S_28" 0 -> 1 when "S_29"=1
+
+"S_29" 0 -> 1 when "S_22"=1
+
+"S_30" 1 -> 0 when "S_14"=0 and "S_15"=0
+"S_30" 1 -> 0 when "S_14"=0 and "S_15"=1 and "S_50"=0
+"S_30" 0 -> 1 when "S_14"=0 and "S_15"=1 and "S_50"=1
+"S_30" 0 -> 1 when "S_14"=1 and "S_15"=0 and "S_35"=0
+"S_30" 1 -> 0 when "S_14"=1 and "S_15"=0 and "S_35"=1
+"S_30" 0 -> 1 when "S_14"=1 and "S_15"=1 and "S_35"=0
+"S_30" 1 -> 0 when "S_14"=1 and "S_15"=1 and "S_35"=1 and "S_50"=0
+"S_30" 0 -> 1 when "S_14"=1 and "S_15"=1 and "S_35"=1 and "S_50"=1
+
+"S_31" 1 -> 0 when "S_12"=0 and "S_14"=0
+"S_31" 1 -> 0 when "S_12"=0 and "S_14"=1 and "S_27"=0
+"S_31" 0 -> 1 when "S_12"=0 and "S_14"=1 and "S_27"=1
+"S_31" 1 -> 0 when "S_12"=1 and "S_14"=0
+"S_31" 0 -> 1 when "S_12"=1 and "S_14"=1
+
+"S_32" 1 -> 0 when "S_21"=0
+"S_32" 0 -> 1 when "S_21"=1 and "S_17"=0
+"S_32" 1 -> 0 when "S_21"=1 and "S_17"=1
+
+"S_33" 1 -> 0 when "S_21"=0 and "S_28"=0
+"S_33" 1 -> 0 when "S_21"=0 and "S_28"=1 and "S_31"=0 and "S_44"=1
+"S_33" 1 -> 0 when "S_21"=0 and "S_28"=1 and "S_31"=1
+"S_33" 1 -> 0 when "S_21"=1 and "S_28"=0
+"S_33" 0 -> 1 when "S_21"=1 and "S_28"=1 and "S_31"=0 and "S_44"=0
+"S_33" 1 -> 0 when "S_21"=1 and "S_28"=1 and "S_31"=0 and "S_44"=1
+"S_33" 1 -> 0 when "S_21"=1 and "S_28"=1 and "S_31"=1
+
+"S_34" 1 -> 0 when "S_17"=0 and "S_18"=0
+"S_34" 0 -> 1 when "S_17"=0 and "S_18"=1
+"S_34" 0 -> 1 when "S_17"=1
+
+"S_35" 1 -> 0 when "S_14"=0
+"S_35" 0 -> 1 when "S_14"=1
+
+"S_36" 1 -> 0 when "S_7"=0 and "S_44"=0
+"S_36" 0 -> 1 when "S_7"=0 and "S_44"=1
+"S_36" 0 -> 1 when "S_7"=1
+
+"S_37" 1 -> 0 when "S_25"=0 and "S_29"=0
+"S_37" 1 -> 0 when "S_25"=0 and "S_29"=1 and "S_42"=0
+"S_37" 0 -> 1 when "S_25"=0 and "S_29"=1 and "S_42"=1
+"S_37" 1 -> 0 when "S_25"=1 and "S_29"=0
+"S_37" 0 -> 1 when "S_25"=1 and "S_29"=1
+
+"S_38" 1 -> 0 when "S_22"=0
+"S_38" 1 -> 0 when "S_22"=1 and "S_41"=0
+"S_38" 1 -> 0 when "S_22"=1 and "S_41"=1 and "S_52"=0
+"S_38" 0 -> 1 when "S_22"=1 and "S_41"=1 and "S_52"=1
+
+"S_39" 1 -> 0 when "S_4"=0 and "S_22"=0
+"S_39" 1 -> 0 when "S_4"=0 and "S_22"=1 and "S_52"=0
+"S_39" 0 -> 1 when "S_4"=0 and "S_22"=1 and "S_52"=1
+"S_39" 1 -> 0 when "S_4"=1
+
+"S_40" 1 -> 0 when "S_42"=0
+"S_40" 0 -> 1 when "S_42"=1
+
+"S_41" 1 -> 0 when "S_16"=0
+"S_41" 0 -> 1 when "S_16"=1
+
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=0 and "S_39"=0
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=0 and "S_39"=1 and "S_48"=0
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=0 and "S_39"=1 and "S_48"=1
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=1 and "S_39"=0 and "S_48"=0 and "S_52"=0
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=1 and "S_39"=0 and "S_48"=0 and "S_52"=1
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=1 and "S_39"=0 and "S_48"=1
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=1 and "S_39"=1 and "S_48"=0
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=0 and "S_22"=1 and "S_39"=1 and "S_48"=1
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=1 and "S_22"=0 and "S_39"=0
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=1 and "S_22"=0 and "S_39"=1 and "S_48"=0
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=1 and "S_22"=0 and "S_39"=1 and "S_48"=1
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=1 and "S_22"=1 and "S_48"=0
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=0 and "S_19"=1 and "S_22"=1 and "S_48"=1
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=0 and "S_18"=1 and "S_48"=0
+"S_42" 1 -> 0 when "S_4"=0 and "S_17"=0 and "S_18"=1 and "S_48"=1
+"S_42" 0 -> 1 when "S_4"=0 and "S_17"=1
+"S_42" 1 -> 0 when "S_4"=1 and "S_17"=0
+"S_42" 0 -> 1 when "S_4"=1 and "S_17"=1
+
+"S_43" 1 -> 0 when "S_7"=0
+"S_43" 1 -> 0 when "S_7"=1 and "S_16"=0
+"S_43" 0 -> 1 when "S_7"=1 and "S_16"=1
+
+"S_44" 1 -> 0 when "S_23"=0 and "S_27"=0 and "S_40"=0 and "S_48"=0
+"S_44" 0 -> 1 when "S_23"=0 and "S_27"=0 and "S_40"=0 and "S_48"=1
+"S_44" 1 -> 0 when "S_23"=0 and "S_27"=0 and "S_40"=1
+"S_44" 1 -> 0 when "S_23"=0 and "S_27"=1 and "S_33"=0 and "S_40"=0 and "S_48"=0
+"S_44" 0 -> 1 when "S_23"=0 and "S_27"=1 and "S_33"=0 and "S_40"=0 and "S_48"=1
+"S_44" 1 -> 0 when "S_23"=0 and "S_27"=1 and "S_33"=0 and "S_40"=1
+"S_44" 0 -> 1 when "S_23"=0 and "S_27"=1 and "S_33"=1
+"S_44" 1 -> 0 when "S_23"=1 and "S_27"=0
+"S_44" 1 -> 0 when "S_23"=1 and "S_27"=1 and "S_33"=0
+"S_44" 0 -> 1 when "S_23"=1 and "S_27"=1 and "S_33"=1
+
+"S_45" 1 -> 0 when "S_1"=0
+"S_45" 1 -> 0 when "S_1"=1 and "S_14"=0
+"S_45" 0 -> 1 when "S_1"=1 and "S_14"=1
+
+"S_46" 1 -> 0 when "S_14"=0
+"S_46" 0 -> 1 when "S_14"=1
+
+"S_47" 1 -> 0 when "S_21"=0
+"S_47" 1 -> 0 when "S_21"=1 and "S_29"=0
+"S_47" 0 -> 1 when "S_21"=1 and "S_29"=1
+
+"S_48" 1 -> 0 when "S_9"=0 and "S_12"=0 and "S_20"=0
+"S_48" 0 -> 1 when "S_9"=0 and "S_12"=0 and "S_20"=1
+"S_48" 0 -> 1 when "S_9"=0 and "S_12"=1
+"S_48" 0 -> 1 when "S_9"=1
+
+"S_49" 1 -> 0 when "S_3"=0
+"S_49" 0 -> 1 when "S_3"=1
+
+"S_50" 0 -> 1 when "S_10"=1
+
+"S_51" 1 -> 0 when "S_12"=0 and "S_14"=0
+"S_51" 1 -> 0 when "S_12"=0 and "S_14"=1 and "S_27"=0
+"S_51" 0 -> 1 when "S_12"=0 and "S_14"=1 and "S_27"=1
+"S_51" 1 -> 0 when "S_12"=1 and "S_14"=0
+"S_51" 0 -> 1 when "S_12"=1 and "S_14"=1
+
+"S_52" 1 -> 0 when "S_51"=0
+"S_52" 0 -> 1 when "S_51"=1
+
+"S_53" 1 -> 0 when "S_5"=0 and "S_6"=0 and "S_31"=0
+"S_53" 0 -> 1 when "S_5"=0 and "S_6"=0 and "S_31"=1
+"S_53" 1 -> 0 when "S_5"=0 and "S_6"=1 and "S_16"=0 and "S_31"=0
+"S_53" 0 -> 1 when "S_5"=0 and "S_6"=1 and "S_16"=0 and "S_31"=1
+"S_53" 0 -> 1 when "S_5"=0 and "S_6"=1 and "S_16"=1
+"S_53" 0 -> 1 when "S_5"=1
+

@@ -1,0 +1,84 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"csa7" [0, 1]
+"csa3" [0, 1]
+"csa9" [0, 1]
+"csa5" [0, 1]
+"csa11" [0, 1]
+"csa16" [0, 1]
+"sa7" [0, 1]
+"sa18" [0, 1]
+"sa33" [0, 1]
+"sa38" [0, 1]
+"sa40" [0, 1]
+"sa44" [0, 1]
+"sa45" [0, 1]
+"sa55" [0, 1]
+"sa64" [0, 1]
+"sa65" [0, 1]
+"sa69" [0, 1]
+"sa70" [0, 1]
+"sa72" [0, 1]
+"sa76" [0, 1]
+"sa84" [0, 1]
+
+
+"csa3" 1 -> 0 when "csa7"=0 and "sa18"=0 and "sa33"=0 and "sa65"=0 and "sa69"=0 and "sa70"=0
+"csa3" 0 -> 1 when "csa7"=0 and "sa18"=0 and "sa33"=0 and "sa65"=0 and "sa69"=0 and "sa70"=1
+"csa3" 0 -> 1 when "csa7"=0 and "sa18"=0 and "sa33"=0 and "sa65"=0 and "sa69"=1
+"csa3" 0 -> 1 when "csa7"=0 and "sa18"=0 and "sa33"=0 and "sa65"=1
+"csa3" 1 -> 0 when "csa7"=0 and "sa18"=0 and "sa33"=1
+"csa3" 1 -> 0 when "csa7"=0 and "sa18"=1
+"csa3" 0 -> 1 when "csa7"=1 and "sa18"=0 and "sa33"=0
+"csa3" 1 -> 0 when "csa7"=1 and "sa18"=0 and "sa33"=1
+"csa3" 1 -> 0 when "csa7"=1 and "sa18"=1
+
+
+"csa5" 1 -> 0 when "csa9"=0 and "csa11"=0 and "sa18"=0 and "sa33"=0 and "sa44"=0 and "sa45"=0 and "sa64"=0 and "sa65"=0
+"csa5" 0 -> 1 when "csa9"=0 and "csa11"=0 and "sa18"=0 and "sa33"=0 and "sa44"=0 and "sa45"=0 and "sa64"=0 and "sa65"=1
+"csa5" 0 -> 1 when "csa9"=0 and "csa11"=0 and "sa18"=0 and "sa33"=0 and "sa44"=0 and "sa45"=0 and "sa64"=1
+"csa5" 0 -> 1 when "csa9"=0 and "csa11"=0 and "sa18"=0 and "sa33"=0 and "sa44"=0 and "sa45"=1
+"csa5" 0 -> 1 when "csa9"=0 and "csa11"=0 and "sa18"=0 and "sa33"=0 and "sa44"=1
+"csa5" 1 -> 0 when "csa9"=0 and "csa11"=0 and "sa18"=0 and "sa33"=1
+"csa5" 1 -> 0 when "csa9"=0 and "csa11"=0 and "sa18"=1
+"csa5" 0 -> 1 when "csa9"=0 and "csa11"=1 and "sa18"=0 and "sa33"=0
+"csa5" 1 -> 0 when "csa9"=0 and "csa11"=1 and "sa18"=0 and "sa33"=1
+"csa5" 1 -> 0 when "csa9"=0 and "csa11"=1 and "sa18"=1
+"csa5" 1 -> 0 when "csa9"=1
+
+"csa11" 1 -> 0 when "sa7"=0 and "sa33"=0 and "sa72"=0
+"csa11" 0 -> 1 when "sa7"=0 and "sa33"=0 and "sa72"=1
+"csa11" 1 -> 0 when "sa7"=0 and "sa33"=1
+"csa11" 1 -> 0 when "sa7"=1
+
+"csa16" 1 -> 0 when "csa11"=0 and "sa84"=0
+"csa16" 0 -> 1 when "csa11"=0 and "sa84"=1
+"csa16" 0 -> 1 when "csa11"=1
+
+
+
+
+"sa38" 1 -> 0 when "csa11"=0 and "sa76"=0
+"sa38" 0 -> 1 when "csa11"=0 and "sa76"=1
+"sa38" 0 -> 1 when "csa11"=1
+
+"sa40" 1 -> 0 when "csa16"=0
+"sa40" 0 -> 1 when "csa16"=1
+
+
+
+"sa55" 1 -> 0 when "csa3"=0 and "csa5"=0
+"sa55" 0 -> 1 when "csa3"=0 and "csa5"=1
+"sa55" 0 -> 1 when "csa3"=1
+
+
+
+
+
+
+
+

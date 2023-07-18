@@ -1,0 +1,104 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"DAP" [0, 1]
+"DV_patterning" [0, 1]
+"Easter" [0, 1]
+"Fungi" [0, 1]
+"Gd" [0, 1]
+"Grass" [0, 1]
+"GramP_Bact" [0, 1]
+"GramN_Bact" [0, 1]
+"GNBP1" [0, 1]
+"GNBP3" [0, 1]
+"ModSP" [0, 1]
+"Nec" [0, 1]
+"Ndl" [0, 1]
+"Pipe" [0, 1]
+"PGRP_SA" [0, 1]
+"PGRP_SD" [0, 1]
+"Psh" [0, 1]
+"Snk" [0, 1]
+"SPE" [0, 1]
+"Spheroide" [0, 1]
+"Sphinx" [0, 1]
+"Spirit" [0, 1]
+"Spz" [0, 1]
+"Viru_Fact" [0, 1]
+
+"DAP" 1 -> 0 when "GramN_Bact"=0
+"DAP" 0 -> 1 when "GramN_Bact"=1
+
+
+"Easter" 1 -> 0 when "Pipe"=0
+"Easter" 1 -> 0 when "Pipe"=1 and "Snk"=0
+"Easter" 0 -> 1 when "Pipe"=1 and "Snk"=1
+
+
+"Gd" 1 -> 0 when "Ndl"=0
+"Gd" 0 -> 1 when "Ndl"=1
+
+"Grass" 1 -> 0 when "ModSP"=0
+"Grass" 0 -> 1 when "ModSP"=1
+
+
+
+"GNBP1" 1 -> 0 when "GramP_Bact"=0
+"GNBP1" 0 -> 1 when "GramP_Bact"=1
+
+"GNBP3" 1 -> 0 when "Fungi"=0
+"GNBP3" 0 -> 1 when "Fungi"=1
+
+"ModSP" 1 -> 0 when "GNBP1"=0 and "GNBP3"=0 and "PGRP_SD"=0
+"ModSP" 0 -> 1 when "GNBP1"=0 and "GNBP3"=0 and "PGRP_SD"=1
+"ModSP" 1 -> 0 when "GNBP1"=0 and "GNBP3"=1 and "PGRP_SA"=0 and "PGRP_SD"=0
+"ModSP" 0 -> 1 when "GNBP1"=0 and "GNBP3"=1 and "PGRP_SA"=0 and "PGRP_SD"=1
+"ModSP" 0 -> 1 when "GNBP1"=0 and "GNBP3"=1 and "PGRP_SA"=1
+"ModSP" 1 -> 0 when "GNBP1"=1 and "PGRP_SA"=0 and "PGRP_SD"=0
+"ModSP" 0 -> 1 when "GNBP1"=1 and "PGRP_SA"=0 and "PGRP_SD"=1
+"ModSP" 0 -> 1 when "GNBP1"=1 and "PGRP_SA"=1
+
+
+"Ndl" 1 -> 0 when "DV_patterning"=0
+"Ndl" 0 -> 1 when "DV_patterning"=1
+
+
+"PGRP_SA" 1 -> 0 when "GramP_Bact"=0
+"PGRP_SA" 0 -> 1 when "GramP_Bact"=1
+
+"PGRP_SD" 1 -> 0 when "DAP"=0
+"PGRP_SD" 0 -> 1 when "DAP"=1
+
+"Psh" 1 -> 0 when "Nec"=0 and "Viru_Fact"=0
+"Psh" 0 -> 1 when "Nec"=0 and "Viru_Fact"=1
+"Psh" 1 -> 0 when "Nec"=1
+
+"Snk" 1 -> 0 when "Gd"=0
+"Snk" 0 -> 1 when "Gd"=1
+
+"SPE" 1 -> 0 when "Easter"=0 and "Psh"=0 and "Spheroide"=0 and "Sphinx"=0 and "Spirit"=0
+"SPE" 0 -> 1 when "Easter"=0 and "Psh"=0 and "Spheroide"=0 and "Sphinx"=0 and "Spirit"=1
+"SPE" 0 -> 1 when "Easter"=0 and "Psh"=0 and "Spheroide"=0 and "Sphinx"=1
+"SPE" 0 -> 1 when "Easter"=0 and "Psh"=0 and "Spheroide"=1
+"SPE" 0 -> 1 when "Easter"=0 and "Psh"=1
+"SPE" 0 -> 1 when "Easter"=1
+
+"Spheroide" 1 -> 0 when "Grass"=0
+"Spheroide" 0 -> 1 when "Grass"=1
+
+"Sphinx" 1 -> 0 when "Grass"=0
+"Sphinx" 0 -> 1 when "Grass"=1
+
+"Spirit" 1 -> 0 when "Grass"=0
+"Spirit" 0 -> 1 when "Grass"=1
+
+"Spz" 1 -> 0 when "SPE"=0
+"Spz" 0 -> 1 when "SPE"=1
+
+"Viru_Fact" 1 -> 0 when "Fungi"=0 and "GramP_Bact"=0
+"Viru_Fact" 0 -> 1 when "Fungi"=0 and "GramP_Bact"=1
+"Viru_Fact" 0 -> 1 when "Fungi"=1
+

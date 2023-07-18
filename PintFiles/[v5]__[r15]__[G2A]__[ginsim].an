@@ -1,0 +1,33 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"CtrA" [0, 1]
+"GcrA" [0, 1]
+"DnaA" [0, 1]
+"CcrM" [0, 1]
+"SciP" [0, 1]
+
+"CtrA" 0 -> 1 when "GcrA"=1 and "CcrM"=0 and "SciP"=0
+"CtrA" 1 -> 0 when "CcrM"=0 and "SciP"=1
+"CtrA" 1 -> 0 when "CcrM"=1
+
+"GcrA" 1 -> 0 when "CtrA"=0 and "DnaA"=0
+"GcrA" 0 -> 1 when "CtrA"=0 and "DnaA"=1
+"GcrA" 1 -> 0 when "CtrA"=1
+
+"DnaA" 1 -> 0 when "CtrA"=0
+"DnaA" 0 -> 1 when "CtrA"=1 and "GcrA"=0 and "CcrM"=1
+"DnaA" 1 -> 0 when "CtrA"=1 and "GcrA"=0
+"DnaA" 1 -> 0 when "CtrA"=1 and "GcrA"=1
+
+"CcrM" 1 -> 0 when "CtrA"=0
+"CcrM" 0 -> 1 when "CtrA"=1 and "SciP"=0
+"CcrM" 1 -> 0 when "CtrA"=1
+
+"SciP" 1 -> 0 when "CtrA"=0
+"SciP" 0 -> 1 when "CtrA"=1 and "DnaA"=0
+"SciP" 1 -> 0 when "CtrA"=1 and "DnaA"=1
+

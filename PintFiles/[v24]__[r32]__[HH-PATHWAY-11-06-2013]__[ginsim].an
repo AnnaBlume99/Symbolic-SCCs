@@ -1,0 +1,100 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Ttv" [0, 1]
+"Dlp" [0, 1]
+"Dally" [0, 1]
+"Rasp" [0, 1]
+"Shf" [0, 1]
+"iHog" [0, 1]
+"Boi" [0, 1]
+"Dsp" [0, 1]
+"Lipophorin" [0, 1]
+"Hh" [0, 1]
+"Ptc" [0, 1]
+"Gprk2" [0, 1]
+"Tow" [0, 1]
+"Smo" [0, 1]
+"Fu" [0, 1]
+"Cos" [0, 1]
+"SuFu" [0, 1]
+"Sgg" [0, 1]
+"Pka" [0, 1]
+"Slmb" [0, 1]
+"CK1a" [0, 1]
+"Ci_act" [0, 1]
+"Ci_rep" [0, 1]
+"Targets" [0, 1]
+
+
+"Dlp" 1 -> 0 when "Ttv"=0
+"Dlp" 0 -> 1 when "Ttv"=1
+
+"Dally" 1 -> 0 when "Ttv"=0
+"Dally" 0 -> 1 when "Ttv"=1
+
+
+
+
+
+
+
+"Hh" 1 -> 0 when "Dlp"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=1 and "Rasp"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=1 and "Rasp"=1 and "Shf"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=1 and "Rasp"=1 and "Shf"=1 and "iHog"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=1 and "Rasp"=1 and "Shf"=1 and "iHog"=1 and "Boi"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=1 and "Rasp"=1 and "Shf"=1 and "iHog"=1 and "Boi"=1 and "Dsp"=0
+"Hh" 1 -> 0 when "Dlp"=1 and "Dally"=1 and "Rasp"=1 and "Shf"=1 and "iHog"=1 and "Boi"=1 and "Dsp"=1 and "Lipophorin"=0
+"Hh" 0 -> 1 when "Dlp"=1 and "Dally"=1 and "Rasp"=1 and "Shf"=1 and "iHog"=1 and "Boi"=1 and "Dsp"=1 and "Lipophorin"=1
+
+"Ptc" 0 -> 1 when "Hh"=0
+"Ptc" 1 -> 0 when "Hh"=1
+
+
+
+"Smo" 1 -> 0 when "Ptc"=0 and "Gprk2"=0
+"Smo" 0 -> 1 when "Ptc"=0 and "Gprk2"=1 and "Tow"=0
+"Smo" 1 -> 0 when "Ptc"=0 and "Gprk2"=1 and "Tow"=1
+"Smo" 1 -> 0 when "Ptc"=1
+
+"Fu" 1 -> 0 when "Smo"=0
+"Fu" 0 -> 1 when "Smo"=1
+
+"Cos" 0 -> 1 when "Smo"=0 and "Fu"=0
+"Cos" 1 -> 0 when "Smo"=0 and "Fu"=1
+"Cos" 1 -> 0 when "Smo"=1
+
+"SuFu" 0 -> 1 when "Fu"=0
+"SuFu" 1 -> 0 when "Fu"=1
+
+
+
+
+
+"Ci_act" 0 -> 1 when "Cos"=0
+"Ci_act" 0 -> 1 when "Cos"=1 and "SuFu"=0
+"Ci_act" 0 -> 1 when "Cos"=1 and "SuFu"=1 and "Sgg"=0 and "Pka"=0 and "Slmb"=0
+"Ci_act" 0 -> 1 when "Cos"=1 and "SuFu"=1 and "Sgg"=0 and "Pka"=0 and "Slmb"=1 and "CK1a"=0
+"Ci_act" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=0 and "Pka"=0 and "Slmb"=1 and "CK1a"=1
+"Ci_act" 0 -> 1 when "Cos"=1 and "SuFu"=1 and "Sgg"=0 and "Pka"=1 and "Slmb"=0
+"Ci_act" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=0 and "Pka"=1 and "Slmb"=1
+"Ci_act" 0 -> 1 when "Cos"=1 and "SuFu"=1 and "Sgg"=1 and "Slmb"=0
+"Ci_act" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=1 and "Slmb"=1
+
+"Ci_rep" 1 -> 0 when "Cos"=0
+"Ci_rep" 1 -> 0 when "Cos"=1 and "SuFu"=0
+"Ci_rep" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=0
+"Ci_rep" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=1 and "Pka"=0
+"Ci_rep" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=1 and "Pka"=1 and "Slmb"=0
+"Ci_rep" 1 -> 0 when "Cos"=1 and "SuFu"=1 and "Sgg"=1 and "Pka"=1 and "Slmb"=1 and "CK1a"=0
+"Ci_rep" 0 -> 1 when "Cos"=1 and "SuFu"=1 and "Sgg"=1 and "Pka"=1 and "Slmb"=1 and "CK1a"=1
+
+"Targets" 1 -> 0 when "Ci_act"=0
+"Targets" 0 -> 1 when "Ci_act"=1 and "Ci_rep"=0
+"Targets" 1 -> 0 when "Ci_act"=1 and "Ci_rep"=1
+

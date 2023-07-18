@@ -1,0 +1,58 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"MBF" [0, 1]
+"SBF" [0, 1]
+"YOX1" [0, 1]
+"HCM1" [0, 1]
+"YHP1" [0, 1]
+"SFF" [0, 1]
+"ACE2" [0, 1]
+"SWI5" [0, 1]
+"CLN3" [0, 1]
+
+"MBF" 1 -> 0 when "CLN3"=0
+"MBF" 0 -> 1 when "CLN3"=1
+
+"SBF" 1 -> 0 when "MBF"=0 and "YOX1"=0 and "CLN3"=0
+"SBF" 0 -> 1 when "MBF"=0 and "YOX1"=0 and "CLN3"=1
+"SBF" 1 -> 0 when "MBF"=0 and "YOX1"=1 and "YHP1"=0 and "CLN3"=0
+"SBF" 0 -> 1 when "MBF"=0 and "YOX1"=1 and "YHP1"=0 and "CLN3"=1
+"SBF" 1 -> 0 when "MBF"=0 and "YOX1"=1 and "YHP1"=1
+"SBF" 0 -> 1 when "MBF"=1 and "YOX1"=0
+"SBF" 0 -> 1 when "MBF"=1 and "YOX1"=1 and "YHP1"=0
+"SBF" 1 -> 0 when "MBF"=1 and "YOX1"=1 and "YHP1"=1
+
+"YOX1" 1 -> 0 when "MBF"=0
+"YOX1" 1 -> 0 when "MBF"=1 and "SBF"=0
+"YOX1" 0 -> 1 when "MBF"=1 and "SBF"=1
+
+"HCM1" 1 -> 0 when "MBF"=0
+"HCM1" 1 -> 0 when "MBF"=1 and "SBF"=0
+"HCM1" 0 -> 1 when "MBF"=1 and "SBF"=1
+
+"YHP1" 1 -> 0 when "MBF"=0 and "SBF"=0
+"YHP1" 0 -> 1 when "MBF"=0 and "SBF"=1
+"YHP1" 0 -> 1 when "MBF"=1
+
+"SFF" 1 -> 0 when "SBF"=0
+"SFF" 1 -> 0 when "SBF"=1 and "HCM1"=0
+"SFF" 0 -> 1 when "SBF"=1 and "HCM1"=1
+
+"ACE2" 1 -> 0 when "SFF"=0
+"ACE2" 0 -> 1 when "SFF"=1
+
+"SWI5" 1 -> 0 when "SFF"=0
+"SWI5" 0 -> 1 when "SFF"=1
+
+"CLN3" 1 -> 0 when "YOX1"=0 and "ACE2"=0
+"CLN3" 1 -> 0 when "YOX1"=0 and "ACE2"=1 and "SWI5"=0
+"CLN3" 0 -> 1 when "YOX1"=0 and "ACE2"=1 and "SWI5"=1
+"CLN3" 1 -> 0 when "YOX1"=1 and "YHP1"=0 and "ACE2"=0
+"CLN3" 1 -> 0 when "YOX1"=1 and "YHP1"=0 and "ACE2"=1 and "SWI5"=0
+"CLN3" 0 -> 1 when "YOX1"=1 and "YHP1"=0 and "ACE2"=1 and "SWI5"=1
+"CLN3" 1 -> 0 when "YOX1"=1 and "YHP1"=1
+

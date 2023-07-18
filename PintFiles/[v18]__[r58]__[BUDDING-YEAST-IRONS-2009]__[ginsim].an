@@ -1,0 +1,128 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Cln3" [0, 1]
+"SMBF" [0, 1]
+"Cln2" [0, 1]
+"Clb5" [0, 1]
+"Yhp1" [0, 1]
+"Clb2" [0, 1]
+"SFF" [0, 1]
+"Cdc20" [0, 1]
+"FEAR" [0, 1]
+"MEN" [0, 1]
+"Cdc14" [0, 1]
+"Swi5" [0, 1]
+"CKI" [0, 1]
+"Cdh1" [0, 1]
+"S" [0, 1]
+"B" [0, 1]
+"M" [0, 1]
+"CD" [0, 1]
+
+"Cln3" 0 -> 1 when "Yhp1"=0
+"Cln3" 1 -> 0 when "Yhp1"=1
+
+"SMBF" 0 -> 1 when "Cln3"=0 and "Cln2"=1 and "Clb2"=0
+"SMBF" 1 -> 0 when "Cln3"=0 and "Clb2"=1
+"SMBF" 0 -> 1 when "Cln3"=1 and "Clb2"=0
+"SMBF" 1 -> 0 when "Cln3"=1 and "Clb2"=1
+
+"Cln2" 1 -> 0 when "SMBF"=0
+"Cln2" 0 -> 1 when "SMBF"=1
+
+"Clb5" 1 -> 0 when "SMBF"=0
+"Clb5" 0 -> 1 when "SMBF"=1 and "Cdc20"=0
+"Clb5" 1 -> 0 when "SMBF"=1 and "Cdc20"=1
+
+"Yhp1" 1 -> 0 when "SMBF"=0
+"Yhp1" 0 -> 1 when "SMBF"=1
+
+"Clb2" 0 -> 1 when "Cdc20"=0 and "CKI"=0 and "B"=1
+"Clb2" 0 -> 1 when "Cdc20"=1 and "CKI"=0 and "Cdh1"=0 and "B"=1
+"Clb2" 1 -> 0 when "SFF"=0 and "Cdc20"=0 and "CKI"=0 and "B"=0
+"Clb2" 1 -> 0 when "SFF"=0 and "Cdc20"=0 and "CKI"=1
+"Clb2" 1 -> 0 when "SFF"=0 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=0 and "B"=0
+"Clb2" 1 -> 0 when "SFF"=0 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=1
+"Clb2" 1 -> 0 when "SFF"=0 and "Cdc20"=1 and "CKI"=1
+"Clb2" 1 -> 0 when "SFF"=1 and "Cdc20"=0 and "CKI"=1
+"Clb2" 1 -> 0 when "SFF"=1 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=1
+"Clb2" 1 -> 0 when "SFF"=1 and "Cdc20"=1 and "CKI"=1
+
+"SFF" 1 -> 0 when "Clb2"=0 and "Cdc20"=0 and "CKI"=0 and "B"=0
+"SFF" 0 -> 1 when "Clb2"=0 and "Cdc20"=0 and "CKI"=0 and "B"=1
+"SFF" 1 -> 0 when "Clb2"=0 and "Cdc20"=0 and "CKI"=1
+"SFF" 1 -> 0 when "Clb2"=0 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=0 and "B"=0
+"SFF" 0 -> 1 when "Clb2"=0 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=0 and "B"=1
+"SFF" 1 -> 0 when "Clb2"=0 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=1
+"SFF" 1 -> 0 when "Clb2"=0 and "Cdc20"=1 and "CKI"=1
+"SFF" 0 -> 1 when "Clb2"=1 and "Cdc20"=0 and "CKI"=0 and "B"=1
+"SFF" 0 -> 1 when "Clb2"=1 and "Cdc20"=1 and "CKI"=0 and "Cdh1"=0 and "B"=1
+
+"Cdc20" 1 -> 0 when "Clb2"=0
+"Cdc20" 1 -> 0 when "Clb2"=1 and "SFF"=0
+"Cdc20" 1 -> 0 when "Clb2"=1 and "SFF"=1 and "M"=0
+"Cdc20" 0 -> 1 when "Clb2"=1 and "SFF"=1 and "M"=1
+
+"FEAR" 1 -> 0 when "Cdc20"=0
+"FEAR" 0 -> 1 when "Cdc20"=1
+
+"MEN" 1 -> 0 when "Clb2"=0
+"MEN" 1 -> 0 when "Clb2"=1 and "FEAR"=0
+"MEN" 0 -> 1 when "Clb2"=1 and "FEAR"=1
+
+"Cdc14" 1 -> 0 when "FEAR"=0
+"Cdc14" 1 -> 0 when "FEAR"=1 and "MEN"=0
+"Cdc14" 0 -> 1 when "FEAR"=1 and "MEN"=1
+
+"Swi5" 1 -> 0 when "Clb2"=0 and "SFF"=0
+"Swi5" 0 -> 1 when "Clb2"=0 and "SFF"=1
+"Swi5" 1 -> 0 when "Clb2"=1 and "SFF"=0
+"Swi5" 1 -> 0 when "Clb2"=1 and "SFF"=1 and "Cdc14"=0
+"Swi5" 0 -> 1 when "Clb2"=1 and "SFF"=1 and "Cdc14"=1
+
+"CKI" 0 -> 1 when "Cln2"=0 and "Clb5"=0 and "Clb2"=0 and "Swi5"=1
+"CKI" 1 -> 0 when "Cln2"=0 and "Clb5"=0 and "Clb2"=1 and "Cdc14"=0
+"CKI" 1 -> 0 when "Cln2"=0 and "Clb5"=0 and "Clb2"=1 and "Cdc14"=1 and "Swi5"=0
+"CKI" 0 -> 1 when "Cln2"=0 and "Clb5"=0 and "Clb2"=1 and "Cdc14"=1 and "Swi5"=1
+"CKI" 1 -> 0 when "Cln2"=0 and "Clb5"=1 and "Cdc14"=0
+"CKI" 1 -> 0 when "Cln2"=0 and "Clb5"=1 and "Cdc14"=1 and "Swi5"=0
+"CKI" 0 -> 1 when "Cln2"=0 and "Clb5"=1 and "Cdc14"=1 and "Swi5"=1
+"CKI" 1 -> 0 when "Cln2"=1 and "Cdc14"=0
+"CKI" 1 -> 0 when "Cln2"=1 and "Cdc14"=1 and "Swi5"=0
+"CKI" 0 -> 1 when "Cln2"=1 and "Cdc14"=1 and "Swi5"=1
+
+"Cdh1" 0 -> 1 when "Cln2"=0 and "Clb5"=0 and "Clb2"=0
+"Cdh1" 1 -> 0 when "Cln2"=0 and "Clb5"=0 and "Clb2"=1 and "Cdc14"=0
+"Cdh1" 0 -> 1 when "Cln2"=0 and "Clb5"=0 and "Clb2"=1 and "Cdc14"=1
+"Cdh1" 1 -> 0 when "Cln2"=0 and "Clb5"=1 and "Cdc14"=0
+"Cdh1" 0 -> 1 when "Cln2"=0 and "Clb5"=1 and "Cdc14"=1
+"Cdh1" 1 -> 0 when "Cln2"=1 and "Cdc14"=0
+"Cdh1" 0 -> 1 when "Cln2"=1 and "Cdc14"=1
+
+"S" 1 -> 0 when "Clb5"=0 and "Clb2"=0 and "CD"=1
+"S" 0 -> 1 when "Clb5"=0 and "Clb2"=1 and "CD"=0
+"S" 1 -> 0 when "Clb5"=0 and "Clb2"=1 and "CD"=1
+"S" 0 -> 1 when "Clb5"=1 and "CD"=0
+"S" 1 -> 0 when "Clb5"=1 and "CD"=1
+
+"B" 1 -> 0 when "Cln2"=0 and "Clb5"=0 and "CD"=1
+"B" 0 -> 1 when "Cln2"=0 and "Clb5"=1 and "CD"=0
+"B" 1 -> 0 when "Cln2"=0 and "Clb5"=1 and "CD"=1
+"B" 0 -> 1 when "Cln2"=1 and "CD"=0
+"B" 1 -> 0 when "Cln2"=1 and "CD"=1
+
+"M" 1 -> 0 when "Clb2"=0 and "CD"=1
+"M" 1 -> 0 when "Clb2"=1 and "S"=0 and "CD"=1
+"M" 0 -> 1 when "Clb2"=1 and "S"=1 and "CD"=0
+"M" 1 -> 0 when "Clb2"=1 and "S"=1 and "CD"=1
+
+"CD" 1 -> 0 when "FEAR"=0
+"CD" 1 -> 0 when "FEAR"=1 and "Cdc14"=0
+"CD" 1 -> 0 when "FEAR"=1 and "Cdc14"=1 and "M"=0
+"CD" 0 -> 1 when "FEAR"=1 and "Cdc14"=1 and "M"=1
+"CD" 1 -> 0 when "FEAR"=1 and "Cdc14"=1 and "M"=1
+

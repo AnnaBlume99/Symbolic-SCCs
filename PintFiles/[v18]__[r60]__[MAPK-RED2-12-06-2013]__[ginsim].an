@@ -1,0 +1,138 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"EGFR_stimulus" [0, 1]
+"FGFR3_stimulus" [0, 1]
+"TGFBR_stimulus" [0, 1]
+"DNA_damage" [0, 1]
+"Apoptosis" [0, 1]
+"Growth_Arrest" [0, 1]
+"Proliferation" [0, 1]
+"ERK" [0, 1]
+"p38" [0, 1]
+"p53" [0, 1]
+"p21" [0, 1]
+"EGFR" [0, 1]
+"FGFR3" [0, 1]
+"GRB2" [0, 1]
+"AKT" [0, 1]
+"RAF" [0, 1]
+"PI3K" [0, 1]
+"RAS" [0, 1]
+
+
+
+
+
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=0 and "p53"=0
+"Apoptosis" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=0 and "p53"=1 and "AKT"=0
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=0 and "p53"=1 and "AKT"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=1 and "p53"=0
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=1 and "p53"=1 and "AKT"=0 and "RAS"=0
+"Apoptosis" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=1 and "p53"=1 and "AKT"=0 and "RAS"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p38"=1 and "p53"=1 and "AKT"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=0 and "p53"=0
+"Apoptosis" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=0 and "p53"=1 and "AKT"=0
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=0 and "p53"=1 and "AKT"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=1 and "ERK"=0 and "p53"=0
+"Apoptosis" 0 -> 1 when "TGFBR_stimulus"=1 and "ERK"=0 and "p53"=1 and "AKT"=0
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=1 and "ERK"=0 and "p53"=1 and "AKT"=1
+"Apoptosis" 1 -> 0 when "TGFBR_stimulus"=1 and "ERK"=1
+
+"Growth_Arrest" 1 -> 0 when "p21"=0
+"Growth_Arrest" 0 -> 1 when "p21"=1
+
+"Proliferation" 1 -> 0 when "ERK"=0
+"Proliferation" 1 -> 0 when "ERK"=1 and "p38"=0 and "p21"=0 and "AKT"=0
+"Proliferation" 1 -> 0 when "ERK"=1 and "p38"=0 and "p21"=0 and "AKT"=1 and "PI3K"=0
+"Proliferation" 0 -> 1 when "ERK"=1 and "p38"=0 and "p21"=0 and "AKT"=1 and "PI3K"=1
+"Proliferation" 1 -> 0 when "ERK"=1 and "p38"=0 and "p21"=1
+"Proliferation" 1 -> 0 when "ERK"=1 and "p38"=1 and "p21"=0 and "PI3K"=0
+"Proliferation" 0 -> 1 when "ERK"=1 and "p38"=1 and "p21"=0 and "PI3K"=1
+"Proliferation" 1 -> 0 when "ERK"=1 and "p38"=1 and "p21"=1
+
+"ERK" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "p38"=0 and "p53"=0 and "RAF"=1 and "RAS"=0
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "p38"=0 and "p53"=0 and "RAF"=0 and "RAS"=0
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "p38"=0 and "p53"=1 and "RAF"=0
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "p38"=0 and "p53"=1 and "RAF"=1 and "RAS"=1
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "p38"=1
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "p38"=0 and "p53"=0 and "RAF"=0
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "p38"=0 and "p53"=0 and "RAF"=1 and "RAS"=1
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "p38"=0 and "p53"=1
+"ERK" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "p38"=1
+"ERK" 1 -> 0 when "TGFBR_stimulus"=1
+
+"p38" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p53"=0 and "RAS"=1
+"p38" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p53"=1
+"p38" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p53"=0
+"p38" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=0 and "p53"=1 and "RAS"=0
+"p38" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=1 and "p53"=0
+"p38" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=1 and "p53"=1 and "RAS"=0
+"p38" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=0 and "ERK"=1 and "p53"=1 and "RAS"=1
+"p38" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=0
+"p38" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=0 and "p53"=0 and "RAS"=0
+"p38" 1 -> 0 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=1 and "p53"=0 and "RAS"=0
+"p38" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=1 and "p53"=0 and "RAS"=1
+"p38" 0 -> 1 when "TGFBR_stimulus"=0 and "DNA_damage"=1 and "ERK"=1 and "p53"=1
+"p38" 0 -> 1 when "TGFBR_stimulus"=1
+
+"p53" 1 -> 0 when "DNA_damage"=0 and "p38"=0
+"p53" 0 -> 1 when "DNA_damage"=0 and "p38"=1
+"p53" 0 -> 1 when "DNA_damage"=1 and "ERK"=0 and "p38"=0 and "AKT"=0
+"p53" 1 -> 0 when "DNA_damage"=1 and "ERK"=0 and "p38"=0
+"p53" 0 -> 1 when "DNA_damage"=1 and "ERK"=0 and "p38"=1
+"p53" 0 -> 1 when "DNA_damage"=1 and "ERK"=1 and "p38"=0
+"p53" 1 -> 0 when "DNA_damage"=1 and "ERK"=1 and "p38"=0 and "AKT"=0
+"p53" 0 -> 1 when "DNA_damage"=1 and "ERK"=1 and "p38"=1
+
+"p21" 1 -> 0 when "p53"=0
+"p21" 0 -> 1 when "p53"=1 and "AKT"=0
+"p21" 1 -> 0 when "p53"=1 and "AKT"=1
+
+"EGFR" 1 -> 0 when "EGFR_stimulus"=0 and "ERK"=0
+"EGFR" 0 -> 1 when "EGFR_stimulus"=0 and "ERK"=1 and "FGFR3"=0 and "GRB2"=0
+"EGFR" 1 -> 0 when "EGFR_stimulus"=0 and "ERK"=1
+"EGFR" 0 -> 1 when "EGFR_stimulus"=1 and "FGFR3"=0 and "GRB2"=0
+"EGFR" 1 -> 0 when "EGFR_stimulus"=1
+
+"FGFR3" 1 -> 0 when "FGFR3_stimulus"=0
+"FGFR3" 0 -> 1 when "FGFR3_stimulus"=1 and "EGFR"=0 and "GRB2"=0
+"FGFR3" 1 -> 0 when "FGFR3_stimulus"=1 and "EGFR"=0
+"FGFR3" 1 -> 0 when "FGFR3_stimulus"=1 and "EGFR"=1
+
+"GRB2" 1 -> 0 when "TGFBR_stimulus"=0 and "ERK"=0 and "EGFR"=0 and "FGFR3"=0
+"GRB2" 0 -> 1 when "TGFBR_stimulus"=0 and "ERK"=0 and "EGFR"=0 and "FGFR3"=1
+"GRB2" 1 -> 0 when "TGFBR_stimulus"=0 and "ERK"=0 and "EGFR"=0 and "FGFR3"=1
+"GRB2" 0 -> 1 when "TGFBR_stimulus"=0 and "ERK"=0 and "EGFR"=1
+"GRB2" 1 -> 0 when "TGFBR_stimulus"=0 and "ERK"=1 and "EGFR"=0
+"GRB2" 0 -> 1 when "TGFBR_stimulus"=0 and "ERK"=1 and "EGFR"=1
+"GRB2" 0 -> 1 when "TGFBR_stimulus"=1
+
+"AKT" 1 -> 0 when "p53"=0 and "PI3K"=0
+"AKT" 0 -> 1 when "p53"=0 and "PI3K"=1
+"AKT" 1 -> 0 when "p53"=1
+
+"RAF" 1 -> 0 when "ERK"=0 and "EGFR"=0 and "FGFR3"=0 and "AKT"=0 and "RAS"=0
+"RAF" 0 -> 1 when "ERK"=0 and "EGFR"=0 and "FGFR3"=0 and "AKT"=0 and "RAS"=1
+"RAF" 1 -> 0 when "ERK"=0 and "EGFR"=0 and "FGFR3"=0 and "AKT"=1
+"RAF" 0 -> 1 when "ERK"=0 and "EGFR"=0 and "FGFR3"=1 and "AKT"=0
+"RAF" 1 -> 0 when "ERK"=0 and "EGFR"=0 and "FGFR3"=1 and "AKT"=1
+"RAF" 0 -> 1 when "ERK"=0 and "EGFR"=1 and "AKT"=0
+"RAF" 1 -> 0 when "ERK"=0 and "EGFR"=1 and "AKT"=1
+"RAF" 1 -> 0 when "ERK"=1
+
+"PI3K" 0 -> 1 when "GRB2"=1
+
+"RAS" 1 -> 0 when "ERK"=0 and "EGFR"=0 and "FGFR3"=0 and "GRB2"=0
+"RAS" 0 -> 1 when "ERK"=0 and "EGFR"=0 and "FGFR3"=0 and "GRB2"=1
+"RAS" 0 -> 1 when "ERK"=0 and "EGFR"=0 and "FGFR3"=1
+"RAS" 0 -> 1 when "ERK"=0 and "EGFR"=1
+"RAS" 1 -> 0 when "ERK"=1 and "EGFR"=0 and "FGFR3"=0
+"RAS" 0 -> 1 when "ERK"=1 and "EGFR"=0 and "FGFR3"=1
+"RAS" 0 -> 1 when "ERK"=1 and "EGFR"=1
+

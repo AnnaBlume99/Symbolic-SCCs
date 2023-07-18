@@ -1,0 +1,213 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"ECMicroenv" [0, 1]
+"DNAdamage" [0, 1]
+"GF" [0, 1]
+"Metastasis" [0, 1]
+"Migration" [0, 1]
+"Invasion" [0, 1]
+"EMT" [0, 1]
+"Apoptosis" [0, 1]
+"CCA" [0, 1]
+"TGFb_pthw" [0, 1]
+"Notch_pthw" [0, 1]
+"WNT_pthw" [0, 1]
+"p53" [0, 1]
+"EMTreg" [0, 1]
+"p63_73" [0, 1]
+"AKT1" [0, 1]
+"AKT2" [0, 1]
+"ERK_pthw" [0, 1]
+"miRNA" [0, 1]
+"Ecadh" [0, 1]
+
+
+
+"GF" 0 -> 1 when "EMTreg"=1 and "Ecadh"=0
+"GF" 1 -> 0 when "Ecadh"=1
+
+"Metastasis" 1 -> 0 when "Migration"=0
+"Metastasis" 0 -> 1 when "Migration"=1
+
+"Migration" 1 -> 0 when "Invasion"=0
+"Migration" 1 -> 0 when "Invasion"=1 and "EMT"=0
+"Migration" 1 -> 0 when "Invasion"=1 and "EMT"=1 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0
+"Migration" 1 -> 0 when "Invasion"=1 and "EMT"=1 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=0
+"Migration" 0 -> 1 when "Invasion"=1 and "EMT"=1 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=1 and "miRNA"=0
+"Migration" 1 -> 0 when "Invasion"=1 and "EMT"=1 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=1 and "miRNA"=1
+"Migration" 1 -> 0 when "Invasion"=1 and "EMT"=1 and "p63_73"=0 and "AKT1"=1
+"Migration" 1 -> 0 when "Invasion"=1 and "EMT"=1 and "p63_73"=1
+
+"Invasion" 1 -> 0 when "TGFb_pthw"=0 and "WNT_pthw"=0
+"Invasion" 0 -> 1 when "TGFb_pthw"=0 and "WNT_pthw"=1
+"Invasion" 1 -> 0 when "TGFb_pthw"=1 and "WNT_pthw"=0 and "EMTreg"=0
+"Invasion" 0 -> 1 when "TGFb_pthw"=1 and "WNT_pthw"=0 and "EMTreg"=1
+"Invasion" 0 -> 1 when "TGFb_pthw"=1 and "WNT_pthw"=1
+
+"EMT" 1 -> 0 when "EMTreg"=0
+"EMT" 0 -> 1 when "EMTreg"=1 and "Ecadh"=0
+"EMT" 1 -> 0 when "EMTreg"=1 and "Ecadh"=1
+
+"Apoptosis" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "ERK_pthw"=0 and "miRNA"=0
+"Apoptosis" 0 -> 1 when "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "ERK_pthw"=0 and "miRNA"=1
+"Apoptosis" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "ERK_pthw"=1
+"Apoptosis" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=1
+"Apoptosis" 0 -> 1 when "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=0
+"Apoptosis" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=1
+"Apoptosis" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=1
+"Apoptosis" 1 -> 0 when "p53"=0 and "EMTreg"=1
+"Apoptosis" 0 -> 1 when "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=0
+"Apoptosis" 1 -> 0 when "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1
+"Apoptosis" 1 -> 0 when "p53"=1 and "EMTreg"=0 and "AKT1"=1
+"Apoptosis" 1 -> 0 when "p53"=1 and "EMTreg"=1
+
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0 and "miRNA"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=1 and "AKT1"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=0 and "EMTreg"=1 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=0 and "p53"=1 and "EMTreg"=1 and "AKT1"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=0 and "p53"=1 and "EMTreg"=1 and "AKT1"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0 and "miRNA"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=1 and "AKT1"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=1 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=1 and "EMTreg"=0 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=1 and "EMTreg"=1 and "AKT1"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=0 and "p53"=1 and "EMTreg"=1 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=0
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=1 and "EMTreg"=0 and "AKT1"=0 and "ERK_pthw"=1 and "miRNA"=1
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=1 and "EMTreg"=0 and "AKT1"=1
+"CCA" 0 -> 1 when "TGFb_pthw"=1 and "Notch_pthw"=1 and "EMTreg"=1 and "AKT1"=0
+"CCA" 1 -> 0 when "TGFb_pthw"=1 and "Notch_pthw"=1 and "EMTreg"=1 and "AKT1"=1
+
+"TGFb_pthw" 1 -> 0 when "ECMicroenv"=0 and "Notch_pthw"=0
+"TGFb_pthw" 0 -> 1 when "ECMicroenv"=0 and "Notch_pthw"=1 and "WNT_pthw"=0 and "miRNA"=0
+"TGFb_pthw" 1 -> 0 when "ECMicroenv"=0 and "Notch_pthw"=1 and "WNT_pthw"=0 and "miRNA"=1
+"TGFb_pthw" 1 -> 0 when "ECMicroenv"=0 and "Notch_pthw"=1 and "WNT_pthw"=1
+"TGFb_pthw" 0 -> 1 when "ECMicroenv"=1 and "WNT_pthw"=0 and "miRNA"=0
+"TGFb_pthw" 1 -> 0 when "ECMicroenv"=1 and "WNT_pthw"=0 and "miRNA"=1
+"TGFb_pthw" 1 -> 0 when "ECMicroenv"=1 and "WNT_pthw"=1
+
+"Notch_pthw" 1 -> 0 when "ECMicroenv"=0
+"Notch_pthw" 0 -> 1 when "ECMicroenv"=1 and "p53"=0 and "p63_73"=0 and "miRNA"=0
+"Notch_pthw" 1 -> 0 when "ECMicroenv"=1 and "p53"=0 and "p63_73"=0 and "miRNA"=1
+"Notch_pthw" 1 -> 0 when "ECMicroenv"=1 and "p53"=0 and "p63_73"=1
+"Notch_pthw" 1 -> 0 when "ECMicroenv"=1 and "p53"=1
+
+"WNT_pthw" 0 -> 1 when "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "miRNA"=0 and "Ecadh"=0
+"WNT_pthw" 1 -> 0 when "Notch_pthw"=0
+"WNT_pthw" 1 -> 0 when "Notch_pthw"=1
+
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=0 and "WNT_pthw"=0
+"p53" 0 -> 1 when "DNAdamage"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=1
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "EMTreg"=0 and "p63_73"=1
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "EMTreg"=1
+"p53" 0 -> 1 when "DNAdamage"=0 and "Notch_pthw"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=1
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=1 and "EMTreg"=0 and "p63_73"=1
+"p53" 1 -> 0 when "DNAdamage"=0 and "Notch_pthw"=1 and "EMTreg"=1
+"p53" 0 -> 1 when "DNAdamage"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=0
+"p53" 1 -> 0 when "DNAdamage"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=0 and "AKT2"=1
+"p53" 1 -> 0 when "DNAdamage"=1 and "EMTreg"=0 and "p63_73"=0 and "AKT1"=1
+"p53" 1 -> 0 when "DNAdamage"=1 and "EMTreg"=0 and "p63_73"=1
+"p53" 1 -> 0 when "DNAdamage"=1 and "EMTreg"=1
+
+"EMTreg" 1 -> 0 when "Notch_pthw"=0 and "WNT_pthw"=0 and "p53"=0 and "miRNA"=1
+"EMTreg" 1 -> 0 when "Notch_pthw"=0 and "WNT_pthw"=0 and "p53"=1
+"EMTreg" 0 -> 1 when "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0
+"EMTreg" 1 -> 0 when "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=1
+"EMTreg" 1 -> 0 when "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=1
+"EMTreg" 0 -> 1 when "Notch_pthw"=1 and "p53"=0 and "miRNA"=0
+"EMTreg" 1 -> 0 when "Notch_pthw"=1 and "p53"=0 and "miRNA"=1
+"EMTreg" 1 -> 0 when "Notch_pthw"=1 and "p53"=1
+
+"p63_73" 1 -> 0 when "DNAdamage"=0
+"p63_73" 0 -> 1 when "DNAdamage"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "AKT1"=0 and "AKT2"=0
+"p63_73" 1 -> 0 when "DNAdamage"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "AKT1"=0 and "AKT2"=1
+"p63_73" 1 -> 0 when "DNAdamage"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=0 and "AKT1"=1
+"p63_73" 1 -> 0 when "DNAdamage"=1 and "Notch_pthw"=0 and "p53"=0 and "EMTreg"=1
+"p63_73" 1 -> 0 when "DNAdamage"=1 and "Notch_pthw"=0 and "p53"=1
+"p63_73" 1 -> 0 when "DNAdamage"=1 and "Notch_pthw"=1
+
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "WNT_pthw"=0
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=0 and "EMTreg"=0
+"AKT1" 0 -> 1 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=0 and "EMTreg"=1 and "miRNA"=0 and "Ecadh"=0
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=0 and "EMTreg"=1 and "miRNA"=0 and "Ecadh"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=0 and "EMTreg"=1 and "miRNA"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "WNT_pthw"=1 and "p53"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "WNT_pthw"=0
+"AKT1" 0 -> 1 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0 and "Ecadh"=0
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0 and "Ecadh"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "WNT_pthw"=1 and "p53"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=1 and "WNT_pthw"=0
+"AKT1" 0 -> 1 when "GF"=0 and "TGFb_pthw"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0 and "Ecadh"=0
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0 and "Ecadh"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=1
+"AKT1" 1 -> 0 when "GF"=0 and "TGFb_pthw"=1 and "WNT_pthw"=1 and "p53"=1
+"AKT1" 1 -> 0 when "GF"=1 and "WNT_pthw"=0
+"AKT1" 0 -> 1 when "GF"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0 and "Ecadh"=0
+"AKT1" 1 -> 0 when "GF"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=0 and "Ecadh"=1
+"AKT1" 1 -> 0 when "GF"=1 and "WNT_pthw"=1 and "p53"=0 and "miRNA"=1
+"AKT1" 1 -> 0 when "GF"=1 and "WNT_pthw"=1 and "p53"=1
+
+"AKT2" 1 -> 0 when "p53"=0 and "EMTreg"=0
+"AKT2" 0 -> 1 when "p53"=0 and "EMTreg"=1 and "miRNA"=0
+"AKT2" 1 -> 0 when "p53"=0 and "EMTreg"=1 and "miRNA"=1
+"AKT2" 1 -> 0 when "p53"=1
+
+"ERK_pthw" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "EMTreg"=0
+"ERK_pthw" 0 -> 1 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "EMTreg"=1 and "AKT1"=0
+"ERK_pthw" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=0 and "EMTreg"=1 and "AKT1"=1
+"ERK_pthw" 0 -> 1 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "AKT1"=0
+"ERK_pthw" 1 -> 0 when "GF"=0 and "TGFb_pthw"=0 and "Notch_pthw"=1 and "AKT1"=1
+"ERK_pthw" 0 -> 1 when "GF"=0 and "TGFb_pthw"=1 and "AKT1"=0
+"ERK_pthw" 1 -> 0 when "GF"=0 and "TGFb_pthw"=1 and "AKT1"=1
+"ERK_pthw" 0 -> 1 when "GF"=1 and "AKT1"=0
+"ERK_pthw" 1 -> 0 when "GF"=1 and "AKT1"=1
+
+"miRNA" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=0
+"miRNA" 0 -> 1 when "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "AKT2"=0
+"miRNA" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=0 and "AKT2"=1
+"miRNA" 1 -> 0 when "p53"=0 and "EMTreg"=0 and "p63_73"=1 and "AKT1"=1
+"miRNA" 1 -> 0 when "p53"=0 and "EMTreg"=1
+"miRNA" 0 -> 1 when "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "AKT2"=0
+"miRNA" 1 -> 0 when "p53"=1 and "EMTreg"=0 and "AKT1"=0 and "AKT2"=1
+"miRNA" 1 -> 0 when "p53"=1 and "EMTreg"=0 and "AKT1"=1
+"miRNA" 1 -> 0 when "p53"=1 and "EMTreg"=1
+
+"Ecadh" 0 -> 1 when "EMTreg"=0 and "AKT2"=0
+"Ecadh" 1 -> 0 when "EMTreg"=0 and "AKT2"=1
+"Ecadh" 1 -> 0 when "EMTreg"=1
+

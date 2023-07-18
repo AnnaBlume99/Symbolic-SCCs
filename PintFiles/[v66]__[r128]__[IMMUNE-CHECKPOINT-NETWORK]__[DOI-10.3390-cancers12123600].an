@@ -1,0 +1,379 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"IFNGR" [0, 1]
+"IL27R" [0, 1]
+"TGFbR" [0, 1]
+"PD1" [0, 1]
+"CTLA4" [0, 1]
+"NFkB" [0, 1]
+"MAPKs" [0, 1]
+"Ca_NFAT" [0, 1]
+"PI3K_AKT" [0, 1]
+"Tbet" [0, 1]
+"FOXP3" [0, 1]
+"FOXO1" [0, 1]
+"TCR" [0, 1]
+"CD4" [0, 1]
+"CD28" [0, 1]
+"LAT_complex" [0, 1]
+"VAV" [0, 1]
+"PLCG" [0, 1]
+"PKC_teta" [0, 1]
+"TIM3" [0, 1]
+"TIGIT" [0, 1]
+"TNFRs" [0, 1]
+"ICOS" [0, 1]
+"TRAFs" [0, 1]
+"CK2" [0, 1]
+"PTEN" [0, 1]
+"PP2A" [0, 1]
+"SHIP" [0, 1]
+"SHP" [0, 1]
+"LAG3" [0, 1]
+"AP1" [0, 1]
+"YY1" [0, 1]
+"NFAT" [0, 1]
+"LCK_FYN" [0, 1]
+"STAT1" [0, 1]
+"SMAD2_3" [0, 1]
+"SMAD7" [0, 1]
+"STAT3" [0, 1]
+"NFIL3" [0, 1]
+"GRB2" [0, 1]
+"CD80_86" [0, 1]
+"LAG3_L" [0, 1]
+"TIM3_L" [0, 1]
+"TIGIT_L" [0, 1]
+"PD1_L" [0, 1]
+"MHCII" [0, 1]
+"MHCI" [0, 1]
+"Antigen" [0, 1]
+"CD8" [0, 1]
+"GSK3" [0, 1]
+"TNFRs_L" [0, 1]
+"ICOS_L" [0, 1]
+"IFNG" [0, 1]
+"IL27" [0, 1]
+"TGFb" [0, 1]
+"Proliferation_Survival" [0, 1]
+"Treg" [0, 1]
+"IL2" [0, 1]
+"Th1_CTL" [0, 1]
+"CD226" [0, 1]
+"PRDM1" [0, 1]
+"MAF" [0, 1]
+"anti_CTLA4" [0, 1]
+"IL12R" [0, 1]
+"STAT4" [0, 1]
+"IL12" [0, 1]
+
+"IFNGR" 1 -> 0 when "IFNG"=0
+"IFNGR" 0 -> 1 when "IFNG"=1
+
+"IL27R" 1 -> 0 when "IL27"=0
+"IL27R" 0 -> 1 when "IL27"=1
+
+"TGFbR" 1 -> 0 when "TGFb"=0
+"TGFbR" 0 -> 1 when "TGFb"=1
+
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=0 and "NFAT"=0 and "PD1_L"=0
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=0 and "NFAT"=0 and "PD1_L"=1 and "PRDM1"=0 and "MAF"=0
+"PD1" 0 -> 1 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=0 and "NFAT"=0 and "PD1_L"=1 and "PRDM1"=0 and "MAF"=1
+"PD1" 0 -> 1 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=0 and "NFAT"=0 and "PD1_L"=1 and "PRDM1"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=0 and "NFAT"=1 and "PD1_L"=0
+"PD1" 0 -> 1 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=0 and "NFAT"=1 and "PD1_L"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=1 and "PD1_L"=0
+"PD1" 0 -> 1 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=0 and "YY1"=1 and "PD1_L"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=1 and "PD1_L"=0
+"PD1" 0 -> 1 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=0 and "AP1"=1 and "PD1_L"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=1 and "PD1_L"=0
+"PD1" 0 -> 1 when "Ca_NFAT"=0 and "Tbet"=0 and "FOXO1"=1 and "PD1_L"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=0 and "Tbet"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=1 and "Tbet"=0 and "PD1_L"=0
+"PD1" 0 -> 1 when "Ca_NFAT"=1 and "Tbet"=0 and "PD1_L"=1
+"PD1" 1 -> 0 when "Ca_NFAT"=1 and "Tbet"=1
+
+"CTLA4" 1 -> 0 when "Ca_NFAT"=0 and "FOXP3"=0
+"CTLA4" 1 -> 0 when "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "CD80_86"=0
+"CTLA4" 0 -> 1 when "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "CD80_86"=1 and "anti_CTLA4"=0
+"CTLA4" 1 -> 0 when "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "CD80_86"=1 and "anti_CTLA4"=1
+"CTLA4" 1 -> 0 when "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=1
+"CTLA4" 1 -> 0 when "Ca_NFAT"=1 and "NFIL3"=0 and "CD80_86"=0
+"CTLA4" 0 -> 1 when "Ca_NFAT"=1 and "NFIL3"=0 and "CD80_86"=1 and "anti_CTLA4"=0
+"CTLA4" 1 -> 0 when "Ca_NFAT"=1 and "NFIL3"=0 and "CD80_86"=1 and "anti_CTLA4"=1
+"CTLA4" 1 -> 0 when "Ca_NFAT"=1 and "NFIL3"=1
+
+"NFkB" 1 -> 0 when "LAT_complex"=0 and "PKC_teta"=0 and "TRAFs"=0
+"NFkB" 0 -> 1 when "LAT_complex"=0 and "PKC_teta"=0 and "TRAFs"=1
+"NFkB" 0 -> 1 when "LAT_complex"=0 and "PKC_teta"=1
+"NFkB" 0 -> 1 when "LAT_complex"=1
+
+"MAPKs" 1 -> 0 when "LAT_complex"=0 and "VAV"=0 and "ICOS"=0
+"MAPKs" 0 -> 1 when "LAT_complex"=0 and "VAV"=0 and "ICOS"=1
+"MAPKs" 0 -> 1 when "LAT_complex"=0 and "VAV"=1
+"MAPKs" 0 -> 1 when "LAT_complex"=1
+
+"Ca_NFAT" 1 -> 0 when "PLCG"=0 and "ICOS"=0
+"Ca_NFAT" 0 -> 1 when "PLCG"=0 and "ICOS"=1 and "LAG3"=0
+"Ca_NFAT" 1 -> 0 when "PLCG"=0 and "ICOS"=1 and "LAG3"=1
+"Ca_NFAT" 0 -> 1 when "PLCG"=1 and "LAG3"=0
+"Ca_NFAT" 1 -> 0 when "PLCG"=1 and "LAG3"=1
+
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=0 and "TRAFs"=0
+"PI3K_AKT" 0 -> 1 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=0 and "TRAFs"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=0
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=0 and "TRAFs"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=0 and "TRAFs"=1 and "PTEN"=0 and "PP2A"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=0 and "TRAFs"=1 and "PTEN"=1
+"PI3K_AKT" 0 -> 1 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=0
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=1 and "PTEN"=0 and "PP2A"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=0 and "ICOS"=1 and "PTEN"=1
+"PI3K_AKT" 0 -> 1 when "CD28"=0 and "LAT_complex"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=0
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=1 and "PTEN"=0 and "PP2A"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=0 and "LAT_complex"=1 and "PTEN"=1
+"PI3K_AKT" 0 -> 1 when "CD28"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=0
+"PI3K_AKT" 1 -> 0 when "CD28"=1 and "PTEN"=0 and "PP2A"=0 and "SHIP"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=1 and "PTEN"=0 and "PP2A"=1
+"PI3K_AKT" 1 -> 0 when "CD28"=1 and "PTEN"=1
+
+"Tbet" 0 -> 1 when "STAT1"=0 and "GSK3"=0
+"Tbet" 1 -> 0 when "STAT1"=0 and "GSK3"=1 and "STAT4"=0
+"Tbet" 0 -> 1 when "STAT1"=0 and "GSK3"=1 and "STAT4"=1
+"Tbet" 0 -> 1 when "STAT1"=1
+
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=0 and "SMAD2_3"=0
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=0 and "SMAD2_3"=1 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=0 and "SMAD2_3"=1 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=0 and "SMAD2_3"=1 and "STAT3"=1
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=1 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=1 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=0 and "STAT1"=1 and "STAT3"=1
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=1 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=1 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=0 and "AP1"=1 and "STAT3"=1
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=1 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=1 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=0 and "FOXO1"=1 and "STAT3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "PI3K_AKT"=1
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=1 and "PI3K_AKT"=0 and "STAT3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=1 and "PI3K_AKT"=1
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=1 and "PI3K_AKT"=0 and "STAT3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=0 and "MAPKs"=1 and "PI3K_AKT"=1
+"FOXP3" 0 -> 1 when "CTLA4"=0 and "NFkB"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=1 and "PI3K_AKT"=0 and "STAT3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=0 and "NFkB"=1 and "PI3K_AKT"=1
+"FOXP3" 0 -> 1 when "CTLA4"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=0
+"FOXP3" 1 -> 0 when "CTLA4"=1 and "PI3K_AKT"=0 and "STAT3"=0 and "NFIL3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=1 and "PI3K_AKT"=0 and "STAT3"=1
+"FOXP3" 1 -> 0 when "CTLA4"=1 and "PI3K_AKT"=1
+
+"FOXO1" 0 -> 1 when "PI3K_AKT"=0
+"FOXO1" 1 -> 0 when "PI3K_AKT"=1
+
+"TCR" 1 -> 0 when "SHP"=0 and "LCK_FYN"=0
+"TCR" 1 -> 0 when "SHP"=0 and "LCK_FYN"=1 and "Antigen"=0
+"TCR" 0 -> 1 when "SHP"=0 and "LCK_FYN"=1 and "Antigen"=1
+"TCR" 1 -> 0 when "SHP"=1
+
+"CD4" 1 -> 0 when "LAG3"=0 and "MHCII"=0
+"CD4" 0 -> 1 when "LAG3"=0 and "MHCII"=1
+"CD4" 1 -> 0 when "LAG3"=1
+
+"CD28" 1 -> 0 when "CTLA4"=0 and "SHP"=0 and "CD80_86"=0
+"CD28" 0 -> 1 when "CTLA4"=0 and "SHP"=0 and "CD80_86"=1
+"CD28" 1 -> 0 when "CTLA4"=0 and "SHP"=1
+"CD28" 1 -> 0 when "CTLA4"=1
+
+"LAT_complex" 1 -> 0 when "TCR"=0
+"LAT_complex" 0 -> 1 when "TCR"=1
+
+"VAV" 1 -> 0 when "GRB2"=0 and "CD226"=0
+"VAV" 0 -> 1 when "GRB2"=0 and "CD226"=1
+"VAV" 0 -> 1 when "GRB2"=1
+
+"PLCG" 1 -> 0 when "LAT_complex"=0
+"PLCG" 0 -> 1 when "LAT_complex"=1
+
+"PKC_teta" 1 -> 0 when "VAV"=0
+"PKC_teta" 0 -> 1 when "VAV"=1
+
+"TIM3" 1 -> 0 when "Tbet"=0 and "NFIL3"=0 and "TIM3_L"=0
+"TIM3" 1 -> 0 when "Tbet"=0 and "NFIL3"=0 and "TIM3_L"=1 and "PRDM1"=0 and "MAF"=0
+"TIM3" 0 -> 1 when "Tbet"=0 and "NFIL3"=0 and "TIM3_L"=1 and "PRDM1"=0 and "MAF"=1
+"TIM3" 0 -> 1 when "Tbet"=0 and "NFIL3"=0 and "TIM3_L"=1 and "PRDM1"=1
+"TIM3" 1 -> 0 when "Tbet"=0 and "NFIL3"=1 and "TIM3_L"=0
+"TIM3" 0 -> 1 when "Tbet"=0 and "NFIL3"=1 and "TIM3_L"=1
+"TIM3" 1 -> 0 when "Tbet"=1 and "TIM3_L"=0
+"TIM3" 0 -> 1 when "Tbet"=1 and "TIM3_L"=1
+
+"TIGIT" 1 -> 0 when "FOXP3"=0 and "TIGIT_L"=0
+"TIGIT" 1 -> 0 when "FOXP3"=0 and "TIGIT_L"=1 and "PRDM1"=0 and "MAF"=0
+"TIGIT" 0 -> 1 when "FOXP3"=0 and "TIGIT_L"=1 and "PRDM1"=0 and "MAF"=1
+"TIGIT" 0 -> 1 when "FOXP3"=0 and "TIGIT_L"=1 and "PRDM1"=1
+"TIGIT" 1 -> 0 when "FOXP3"=1 and "TIGIT_L"=0
+"TIGIT" 0 -> 1 when "FOXP3"=1 and "TIGIT_L"=1
+
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "AP1"=0
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "AP1"=1 and "NFIL3"=0 and "TNFRs_L"=0
+"TNFRs" 0 -> 1 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "AP1"=1 and "NFIL3"=0 and "TNFRs_L"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "AP1"=1 and "NFIL3"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "TNFRs_L"=0
+"TNFRs" 0 -> 1 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "TNFRs_L"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=0 and "Ca_NFAT"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=1 and "Ca_NFAT"=0 and "NFIL3"=0 and "TNFRs_L"=0
+"TNFRs" 0 -> 1 when "NFkB"=0 and "MAPKs"=1 and "Ca_NFAT"=0 and "NFIL3"=0 and "TNFRs_L"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=1 and "Ca_NFAT"=0 and "NFIL3"=1
+"TNFRs" 1 -> 0 when "NFkB"=0 and "MAPKs"=1 and "Ca_NFAT"=1
+"TNFRs" 1 -> 0 when "NFkB"=1 and "Ca_NFAT"=0 and "NFIL3"=0 and "TNFRs_L"=0
+"TNFRs" 0 -> 1 when "NFkB"=1 and "Ca_NFAT"=0 and "NFIL3"=0 and "TNFRs_L"=1
+"TNFRs" 1 -> 0 when "NFkB"=1 and "Ca_NFAT"=0 and "NFIL3"=1
+"TNFRs" 1 -> 0 when "NFkB"=1 and "Ca_NFAT"=1
+
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=0 and "NFIL3"=0 and "ICOS_L"=0
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=0 and "NFIL3"=0 and "ICOS_L"=1 and "PRDM1"=0
+"ICOS" 0 -> 1 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=0 and "NFIL3"=0 and "ICOS_L"=1 and "PRDM1"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=0 and "NFIL3"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=1 and "NFIL3"=0 and "ICOS_L"=0
+"ICOS" 0 -> 1 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=1 and "NFIL3"=0 and "ICOS_L"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=0 and "NFAT"=1 and "NFIL3"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "ICOS_L"=0
+"ICOS" 0 -> 1 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=0 and "ICOS_L"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=0 and "FOXP3"=1 and "NFIL3"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=1 and "NFIL3"=0 and "ICOS_L"=0
+"ICOS" 0 -> 1 when "MAPKs"=0 and "Ca_NFAT"=1 and "NFIL3"=0 and "ICOS_L"=1
+"ICOS" 1 -> 0 when "MAPKs"=0 and "Ca_NFAT"=1 and "NFIL3"=1
+"ICOS" 1 -> 0 when "MAPKs"=1 and "NFIL3"=0 and "ICOS_L"=0
+"ICOS" 0 -> 1 when "MAPKs"=1 and "NFIL3"=0 and "ICOS_L"=1
+"ICOS" 1 -> 0 when "MAPKs"=1 and "NFIL3"=1
+
+"TRAFs" 1 -> 0 when "TNFRs"=0
+"TRAFs" 0 -> 1 when "TNFRs"=1
+
+"CK2" 0 -> 1 when "PD1"=0
+"CK2" 1 -> 0 when "PD1"=1
+
+"PTEN" 0 -> 1 when "CK2"=0
+"PTEN" 1 -> 0 when "CK2"=1
+
+"PP2A" 1 -> 0 when "CTLA4"=0
+"PP2A" 0 -> 1 when "CTLA4"=1
+
+"SHIP" 1 -> 0 when "TIGIT"=0
+"SHIP" 0 -> 1 when "TIGIT"=1
+
+"SHP" 1 -> 0 when "PD1"=0
+"SHP" 0 -> 1 when "PD1"=1
+
+"LAG3" 1 -> 0 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=0 and "MHCII"=0
+"LAG3" 1 -> 0 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=0 and "MHCII"=1 and "PRDM1"=0 and "MAF"=0
+"LAG3" 0 -> 1 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=0 and "MHCII"=1 and "PRDM1"=0 and "MAF"=1
+"LAG3" 0 -> 1 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=0 and "MHCII"=1 and "PRDM1"=1
+"LAG3" 1 -> 0 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=1 and "PRDM1"=0 and "MAF"=0
+"LAG3" 0 -> 1 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=1 and "PRDM1"=0 and "MAF"=1
+"LAG3" 0 -> 1 when "Tbet"=0 and "YY1"=0 and "LAG3_L"=1 and "PRDM1"=1
+"LAG3" 1 -> 0 when "Tbet"=0 and "YY1"=1 and "LAG3_L"=0 and "MHCII"=0
+"LAG3" 0 -> 1 when "Tbet"=0 and "YY1"=1 and "LAG3_L"=0 and "MHCII"=1
+"LAG3" 0 -> 1 when "Tbet"=0 and "YY1"=1 and "LAG3_L"=1
+"LAG3" 1 -> 0 when "Tbet"=1
+
+"AP1" 1 -> 0 when "MAPKs"=0
+"AP1" 0 -> 1 when "MAPKs"=1
+
+"YY1" 1 -> 0 when "MAPKs"=0
+"YY1" 0 -> 1 when "MAPKs"=1
+
+"NFAT" 1 -> 0 when "Ca_NFAT"=0
+"NFAT" 0 -> 1 when "Ca_NFAT"=1 and "GSK3"=0
+"NFAT" 1 -> 0 when "Ca_NFAT"=1 and "GSK3"=1
+
+"LCK_FYN" 1 -> 0 when "CD4"=0 and "TIM3"=0 and "CD8"=0
+"LCK_FYN" 0 -> 1 when "CD4"=0 and "TIM3"=0 and "CD8"=1
+"LCK_FYN" 1 -> 0 when "CD4"=0 and "TIM3"=1
+"LCK_FYN" 0 -> 1 when "CD4"=1 and "TIM3"=0
+"LCK_FYN" 1 -> 0 when "CD4"=1 and "TIM3"=1
+
+"STAT1" 1 -> 0 when "IFNGR"=0 and "IL27R"=0
+"STAT1" 0 -> 1 when "IFNGR"=0 and "IL27R"=1
+"STAT1" 0 -> 1 when "IFNGR"=1
+
+"SMAD2_3" 1 -> 0 when "TGFbR"=0
+"SMAD2_3" 0 -> 1 when "TGFbR"=1 and "SMAD7"=0
+"SMAD2_3" 1 -> 0 when "TGFbR"=1 and "SMAD7"=1
+
+"SMAD7" 0 -> 1 when "FOXP3"=0
+"SMAD7" 1 -> 0 when "FOXP3"=1
+
+"STAT3" 1 -> 0 when "IL27R"=0
+"STAT3" 0 -> 1 when "IL27R"=1
+
+"NFIL3" 1 -> 0 when "SMAD2_3"=0 and "STAT3"=0
+"NFIL3" 0 -> 1 when "SMAD2_3"=0 and "STAT3"=1
+"NFIL3" 1 -> 0 when "SMAD2_3"=1
+
+"GRB2" 1 -> 0 when "CD28"=0
+"GRB2" 0 -> 1 when "CD28"=1
+
+
+
+
+
+
+
+
+
+"CD8" 1 -> 0 when "MHCI"=0
+"CD8" 0 -> 1 when "MHCI"=1
+
+"GSK3" 0 -> 1 when "PI3K_AKT"=0
+"GSK3" 1 -> 0 when "PI3K_AKT"=1
+
+
+
+
+
+
+"Proliferation_Survival" 1 -> 0 when "PI3K_AKT"=0
+"Proliferation_Survival" 1 -> 0 when "PI3K_AKT"=1 and "IL2"=0
+"Proliferation_Survival" 0 -> 1 when "PI3K_AKT"=1 and "IL2"=1
+
+"Treg" 1 -> 0 when "FOXP3"=0
+"Treg" 0 -> 1 when "FOXP3"=1
+
+"IL2" 1 -> 0 when "NFkB"=0
+"IL2" 1 -> 0 when "NFkB"=1 and "AP1"=0
+"IL2" 1 -> 0 when "NFkB"=1 and "AP1"=1 and "NFAT"=0
+"IL2" 0 -> 1 when "NFkB"=1 and "AP1"=1 and "NFAT"=1
+
+"Th1_CTL" 1 -> 0 when "Ca_NFAT"=0
+"Th1_CTL" 1 -> 0 when "Ca_NFAT"=1 and "Tbet"=0
+"Th1_CTL" 0 -> 1 when "Ca_NFAT"=1 and "Tbet"=1
+
+"CD226" 1 -> 0 when "TIGIT"=0 and "TIGIT_L"=0
+"CD226" 0 -> 1 when "TIGIT"=0 and "TIGIT_L"=1
+"CD226" 1 -> 0 when "TIGIT"=1
+
+"PRDM1" 1 -> 0 when "STAT3"=0
+"PRDM1" 0 -> 1 when "STAT3"=1
+
+"MAF" 1 -> 0 when "STAT3"=0
+"MAF" 0 -> 1 when "STAT3"=1
+
+
+"IL12R" 1 -> 0 when "IL12"=0
+"IL12R" 0 -> 1 when "IL12"=1
+
+"STAT4" 1 -> 0 when "IL12R"=0
+"STAT4" 0 -> 1 when "IL12R"=1
+
+

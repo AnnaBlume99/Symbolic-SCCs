@@ -1,0 +1,46 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"CtrAb" [0, 1]
+"DivK" [0, 1]
+"PleC" [0, 1]
+"DivJ" [0, 1]
+"DivL" [0, 1]
+"CckA" [0, 1]
+"ChpT" [0, 1]
+"CpdR" [0, 1]
+"ClpXP_RcdA" [0, 1]
+
+"CtrAb" 1 -> 0 when "ChpT"=0
+"CtrAb" 0 -> 1 when "ChpT"=1 and "ClpXP_RcdA"=0
+"CtrAb" 1 -> 0 when "ChpT"=1 and "ClpXP_RcdA"=1
+
+"DivK" 1 -> 0 when "PleC"=0 and "DivJ"=0
+"DivK" 0 -> 1 when "PleC"=0 and "DivJ"=1
+"DivK" 1 -> 0 when "PleC"=1
+
+"PleC" 0 -> 1 when "DivK"=0
+"PleC" 1 -> 0 when "DivK"=1
+
+"DivJ" 1 -> 0 when "DivK"=0
+"DivJ" 0 -> 1 when "DivK"=1 and "PleC"=0
+"DivJ" 1 -> 0 when "DivK"=1 and "PleC"=1
+
+"DivL" 0 -> 1 when "DivK"=0
+"DivL" 1 -> 0 when "DivK"=1
+
+"CckA" 1 -> 0 when "DivL"=0
+"CckA" 0 -> 1 when "DivL"=1
+
+"ChpT" 1 -> 0 when "CckA"=0
+"ChpT" 0 -> 1 when "CckA"=1
+
+"CpdR" 1 -> 0 when "ChpT"=0
+"CpdR" 0 -> 1 when "ChpT"=1
+
+"ClpXP_RcdA" 0 -> 1 when "CpdR"=0
+"ClpXP_RcdA" 1 -> 0 when "CpdR"=1
+

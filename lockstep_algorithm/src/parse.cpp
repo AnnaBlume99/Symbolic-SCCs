@@ -85,7 +85,7 @@ Graph parseFileToGraph(std::string pathName) {
       cube.add(currentVar);
       varNames[name].cube = cube;
 
-      std::cout << name << ", " << currentVar << std::endl;
+      //std::cout << name << ", " << currentVar << std::endl;
 
       result.cube.add(currentVar);
 

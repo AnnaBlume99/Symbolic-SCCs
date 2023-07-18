@@ -112,6 +112,8 @@ std::list<std::string> getPathStringsAll();
 std::list<std::string> getPathStringsSlow();
 std::list<std::string> getPathStringsBscc();
 
+std::list<std::string> getPintStrings();
+
 //Correctness of results
 bool sccListCorrectness(const std::list<sylvan::Bdd> sccList1, const std::list<sylvan::Bdd> sccList2);
 bool sccListContainsDifferentSccsWithDuplicateNodes(const std::list<sylvan::Bdd> sccList);

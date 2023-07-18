@@ -1,0 +1,91 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Ths" [0, 1]
+"Pyr" [0, 1]
+"Htl" [0, 1]
+"Bnl" [0, 1]
+"Btl" [0, 1]
+"stumps" [0, 1]
+"Drk" [0, 1]
+"Csw" [0, 1]
+"Sos" [0, 1]
+"Ras" [0, 1]
+"PLCg" [0, 1]
+"Gap1" [0, 1]
+"Sty" [0, 1]
+"Raf" [0, 1]
+"Cnk" [0, 1]
+"Src42" [0, 1]
+"Ksr" [0, 1]
+"Dsor1" [0, 1]
+"Msk" [0, 1]
+"Rl" [0, 1]
+"Aop" [0, 1]
+"Pnt" [0, 1]
+"Targets" [0, 1]
+
+
+
+"Htl" 1 -> 0 when "Ths"=0 and "Pyr"=0
+"Htl" 0 -> 1 when "Ths"=0 and "Pyr"=1
+"Htl" 0 -> 1 when "Ths"=1
+
+
+"Btl" 1 -> 0 when "Bnl"=0
+"Btl" 0 -> 1 when "Bnl"=1
+
+"stumps" 1 -> 0 when "Htl"=0 and "Btl"=0
+"stumps" 0 -> 1 when "Htl"=0 and "Btl"=1
+"stumps" 0 -> 1 when "Htl"=1
+
+"Drk" 1 -> 0 when "stumps"=0
+"Drk" 1 -> 0 when "stumps"=1 and "Csw"=0
+"Drk" 0 -> 1 when "stumps"=1 and "Csw"=1
+
+
+"Sos" 1 -> 0 when "Drk"=0
+"Sos" 0 -> 1 when "Drk"=1
+
+"Ras" 1 -> 0 when "Sos"=0
+"Ras" 0 -> 1 when "Sos"=1 and "Gap1"=0
+"Ras" 0 -> 1 when "Sos"=1 and "Gap1"=1 and "Sty"=0
+"Ras" 1 -> 0 when "Sos"=1 and "Gap1"=1 and "Sty"=1
+
+"PLCg" 1 -> 0 when "Drk"=0
+"PLCg" 0 -> 1 when "Drk"=1
+
+"Gap1" 1 -> 0 when "PLCg"=0
+"Gap1" 0 -> 1 when "PLCg"=1
+
+
+"Raf" 1 -> 0 when "Ras"=0
+"Raf" 1 -> 0 when "Ras"=1 and "Cnk"=0
+"Raf" 1 -> 0 when "Ras"=1 and "Cnk"=1 and "Src42"=0
+"Raf" 1 -> 0 when "Ras"=1 and "Cnk"=1 and "Src42"=1 and "Ksr"=0
+"Raf" 0 -> 1 when "Ras"=1 and "Cnk"=1 and "Src42"=1 and "Ksr"=1
+
+
+
+
+"Dsor1" 1 -> 0 when "Raf"=0
+"Dsor1" 0 -> 1 when "Raf"=1
+
+
+"Rl" 1 -> 0 when "Dsor1"=0
+"Rl" 1 -> 0 when "Dsor1"=1 and "Msk"=0
+"Rl" 0 -> 1 when "Dsor1"=1 and "Msk"=1
+
+"Aop" 0 -> 1 when "Rl"=0
+"Aop" 1 -> 0 when "Rl"=1
+
+"Pnt" 1 -> 0 when "Rl"=0
+"Pnt" 0 -> 1 when "Rl"=1
+
+"Targets" 1 -> 0 when "Aop"=0 and "Pnt"=0
+"Targets" 0 -> 1 when "Aop"=0 and "Pnt"=1
+"Targets" 1 -> 0 when "Aop"=1
+

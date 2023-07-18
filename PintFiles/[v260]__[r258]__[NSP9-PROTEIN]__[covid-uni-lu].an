@@ -1,0 +1,906 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"csa17" [0, 1]
+"csa21" [0, 1]
+"csa50" [0, 1]
+"csa41" [0, 1]
+"csa74" [0, 1]
+"csa53" [0, 1]
+"csa10" [0, 1]
+"csa105" [0, 1]
+"csa16" [0, 1]
+"csa45" [0, 1]
+"csa28" [0, 1]
+"csa38" [0, 1]
+"csa27" [0, 1]
+"csa63" [0, 1]
+"csa64" [0, 1]
+"csa30" [0, 1]
+"csa31" [0, 1]
+"csa37" [0, 1]
+"csa34" [0, 1]
+"csa13" [0, 1]
+"csa44" [0, 1]
+"csa36" [0, 1]
+"csa25" [0, 1]
+"csa40" [0, 1]
+"csa42" [0, 1]
+"csa43" [0, 1]
+"csa39" [0, 1]
+"csa33" [0, 1]
+"csa26" [0, 1]
+"csa46" [0, 1]
+"csa85" [0, 1]
+"csa79" [0, 1]
+"csa104" [0, 1]
+"csa24" [0, 1]
+"csa84" [0, 1]
+"csa15" [0, 1]
+"csa55" [0, 1]
+"csa54" [0, 1]
+"csa100" [0, 1]
+"csa47" [0, 1]
+"csa49" [0, 1]
+"csa58" [0, 1]
+"csa59" [0, 1]
+"csa60" [0, 1]
+"csa62" [0, 1]
+"csa61" [0, 1]
+"csa109" [0, 1]
+"csa73" [0, 1]
+"csa65" [0, 1]
+"csa66" [0, 1]
+"csa67" [0, 1]
+"csa29" [0, 1]
+"csa70" [0, 1]
+"csa68" [0, 1]
+"csa71" [0, 1]
+"csa117" [0, 1]
+"csa72" [0, 1]
+"csa56" [0, 1]
+"csa75" [0, 1]
+"csa76" [0, 1]
+"csa77" [0, 1]
+"csa78" [0, 1]
+"csa80" [0, 1]
+"csa81" [0, 1]
+"csa122" [0, 1]
+"csa51" [0, 1]
+"csa52" [0, 1]
+"csa12" [0, 1]
+"csa57" [0, 1]
+"csa87" [0, 1]
+"csa86" [0, 1]
+"csa88" [0, 1]
+"csa91" [0, 1]
+"csa90" [0, 1]
+"csa89" [0, 1]
+"csa92" [0, 1]
+"csa93" [0, 1]
+"csa94" [0, 1]
+"csa95" [0, 1]
+"csa96" [0, 1]
+"csa97" [0, 1]
+"csa98" [0, 1]
+"csa99" [0, 1]
+"csa128" [0, 1]
+"csa101" [0, 1]
+"csa18" [0, 1]
+"csa102" [0, 1]
+"csa82" [0, 1]
+"csa125" [0, 1]
+"csa106" [0, 1]
+"csa126" [0, 1]
+"csa48" [0, 1]
+"csa108" [0, 1]
+"csa110" [0, 1]
+"csa111" [0, 1]
+"csa113" [0, 1]
+"csa127" [0, 1]
+"csa107" [0, 1]
+"csa123" [0, 1]
+"csa116" [0, 1]
+"csa69" [0, 1]
+"csa8" [0, 1]
+"csa119" [0, 1]
+"csa120" [0, 1]
+"csa121" [0, 1]
+"csa118" [0, 1]
+"csa124" [0, 1]
+"csa114" [0, 1]
+"csa103" [0, 1]
+"csa115" [0, 1]
+"csa83" [0, 1]
+"csa112" [0, 1]
+"csa129" [0, 1]
+"csa130" [0, 1]
+"a7c94" [0, 1]
+"sa962" [0, 1]
+"sa964" [0, 1]
+"sa970" [0, 1]
+"sa977" [0, 1]
+"sa979" [0, 1]
+"sa981" [0, 1]
+"sa983" [0, 1]
+"sa985" [0, 1]
+"sa1000" [0, 1]
+"sa1003" [0, 1]
+"sa1006" [0, 1]
+"sa1042" [0, 1]
+"sa1043" [0, 1]
+"sa1044" [0, 1]
+"sa1045" [0, 1]
+"sa1046" [0, 1]
+"sa1055" [0, 1]
+"sa1056" [0, 1]
+"sa1057" [0, 1]
+"sa1058" [0, 1]
+"sa1063" [0, 1]
+"sa1066" [0, 1]
+"sa1067" [0, 1]
+"sa1071" [0, 1]
+"sa1074" [0, 1]
+"sa1077" [0, 1]
+"sa1085" [0, 1]
+"sa1086" [0, 1]
+"sa1087" [0, 1]
+"sa1088" [0, 1]
+"sa1089" [0, 1]
+"sa1090" [0, 1]
+"sa1091" [0, 1]
+"sa1108" [0, 1]
+"sa1116" [0, 1]
+"sa997" [0, 1]
+"sa1122" [0, 1]
+"sa1123" [0, 1]
+"sa1127" [0, 1]
+"sa1132" [0, 1]
+"sa1135" [0, 1]
+"sa1138" [0, 1]
+"sa1139" [0, 1]
+"sa1143" [0, 1]
+"sa1146" [0, 1]
+"sa1153" [0, 1]
+"sa1154" [0, 1]
+"sa1160" [0, 1]
+"sa1163" [0, 1]
+"sa1166" [0, 1]
+"sa1169" [0, 1]
+"sa1172" [0, 1]
+"sa1177" [0, 1]
+"sa1180" [0, 1]
+"sa1183" [0, 1]
+"sa1184" [0, 1]
+"sa1188" [0, 1]
+"sa1189" [0, 1]
+"sa1194" [0, 1]
+"sa1195" [0, 1]
+"sa1198" [0, 1]
+"sa1201" [0, 1]
+"sa1204" [0, 1]
+"sa1207" [0, 1]
+"sa1210" [0, 1]
+"sa1213" [0, 1]
+"sa1216" [0, 1]
+"sa1219" [0, 1]
+"sa1222" [0, 1]
+"sa1225" [0, 1]
+"sa1228" [0, 1]
+"sa1231" [0, 1]
+"sa1234" [0, 1]
+"sa1237" [0, 1]
+"sa1241" [0, 1]
+"sa1244" [0, 1]
+"sa1247" [0, 1]
+"sa1253" [0, 1]
+"sa1257" [0, 1]
+"sa1260" [0, 1]
+"sa1264" [0, 1]
+"sa1269" [0, 1]
+"sa1270" [0, 1]
+"sa1274" [0, 1]
+"sa1277" [0, 1]
+"sa1278" [0, 1]
+"sa1281" [0, 1]
+"sa1284" [0, 1]
+"sa1287" [0, 1]
+"sa1290" [0, 1]
+"sa1293" [0, 1]
+"sa1296" [0, 1]
+"sa1300" [0, 1]
+"sa1305" [0, 1]
+"sa1312" [0, 1]
+"sa1315" [0, 1]
+"sa1318" [0, 1]
+"sa1322" [0, 1]
+"sa1325" [0, 1]
+"sa1328" [0, 1]
+"sa1330" [0, 1]
+"sa1333" [0, 1]
+"sa1335" [0, 1]
+"sa1337" [0, 1]
+"sa1340" [0, 1]
+"sa1343" [0, 1]
+"sa1346" [0, 1]
+"sa1349" [0, 1]
+"sa1353" [0, 1]
+"sa1356" [0, 1]
+"sa1358" [0, 1]
+"sa1361" [0, 1]
+"sa1364" [0, 1]
+"sa1366" [0, 1]
+"sa1369" [0, 1]
+"sa1372" [0, 1]
+"sa1374" [0, 1]
+"sa1376" [0, 1]
+"sa1378" [0, 1]
+"sa1380" [0, 1]
+"sa1383" [0, 1]
+"sa1386" [0, 1]
+"sa1389" [0, 1]
+"sa1392" [0, 1]
+"sa1395" [0, 1]
+"sa1398" [0, 1]
+"sa1401" [0, 1]
+"sa1402" [0, 1]
+"sa1405" [0, 1]
+"sa1408" [0, 1]
+"sa1412" [0, 1]
+"sa1415" [0, 1]
+"sa1418" [0, 1]
+"sa1421" [0, 1]
+"sa1422" [0, 1]
+"sa1423" [0, 1]
+"sa1424" [0, 1]
+"sa1426" [0, 1]
+"sa1428" [0, 1]
+"sa1429" [0, 1]
+"sa1430" [0, 1]
+"sa1432" [0, 1]
+"sa1433" [0, 1]
+"sa1434" [0, 1]
+"sa1435" [0, 1]
+
+"csa17" 1 -> 0 when "csa8"=0
+"csa17" 1 -> 0 when "csa8"=1 and "a7c94"=0
+"csa17" 1 -> 0 when "csa8"=1 and "a7c94"=1 and "sa1138"=0
+"csa17" 1 -> 0 when "csa8"=1 and "a7c94"=1 and "sa1138"=1 and "sa1433"=0
+"csa17" 0 -> 1 when "csa8"=1 and "a7c94"=1 and "sa1138"=1 and "sa1433"=1
+
+"csa21" 1 -> 0 when "csa10"=0
+"csa21" 1 -> 0 when "csa10"=1 and "sa1423"=0
+"csa21" 0 -> 1 when "csa10"=1 and "sa1423"=1
+
+"csa50" 1 -> 0 when "sa977"=0
+"csa50" 1 -> 0 when "sa977"=1 and "sa1135"=0
+"csa50" 0 -> 1 when "sa977"=1 and "sa1135"=1
+
+"csa41" 1 -> 0 when "csa40"=0
+"csa41" 1 -> 0 when "csa40"=1 and "sa1085"=0
+"csa41" 0 -> 1 when "csa40"=1 and "sa1085"=1
+
+"csa74" 1 -> 0 when "sa1222"=0
+"csa74" 1 -> 0 when "sa1222"=1 and "sa1225"=0
+"csa74" 0 -> 1 when "sa1222"=1 and "sa1225"=1
+
+"csa53" 1 -> 0 when "sa1123"=0
+"csa53" 1 -> 0 when "sa1123"=1 and "sa1146"=0
+"csa53" 0 -> 1 when "sa1123"=1 and "sa1146"=1
+
+"csa10" 1 -> 0 when "csa30"=0
+"csa10" 1 -> 0 when "csa30"=1 and "csa31"=0
+"csa10" 0 -> 1 when "csa30"=1 and "csa31"=1
+
+"csa105" 1 -> 0 when "sa997"=0
+"csa105" 1 -> 0 when "sa997"=1 and "sa1322"=0
+"csa105" 1 -> 0 when "sa997"=1 and "sa1322"=1 and "sa1333"=0
+"csa105" 1 -> 0 when "sa997"=1 and "sa1322"=1 and "sa1333"=1 and "sa1335"=0
+"csa105" 1 -> 0 when "sa997"=1 and "sa1322"=1 and "sa1333"=1 and "sa1335"=1 and "sa1356"=0
+"csa105" 0 -> 1 when "sa997"=1 and "sa1322"=1 and "sa1333"=1 and "sa1335"=1 and "sa1356"=1
+
+"csa16" 1 -> 0 when "sa981"=0
+"csa16" 1 -> 0 when "sa981"=1 and "sa1424"=0
+"csa16" 0 -> 1 when "sa981"=1 and "sa1424"=1
+
+"csa45" 1 -> 0 when "csa38"=0
+"csa45" 1 -> 0 when "csa38"=1 and "sa1116"=0
+"csa45" 0 -> 1 when "csa38"=1 and "sa1116"=1
+
+"csa28" 1 -> 0 when "sa977"=0
+"csa28" 1 -> 0 when "sa977"=1 and "sa1428"=0
+"csa28" 0 -> 1 when "sa977"=1 and "sa1428"=1
+
+"csa38" 1 -> 0 when "csa36"=0
+"csa38" 0 -> 1 when "csa36"=1
+
+"csa27" 1 -> 0 when "sa964"=0
+"csa27" 1 -> 0 when "sa964"=1 and "sa1424"=0
+"csa27" 0 -> 1 when "sa964"=1 and "sa1424"=1
+
+"csa63" 1 -> 0 when "sa997"=0
+"csa63" 1 -> 0 when "sa997"=1 and "sa1183"=0
+"csa63" 1 -> 0 when "sa997"=1 and "sa1183"=1 and "sa1184"=0
+"csa63" 0 -> 1 when "sa997"=1 and "sa1183"=1 and "sa1184"=1
+
+"csa64" 1 -> 0 when "csa63"=0
+"csa64" 1 -> 0 when "csa63"=1 and "sa1188"=0 and "sa1189"=0
+"csa64" 1 -> 0 when "csa63"=1 and "sa1188"=0 and "sa1189"=1 and "sa1435"=0
+"csa64" 0 -> 1 when "csa63"=1 and "sa1188"=0 and "sa1189"=1 and "sa1435"=1
+"csa64" 1 -> 0 when "csa63"=1 and "sa1188"=1 and "sa1189"=0
+"csa64" 0 -> 1 when "csa63"=1 and "sa1188"=1 and "sa1189"=1
+
+"csa30" 1 -> 0 when "sa1042"=0
+"csa30" 1 -> 0 when "sa1042"=1 and "sa1043"=0
+"csa30" 1 -> 0 when "sa1042"=1 and "sa1043"=1 and "sa1044"=0
+"csa30" 0 -> 1 when "sa1042"=1 and "sa1043"=1 and "sa1044"=1
+
+"csa31" 1 -> 0 when "sa1045"=0
+"csa31" 1 -> 0 when "sa1045"=1 and "sa1046"=0
+"csa31" 0 -> 1 when "sa1045"=1 and "sa1046"=1
+
+"csa37" 1 -> 0 when "csa36"=0
+"csa37" 1 -> 0 when "csa36"=1 and "sa1077"=0
+"csa37" 0 -> 1 when "csa36"=1 and "sa1077"=1
+
+"csa34" 1 -> 0 when "sa979"=0
+"csa34" 1 -> 0 when "sa979"=1 and "sa1066"=0
+"csa34" 1 -> 0 when "sa979"=1 and "sa1066"=1 and "sa1067"=0
+"csa34" 0 -> 1 when "sa979"=1 and "sa1066"=1 and "sa1067"=1
+
+"csa13" 1 -> 0 when "sa981"=0
+"csa13" 1 -> 0 when "sa981"=1 and "sa1000"=0
+"csa13" 1 -> 0 when "sa981"=1 and "sa1000"=1 and "sa1055"=0
+"csa13" 1 -> 0 when "sa981"=1 and "sa1000"=1 and "sa1055"=1 and "sa1056"=0
+"csa13" 1 -> 0 when "sa981"=1 and "sa1000"=1 and "sa1055"=1 and "sa1056"=1 and "sa1057"=0
+"csa13" 1 -> 0 when "sa981"=1 and "sa1000"=1 and "sa1055"=1 and "sa1056"=1 and "sa1057"=1 and "sa1058"=0
+"csa13" 0 -> 1 when "sa981"=1 and "sa1000"=1 and "sa1055"=1 and "sa1056"=1 and "sa1057"=1 and "sa1058"=1
+
+"csa44" 1 -> 0 when "csa43"=0
+"csa44" 0 -> 1 when "csa43"=1
+
+"csa36" 1 -> 0 when "sa1003"=0
+"csa36" 1 -> 0 when "sa1003"=1 and "sa1074"=0
+"csa36" 0 -> 1 when "sa1003"=1 and "sa1074"=1
+
+"csa25" 1 -> 0 when "sa985"=0
+"csa25" 1 -> 0 when "sa985"=1 and "sa1424"=0
+"csa25" 0 -> 1 when "sa985"=1 and "sa1424"=1
+
+"csa40" 1 -> 0 when "sa1086"=0
+"csa40" 1 -> 0 when "sa1086"=1 and "sa1087"=0
+"csa40" 1 -> 0 when "sa1086"=1 and "sa1087"=1 and "sa1088"=0
+"csa40" 1 -> 0 when "sa1086"=1 and "sa1087"=1 and "sa1088"=1 and "sa1089"=0
+"csa40" 1 -> 0 when "sa1086"=1 and "sa1087"=1 and "sa1088"=1 and "sa1089"=1 and "sa1090"=0
+"csa40" 1 -> 0 when "sa1086"=1 and "sa1087"=1 and "sa1088"=1 and "sa1089"=1 and "sa1090"=1 and "sa1091"=0
+"csa40" 0 -> 1 when "sa1086"=1 and "sa1087"=1 and "sa1088"=1 and "sa1089"=1 and "sa1090"=1 and "sa1091"=1
+
+"csa42" 1 -> 0 when "csa36"=0
+"csa42" 1 -> 0 when "csa36"=1 and "sa1086"=0
+"csa42" 0 -> 1 when "csa36"=1 and "sa1086"=1
+
+"csa43" 1 -> 0 when "csa36"=0
+"csa43" 1 -> 0 when "csa36"=1 and "sa1108"=0
+"csa43" 0 -> 1 when "csa36"=1 and "sa1108"=1
+
+"csa39" 1 -> 0 when "csa36"=0
+"csa39" 0 -> 1 when "csa36"=1
+
+"csa33" 1 -> 0 when "sa981"=0
+"csa33" 1 -> 0 when "sa981"=1 and "sa1063"=0
+"csa33" 0 -> 1 when "sa981"=1 and "sa1063"=1
+
+"csa26" 1 -> 0 when "sa983"=0
+"csa26" 1 -> 0 when "sa983"=1 and "sa1424"=0
+"csa26" 0 -> 1 when "sa983"=1 and "sa1424"=1
+
+"csa46" 1 -> 0 when "sa970"=0
+"csa46" 1 -> 0 when "sa970"=1 and "sa1071"=0
+"csa46" 0 -> 1 when "sa970"=1 and "sa1071"=1
+
+"csa85" 1 -> 0 when "a7c94"=0
+"csa85" 1 -> 0 when "a7c94"=1 and "sa1257"=0
+"csa85" 1 -> 0 when "a7c94"=1 and "sa1257"=1 and "sa1374"=0
+"csa85" 1 -> 0 when "a7c94"=1 and "sa1257"=1 and "sa1374"=1 and "sa1376"=0
+"csa85" 1 -> 0 when "a7c94"=1 and "sa1257"=1 and "sa1374"=1 and "sa1376"=1 and "sa1378"=0
+"csa85" 0 -> 1 when "a7c94"=1 and "sa1257"=1 and "sa1374"=1 and "sa1376"=1 and "sa1378"=1
+
+"csa79" 1 -> 0 when "sa1228"=0
+"csa79" 1 -> 0 when "sa1228"=1 and "sa1237"=0
+"csa79" 0 -> 1 when "sa1228"=1 and "sa1237"=1
+
+"csa104" 1 -> 0 when "sa997"=0
+"csa104" 1 -> 0 when "sa997"=1 and "sa1183"=0
+"csa104" 1 -> 0 when "sa997"=1 and "sa1183"=1 and "sa1318"=0
+"csa104" 0 -> 1 when "sa997"=1 and "sa1183"=1 and "sa1318"=1
+
+"csa24" 1 -> 0 when "sa970"=0
+"csa24" 1 -> 0 when "sa970"=1 and "sa1428"=0
+"csa24" 0 -> 1 when "sa970"=1 and "sa1428"=1
+
+"csa84" 1 -> 0 when "csa83"=0
+"csa84" 1 -> 0 when "csa83"=1 and "sa1253"=0
+"csa84" 0 -> 1 when "csa83"=1 and "sa1253"=1
+
+"csa15" 1 -> 0 when "a7c94"=0
+"csa15" 1 -> 0 when "a7c94"=1 and "sa962"=0
+"csa15" 0 -> 1 when "a7c94"=1 and "sa962"=1
+
+"csa55" 1 -> 0 when "sa1122"=0
+"csa55" 1 -> 0 when "sa1122"=1 and "sa1146"=0
+"csa55" 0 -> 1 when "sa1122"=1 and "sa1146"=1
+
+"csa54" 1 -> 0 when "sa1153"=0
+"csa54" 1 -> 0 when "sa1153"=1 and "sa1154"=0
+"csa54" 0 -> 1 when "sa1153"=1 and "sa1154"=1
+
+"csa100" 1 -> 0 when "sa1305"=0
+"csa100" 1 -> 0 when "sa1305"=1 and "sa1430"=0
+"csa100" 0 -> 1 when "sa1305"=1 and "sa1430"=1
+
+"csa47" 1 -> 0 when "sa962"=0
+"csa47" 1 -> 0 when "sa962"=1 and "sa1122"=0
+"csa47" 1 -> 0 when "sa962"=1 and "sa1122"=1 and "sa1123"=0
+"csa47" 0 -> 1 when "sa962"=1 and "sa1122"=1 and "sa1123"=1
+
+"csa49" 1 -> 0 when "sa962"=0
+"csa49" 1 -> 0 when "sa962"=1 and "sa1132"=0
+"csa49" 0 -> 1 when "sa962"=1 and "sa1132"=1
+
+"csa58" 1 -> 0 when "sa1071"=0
+"csa58" 1 -> 0 when "sa1071"=1 and "sa1166"=0
+"csa58" 0 -> 1 when "sa1071"=1 and "sa1166"=1
+
+"csa59" 1 -> 0 when "sa1116"=0
+"csa59" 1 -> 0 when "sa1116"=1 and "sa1169"=0
+"csa59" 0 -> 1 when "sa1116"=1 and "sa1169"=1
+
+"csa60" 1 -> 0 when "sa1116"=0
+"csa60" 1 -> 0 when "sa1116"=1 and "sa1172"=0
+"csa60" 0 -> 1 when "sa1116"=1 and "sa1172"=1
+
+"csa62" 1 -> 0 when "sa1116"=0
+"csa62" 1 -> 0 when "sa1116"=1 and "sa1180"=0
+"csa62" 0 -> 1 when "sa1116"=1 and "sa1180"=1
+
+"csa61" 1 -> 0 when "sa1116"=0
+"csa61" 1 -> 0 when "sa1116"=1 and "sa1177"=0
+"csa61" 0 -> 1 when "sa1116"=1 and "sa1177"=1
+
+"csa109" 1 -> 0 when "sa1337"=0
+"csa109" 1 -> 0 when "sa1337"=1 and "sa1340"=0
+"csa109" 0 -> 1 when "sa1337"=1 and "sa1340"=1
+
+"csa73" 1 -> 0 when "sa1184"=0
+"csa73" 1 -> 0 when "sa1184"=1 and "sa1219"=0
+"csa73" 0 -> 1 when "sa1184"=1 and "sa1219"=1
+
+"csa65" 1 -> 0 when "sa1184"=0
+"csa65" 1 -> 0 when "sa1184"=1 and "sa1195"=0
+"csa65" 0 -> 1 when "sa1184"=1 and "sa1195"=1
+
+"csa66" 1 -> 0 when "sa1184"=0
+"csa66" 1 -> 0 when "sa1184"=1 and "sa1198"=0
+"csa66" 0 -> 1 when "sa1184"=1 and "sa1198"=1
+
+"csa67" 1 -> 0 when "sa1198"=0
+"csa67" 1 -> 0 when "sa1198"=1 and "sa1201"=0
+"csa67" 0 -> 1 when "sa1198"=1 and "sa1201"=1
+
+"csa29" 1 -> 0 when "sa964"=0
+"csa29" 1 -> 0 when "sa964"=1 and "sa983"=0
+"csa29" 0 -> 1 when "sa964"=1 and "sa983"=1
+
+"csa70" 1 -> 0 when "sa1184"=0
+"csa70" 1 -> 0 when "sa1184"=1 and "sa1210"=0
+"csa70" 0 -> 1 when "sa1184"=1 and "sa1210"=1
+
+"csa68" 1 -> 0 when "sa1184"=0
+"csa68" 1 -> 0 when "sa1184"=1 and "sa1204"=0
+"csa68" 0 -> 1 when "sa1184"=1 and "sa1204"=1
+
+"csa71" 1 -> 0 when "sa1184"=0
+"csa71" 1 -> 0 when "sa1184"=1 and "sa1213"=0
+"csa71" 0 -> 1 when "sa1184"=1 and "sa1213"=1
+
+"csa117" 1 -> 0 when "sa997"=0
+"csa117" 1 -> 0 when "sa997"=1 and "sa1369"=0
+"csa117" 1 -> 0 when "sa997"=1 and "sa1369"=1 and "sa1372"=0
+"csa117" 0 -> 1 when "sa997"=1 and "sa1369"=1 and "sa1372"=1
+
+"csa72" 1 -> 0 when "sa1184"=0
+"csa72" 1 -> 0 when "sa1184"=1 and "sa1216"=0
+"csa72" 0 -> 1 when "sa1184"=1 and "sa1216"=1
+
+"csa56" 1 -> 0 when "sa1132"=0
+"csa56" 1 -> 0 when "sa1132"=1 and "sa1160"=0
+"csa56" 0 -> 1 when "sa1132"=1 and "sa1160"=1
+
+"csa75" 1 -> 0 when "sa1225"=0
+"csa75" 1 -> 0 when "sa1225"=1 and "sa1430"=0
+"csa75" 0 -> 1 when "sa1225"=1 and "sa1430"=1
+
+"csa76" 1 -> 0 when "sa1183"=0
+"csa76" 1 -> 0 when "sa1183"=1 and "sa1228"=0
+"csa76" 0 -> 1 when "sa1183"=1 and "sa1228"=1
+
+"csa77" 1 -> 0 when "sa1228"=0
+"csa77" 1 -> 0 when "sa1228"=1 and "sa1231"=0
+"csa77" 0 -> 1 when "sa1228"=1 and "sa1231"=1
+
+"csa78" 1 -> 0 when "sa1228"=0
+"csa78" 1 -> 0 when "sa1228"=1 and "sa1234"=0
+"csa78" 0 -> 1 when "sa1228"=1 and "sa1234"=1
+
+"csa80" 1 -> 0 when "sa1228"=0
+"csa80" 1 -> 0 when "sa1228"=1 and "sa1241"=0
+"csa80" 0 -> 1 when "sa1228"=1 and "sa1241"=1
+
+"csa81" 1 -> 0 when "sa1228"=0
+"csa81" 1 -> 0 when "sa1228"=1 and "sa1244"=0
+"csa81" 0 -> 1 when "sa1228"=1 and "sa1244"=1
+
+"csa122" 1 -> 0 when "sa1257"=0
+"csa122" 1 -> 0 when "sa1257"=1 and "sa1392"=0
+"csa122" 0 -> 1 when "sa1257"=1 and "sa1392"=1
+
+"csa51" 1 -> 0 when "csa8"=0
+"csa51" 1 -> 0 when "csa8"=1 and "sa1139"=0
+"csa51" 1 -> 0 when "csa8"=1 and "sa1139"=1 and "sa1433"=0
+"csa51" 0 -> 1 when "csa8"=1 and "sa1139"=1 and "sa1433"=1
+
+"csa52" 1 -> 0 when "sa1139"=0
+"csa52" 1 -> 0 when "sa1139"=1 and "sa1143"=0
+"csa52" 0 -> 1 when "sa1139"=1 and "sa1143"=1
+
+"csa12" 1 -> 0 when "a7c94"=0
+"csa12" 1 -> 0 when "a7c94"=1 and "sa997"=0
+"csa12" 0 -> 1 when "a7c94"=1 and "sa997"=1
+
+"csa57" 1 -> 0 when "sa1132"=0
+"csa57" 1 -> 0 when "sa1132"=1 and "sa1163"=0
+"csa57" 0 -> 1 when "sa1132"=1 and "sa1163"=1
+
+"csa87" 1 -> 0 when "sa1260"=0
+"csa87" 1 -> 0 when "sa1260"=1 and "sa1264"=0
+"csa87" 0 -> 1 when "sa1260"=1 and "sa1264"=1
+
+"csa86" 1 -> 0 when "sa1260"=0
+"csa86" 1 -> 0 when "sa1260"=1 and "sa1430"=0
+"csa86" 0 -> 1 when "sa1260"=1 and "sa1430"=1
+
+"csa88" 1 -> 0 when "sa1260"=0
+"csa88" 1 -> 0 when "sa1260"=1 and "sa1269"=0
+"csa88" 0 -> 1 when "sa1260"=1 and "sa1269"=1
+
+"csa91" 1 -> 0 when "sa1277"=0
+"csa91" 1 -> 0 when "sa1277"=1 and "sa1430"=0
+"csa91" 0 -> 1 when "sa1277"=1 and "sa1430"=1
+
+"csa90" 1 -> 0 when "sa1270"=0
+"csa90" 1 -> 0 when "sa1270"=1 and "sa1274"=0
+"csa90" 0 -> 1 when "sa1270"=1 and "sa1274"=1
+
+"csa89" 1 -> 0 when "sa1270"=0
+"csa89" 1 -> 0 when "sa1270"=1 and "sa1430"=0
+"csa89" 0 -> 1 when "sa1270"=1 and "sa1430"=1
+
+"csa92" 1 -> 0 when "sa1277"=0
+"csa92" 1 -> 0 when "sa1277"=1 and "sa1281"=0
+"csa92" 0 -> 1 when "sa1277"=1 and "sa1281"=1
+
+"csa93" 1 -> 0 when "sa1277"=0
+"csa93" 1 -> 0 when "sa1277"=1 and "sa1284"=0
+"csa93" 0 -> 1 when "sa1277"=1 and "sa1284"=1
+
+"csa94" 1 -> 0 when "sa1277"=0
+"csa94" 1 -> 0 when "sa1277"=1 and "sa1287"=0
+"csa94" 0 -> 1 when "sa1277"=1 and "sa1287"=1
+
+"csa95" 1 -> 0 when "sa1277"=0
+"csa95" 1 -> 0 when "sa1277"=1 and "sa1290"=0
+"csa95" 0 -> 1 when "sa1277"=1 and "sa1290"=1
+
+"csa96" 1 -> 0 when "sa1277"=0
+"csa96" 1 -> 0 when "sa1277"=1 and "sa1293"=0
+"csa96" 0 -> 1 when "sa1277"=1 and "sa1293"=1
+
+"csa97" 1 -> 0 when "sa1277"=0
+"csa97" 1 -> 0 when "sa1277"=1 and "sa1296"=0
+"csa97" 0 -> 1 when "sa1277"=1 and "sa1296"=1
+
+"csa98" 1 -> 0 when "sa1300"=0
+"csa98" 1 -> 0 when "sa1300"=1 and "sa1430"=0
+"csa98" 0 -> 1 when "sa1300"=1 and "sa1430"=1
+
+"csa99" 1 -> 0 when "sa1274"=0
+"csa99" 1 -> 0 when "sa1274"=1 and "sa1300"=0
+"csa99" 0 -> 1 when "sa1274"=1 and "sa1300"=1
+
+"csa128" 1 -> 0 when "sa1408"=0
+"csa128" 1 -> 0 when "sa1408"=1 and "sa1412"=0
+"csa128" 0 -> 1 when "sa1408"=1 and "sa1412"=1
+
+"csa101" 1 -> 0 when "sa1274"=0
+"csa101" 1 -> 0 when "sa1274"=1 and "sa1305"=0
+"csa101" 0 -> 1 when "sa1274"=1 and "sa1305"=1
+
+"csa18" 1 -> 0 when "sa979"=0
+"csa18" 1 -> 0 when "sa979"=1 and "sa1424"=0
+"csa18" 0 -> 1 when "sa979"=1 and "sa1424"=1
+
+"csa102" 1 -> 0 when "sa997"=0
+"csa102" 1 -> 0 when "sa997"=1 and "sa1312"=0
+"csa102" 0 -> 1 when "sa997"=1 and "sa1312"=1
+
+"csa82" 1 -> 0 when "sa1247"=0
+"csa82" 1 -> 0 when "sa1247"=1 and "sa1421"=0
+"csa82" 0 -> 1 when "sa1247"=1 and "sa1421"=1
+
+"csa125" 1 -> 0 when "sa1395"=0
+"csa125" 1 -> 0 when "sa1395"=1 and "sa1402"=0
+"csa125" 0 -> 1 when "sa1395"=1 and "sa1402"=1
+
+"csa106" 1 -> 0 when "sa997"=0
+"csa106" 1 -> 0 when "sa997"=1 and "sa1325"=0
+"csa106" 1 -> 0 when "sa997"=1 and "sa1325"=1 and "sa1328"=0
+"csa106" 0 -> 1 when "sa997"=1 and "sa1325"=1 and "sa1328"=1
+
+"csa126" 1 -> 0 when "sa1395"=0
+"csa126" 1 -> 0 when "sa1395"=1 and "sa1405"=0
+"csa126" 0 -> 1 when "sa1395"=1 and "sa1405"=1
+
+"csa48" 1 -> 0 when "sa1127"=0
+"csa48" 1 -> 0 when "sa1127"=1 and "sa1138"=0
+"csa48" 1 -> 0 when "sa1127"=1 and "sa1138"=1 and "sa1433"=0
+"csa48" 0 -> 1 when "sa1127"=1 and "sa1138"=1 and "sa1433"=1
+
+"csa108" 1 -> 0 when "sa997"=0
+"csa108" 1 -> 0 when "sa997"=1 and "sa1337"=0
+"csa108" 0 -> 1 when "sa997"=1 and "sa1337"=1
+
+"csa110" 1 -> 0 when "sa997"=0
+"csa110" 1 -> 0 when "sa997"=1 and "sa1343"=0
+"csa110" 0 -> 1 when "sa997"=1 and "sa1343"=1
+
+"csa111" 1 -> 0 when "sa1346"=0
+"csa111" 1 -> 0 when "sa1346"=1 and "sa1421"=0
+"csa111" 0 -> 1 when "sa1346"=1 and "sa1421"=1
+
+"csa113" 1 -> 0 when "sa1349"=0
+"csa113" 1 -> 0 when "sa1349"=1 and "sa1353"=0
+"csa113" 0 -> 1 when "sa1349"=1 and "sa1353"=1
+
+"csa127" 1 -> 0 when "sa1378"=0
+"csa127" 1 -> 0 when "sa1378"=1 and "sa1408"=0
+"csa127" 0 -> 1 when "sa1378"=1 and "sa1408"=1
+
+"csa107" 1 -> 0 when "sa997"=0
+"csa107" 1 -> 0 when "sa997"=1 and "sa1330"=0
+"csa107" 0 -> 1 when "sa997"=1 and "sa1330"=1
+
+"csa123" 1 -> 0 when "sa1395"=0
+"csa123" 1 -> 0 when "sa1395"=1 and "sa1426"=0
+"csa123" 0 -> 1 when "sa1395"=1 and "sa1426"=1
+
+"csa116" 1 -> 0 when "sa997"=0
+"csa116" 1 -> 0 when "sa997"=1 and "sa1366"=0
+"csa116" 0 -> 1 when "sa997"=1 and "sa1366"=1
+
+"csa69" 1 -> 0 when "sa1184"=0
+"csa69" 1 -> 0 when "sa1184"=1 and "sa1207"=0
+"csa69" 0 -> 1 when "sa1184"=1 and "sa1207"=1
+
+
+"csa119" 1 -> 0 when "sa1383"=0
+"csa119" 1 -> 0 when "sa1383"=1 and "sa1429"=0
+"csa119" 0 -> 1 when "sa1383"=1 and "sa1429"=1
+
+"csa120" 1 -> 0 when "sa1386"=0
+"csa120" 1 -> 0 when "sa1386"=1 and "sa1422"=0
+"csa120" 0 -> 1 when "sa1386"=1 and "sa1422"=1
+
+"csa121" 1 -> 0 when "sa1386"=0
+"csa121" 1 -> 0 when "sa1386"=1 and "sa1389"=0
+"csa121" 0 -> 1 when "sa1386"=1 and "sa1389"=1
+
+"csa118" 1 -> 0 when "sa1257"=0
+"csa118" 1 -> 0 when "sa1257"=1 and "sa1380"=0
+"csa118" 0 -> 1 when "sa1257"=1 and "sa1380"=1
+
+"csa124" 1 -> 0 when "sa1395"=0
+"csa124" 1 -> 0 when "sa1395"=1 and "sa1398"=0
+"csa124" 0 -> 1 when "sa1395"=1 and "sa1398"=1
+
+"csa114" 1 -> 0 when "sa997"=0
+"csa114" 1 -> 0 when "sa997"=1 and "sa1358"=0
+"csa114" 0 -> 1 when "sa997"=1 and "sa1358"=1
+
+"csa103" 1 -> 0 when "sa997"=0
+"csa103" 1 -> 0 when "sa997"=1 and "sa1315"=0
+"csa103" 0 -> 1 when "sa997"=1 and "sa1315"=1
+
+"csa115" 1 -> 0 when "sa997"=0
+"csa115" 1 -> 0 when "sa997"=1 and "sa1361"=0
+"csa115" 1 -> 0 when "sa997"=1 and "sa1361"=1 and "sa1364"=0
+"csa115" 0 -> 1 when "sa997"=1 and "sa1361"=1 and "sa1364"=1
+
+"csa83" 1 -> 0 when "a7c94"=0
+"csa83" 0 -> 1 when "a7c94"=1
+
+"csa112" 1 -> 0 when "sa997"=0
+"csa112" 1 -> 0 when "sa997"=1 and "sa1349"=0
+"csa112" 0 -> 1 when "sa997"=1 and "sa1349"=1
+
+"csa129" 1 -> 0 when "sa1415"=0
+"csa129" 1 -> 0 when "sa1415"=1 and "sa1426"=0
+"csa129" 0 -> 1 when "sa1415"=1 and "sa1426"=1
+
+"csa130" 1 -> 0 when "sa1378"=0
+"csa130" 1 -> 0 when "sa1378"=1 and "sa1418"=0
+"csa130" 0 -> 1 when "sa1378"=1 and "sa1418"=1
+
+
+
+
+
+
+
+
+
+
+
+"sa1003" 1 -> 0 when "sa1006"=0
+"sa1003" 0 -> 1 when "sa1006"=1
+
+"sa1006" 1 -> 0 when "sa983"=0
+"sa1006" 0 -> 1 when "sa983"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"sa1074" 1 -> 0 when "sa1006"=0
+"sa1074" 0 -> 1 when "sa1006"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"sa1194" 1 -> 0 when "csa64"=0
+"sa1194" 0 -> 1 when "csa64"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"sa1278" 1 -> 0 when "csa85"=0
+"sa1278" 0 -> 1 when "csa85"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"sa1398" 1 -> 0 when "sa1401"=0
+"sa1398" 0 -> 1 when "sa1401"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"sa1433" 1 -> 0 when "sa1432"=0
+"sa1433" 1 -> 0 when "sa1432"=1 and "sa1434"=0
+"sa1433" 0 -> 1 when "sa1432"=1 and "sa1434"=1
+
+
+

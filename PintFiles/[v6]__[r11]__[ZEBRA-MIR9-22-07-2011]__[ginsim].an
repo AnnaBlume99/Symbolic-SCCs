@@ -1,0 +1,36 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"miR9" [0, 1]
+"Her6" [0, 1]
+"Zic5" [0, 1]
+"HuC" [0, 1]
+"P" [0, 1]
+"N" [0, 1]
+
+"miR9" 0 -> 1 when "Her6"=0 and "N"=0
+"miR9" 1 -> 0 when "Her6"=0 and "N"=1
+"miR9" 1 -> 0 when "Her6"=1
+
+"Her6" 0 -> 1 when "miR9"=0 and "N"=0
+"Her6" 1 -> 0 when "miR9"=0 and "N"=1
+"Her6" 1 -> 0 when "miR9"=1
+
+"Zic5" 0 -> 1 when "miR9"=0 and "N"=0
+"Zic5" 1 -> 0 when "miR9"=0 and "N"=1
+"Zic5" 1 -> 0 when "miR9"=1
+
+"HuC" 0 -> 1 when "miR9"=0 and "P"=0
+"HuC" 1 -> 0 when "miR9"=0 and "P"=1
+"HuC" 1 -> 0 when "miR9"=1
+
+"P" 1 -> 0 when "Her6"=0 and "Zic5"=0
+"P" 0 -> 1 when "Her6"=0 and "Zic5"=1
+"P" 0 -> 1 when "Her6"=1
+
+"N" 1 -> 0 when "HuC"=0
+"N" 0 -> 1 when "HuC"=1
+

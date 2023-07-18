@@ -1,0 +1,158 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"FASL" [0, 1]
+"TNF" [0, 1]
+"TNFR" [0, 1]
+"DISC_TNF" [0, 1]
+"DISC_FAS" [0, 1]
+"FADD" [0, 1]
+"RIP1" [0, 1]
+"RIP1ub" [0, 1]
+"RIP1K" [0, 1]
+"IKK" [0, 1]
+"NFKB1" [0, 1]
+"CASP8" [0, 1]
+"BAX" [0, 1]
+"BCL2" [0, 1]
+"ROS" [0, 1]
+"ATP" [0, 1]
+"MPT" [0, 1]
+"MOMP" [0, 1]
+"SMAC" [0, 1]
+"cIAP" [0, 1]
+"Cyt_c" [0, 1]
+"XIAP" [0, 1]
+"apoptosome" [0, 1]
+"CASP3" [0, 1]
+"cFLIP" [0, 1]
+"mROS" [0, 1]
+"mcIAP" [0, 1]
+"mXIAP" [0, 1]
+"NonACD" [0, 1]
+"Apoptosis" [0, 1]
+"Survival" [0, 1]
+"DIVISION" [0, 1]
+"DEATH" [0, 1]
+
+
+"TNF" 0 -> 1 when "NFKB1"=1
+
+"TNFR" 1 -> 0 when "TNF"=0
+"TNFR" 0 -> 1 when "TNF"=1
+
+"DISC_TNF" 1 -> 0 when "TNFR"=0
+"DISC_TNF" 1 -> 0 when "TNFR"=1 and "FADD"=0
+"DISC_TNF" 0 -> 1 when "TNFR"=1 and "FADD"=1
+
+"DISC_FAS" 1 -> 0 when "FASL"=0
+"DISC_FAS" 1 -> 0 when "FASL"=1 and "FADD"=0
+"DISC_FAS" 0 -> 1 when "FASL"=1 and "FADD"=1
+
+
+"RIP1" 1 -> 0 when "TNFR"=0 and "DISC_FAS"=0
+"RIP1" 0 -> 1 when "TNFR"=0 and "DISC_FAS"=1 and "CASP8"=0
+"RIP1" 1 -> 0 when "TNFR"=0 and "DISC_FAS"=1 and "CASP8"=1
+"RIP1" 0 -> 1 when "TNFR"=1 and "CASP8"=0
+"RIP1" 1 -> 0 when "TNFR"=1 and "CASP8"=1
+
+"RIP1ub" 1 -> 0 when "RIP1"=0
+"RIP1ub" 1 -> 0 when "RIP1"=1 and "cIAP"=0
+"RIP1ub" 0 -> 1 when "RIP1"=1 and "cIAP"=1
+
+"RIP1K" 1 -> 0 when "RIP1"=0
+"RIP1K" 0 -> 1 when "RIP1"=1
+
+"IKK" 1 -> 0 when "RIP1ub"=0
+"IKK" 0 -> 1 when "RIP1ub"=1
+
+"NFKB1" 1 -> 0 when "IKK"=0
+"NFKB1" 0 -> 1 when "IKK"=1 and "CASP3"=0
+"NFKB1" 1 -> 0 when "IKK"=1 and "CASP3"=1
+
+"CASP8" 1 -> 0 when "DISC_TNF"=0 and "DISC_FAS"=0 and "CASP3"=0
+"CASP8" 0 -> 1 when "DISC_TNF"=0 and "DISC_FAS"=0 and "CASP3"=1 and "cFLIP"=0
+"CASP8" 1 -> 0 when "DISC_TNF"=0 and "DISC_FAS"=0 and "CASP3"=1 and "cFLIP"=1
+"CASP8" 0 -> 1 when "DISC_TNF"=0 and "DISC_FAS"=1 and "cFLIP"=0
+"CASP8" 1 -> 0 when "DISC_TNF"=0 and "DISC_FAS"=1 and "cFLIP"=1
+"CASP8" 0 -> 1 when "DISC_TNF"=1 and "cFLIP"=0
+"CASP8" 1 -> 0 when "DISC_TNF"=1 and "cFLIP"=1
+
+"BAX" 1 -> 0 when "CASP8"=0
+"BAX" 0 -> 1 when "CASP8"=1 and "BCL2"=0
+"BAX" 1 -> 0 when "CASP8"=1 and "BCL2"=1
+
+"BCL2" 1 -> 0 when "NFKB1"=0
+"BCL2" 0 -> 1 when "NFKB1"=1
+
+"ROS" 1 -> 0 when "RIP1K"=0 and "MPT"=0
+"ROS" 1 -> 0 when "RIP1K"=0 and "MPT"=1 and "mROS"=0
+"ROS" 0 -> 1 when "RIP1K"=0 and "MPT"=1 and "mROS"=1
+"ROS" 1 -> 0 when "RIP1K"=1 and "mROS"=0
+"ROS" 0 -> 1 when "RIP1K"=1 and "mROS"=1
+
+"ATP" 0 -> 1 when "MPT"=0
+"ATP" 1 -> 0 when "MPT"=1
+
+"MPT" 1 -> 0 when "BCL2"=0 and "ROS"=0
+"MPT" 0 -> 1 when "BCL2"=0 and "ROS"=1
+"MPT" 1 -> 0 when "BCL2"=1
+
+"MOMP" 1 -> 0 when "BAX"=0 and "MPT"=0
+"MOMP" 0 -> 1 when "BAX"=0 and "MPT"=1
+"MOMP" 0 -> 1 when "BAX"=1
+
+"SMAC" 1 -> 0 when "MOMP"=0
+"SMAC" 0 -> 1 when "MOMP"=1
+
+"cIAP" 1 -> 0 when "SMAC"=0 and "mcIAP"=0
+"cIAP" 0 -> 1 when "SMAC"=0 and "mcIAP"=1
+"cIAP" 1 -> 0 when "SMAC"=1
+
+"Cyt_c" 1 -> 0 when "MOMP"=0
+"Cyt_c" 0 -> 1 when "MOMP"=1
+
+"XIAP" 1 -> 0 when "SMAC"=0 and "mXIAP"=0
+"XIAP" 0 -> 1 when "SMAC"=0 and "mXIAP"=1
+"XIAP" 1 -> 0 when "SMAC"=1
+
+"apoptosome" 1 -> 0 when "ATP"=0
+"apoptosome" 1 -> 0 when "ATP"=1 and "Cyt_c"=0
+"apoptosome" 0 -> 1 when "ATP"=1 and "Cyt_c"=1 and "XIAP"=0
+"apoptosome" 1 -> 0 when "ATP"=1 and "Cyt_c"=1 and "XIAP"=1
+
+"CASP3" 1 -> 0 when "XIAP"=0 and "apoptosome"=0
+"CASP3" 0 -> 1 when "XIAP"=0 and "apoptosome"=1
+"CASP3" 1 -> 0 when "XIAP"=1
+
+"cFLIP" 1 -> 0 when "NFKB1"=0
+"cFLIP" 0 -> 1 when "NFKB1"=1
+
+"mROS" 0 -> 1 when "NFKB1"=0
+"mROS" 1 -> 0 when "NFKB1"=1
+
+"mcIAP" 1 -> 0 when "NFKB1"=0
+"mcIAP" 0 -> 1 when "NFKB1"=1
+
+"mXIAP" 1 -> 0 when "NFKB1"=0
+"mXIAP" 0 -> 1 when "NFKB1"=1
+
+"NonACD" 0 -> 1 when "ATP"=0
+"NonACD" 1 -> 0 when "ATP"=1
+
+"Apoptosis" 1 -> 0 when "CASP3"=0
+"Apoptosis" 0 -> 1 when "CASP3"=1
+
+"Survival" 1 -> 0 when "NFKB1"=0
+"Survival" 0 -> 1 when "NFKB1"=1
+
+"DIVISION" 1 -> 0 when "Survival"=0
+"DIVISION" 0 -> 1 when "Survival"=1
+
+"DEATH" 1 -> 0 when "NonACD"=0 and "Apoptosis"=0
+"DEATH" 0 -> 1 when "NonACD"=0 and "Apoptosis"=1
+"DEATH" 0 -> 1 when "NonACD"=1
+

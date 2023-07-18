@@ -1,0 +1,159 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Insulin" [0, 1]
+"GF" [0, 1]
+"Senescence" [0, 1]
+"G1_S" [0, 1]
+"MAPK" [0, 1]
+"p16" [0, 1]
+"MDM2" [0, 1]
+"p53" [0, 1]
+"p21" [0, 1]
+"AKT" [0, 1]
+"mTORC1_S6K1" [0, 1]
+"ATP" [0, 1]
+"IRS_PIK3CA" [0, 1]
+"AMPK" [0, 1]
+"PTEN" [0, 1]
+"TSC" [0, 1]
+"MYC" [0, 1]
+"CDK2" [0, 1]
+"pRB" [0, 1]
+"E2F1" [0, 1]
+"PRC" [0, 1]
+"Metabolism" [0, 1]
+"PP2A" [0, 1]
+"FOXO" [0, 1]
+"PP1C" [0, 1]
+
+
+
+"Senescence" 1 -> 0 when "p16"=0 and "p21"=0
+"Senescence" 1 -> 0 when "p16"=0 and "p21"=1 and "mTORC1_S6K1"=0
+"Senescence" 0 -> 1 when "p16"=0 and "p21"=1 and "mTORC1_S6K1"=1
+"Senescence" 0 -> 1 when "p16"=1
+
+"G1_S" 1 -> 0 when "p21"=0 and "CDK2"=0
+"G1_S" 1 -> 0 when "p21"=0 and "CDK2"=1 and "E2F1"=0
+"G1_S" 1 -> 0 when "p21"=0 and "CDK2"=1 and "E2F1"=1 and "Metabolism"=0
+"G1_S" 0 -> 1 when "p21"=0 and "CDK2"=1 and "E2F1"=1 and "Metabolism"=1
+"G1_S" 1 -> 0 when "p21"=1
+
+"MAPK" 1 -> 0 when "GF"=0
+"MAPK" 0 -> 1 when "GF"=1 and "PP2A"=0
+"MAPK" 1 -> 0 when "GF"=1 and "PP2A"=1
+
+"p16" 1 -> 0 when "MAPK"=0
+"p16" 0 -> 1 when "MAPK"=1 and "p53"=0 and "E2F1"=0 and "PRC"=0
+"p16" 1 -> 0 when "MAPK"=1 and "p53"=0 and "E2F1"=0 and "PRC"=1
+"p16" 1 -> 0 when "MAPK"=1 and "p53"=0 and "E2F1"=1
+"p16" 1 -> 0 when "MAPK"=1 and "p53"=1
+
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=0 and "AKT"=0
+"MDM2" 0 -> 1 when "p16"=0 and "p53"=0 and "AKT"=1 and "mTORC1_S6K1"=0 and "MYC"=0 and "E2F1"=0
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=0 and "AKT"=1 and "mTORC1_S6K1"=0 and "MYC"=0 and "E2F1"=1
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=0 and "AKT"=1 and "mTORC1_S6K1"=0 and "MYC"=1
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=0 and "AKT"=1 and "mTORC1_S6K1"=1
+"MDM2" 0 -> 1 when "p16"=0 and "p53"=1 and "mTORC1_S6K1"=0 and "MYC"=0 and "E2F1"=0
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=1 and "mTORC1_S6K1"=0 and "MYC"=0 and "E2F1"=1
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=1 and "mTORC1_S6K1"=0 and "MYC"=1
+"MDM2" 1 -> 0 when "p16"=0 and "p53"=1 and "mTORC1_S6K1"=1
+"MDM2" 0 -> 1 when "p16"=1 and "mTORC1_S6K1"=0 and "MYC"=0 and "E2F1"=0
+"MDM2" 1 -> 0 when "p16"=1 and "mTORC1_S6K1"=0 and "MYC"=0 and "E2F1"=1
+"MDM2" 1 -> 0 when "p16"=1 and "mTORC1_S6K1"=0 and "MYC"=1
+"MDM2" 1 -> 0 when "p16"=1 and "mTORC1_S6K1"=1
+
+"p53" 0 -> 1 when "MDM2"=0
+"p53" 1 -> 0 when "MDM2"=1
+
+"p21" 1 -> 0 when "p53"=0 and "AKT"=0 and "MYC"=0 and "FOXO"=0
+"p21" 0 -> 1 when "p53"=0 and "AKT"=0 and "MYC"=0 and "FOXO"=1
+"p21" 1 -> 0 when "p53"=0 and "AKT"=0 and "MYC"=1
+"p21" 1 -> 0 when "p53"=0 and "AKT"=1
+"p21" 0 -> 1 when "p53"=1 and "AKT"=0 and "MYC"=0
+"p21" 1 -> 0 when "p53"=1 and "AKT"=0 and "MYC"=1
+"p21" 1 -> 0 when "p53"=1 and "AKT"=1
+
+"AKT" 1 -> 0 when "IRS_PIK3CA"=0 and "PTEN"=0 and "CDK2"=0
+"AKT" 0 -> 1 when "IRS_PIK3CA"=0 and "PTEN"=0 and "CDK2"=1 and "PP2A"=0
+"AKT" 1 -> 0 when "IRS_PIK3CA"=0 and "PTEN"=0 and "CDK2"=1 and "PP2A"=1
+"AKT" 1 -> 0 when "IRS_PIK3CA"=0 and "PTEN"=1
+"AKT" 0 -> 1 when "IRS_PIK3CA"=1 and "PTEN"=0 and "PP2A"=0
+"AKT" 1 -> 0 when "IRS_PIK3CA"=1 and "PTEN"=0 and "PP2A"=1
+"AKT" 1 -> 0 when "IRS_PIK3CA"=1 and "PTEN"=1
+
+"mTORC1_S6K1" 0 -> 1 when "AMPK"=0 and "TSC"=0
+"mTORC1_S6K1" 1 -> 0 when "AMPK"=0 and "TSC"=1
+"mTORC1_S6K1" 1 -> 0 when "AMPK"=1
+
+"ATP" 1 -> 0 when "Metabolism"=0
+"ATP" 0 -> 1 when "Metabolism"=1
+
+"IRS_PIK3CA" 1 -> 0 when "Insulin"=0
+"IRS_PIK3CA" 0 -> 1 when "Insulin"=1 and "mTORC1_S6K1"=0
+"IRS_PIK3CA" 1 -> 0 when "Insulin"=1 and "mTORC1_S6K1"=1
+
+"AMPK" 1 -> 0 when "p53"=0
+"AMPK" 0 -> 1 when "p53"=1 and "ATP"=0
+"AMPK" 1 -> 0 when "p53"=1 and "ATP"=1
+
+"PTEN" 1 -> 0 when "p53"=0
+"PTEN" 0 -> 1 when "p53"=1 and "AKT"=0
+"PTEN" 1 -> 0 when "p53"=1 and "AKT"=1
+
+"TSC" 1 -> 0 when "MAPK"=0 and "AKT"=0 and "AMPK"=0
+"TSC" 0 -> 1 when "MAPK"=0 and "AKT"=0 and "AMPK"=1
+"TSC" 1 -> 0 when "MAPK"=0 and "AKT"=1
+"TSC" 1 -> 0 when "MAPK"=1
+
+"MYC" 1 -> 0 when "MAPK"=0
+"MYC" 1 -> 0 when "MAPK"=1 and "p53"=0 and "mTORC1_S6K1"=0
+"MYC" 1 -> 0 when "MAPK"=1 and "p53"=0 and "mTORC1_S6K1"=1 and "E2F1"=0
+"MYC" 0 -> 1 when "MAPK"=1 and "p53"=0 and "mTORC1_S6K1"=1 and "E2F1"=1
+"MYC" 1 -> 0 when "MAPK"=1 and "p53"=1
+
+"CDK2" 1 -> 0 when "p21"=0 and "mTORC1_S6K1"=0
+"CDK2" 1 -> 0 when "p21"=0 and "mTORC1_S6K1"=1 and "MYC"=0 and "E2F1"=0
+"CDK2" 0 -> 1 when "p21"=0 and "mTORC1_S6K1"=1 and "MYC"=0 and "E2F1"=1
+"CDK2" 0 -> 1 when "p21"=0 and "mTORC1_S6K1"=1 and "MYC"=1
+"CDK2" 1 -> 0 when "p21"=1
+
+"pRB" 0 -> 1 when "CDK2"=0
+"pRB" 1 -> 0 when "CDK2"=1
+
+"E2F1" 1 -> 0 when "GF"=0 and "MYC"=0
+"E2F1" 1 -> 0 when "GF"=0 and "MYC"=1 and "pRB"=1
+"E2F1" 1 -> 0 when "GF"=1 and "pRB"=1
+
+"PRC" 1 -> 0 when "AKT"=0 and "MYC"=0
+"PRC" 0 -> 1 when "AKT"=0 and "MYC"=1
+"PRC" 1 -> 0 when "AKT"=1
+
+"Metabolism" 1 -> 0 when "MAPK"=0 and "AKT"=0 and "mTORC1_S6K1"=0
+"Metabolism" 1 -> 0 when "MAPK"=0 and "AKT"=0 and "mTORC1_S6K1"=1 and "PP1C"=0
+"Metabolism" 0 -> 1 when "MAPK"=0 and "AKT"=0 and "mTORC1_S6K1"=1 and "PP1C"=1
+"Metabolism" 1 -> 0 when "MAPK"=0 and "AKT"=1 and "mTORC1_S6K1"=0
+"Metabolism" 0 -> 1 when "MAPK"=0 and "AKT"=1 and "mTORC1_S6K1"=1
+"Metabolism" 1 -> 0 when "MAPK"=1 and "AKT"=0 and "PP1C"=0
+"Metabolism" 0 -> 1 when "MAPK"=1 and "AKT"=0 and "PP1C"=1
+"Metabolism" 0 -> 1 when "MAPK"=1 and "AKT"=1
+
+"PP2A" 0 -> 1 when "mTORC1_S6K1"=0
+"PP2A" 1 -> 0 when "mTORC1_S6K1"=1
+
+"FOXO" 1 -> 0 when "MAPK"=0 and "p16"=0 and "AKT"=0 and "AMPK"=0 and "Metabolism"=0
+"FOXO" 0 -> 1 when "MAPK"=0 and "p16"=0 and "AKT"=0 and "AMPK"=0 and "Metabolism"=1
+"FOXO" 0 -> 1 when "MAPK"=0 and "p16"=0 and "AKT"=0 and "AMPK"=1
+"FOXO" 1 -> 0 when "MAPK"=0 and "p16"=0 and "AKT"=1
+"FOXO" 0 -> 1 when "MAPK"=0 and "p16"=1 and "AKT"=0
+"FOXO" 1 -> 0 when "MAPK"=0 and "p16"=1 and "AKT"=1
+"FOXO" 1 -> 0 when "MAPK"=1
+
+"PP1C" 1 -> 0 when "MAPK"=0 and "AKT"=0
+"PP1C" 0 -> 1 when "MAPK"=0 and "AKT"=1
+"PP1C" 0 -> 1 when "MAPK"=1
+

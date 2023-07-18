@@ -1,0 +1,148 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"glyph2" [0, 1]
+"glyph3" [0, 1]
+"glyph8" [0, 1]
+"glyph5" [0, 1]
+"glyph4" [0, 1]
+"glyph6" [0, 1]
+"glyph37" [0, 1]
+"glyph67" [0, 1]
+"glyph54" [0, 1]
+"glyph45" [0, 1]
+"glyph41" [0, 1]
+"glyph52" [0, 1]
+"glyph40" [0, 1]
+"glyph51" [0, 1]
+"glyph36" [0, 1]
+"glyph17" [0, 1]
+"glyph46" [0, 1]
+"glyph49" [0, 1]
+"glyph39" [0, 1]
+"glyph20" [0, 1]
+"glyph42" [0, 1]
+"glyph33" [0, 1]
+"glyph13" [0, 1]
+"glyph62" [0, 1]
+"glyph34" [0, 1]
+"glyph63" [0, 1]
+"glyph16" [0, 1]
+"glyph53" [0, 1]
+"glyph61" [0, 1]
+"glyph66" [0, 1]
+"glyph50" [0, 1]
+"glyph19" [0, 1]
+"glyph56" [0, 1]
+"glyph18" [0, 1]
+
+"glyph2" 1 -> 0 when "glyph3"=0
+"glyph2" 0 -> 1 when "glyph3"=1
+
+"glyph3" 1 -> 0 when "glyph8"=0
+"glyph3" 1 -> 0 when "glyph8"=1 and "glyph5"=0
+"glyph3" 1 -> 0 when "glyph8"=1 and "glyph5"=1 and "glyph51"=0
+"glyph3" 1 -> 0 when "glyph8"=1 and "glyph5"=1 and "glyph51"=1 and "glyph13"=0
+"glyph3" 0 -> 1 when "glyph8"=1 and "glyph5"=1 and "glyph51"=1 and "glyph13"=1
+
+"glyph8" 1 -> 0 when "glyph49"=0
+"glyph8" 1 -> 0 when "glyph49"=1 and "glyph33"=0
+"glyph8" 1 -> 0 when "glyph49"=1 and "glyph33"=1 and "glyph50"=0
+"glyph8" 0 -> 1 when "glyph49"=1 and "glyph33"=1 and "glyph50"=1
+
+"glyph5" 1 -> 0 when "glyph54"=0
+"glyph5" 1 -> 0 when "glyph54"=1 and "glyph62"=0
+"glyph5" 1 -> 0 when "glyph54"=1 and "glyph62"=1 and "glyph61"=0
+"glyph5" 0 -> 1 when "glyph54"=1 and "glyph62"=1 and "glyph61"=1
+
+"glyph4" 1 -> 0 when "glyph2"=0
+"glyph4" 0 -> 1 when "glyph2"=1
+
+"glyph6" 1 -> 0 when "glyph2"=0
+"glyph6" 0 -> 1 when "glyph2"=1
+
+"glyph37" 1 -> 0 when "glyph63"=0
+"glyph37" 0 -> 1 when "glyph63"=1
+
+"glyph67" 1 -> 0 when "glyph63"=0
+"glyph67" 0 -> 1 when "glyph63"=1
+
+"glyph54" 1 -> 0 when "glyph40"=0
+"glyph54" 0 -> 1 when "glyph40"=1
+
+"glyph45" 1 -> 0 when "glyph63"=0
+"glyph45" 0 -> 1 when "glyph63"=1
+
+"glyph41" 1 -> 0 when "glyph63"=0
+"glyph41" 0 -> 1 when "glyph63"=1
+
+"glyph52" 1 -> 0 when "glyph40"=0
+"glyph52" 0 -> 1 when "glyph40"=1
+
+"glyph40" 1 -> 0 when "glyph13"=0
+"glyph40" 0 -> 1 when "glyph13"=1
+
+"glyph51" 1 -> 0 when "glyph63"=0
+"glyph51" 0 -> 1 when "glyph63"=1
+
+"glyph36" 1 -> 0 when "glyph40"=0
+"glyph36" 0 -> 1 when "glyph40"=1
+
+"glyph17" 1 -> 0 when "glyph2"=0
+"glyph17" 0 -> 1 when "glyph2"=1
+
+"glyph46" 1 -> 0 when "glyph17"=0
+"glyph46" 0 -> 1 when "glyph17"=1
+
+"glyph49" 1 -> 0 when "glyph63"=0
+"glyph49" 0 -> 1 when "glyph63"=1
+
+"glyph39" 1 -> 0 when "glyph63"=0
+"glyph39" 0 -> 1 when "glyph63"=1
+
+"glyph20" 1 -> 0 when "glyph3"=0
+"glyph20" 0 -> 1 when "glyph3"=1
+
+"glyph42" 1 -> 0 when "glyph2"=0
+"glyph42" 0 -> 1 when "glyph2"=1
+
+"glyph33" 1 -> 0 when "glyph63"=0
+"glyph33" 0 -> 1 when "glyph63"=1
+
+
+"glyph62" 1 -> 0 when "glyph40"=0
+"glyph62" 0 -> 1 when "glyph40"=1
+
+"glyph34" 1 -> 0 when "glyph40"=0
+"glyph34" 0 -> 1 when "glyph40"=1
+
+"glyph63" 1 -> 0 when "glyph13"=0
+"glyph63" 0 -> 1 when "glyph13"=1
+
+"glyph16" 1 -> 0 when "glyph2"=0
+"glyph16" 0 -> 1 when "glyph2"=1
+
+"glyph53" 1 -> 0 when "glyph17"=0
+"glyph53" 0 -> 1 when "glyph17"=1
+
+"glyph61" 1 -> 0 when "glyph63"=0
+"glyph61" 0 -> 1 when "glyph63"=1
+
+"glyph66" 1 -> 0 when "glyph63"=0
+"glyph66" 0 -> 1 when "glyph63"=1
+
+"glyph50" 1 -> 0 when "glyph63"=0
+"glyph50" 0 -> 1 when "glyph63"=1
+
+"glyph19" 1 -> 0 when "glyph20"=0
+"glyph19" 0 -> 1 when "glyph20"=1
+
+"glyph56" 1 -> 0 when "glyph63"=0
+"glyph56" 0 -> 1 when "glyph63"=1
+
+"glyph18" 1 -> 0 when "glyph20"=0
+"glyph18" 0 -> 1 when "glyph20"=1
+

@@ -1,0 +1,118 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"MEK1" [0, 1]
+"CDK4" [0, 1]
+"p21" [0, 1]
+"CyclinD1" [0, 1]
+"p27" [0, 1]
+"CDK2" [0, 1]
+"CyclinE1" [0, 1]
+"pRB1" [0, 1]
+"ERalpha" [0, 1]
+"AKT1" [0, 1]
+"CDK6" [0, 1]
+"MYC" [0, 1]
+"IGF1R" [0, 1]
+"EGF" [0, 1]
+"ERBB1" [0, 1]
+"ERBB2" [0, 1]
+"ERBB3" [0, 1]
+"ERBB2_3" [0, 1]
+"ERBB1_2" [0, 1]
+"ERBB1_3" [0, 1]
+
+"MEK1" 1 -> 0 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=0 and "ERBB1_2"=0 and "ERBB1_3"=0
+"MEK1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=0 and "ERBB1_2"=0 and "ERBB1_3"=1
+"MEK1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=0 and "ERBB1_2"=1
+"MEK1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=1
+"MEK1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=1
+"MEK1" 0 -> 1 when "IGF1R"=1
+
+"CDK4" 1 -> 0 when "p21"=0 and "CyclinD1"=0
+"CDK4" 0 -> 1 when "p21"=0 and "CyclinD1"=1 and "p27"=0
+"CDK4" 1 -> 0 when "p21"=0 and "CyclinD1"=1 and "p27"=1
+"CDK4" 1 -> 0 when "p21"=1
+
+"p21" 0 -> 1 when "CDK4"=0 and "AKT1"=0 and "MYC"=0
+"p21" 1 -> 0 when "CDK4"=0 and "AKT1"=0 and "MYC"=1
+"p21" 1 -> 0 when "CDK4"=0 and "AKT1"=1
+"p21" 1 -> 0 when "CDK4"=1
+
+"CyclinD1" 1 -> 0 when "MEK1"=0 and "ERalpha"=0
+"CyclinD1" 1 -> 0 when "MEK1"=0 and "ERalpha"=1 and "AKT1"=0
+"CyclinD1" 1 -> 0 when "MEK1"=0 and "ERalpha"=1 and "AKT1"=1 and "MYC"=0
+"CyclinD1" 0 -> 1 when "MEK1"=0 and "ERalpha"=1 and "AKT1"=1 and "MYC"=1
+"CyclinD1" 1 -> 0 when "MEK1"=1 and "ERalpha"=0
+"CyclinD1" 1 -> 0 when "MEK1"=1 and "ERalpha"=1 and "MYC"=0
+"CyclinD1" 0 -> 1 when "MEK1"=1 and "ERalpha"=1 and "MYC"=1
+
+"p27" 0 -> 1 when "CDK4"=0 and "CDK2"=0 and "AKT1"=0 and "MYC"=0
+"p27" 1 -> 0 when "CDK4"=0 and "CDK2"=0 and "AKT1"=0 and "MYC"=1
+"p27" 1 -> 0 when "CDK4"=0 and "CDK2"=0 and "AKT1"=1
+"p27" 1 -> 0 when "CDK4"=0 and "CDK2"=1
+"p27" 1 -> 0 when "CDK4"=1
+
+"CDK2" 1 -> 0 when "p21"=0 and "p27"=0 and "CyclinE1"=0
+"CDK2" 0 -> 1 when "p21"=0 and "p27"=0 and "CyclinE1"=1
+"CDK2" 1 -> 0 when "p21"=0 and "p27"=1
+"CDK2" 1 -> 0 when "p21"=1
+
+"CyclinE1" 1 -> 0 when "MYC"=0
+"CyclinE1" 0 -> 1 when "MYC"=1
+
+"pRB1" 1 -> 0 when "CDK4"=0
+"pRB1" 1 -> 0 when "CDK4"=1 and "CDK6"=0
+"pRB1" 0 -> 1 when "CDK4"=1 and "CDK6"=1
+
+"ERalpha" 1 -> 0 when "MEK1"=0 and "AKT1"=0
+"ERalpha" 0 -> 1 when "MEK1"=0 and "AKT1"=1
+"ERalpha" 0 -> 1 when "MEK1"=1
+
+"AKT1" 1 -> 0 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=0 and "ERBB1_2"=0 and "ERBB1_3"=0
+"AKT1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=0 and "ERBB1_2"=0 and "ERBB1_3"=1
+"AKT1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=0 and "ERBB1_2"=1
+"AKT1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=0 and "ERBB2_3"=1
+"AKT1" 0 -> 1 when "IGF1R"=0 and "ERBB1"=1
+"AKT1" 0 -> 1 when "IGF1R"=1
+
+"CDK6" 1 -> 0 when "CyclinD1"=0
+"CDK6" 0 -> 1 when "CyclinD1"=1
+
+"MYC" 1 -> 0 when "MEK1"=0 and "ERalpha"=0 and "AKT1"=0
+"MYC" 0 -> 1 when "MEK1"=0 and "ERalpha"=0 and "AKT1"=1
+"MYC" 0 -> 1 when "MEK1"=0 and "ERalpha"=1
+"MYC" 0 -> 1 when "MEK1"=1
+
+"IGF1R" 1 -> 0 when "ERalpha"=0 and "AKT1"=0
+"IGF1R" 0 -> 1 when "ERalpha"=0 and "AKT1"=1 and "ERBB2_3"=0
+"IGF1R" 1 -> 0 when "ERalpha"=0 and "AKT1"=1 and "ERBB2_3"=1
+"IGF1R" 0 -> 1 when "ERalpha"=1 and "ERBB2_3"=0
+"IGF1R" 1 -> 0 when "ERalpha"=1 and "ERBB2_3"=1
+
+"EGF" 0 -> 1
+
+"ERBB1" 1 -> 0 when "EGF"=0
+"ERBB1" 0 -> 1 when "EGF"=1
+
+"ERBB2" 1 -> 0 when "EGF"=0
+"ERBB2" 0 -> 1 when "EGF"=1
+
+"ERBB3" 1 -> 0 when "EGF"=0
+"ERBB3" 0 -> 1 when "EGF"=1
+
+"ERBB2_3" 1 -> 0 when "ERBB2"=0
+"ERBB2_3" 1 -> 0 when "ERBB2"=1 and "ERBB3"=0
+"ERBB2_3" 0 -> 1 when "ERBB2"=1 and "ERBB3"=1
+
+"ERBB1_2" 1 -> 0 when "ERBB1"=0
+"ERBB1_2" 1 -> 0 when "ERBB1"=1 and "ERBB2"=0
+"ERBB1_2" 0 -> 1 when "ERBB1"=1 and "ERBB2"=1
+
+"ERBB1_3" 1 -> 0 when "ERBB1"=0
+"ERBB1_3" 1 -> 0 when "ERBB1"=1 and "ERBB3"=0
+"ERBB1_3" 0 -> 1 when "ERBB1"=1 and "ERBB3"=1
+

@@ -1,0 +1,185 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"csa10" [0, 1]
+"csa4" [0, 1]
+"csa9" [0, 1]
+"csa11" [0, 1]
+"csa14" [0, 1]
+"csa19" [0, 1]
+"csa15" [0, 1]
+"csa16" [0, 1]
+"csa17" [0, 1]
+"csa12" [0, 1]
+"csa21" [0, 1]
+"csa24" [0, 1]
+"csa27" [0, 1]
+"csa26" [0, 1]
+"csa34" [0, 1]
+"csa35" [0, 1]
+"sa1" [0, 1]
+"sa2" [0, 1]
+"sa3" [0, 1]
+"sa4" [0, 1]
+"sa6" [0, 1]
+"sa10" [0, 1]
+"sa11" [0, 1]
+"sa14" [0, 1]
+"sa16" [0, 1]
+"sa45" [0, 1]
+"sa46" [0, 1]
+"sa70" [0, 1]
+"sa75" [0, 1]
+"sa76" [0, 1]
+"sa77" [0, 1]
+"sa80" [0, 1]
+"sa81" [0, 1]
+"sa82" [0, 1]
+"sa83" [0, 1]
+"sa92" [0, 1]
+"sa93" [0, 1]
+"sa96" [0, 1]
+"sa97" [0, 1]
+"sa99" [0, 1]
+"sa100" [0, 1]
+"sa101" [0, 1]
+"sa103" [0, 1]
+"sa125" [0, 1]
+"sa126" [0, 1]
+"sa128" [0, 1]
+"sa145" [0, 1]
+"sa147" [0, 1]
+
+"csa10" 1 -> 0 when "csa9"=0
+"csa10" 1 -> 0 when "csa9"=1 and "sa1"=0
+"csa10" 0 -> 1 when "csa9"=1 and "sa1"=1
+
+"csa4" 1 -> 0 when "csa12"=0
+"csa4" 1 -> 0 when "csa12"=1 and "sa10"=0
+"csa4" 0 -> 1 when "csa12"=1 and "sa10"=1
+
+"csa9" 1 -> 0 when "csa10"=0
+"csa9" 0 -> 1 when "csa10"=1
+
+"csa11" 1 -> 0 when "csa10"=0
+"csa11" 1 -> 0 when "csa10"=1 and "sa46"=0
+"csa11" 0 -> 1 when "csa10"=1 and "sa46"=1
+
+"csa14" 1 -> 0 when "csa12"=0
+"csa14" 1 -> 0 when "csa12"=1 and "sa11"=0
+"csa14" 0 -> 1 when "csa12"=1 and "sa11"=1
+
+"csa19" 1 -> 0 when "sa126"=0
+"csa19" 0 -> 1 when "sa126"=1
+
+"csa15" 1 -> 0 when "csa24"=0
+"csa15" 1 -> 0 when "csa24"=1 and "sa70"=0
+"csa15" 0 -> 1 when "csa24"=1 and "sa70"=1
+
+"csa16" 1 -> 0 when "csa27"=0
+"csa16" 1 -> 0 when "csa27"=1 and "sa70"=0
+"csa16" 0 -> 1 when "csa27"=1 and "sa70"=1
+
+"csa17" 1 -> 0 when "sa100"=0
+"csa17" 1 -> 0 when "sa100"=1 and "sa145"=0
+"csa17" 0 -> 1 when "sa100"=1 and "sa145"=1
+
+"csa12" 1 -> 0 when "csa10"=0
+"csa12" 1 -> 0 when "csa10"=1 and "sa4"=0 and "sa6"=0
+"csa12" 0 -> 1 when "csa10"=1 and "sa4"=0 and "sa6"=1
+"csa12" 0 -> 1 when "csa10"=1 and "sa4"=1
+
+"csa21" 1 -> 0 when "sa93"=0
+"csa21" 0 -> 1 when "sa93"=1
+
+
+"csa27" 1 -> 0 when "csa24"=0
+"csa27" 1 -> 0 when "csa24"=1 and "csa26"=0
+"csa27" 0 -> 1 when "csa24"=1 and "csa26"=1
+
+
+"csa34" 1 -> 0 when "csa10"=0
+"csa34" 1 -> 0 when "csa10"=1 and "sa45"=0
+"csa34" 0 -> 1 when "csa10"=1 and "sa45"=1
+
+"csa35" 1 -> 0 when "sa99"=0
+"csa35" 1 -> 0 when "sa99"=1 and "sa103"=0
+"csa35" 0 -> 1 when "sa99"=1 and "sa103"=1
+
+"sa1" 1 -> 0 when "csa10"=0 and "sa97"=0
+"sa1" 0 -> 1 when "csa10"=0 and "sa97"=1
+"sa1" 0 -> 1 when "csa10"=1
+
+"sa2" 1 -> 0 when "csa27"=0
+"sa2" 1 -> 0 when "csa27"=1 and "sa14"=0
+"sa2" 0 -> 1 when "csa27"=1 and "sa14"=1
+
+"sa3" 1 -> 0 when "csa27"=0
+"sa3" 1 -> 0 when "csa27"=1 and "sa14"=0
+"sa3" 0 -> 1 when "csa27"=1 and "sa14"=1
+
+
+
+
+
+"sa14" 1 -> 0 when "csa4"=0
+"sa14" 1 -> 0 when "csa4"=1 and "sa16"=0
+"sa14" 0 -> 1 when "csa4"=1 and "sa16"=1
+
+
+
+
+
+
+"sa76" 1 -> 0 when "sa75"=0
+"sa76" 1 -> 0 when "sa75"=1 and "sa80"=0
+"sa76" 0 -> 1 when "sa75"=1 and "sa80"=1
+
+"sa77" 1 -> 0 when "sa76"=0
+"sa77" 1 -> 0 when "sa76"=1 and "sa81"=0
+"sa77" 0 -> 1 when "sa76"=1 and "sa81"=1
+
+
+
+"sa82" 1 -> 0 when "sa125"=0 and "sa128"=0
+"sa82" 0 -> 1 when "sa125"=0 and "sa128"=1
+"sa82" 0 -> 1 when "sa125"=1
+
+"sa83" 1 -> 0 when "sa82"=0 and "sa101"=0
+"sa83" 1 -> 0 when "sa82"=0 and "sa101"=1 and "sa145"=0
+"sa83" 0 -> 1 when "sa82"=0 and "sa101"=1 and "sa145"=1
+"sa83" 1 -> 0 when "sa82"=1 and "sa99"=0 and "sa101"=0
+"sa83" 1 -> 0 when "sa82"=1 and "sa99"=0 and "sa101"=1 and "sa145"=0
+"sa83" 0 -> 1 when "sa82"=1 and "sa99"=0 and "sa101"=1 and "sa145"=1
+"sa83" 0 -> 1 when "sa82"=1 and "sa99"=1
+
+"sa92" 1 -> 0 when "csa21"=0
+"sa92" 0 -> 1 when "csa21"=1
+
+
+"sa96" 1 -> 0 when "csa19"=0 and "sa92"=0
+"sa96" 0 -> 1 when "csa19"=0 and "sa92"=1
+"sa96" 0 -> 1 when "csa19"=1
+
+"sa97" 1 -> 0 when "sa96"=0
+"sa97" 0 -> 1 when "sa96"=1
+
+
+
+
+
+"sa125" 1 -> 0 when "sa82"=0
+"sa125" 0 -> 1 when "sa82"=1
+
+"sa126" 1 -> 0 when "csa17"=0
+"sa126" 0 -> 1 when "csa17"=1
+
+
+"sa145" 1 -> 0 when "sa83"=0
+"sa145" 1 -> 0 when "sa83"=1 and "sa147"=0
+"sa145" 0 -> 1 when "sa83"=1 and "sa147"=1
+
+
