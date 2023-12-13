@@ -13,7 +13,7 @@
 #include "../test/test_sccListCorrectness.h"
 #include "parse.h"
 
-int main() {
+int main(int argc, char* argv[]) {
 
   // Init LACE
   lace_start(1, 10000000);
@@ -28,15 +28,14 @@ int main() {
   sylvan::sylvan_init_package();
   sylvan::sylvan_init_bdd();
 
-  std::cout << "Hello SCC-finding World!" << std::endl;
+  //std::cout << "Hello SCC-finding World!" << std::endl;
 
-  std::list<std::string> pathStrings = getPintStrings();
-  //pathStrings.push_back("model.an");
+  std::string path = argv[1];
+  std::list<std::string> pathStrings = {}; //getPintStrings();
+  pathStrings.push_back(path);
 
   std::list<algorithmType> runTypes = {chainBottomSingleRec};
 
-  //Graph pintGraph = parseFileToGraph();
-  
   for(algorithmType algo : runTypes) {
     //Running all benchmark files with a single algorithm type
     std::list<algorithmType> algorithm = {algo};
@@ -45,7 +44,7 @@ int main() {
     benchmark(pathStrings, fileName, algorithm, 0, initialStates);
   }
   
-  std::cout << "Goodbye :)" << std::endl;
+  //std::cout << "Goodbye :)" << std::endl;
 
   sylvan::sylvan_quit();
   lace_stop();

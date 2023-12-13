@@ -1,0 +1,356 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Delta" [0, 1]
+"Dpp" [0, 1]
+"En" [0, 1]
+"Hh" [0, 1]
+"Med" [0, 1]
+"Pyr" [0, 1]
+"Shn" [0, 1]
+"Spi" [0, 1]
+"SuH" [0, 1]
+"Ths" [0, 1]
+"Upd" [0, 1]
+"Wg" [0, 1]
+"Bap_b1" [0, 1]
+"Bap_b2" [0, 1]
+"Bap_b3" [0, 1]
+"Bin_b1" [0, 1]
+"Bin_b2" [0, 1]
+"Brk" [0, 1]
+"Ci" [0, 1]
+"Da" [0, 1]
+"Dsix4" [0, 1]
+"Dome" [0, 1]
+"Der" [0, 1]
+"Doc" [0, 1]
+"Emc" [0, 1]
+"E_S" [0, 1]
+"Eve" [0, 1]
+"Eya" [0, 1]
+"Hbr" [0, 1]
+"Htl" [0, 1]
+"Hop" [0, 1]
+"Mad" [0, 1]
+"Mef2" [0, 1]
+"Nicd" [0, 1]
+"Notch" [0, 1]
+"Pan" [0, 1]
+"Pka" [0, 1]
+"Pnr" [0, 1]
+"Pnt_b1" [0, 1]
+"Pnt_b2" [0, 1]
+"Poxm" [0, 1]
+"Ptc" [0, 1]
+"Ras_b1" [0, 1]
+"Ras_b2" [0, 1]
+"Rl_b1" [0, 1]
+"Rl_b2" [0, 1]
+"Slp" [0, 1]
+"Smo" [0, 1]
+"Srp_b1" [0, 1]
+"Srp_b2" [0, 1]
+"Stat92E" [0, 1]
+"Tin_b1" [0, 1]
+"Tin_b2" [0, 1]
+"Tkv" [0, 1]
+"Twi_b1" [0, 1]
+"Twi_b2" [0, 1]
+"Zfh1" [0, 1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=0 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Slp"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=1 and "Bin_b1"=0 and "Ci"=0 and "Mad"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=1 and "Bin_b1"=0 and "Ci"=1 and "Mad"=1 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=0 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=0 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0 and "Mad"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0 and "Mad"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0 and "Mad"=1 and "Slp"=1
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=1 and "Mad"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=1 and "Mad"=1 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=1
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=0 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=0 and "Slp"=1
+"Bap_b1" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Tin_b1"=0
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=0 and "Bin_b1"=0 and "Ci"=1 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=0 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=1 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=1
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Tin_b1"=0
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=1 and "Bin_b1"=0 and "Ci"=0 and "Mad"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=1 and "Bin_b1"=0 and "Ci"=1 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=0 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Tin_b1"=1
+"Bap_b1" 0 -> 1 when "En"=1 and "Med"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0 and "Mad"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0 and "Mad"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=0 and "Mad"=1 and "Slp"=1
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=0 and "Ci"=1 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=0 and "Tin_b1"=0
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Slp"=1
+"Bap_b1" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b2"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Tin_b1"=0
+
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=0 and "Bap_b1"=0
+"Bap_b2" 0 -> 1 when "En"=0 and "Med"=0 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b1"=0
+"Bap_b2" 0 -> 1 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b2" 0 -> 1 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=0
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=0 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Slp"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=0
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bin_b1"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0 and "Ci"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0 and "Ci"=1 and "Slp"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Slp"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=0
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bin_b1"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Mad"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b2" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0 and "Ci"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=0 and "Ci"=1 and "Slp"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Mad"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Mad"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0 and "Mad"=1 and "Slp"=1
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b3"=0 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Slp"=1
+
+"Bap_b3" 1 -> 0 when "En"=0 and "Bap_b1"=0
+"Bap_b3" 1 -> 0 when "En"=0 and "Bap_b1"=1 and "Bap_b2"=0
+"Bap_b3" 1 -> 0 when "En"=0 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0
+"Bap_b3" 1 -> 0 when "En"=0 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0
+"Bap_b3" 0 -> 1 when "En"=0 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b2"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0
+"Bap_b3" 0 -> 1 when "En"=1 and "Med"=0 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=1
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0 and "Ci"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0 and "Ci"=1 and "Mad"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0 and "Ci"=1 and "Mad"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b3" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0 and "Ci"=1 and "Mad"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=0 and "Ci"=1 and "Mad"=1 and "Slp"=1
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=0
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Slp"=0 and "Tin_b1"=0
+"Bap_b3" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Slp"=0 and "Tin_b1"=1
+"Bap_b3" 1 -> 0 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=0 and "Ci"=1 and "Mad"=1 and "Slp"=1
+"Bap_b3" 0 -> 1 when "En"=1 and "Med"=1 and "Bap_b1"=1 and "Bap_b2"=1 and "Bin_b1"=1 and "Bin_b2"=1
+
+"Bin_b1" 1 -> 0 when "Bap_b1"=0 and "Bin_b2"=0
+"Bin_b1" 1 -> 0 when "Bap_b1"=1 and "Bap_b2"=0 and "Bin_b2"=0
+"Bin_b1" 0 -> 1 when "Bap_b1"=1 and "Bap_b2"=1
+
+"Bin_b2" 1 -> 0
+
+"Brk" 0 -> 1 when "Med"=0
+"Brk" 0 -> 1 when "Med"=1 and "Shn"=0
+"Brk" 0 -> 1 when "Med"=1 and "Shn"=1 and "Mad"=0
+"Brk" 1 -> 0 when "Med"=1 and "Shn"=1 and "Mad"=1
+
+"Ci" 0 -> 1 when "Pka"=0
+"Ci" 1 -> 0 when "Pka"=1
+
+"Da" 0 -> 1 when "Emc"=0
+"Da" 1 -> 0 when "Emc"=1
+
+"Dsix4" 1 -> 0 when "Med"=0 and "Tin_b1"=0 and "Zfh1"=0
+"Dsix4" 0 -> 1 when "Med"=0 and "Tin_b1"=0 and "Zfh1"=1
+"Dsix4" 0 -> 1 when "Med"=0 and "Tin_b1"=1
+"Dsix4" 1 -> 0 when "Med"=1 and "Mad"=0 and "Tin_b1"=0 and "Zfh1"=0
+"Dsix4" 0 -> 1 when "Med"=1 and "Mad"=0 and "Tin_b1"=0 and "Zfh1"=1
+"Dsix4" 0 -> 1 when "Med"=1 and "Mad"=0 and "Tin_b1"=1
+"Dsix4" 1 -> 0 when "Med"=1 and "Mad"=1
+
+"Dome" 1 -> 0 when "Upd"=0
+"Dome" 0 -> 1 when "Upd"=1
+
+"Der" 1 -> 0 when "Spi"=0
+"Der" 0 -> 1 when "Spi"=1
+
+"Doc" 1 -> 0 when "Med"=0
+"Doc" 1 -> 0 when "Med"=1 and "Mad"=0
+"Doc" 1 -> 0 when "Med"=1 and "Mad"=1 and "Pan"=0
+"Doc" 0 -> 1 when "Med"=1 and "Mad"=1 and "Pan"=1
+
+"Emc" 1 -> 0 when "Nicd"=0
+"Emc" 0 -> 1 when "Nicd"=1
+
+"E_S" 1 -> 0 when "SuH"=0
+"E_S" 1 -> 0 when "SuH"=1 and "Nicd"=0
+"E_S" 1 -> 0 when "SuH"=1 and "Nicd"=1 and "Stat92E"=0
+"E_S" 0 -> 1 when "SuH"=1 and "Nicd"=1 and "Stat92E"=1
+
+"Eve" 1 -> 0 when "Med"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=1 and "Mad"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=1 and "Mad"=1 and "Pan"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=1 and "Mad"=1 and "Pan"=1 and "Pnt_b1"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=1 and "Mad"=1 and "Pan"=1 and "Pnt_b1"=1 and "Tin_b1"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=1 and "Mad"=1 and "Pan"=1 and "Pnt_b1"=1 and "Tin_b1"=1 and "Tin_b2"=0
+"Eve" 1 -> 0 when "Med"=1 and "Htl"=1 and "Mad"=1 and "Pan"=1 and "Pnt_b1"=1 and "Tin_b1"=1 and "Tin_b2"=1 and "Twi_b1"=0
+"Eve" 0 -> 1 when "Med"=1 and "Htl"=1 and "Mad"=1 and "Pan"=1 and "Pnt_b1"=1 and "Tin_b1"=1 and "Tin_b2"=1 and "Twi_b1"=1
+
+"Eya" 1 -> 0 when "Tin_b1"=0 and "Twi_b1"=0
+"Eya" 0 -> 1 when "Tin_b1"=0 and "Twi_b1"=1
+"Eya" 1 -> 0 when "Tin_b1"=1 and "Tin_b2"=0 and "Twi_b1"=0
+"Eya" 0 -> 1 when "Tin_b1"=1 and "Tin_b2"=0 and "Twi_b1"=1
+"Eya" 0 -> 1 when "Tin_b1"=1 and "Tin_b2"=1
+
+"Hbr" 1 -> 0 when "Htl"=0
+"Hbr" 1 -> 0 when "Htl"=1 and "Pan"=0
+"Hbr" 0 -> 1 when "Htl"=1 and "Pan"=1
+
+"Htl" 1 -> 0 when "Pyr"=0 and "Ths"=0
+"Htl" 1 -> 0 when "Pyr"=0 and "Ths"=1 and "Pan"=0
+"Htl" 0 -> 1 when "Pyr"=0 and "Ths"=1 and "Pan"=1
+"Htl" 1 -> 0 when "Pyr"=1 and "Ths"=0 and "Pan"=0
+"Htl" 0 -> 1 when "Pyr"=1 and "Ths"=0 and "Pan"=1
+"Htl" 0 -> 1 when "Pyr"=1 and "Ths"=1
+
+"Hop" 1 -> 0 when "Dome"=0
+"Hop" 0 -> 1 when "Dome"=1
+
+"Mad" 1 -> 0 when "Tkv"=0
+"Mad" 0 -> 1 when "Tkv"=1
+
+"Mef2" 1 -> 0 when "Tin_b1"=0 and "Twi_b1"=0
+"Mef2" 1 -> 0 when "Tin_b1"=0 and "Twi_b1"=1 and "Twi_b2"=0
+"Mef2" 0 -> 1 when "Tin_b1"=0 and "Twi_b1"=1 and "Twi_b2"=1
+"Mef2" 0 -> 1 when "Tin_b1"=1
+
+"Nicd" 1 -> 0 when "Notch"=0
+"Nicd" 0 -> 1 when "Notch"=1
+
+"Notch" 1 -> 0 when "Delta"=0
+"Notch" 0 -> 1 when "Delta"=1
+
+"Pan" 1 -> 0 when "Wg"=0
+"Pan" 0 -> 1 when "Wg"=1
+
+"Pka" 0 -> 1 when "Smo"=0
+"Pka" 1 -> 0 when "Smo"=1
+
+"Pnr" 1 -> 0 when "Doc"=0
+"Pnr" 1 -> 0 when "Doc"=1 and "Tin_b1"=0
+"Pnr" 0 -> 1 when "Doc"=1 and "Tin_b1"=1
+
+"Pnt_b1" 0 -> 1 when "Rl_b1"=1
+"Pnt_b1" 1 -> 0 when "Pnt_b2"=0 and "Rl_b1"=0
+
+"Pnt_b2" 1 -> 0
+
+"Poxm" 1 -> 0 when "Med"=0 and "Pan"=0
+"Poxm" 1 -> 0 when "Med"=0 and "Pan"=1 and "Twi_b1"=0
+"Poxm" 0 -> 1 when "Med"=0 and "Pan"=1 and "Twi_b1"=1
+"Poxm" 1 -> 0 when "Med"=1 and "Mad"=0 and "Pan"=0
+"Poxm" 1 -> 0 when "Med"=1 and "Mad"=0 and "Pan"=1 and "Twi_b1"=0
+"Poxm" 0 -> 1 when "Med"=1 and "Mad"=0 and "Pan"=1 and "Twi_b1"=1
+"Poxm" 1 -> 0 when "Med"=1 and "Mad"=1
+
+"Ptc" 0 -> 1 when "Hh"=0
+"Ptc" 1 -> 0 when "Hh"=1
+
+"Ras_b1" 1 -> 0 when "Der"=0 and "Ras_b2"=0
+"Ras_b1" 0 -> 1 when "Der"=1
+
+"Ras_b2" 1 -> 0
+
+"Rl_b1" 1 -> 0 when "Ras_b1"=0 and "Rl_b2"=0
+"Rl_b1" 0 -> 1 when "Ras_b1"=1
+
+"Rl_b2" 1 -> 0
+
+"Slp" 1 -> 0 when "Pan"=0
+"Slp" 0 -> 1 when "Pan"=1
+
+"Smo" 0 -> 1 when "Ptc"=0
+"Smo" 1 -> 0 when "Ptc"=1
+
+"Srp_b1" 1 -> 0 when "Med"=0 and "Ci"=0 and "Srp_b2"=0
+"Srp_b1" 0 -> 1 when "Med"=0 and "Ci"=1
+"Srp_b1" 1 -> 0 when "Med"=1 and "Ci"=0 and "Srp_b2"=0
+"Srp_b1" 0 -> 1 when "Med"=1 and "Ci"=1 and "Mad"=0
+"Srp_b1" 1 -> 0 when "Med"=1 and "Ci"=1 and "Mad"=1 and "Srp_b2"=0
+
+"Srp_b2" 1 -> 0 when "En"=0
+"Srp_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Ci"=0
+"Srp_b2" 1 -> 0 when "En"=1 and "Med"=0 and "Ci"=1 and "Srp_b1"=0
+"Srp_b2" 0 -> 1 when "En"=1 and "Med"=0 and "Ci"=1 and "Srp_b1"=1
+"Srp_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Ci"=0
+"Srp_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Ci"=1 and "Mad"=0 and "Srp_b1"=0
+"Srp_b2" 0 -> 1 when "En"=1 and "Med"=1 and "Ci"=1 and "Mad"=0 and "Srp_b1"=1
+"Srp_b2" 1 -> 0 when "En"=1 and "Med"=1 and "Ci"=1 and "Mad"=1
+
+"Stat92E" 1 -> 0 when "Hop"=0 and "Tin_b1"=0
+"Stat92E" 1 -> 0 when "Hop"=0 and "Tin_b1"=1 and "Tin_b2"=0
+"Stat92E" 0 -> 1 when "Hop"=0 and "Tin_b1"=1 and "Tin_b2"=1
+"Stat92E" 0 -> 1 when "Hop"=1
+
+"Tin_b1" 1 -> 0 when "Med"=0 and "Mad"=0 and "Tin_b2"=0
+"Tin_b1" 0 -> 1 when "Med"=0 and "Mad"=1 and "Twi_b1"=1
+"Tin_b1" 1 -> 0 when "Med"=1 and "Mad"=0 and "Tin_b2"=0
+"Tin_b1" 0 -> 1 when "Med"=1 and "Mad"=1
+
+"Tin_b2" 1 -> 0 when "Med"=0
+"Tin_b2" 1 -> 0 when "Med"=1 and "Mad"=0
+"Tin_b2" 1 -> 0 when "Med"=1 and "Mad"=1 and "Pan"=0
+"Tin_b2" 1 -> 0 when "Med"=1 and "Mad"=1 and "Pan"=1 and "Stat92E"=0
+"Tin_b2" 1 -> 0 when "Med"=1 and "Mad"=1 and "Pan"=1 and "Stat92E"=1 and "Tin_b1"=0
+"Tin_b2" 0 -> 1 when "Med"=1 and "Mad"=1 and "Pan"=1 and "Stat92E"=1 and "Tin_b1"=1
+
+"Tkv" 1 -> 0 when "Dpp"=0
+"Tkv" 0 -> 1 when "Dpp"=1
+
+"Twi_b1" 1 -> 0 when "Da"=0 and "Slp"=0 and "Twi_b2"=0
+"Twi_b1" 1 -> 0 when "Da"=1 and "E_S"=1 and "Slp"=0 and "Twi_b2"=0
+
+"Twi_b2" 1 -> 0 when "Da"=0
+"Twi_b2" 1 -> 0 when "Da"=1 and "E_S"=0 and "Slp"=0
+"Twi_b2" 1 -> 0 when "Da"=1 and "E_S"=0 and "Slp"=1 and "Twi_b1"=0
+"Twi_b2" 0 -> 1 when "Da"=1 and "E_S"=0 and "Slp"=1 and "Twi_b1"=1
+"Twi_b2" 1 -> 0 when "Da"=1 and "E_S"=1
+
+"Zfh1" 1 -> 0 when "Twi_b1"=0
+"Zfh1" 0 -> 1 when "Twi_b1"=1
+

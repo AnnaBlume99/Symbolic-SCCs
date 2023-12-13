@@ -1,0 +1,348 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"PDGF" [0, 1]
+"IL15" [0, 1]
+"Stimuli" [0, 1]
+"Stimuli2" [0, 1]
+"CD45" [0, 1]
+"TAX" [0, 1]
+"CTLA4" [0, 1]
+"TCR" [0, 1]
+"PDGFR" [0, 1]
+"FYN" [0, 1]
+"Cytoskeleton_signaling" [0, 1]
+"LCK" [0, 1]
+"ZAP70" [0, 1]
+"GRB2" [0, 1]
+"PLCG1" [0, 1]
+"RAS" [0, 1]
+"GAP" [0, 1]
+"MEK" [0, 1]
+"ERK" [0, 1]
+"PI3K" [0, 1]
+"NFKB" [0, 1]
+"NFAT" [0, 1]
+"RANTES" [0, 1]
+"IL2" [0, 1]
+"IL2RBT" [0, 1]
+"IL2RB" [0, 1]
+"IL2RAT" [0, 1]
+"IL2RA" [0, 1]
+"JAK" [0, 1]
+"SOCS" [0, 1]
+"STAT3" [0, 1]
+"P27" [0, 1]
+"Proliferation" [0, 1]
+"TBET" [0, 1]
+"CREB" [0, 1]
+"IFNGT" [0, 1]
+"IFNG" [0, 1]
+"P2" [0, 1]
+"GZMB" [0, 1]
+"TPL2" [0, 1]
+"TNF" [0, 1]
+"TRADD" [0, 1]
+"FasL" [0, 1]
+"FasT" [0, 1]
+"Fas" [0, 1]
+"sFas" [0, 1]
+"Ceramide" [0, 1]
+"DISC" [0, 1]
+"Caspase" [0, 1]
+"FLIP" [0, 1]
+"A20" [0, 1]
+"BID" [0, 1]
+"IAP" [0, 1]
+"BclxL" [0, 1]
+"MCL1" [0, 1]
+"Apoptosis" [0, 1]
+"GPCR" [0, 1]
+"SMAD" [0, 1]
+"SPHK1" [0, 1]
+"S1P" [0, 1]
+
+
+
+
+
+
+
+"CTLA4" 1 -> 0 when "TCR"=0
+"CTLA4" 0 -> 1 when "TCR"=1
+
+"TCR" 1 -> 0 when "Stimuli"=0
+"TCR" 0 -> 1 when "Stimuli"=1 and "CTLA4"=0
+"TCR" 1 -> 0 when "Stimuli"=1 and "CTLA4"=1
+
+"PDGFR" 1 -> 0 when "PDGF"=0 and "S1P"=0
+"PDGFR" 0 -> 1 when "PDGF"=0 and "S1P"=1
+"PDGFR" 0 -> 1 when "PDGF"=1
+
+"FYN" 1 -> 0 when "TCR"=0 and "IL2RB"=0
+"FYN" 0 -> 1 when "TCR"=0 and "IL2RB"=1
+"FYN" 0 -> 1 when "TCR"=1
+
+"Cytoskeleton_signaling" 1 -> 0 when "FYN"=0
+"Cytoskeleton_signaling" 0 -> 1 when "FYN"=1
+
+"LCK" 1 -> 0 when "CD45"=0 and "TCR"=0 and "ZAP70"=0 and "IL2RB"=0
+"LCK" 0 -> 1 when "CD45"=0 and "TCR"=0 and "ZAP70"=0 and "IL2RB"=1
+"LCK" 1 -> 0 when "CD45"=0 and "TCR"=0 and "ZAP70"=1
+"LCK" 0 -> 1 when "CD45"=0 and "TCR"=1 and "ZAP70"=0
+"LCK" 1 -> 0 when "CD45"=0 and "TCR"=1 and "ZAP70"=1
+"LCK" 0 -> 1 when "CD45"=1
+
+"ZAP70" 1 -> 0 when "FYN"=0 and "LCK"=0
+"ZAP70" 0 -> 1 when "FYN"=0 and "LCK"=1
+"ZAP70" 1 -> 0 when "FYN"=1
+
+"GRB2" 1 -> 0 when "ZAP70"=0 and "IL2RB"=0
+"GRB2" 0 -> 1 when "ZAP70"=0 and "IL2RB"=1
+"GRB2" 0 -> 1 when "ZAP70"=1
+
+"PLCG1" 1 -> 0 when "PDGFR"=0 and "GRB2"=0
+"PLCG1" 0 -> 1 when "PDGFR"=0 and "GRB2"=1
+"PLCG1" 0 -> 1 when "PDGFR"=1
+
+"RAS" 1 -> 0 when "GRB2"=0 and "PLCG1"=0
+"RAS" 0 -> 1 when "GRB2"=0 and "PLCG1"=1 and "GAP"=0
+"RAS" 1 -> 0 when "GRB2"=0 and "PLCG1"=1 and "GAP"=1
+"RAS" 0 -> 1 when "GRB2"=1 and "GAP"=0
+"RAS" 1 -> 0 when "GRB2"=1 and "GAP"=1
+
+"GAP" 1 -> 0 when "IL15"=0 and "PDGFR"=0 and "RAS"=0
+"GAP" 0 -> 1 when "IL15"=0 and "PDGFR"=0 and "RAS"=1 and "IL2"=0
+"GAP" 1 -> 0 when "IL15"=0 and "PDGFR"=0 and "RAS"=1 and "IL2"=1
+"GAP" 1 -> 0 when "IL15"=0 and "PDGFR"=1 and "RAS"=0 and "IL2"=1
+"GAP" 0 -> 1 when "IL15"=0 and "PDGFR"=1 and "RAS"=1 and "IL2"=0
+"GAP" 1 -> 0 when "IL15"=0 and "PDGFR"=1 and "RAS"=1 and "IL2"=1
+"GAP" 1 -> 0 when "IL15"=1
+
+"MEK" 1 -> 0 when "RAS"=0
+"MEK" 0 -> 1 when "RAS"=1
+
+"ERK" 1 -> 0 when "MEK"=0
+"ERK" 1 -> 0 when "MEK"=1 and "PI3K"=0
+"ERK" 0 -> 1 when "MEK"=1 and "PI3K"=1
+
+"PI3K" 1 -> 0 when "PDGFR"=0 and "RAS"=0
+"PI3K" 0 -> 1 when "PDGFR"=0 and "RAS"=1
+"PI3K" 0 -> 1 when "PDGFR"=1
+
+"NFKB" 1 -> 0 when "PI3K"=0 and "TPL2"=0 and "TRADD"=0
+"NFKB" 1 -> 0 when "PI3K"=0 and "TPL2"=0 and "TRADD"=1 and "FLIP"=0
+"NFKB" 1 -> 0 when "PI3K"=0 and "TPL2"=0 and "TRADD"=1 and "FLIP"=1 and "IAP"=0
+"NFKB" 0 -> 1 when "PI3K"=0 and "TPL2"=0 and "TRADD"=1 and "FLIP"=1 and "IAP"=1
+"NFKB" 0 -> 1 when "PI3K"=0 and "TPL2"=1
+"NFKB" 0 -> 1 when "PI3K"=1
+
+"NFAT" 1 -> 0 when "PI3K"=0
+"NFAT" 0 -> 1 when "PI3K"=1
+
+"RANTES" 1 -> 0 when "NFKB"=0
+"RANTES" 0 -> 1 when "NFKB"=1
+
+"IL2" 1 -> 0 when "NFKB"=0 and "NFAT"=0 and "STAT3"=0
+"IL2" 0 -> 1 when "NFKB"=0 and "NFAT"=0 and "STAT3"=1 and "TBET"=0
+"IL2" 1 -> 0 when "NFKB"=0 and "NFAT"=0 and "STAT3"=1 and "TBET"=1
+"IL2" 0 -> 1 when "NFKB"=0 and "NFAT"=1 and "TBET"=0
+"IL2" 1 -> 0 when "NFKB"=0 and "NFAT"=1 and "TBET"=1
+"IL2" 0 -> 1 when "NFKB"=1 and "TBET"=0
+"IL2" 1 -> 0 when "NFKB"=1 and "TBET"=1
+
+"IL2RBT" 1 -> 0 when "ERK"=0
+"IL2RBT" 1 -> 0 when "ERK"=1 and "TBET"=0
+"IL2RBT" 0 -> 1 when "ERK"=1 and "TBET"=1
+
+"IL2RB" 1 -> 0 when "IL15"=0 and "IL2"=0
+"IL2RB" 1 -> 0 when "IL15"=0 and "IL2"=1 and "IL2RBT"=0
+"IL2RB" 0 -> 1 when "IL15"=0 and "IL2"=1 and "IL2RBT"=1
+"IL2RB" 1 -> 0 when "IL15"=1 and "IL2RBT"=0
+"IL2RB" 0 -> 1 when "IL15"=1 and "IL2RBT"=1
+
+"IL2RAT" 1 -> 0 when "NFKB"=0 and "IL2"=0
+"IL2RAT" 1 -> 0 when "NFKB"=0 and "IL2"=1 and "STAT3"=0
+"IL2RAT" 0 -> 1 when "NFKB"=0 and "IL2"=1 and "STAT3"=1
+"IL2RAT" 1 -> 0 when "NFKB"=1 and "IL2"=0
+"IL2RAT" 0 -> 1 when "NFKB"=1 and "IL2"=1
+
+"IL2RA" 1 -> 0 when "IL2"=0
+"IL2RA" 1 -> 0 when "IL2"=1 and "IL2RAT"=0
+"IL2RA" 0 -> 1 when "IL2"=1 and "IL2RAT"=1
+"IL2RA" 1 -> 0 when "IL2"=1 and "IL2RAT"=1
+
+"JAK" 1 -> 0 when "CD45"=0 and "RANTES"=0 and "IL2RB"=0 and "IL2RA"=0 and "SOCS"=0 and "IFNG"=0
+"JAK" 0 -> 1 when "CD45"=0 and "RANTES"=0 and "IL2RB"=0 and "IL2RA"=0 and "SOCS"=0 and "IFNG"=1
+"JAK" 1 -> 0 when "CD45"=0 and "RANTES"=0 and "IL2RB"=0 and "IL2RA"=0 and "SOCS"=1
+"JAK" 0 -> 1 when "CD45"=0 and "RANTES"=0 and "IL2RB"=0 and "IL2RA"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "CD45"=0 and "RANTES"=0 and "IL2RB"=0 and "IL2RA"=1 and "SOCS"=1
+"JAK" 0 -> 1 when "CD45"=0 and "RANTES"=0 and "IL2RB"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "CD45"=0 and "RANTES"=0 and "IL2RB"=1 and "SOCS"=1
+"JAK" 0 -> 1 when "CD45"=0 and "RANTES"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "CD45"=0 and "RANTES"=1 and "SOCS"=1
+"JAK" 1 -> 0 when "CD45"=1
+
+"SOCS" 1 -> 0 when "IL15"=0 and "IL2"=0 and "JAK"=0
+"SOCS" 0 -> 1 when "IL15"=0 and "IL2"=0 and "JAK"=1
+"SOCS" 1 -> 0 when "IL15"=0 and "IL2"=1
+"SOCS" 1 -> 0 when "IL15"=1
+
+"STAT3" 1 -> 0 when "JAK"=0
+"STAT3" 0 -> 1 when "JAK"=1
+
+"P27" 1 -> 0 when "STAT3"=0
+"P27" 0 -> 1 when "STAT3"=1
+
+"Proliferation" 1 -> 0 when "STAT3"=0
+"Proliferation" 0 -> 1 when "STAT3"=1 and "P27"=0
+"Proliferation" 1 -> 0 when "STAT3"=1 and "P27"=1
+
+"TBET" 0 -> 1 when "JAK"=1
+
+"CREB" 1 -> 0 when "ERK"=0
+"CREB" 1 -> 0 when "ERK"=1 and "IFNG"=0
+"CREB" 0 -> 1 when "ERK"=1 and "IFNG"=1
+
+"IFNGT" 1 -> 0 when "NFAT"=0 and "STAT3"=0 and "TBET"=0
+"IFNGT" 0 -> 1 when "NFAT"=0 and "STAT3"=0 and "TBET"=1
+"IFNGT" 0 -> 1 when "NFAT"=0 and "STAT3"=1
+"IFNGT" 0 -> 1 when "NFAT"=1
+
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=0 and "IL2"=0
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=0 and "IL2"=1 and "IFNGT"=0
+"IFNG" 0 -> 1 when "IL15"=0 and "Stimuli"=0 and "IL2"=1 and "IFNGT"=1 and "P2"=0 and "SMAD"=0
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=0 and "IL2"=1 and "IFNGT"=1 and "P2"=0 and "SMAD"=1
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=0 and "IL2"=1 and "IFNGT"=1 and "P2"=1
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=1 and "IFNGT"=0
+"IFNG" 0 -> 1 when "IL15"=0 and "Stimuli"=1 and "IFNGT"=1 and "P2"=0 and "SMAD"=0
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=1 and "IFNGT"=1 and "P2"=0 and "SMAD"=1
+"IFNG" 1 -> 0 when "IL15"=0 and "Stimuli"=1 and "IFNGT"=1 and "P2"=1
+"IFNG" 1 -> 0 when "IL15"=1 and "IFNGT"=0
+"IFNG" 0 -> 1 when "IL15"=1 and "IFNGT"=1 and "P2"=0 and "SMAD"=0
+"IFNG" 1 -> 0 when "IL15"=1 and "IFNGT"=1 and "P2"=0 and "SMAD"=1
+"IFNG" 1 -> 0 when "IL15"=1 and "IFNGT"=1 and "P2"=1
+
+"P2" 0 -> 1 when "Stimuli2"=0 and "IFNG"=1
+"P2" 1 -> 0 when "Stimuli2"=1
+
+"GZMB" 1 -> 0 when "TBET"=0 and "CREB"=0
+"GZMB" 1 -> 0 when "TBET"=0 and "CREB"=1 and "IFNG"=0
+"GZMB" 0 -> 1 when "TBET"=0 and "CREB"=1 and "IFNG"=1
+"GZMB" 0 -> 1 when "TBET"=1
+
+"TPL2" 1 -> 0 when "TAX"=0 and "PI3K"=0
+"TPL2" 1 -> 0 when "TAX"=0 and "PI3K"=1 and "TNF"=0
+"TPL2" 0 -> 1 when "TAX"=0 and "PI3K"=1 and "TNF"=1
+"TPL2" 0 -> 1 when "TAX"=1
+
+"TNF" 1 -> 0 when "NFKB"=0
+"TNF" 0 -> 1 when "NFKB"=1
+
+"TRADD" 1 -> 0 when "TNF"=0
+"TRADD" 0 -> 1 when "TNF"=1 and "A20"=0 and "IAP"=0
+"TRADD" 1 -> 0 when "TNF"=1 and "A20"=0 and "IAP"=1
+"TRADD" 1 -> 0 when "TNF"=1 and "A20"=1
+
+"FasL" 1 -> 0 when "ERK"=0 and "NFKB"=0 and "NFAT"=0 and "STAT3"=0
+"FasL" 0 -> 1 when "ERK"=0 and "NFKB"=0 and "NFAT"=0 and "STAT3"=1
+"FasL" 0 -> 1 when "ERK"=0 and "NFKB"=0 and "NFAT"=1
+"FasL" 0 -> 1 when "ERK"=0 and "NFKB"=1
+"FasL" 0 -> 1 when "ERK"=1
+
+"FasT" 1 -> 0 when "NFKB"=0
+"FasT" 0 -> 1 when "NFKB"=1
+
+"Fas" 1 -> 0 when "FasL"=0
+"Fas" 1 -> 0 when "FasL"=1 and "FasT"=0
+"Fas" 0 -> 1 when "FasL"=1 and "FasT"=1 and "sFas"=0
+"Fas" 1 -> 0 when "FasL"=1 and "FasT"=1 and "sFas"=1
+
+"sFas" 1 -> 0 when "FasT"=0
+"sFas" 1 -> 0 when "FasT"=1 and "S1P"=0
+"sFas" 0 -> 1 when "FasT"=1 and "S1P"=1
+
+"Ceramide" 1 -> 0 when "Fas"=0
+"Ceramide" 0 -> 1 when "Fas"=1 and "S1P"=0
+"Ceramide" 1 -> 0 when "Fas"=1 and "S1P"=1
+
+"DISC" 1 -> 0 when "IL2"=0 and "FasT"=0
+"DISC" 1 -> 0 when "IL2"=0 and "FasT"=1 and "Fas"=0 and "Ceramide"=0
+"DISC" 0 -> 1 when "IL2"=0 and "FasT"=1 and "Fas"=0 and "Ceramide"=1
+"DISC" 0 -> 1 when "IL2"=0 and "FasT"=1 and "Fas"=1 and "Ceramide"=0 and "FLIP"=0
+"DISC" 1 -> 0 when "IL2"=0 and "FasT"=1 and "Fas"=1 and "Ceramide"=0 and "FLIP"=1
+"DISC" 0 -> 1 when "IL2"=0 and "FasT"=1 and "Fas"=1 and "Ceramide"=1
+"DISC" 1 -> 0 when "IL2"=1 and "FasT"=0
+"DISC" 1 -> 0 when "IL2"=1 and "FasT"=1 and "Fas"=0 and "Ceramide"=0
+"DISC" 0 -> 1 when "IL2"=1 and "FasT"=1 and "Fas"=0 and "Ceramide"=1
+"DISC" 0 -> 1 when "IL2"=1 and "FasT"=1 and "Fas"=1
+
+"Caspase" 1 -> 0 when "GZMB"=0 and "TRADD"=0 and "DISC"=0
+"Caspase" 0 -> 1 when "GZMB"=0 and "TRADD"=0 and "DISC"=1
+"Caspase" 1 -> 0 when "GZMB"=0 and "TRADD"=1 and "DISC"=0 and "BID"=0
+"Caspase" 0 -> 1 when "GZMB"=0 and "TRADD"=1 and "DISC"=0 and "BID"=1 and "IAP"=0
+"Caspase" 1 -> 0 when "GZMB"=0 and "TRADD"=1 and "DISC"=0 and "BID"=1 and "IAP"=1
+"Caspase" 0 -> 1 when "GZMB"=0 and "TRADD"=1 and "DISC"=1
+"Caspase" 1 -> 0 when "GZMB"=1 and "DISC"=0 and "BID"=0
+"Caspase" 0 -> 1 when "GZMB"=1 and "DISC"=0 and "BID"=1 and "IAP"=0
+"Caspase" 1 -> 0 when "GZMB"=1 and "DISC"=0 and "BID"=1 and "IAP"=1
+"Caspase" 0 -> 1 when "GZMB"=1 and "DISC"=1
+
+"FLIP" 1 -> 0 when "NFKB"=0 and "CREB"=0
+"FLIP" 1 -> 0 when "NFKB"=0 and "CREB"=1 and "IFNG"=0
+"FLIP" 0 -> 1 when "NFKB"=0 and "CREB"=1 and "IFNG"=1 and "DISC"=0
+"FLIP" 1 -> 0 when "NFKB"=0 and "CREB"=1 and "IFNG"=1 and "DISC"=1
+"FLIP" 0 -> 1 when "NFKB"=1 and "DISC"=0
+"FLIP" 1 -> 0 when "NFKB"=1 and "DISC"=1
+
+"A20" 1 -> 0 when "NFKB"=0
+"A20" 0 -> 1 when "NFKB"=1
+
+"BID" 1 -> 0 when "GZMB"=0 and "Caspase"=0
+"BID" 0 -> 1 when "GZMB"=0 and "Caspase"=1 and "BclxL"=0 and "MCL1"=0
+"BID" 1 -> 0 when "GZMB"=0 and "Caspase"=1 and "BclxL"=0 and "MCL1"=1
+"BID" 1 -> 0 when "GZMB"=0 and "Caspase"=1 and "BclxL"=1
+"BID" 0 -> 1 when "GZMB"=1 and "BclxL"=0 and "MCL1"=0
+"BID" 1 -> 0 when "GZMB"=1 and "BclxL"=0 and "MCL1"=1
+"BID" 1 -> 0 when "GZMB"=1 and "BclxL"=1
+
+"IAP" 1 -> 0 when "NFKB"=0
+"IAP" 0 -> 1 when "NFKB"=1 and "BID"=0
+"IAP" 1 -> 0 when "NFKB"=1 and "BID"=1
+
+"BclxL" 1 -> 0 when "NFKB"=0 and "STAT3"=0
+"BclxL" 0 -> 1 when "NFKB"=0 and "STAT3"=1 and "GZMB"=0 and "DISC"=0 and "BID"=0
+"BclxL" 1 -> 0 when "NFKB"=0 and "STAT3"=1 and "GZMB"=0 and "DISC"=0 and "BID"=1
+"BclxL" 1 -> 0 when "NFKB"=0 and "STAT3"=1 and "GZMB"=0 and "DISC"=1
+"BclxL" 1 -> 0 when "NFKB"=0 and "STAT3"=1 and "GZMB"=1
+"BclxL" 0 -> 1 when "NFKB"=1 and "GZMB"=0 and "DISC"=0 and "BID"=0
+"BclxL" 1 -> 0 when "NFKB"=1 and "GZMB"=0 and "DISC"=0 and "BID"=1
+"BclxL" 1 -> 0 when "NFKB"=1 and "GZMB"=0 and "DISC"=1
+"BclxL" 1 -> 0 when "NFKB"=1 and "GZMB"=1
+
+"MCL1" 1 -> 0 when "PI3K"=0
+"MCL1" 1 -> 0 when "PI3K"=1 and "NFKB"=0
+"MCL1" 1 -> 0 when "PI3K"=1 and "NFKB"=1 and "IL2RB"=0
+"MCL1" 1 -> 0 when "PI3K"=1 and "NFKB"=1 and "IL2RB"=1 and "STAT3"=0
+"MCL1" 0 -> 1 when "PI3K"=1 and "NFKB"=1 and "IL2RB"=1 and "STAT3"=1 and "DISC"=0
+"MCL1" 1 -> 0 when "PI3K"=1 and "NFKB"=1 and "IL2RB"=1 and "STAT3"=1 and "DISC"=1
+
+"Apoptosis" 1 -> 0 when "Caspase"=0
+"Apoptosis" 0 -> 1 when "Caspase"=1
+
+"GPCR" 1 -> 0 when "S1P"=0
+"GPCR" 0 -> 1 when "S1P"=1
+
+"SMAD" 1 -> 0 when "GPCR"=0
+"SMAD" 0 -> 1 when "GPCR"=1
+
+"SPHK1" 1 -> 0 when "PDGFR"=0
+"SPHK1" 0 -> 1 when "PDGFR"=1
+
+"S1P" 1 -> 0 when "Ceramide"=0 and "SPHK1"=0
+"S1P" 0 -> 1 when "Ceramide"=0 and "SPHK1"=1
+"S1P" 1 -> 0 when "Ceramide"=1
+

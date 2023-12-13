@@ -1,0 +1,48 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"SCR" [0, 1]
+"PLT" [0, 1]
+"ARF" [0, 1]
+"AUXIAA" [0, 1]
+"AUXIN" [0, 1]
+"SHR" [0, 1]
+"JKD" [0, 1]
+"MGP" [0, 1]
+"WOX5" [0, 1]
+"CLEX" [0, 1]
+
+"SCR" 1 -> 0 when "SHR"=0
+"SCR" 1 -> 0 when "SHR"=1 and "JKD"=0 and "MGP"=1
+
+"PLT" 1 -> 0 when "ARF"=0
+"PLT" 0 -> 1 when "ARF"=1
+
+"ARF" 0 -> 1 when "AUXIAA"=0
+"ARF" 1 -> 0 when "AUXIAA"=1
+
+"AUXIAA" 0 -> 1 when "AUXIN"=0
+"AUXIAA" 1 -> 0 when "AUXIN"=1
+
+
+
+"JKD" 1 -> 0 when "SCR"=0
+"JKD" 1 -> 0 when "SCR"=1 and "SHR"=0
+"JKD" 0 -> 1 when "SCR"=1 and "SHR"=1
+
+"MGP" 1 -> 0 when "SCR"=0
+"MGP" 1 -> 0 when "SCR"=1 and "SHR"=0
+"MGP" 0 -> 1 when "SCR"=1 and "SHR"=1 and "WOX5"=0
+"MGP" 1 -> 0 when "SCR"=1 and "SHR"=1 and "WOX5"=1
+
+"WOX5" 1 -> 0 when "SCR"=0
+"WOX5" 1 -> 0 when "SCR"=1 and "ARF"=0
+"WOX5" 1 -> 0 when "SCR"=1 and "ARF"=1 and "SHR"=0
+"WOX5" 0 -> 1 when "SCR"=1 and "ARF"=1 and "SHR"=1 and "CLEX"=0
+"WOX5" 1 -> 0 when "SCR"=1 and "ARF"=1 and "SHR"=1 and "CLEX"=1
+
+"CLEX" 1 -> 0 when "SHR"=0
+

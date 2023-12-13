@@ -18,4 +18,5 @@ using sylvan::Bdd;
 using sylvan::BddSet;
 
 Graph parseFileToGraph(std::string pathName);
+Graph parseFileToGraph2(std::string pathName);
 #endif // PARSE_H

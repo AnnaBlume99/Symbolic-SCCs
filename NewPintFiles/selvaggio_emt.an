@@ -1,0 +1,422 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"DELTA" [0, 1]
+"ECM" [0, 1]
+"EGF" [0, 1]
+"FAT4_L" [0, 1]
+"HGF" [0, 1]
+"IL6" [0, 1]
+"ROS" [0, 1]
+"RPTP_L" [0, 1]
+"TGFB" [0, 1]
+"WNT" [0, 1]
+"AJ_b1" [0, 1]
+"AJ_b2" [0, 1]
+"AKT" [0, 1]
+"BCat" [0, 1]
+"BCat_AJ" [0, 1]
+"CK1" [0, 1]
+"CSL" [0, 1]
+"DVL" [0, 1]
+"ECad" [0, 1]
+"ECad_AJ_b1" [0, 1]
+"ECad_AJ_b2" [0, 1]
+"EGFR" [0, 1]
+"ERK" [0, 1]
+"FAK_SRC_b1" [0, 1]
+"FAK_SRC_b2" [0, 1]
+"FAT4" [0, 1]
+"FA_b1" [0, 1]
+"FA_b2" [0, 1]
+"FA_b3" [0, 1]
+"GSK3B" [0, 1]
+"HGFR" [0, 1]
+"HIF1a" [0, 1]
+"ILK" [0, 1]
+"ITG_AB" [0, 1]
+"JAK" [0, 1]
+"JNK" [0, 1]
+"LATS" [0, 1]
+"MEK" [0, 1]
+"NFkB" [0, 1]
+"NOTCH" [0, 1]
+"PAK" [0, 1]
+"PI3K" [0, 1]
+"RAF1" [0, 1]
+"RAP1" [0, 1]
+"RAS" [0, 1]
+"RPTP" [0, 1]
+"SLUG" [0, 1]
+"SMAD" [0, 1]
+"SNAIL" [0, 1]
+"STAT3" [0, 1]
+"TCF_LEF" [0, 1]
+"TGFBR" [0, 1]
+"YAP_TAZ" [0, 1]
+"ZEB" [0, 1]
+"miR200" [0, 1]
+"p120_AJ" [0, 1]
+
+
+
+
+
+
+
+
+
+
+
+"AJ_b1" 0 -> 1 when "ECad"=1
+"AJ_b1" 1 -> 0 when "AJ_b2"=0 and "ECad"=0
+
+"AJ_b2" 1 -> 0 when "AJ_b1"=0
+"AJ_b2" 1 -> 0 when "AJ_b1"=1 and "ECad"=0
+"AJ_b2" 1 -> 0 when "AJ_b1"=1 and "ECad"=1 and "ECad_AJ_b1"=0
+"AJ_b2" 1 -> 0 when "AJ_b1"=1 and "ECad"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0
+"AJ_b2" 0 -> 1 when "AJ_b1"=1 and "ECad"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1
+
+"AKT" 1 -> 0 when "ILK"=0
+"AKT" 1 -> 0 when "ILK"=1 and "PI3K"=0
+"AKT" 0 -> 1 when "ILK"=1 and "PI3K"=1
+
+"BCat" 0 -> 1 when "BCat_AJ"=0
+"BCat" 0 -> 1 when "BCat_AJ"=1 and "GSK3B"=0
+"BCat" 1 -> 0 when "BCat_AJ"=1 and "GSK3B"=1 and "HGFR"=0
+"BCat" 0 -> 1 when "BCat_AJ"=1 and "GSK3B"=1 and "HGFR"=1
+
+"BCat_AJ" 1 -> 0 when "ECad_AJ_b1"=0
+"BCat_AJ" 0 -> 1 when "ECad_AJ_b1"=1 and "FAK_SRC_b1"=0 and "JNK"=0
+"BCat_AJ" 1 -> 0 when "ECad_AJ_b1"=1 and "FAK_SRC_b1"=0 and "JNK"=1
+"BCat_AJ" 1 -> 0 when "ECad_AJ_b1"=1 and "FAK_SRC_b1"=1 and "JNK"=0 and "RPTP"=0
+"BCat_AJ" 0 -> 1 when "ECad_AJ_b1"=1 and "FAK_SRC_b1"=1 and "JNK"=0 and "RPTP"=1
+"BCat_AJ" 1 -> 0 when "ECad_AJ_b1"=1 and "FAK_SRC_b1"=1 and "JNK"=1
+
+"CK1" 1 -> 0 when "WNT"=0
+"CK1" 0 -> 1 when "WNT"=1
+
+"CSL" 1 -> 0 when "DVL"=0 and "NOTCH"=0
+"CSL" 0 -> 1 when "DVL"=0 and "NOTCH"=1
+"CSL" 1 -> 0 when "DVL"=1
+
+"DVL" 1 -> 0 when "CK1"=0
+"DVL" 1 -> 0 when "CK1"=1 and "YAP_TAZ"=0
+"DVL" 0 -> 1 when "CK1"=1 and "YAP_TAZ"=1
+
+"ECad" 0 -> 1 when "SLUG"=0 and "SNAIL"=0 and "ZEB"=0
+"ECad" 1 -> 0 when "SLUG"=0 and "SNAIL"=0 and "ZEB"=1
+"ECad" 1 -> 0 when "SLUG"=0 and "SNAIL"=1 and "ZEB"=0 and "miR200"=0
+"ECad" 0 -> 1 when "SLUG"=0 and "SNAIL"=1 and "ZEB"=0 and "miR200"=1
+"ECad" 1 -> 0 when "SLUG"=0 and "SNAIL"=1 and "ZEB"=1
+"ECad" 1 -> 0 when "SLUG"=1
+
+"ECad_AJ_b1" 1 -> 0 when "ECad"=0 and "ECad_AJ_b2"=0
+"ECad_AJ_b1" 0 -> 1 when "ECad"=1 and "FAK_SRC_b1"=0
+"ECad_AJ_b1" 0 -> 1 when "ECad"=1 and "FAK_SRC_b1"=1 and "RPTP"=1
+"ECad_AJ_b1" 1 -> 0 when "ECad"=1 and "ECad_AJ_b2"=0 and "FAK_SRC_b1"=1 and "RPTP"=0
+
+"ECad_AJ_b2" 1 -> 0 when "BCat_AJ"=0
+"ECad_AJ_b2" 1 -> 0 when "BCat_AJ"=1 and "ECad"=0
+"ECad_AJ_b2" 1 -> 0 when "BCat_AJ"=1 and "ECad"=1 and "ECad_AJ_b1"=0
+"ECad_AJ_b2" 0 -> 1 when "BCat_AJ"=1 and "ECad"=1 and "ECad_AJ_b1"=1 and "FAK_SRC_b1"=0
+"ECad_AJ_b2" 1 -> 0 when "BCat_AJ"=1 and "ECad"=1 and "ECad_AJ_b1"=1 and "FAK_SRC_b1"=1 and "RPTP"=0
+"ECad_AJ_b2" 0 -> 1 when "BCat_AJ"=1 and "ECad"=1 and "ECad_AJ_b1"=1 and "FAK_SRC_b1"=1 and "RPTP"=1
+
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=0 and "RPTP"=0 and "TGFBR"=0
+"EGFR" 0 -> 1 when "EGF"=0 and "FAK_SRC_b1"=0 and "RPTP"=0 and "TGFBR"=1
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=0 and "RPTP"=1
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=0 and "RPTP"=0 and "TGFBR"=0
+"EGFR" 0 -> 1 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=0 and "RPTP"=0 and "TGFBR"=1
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=0 and "RPTP"=1
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=1 and "ITG_AB"=0 and "RPTP"=0 and "TGFBR"=0
+"EGFR" 0 -> 1 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=1 and "ITG_AB"=0 and "RPTP"=0 and "TGFBR"=1
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=1 and "ITG_AB"=0 and "RPTP"=1
+"EGFR" 0 -> 1 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=1 and "ITG_AB"=1 and "RPTP"=0
+"EGFR" 1 -> 0 when "EGF"=0 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=1 and "ITG_AB"=1 and "RPTP"=1
+"EGFR" 0 -> 1 when "EGF"=1 and "RPTP"=0
+"EGFR" 1 -> 0 when "EGF"=1 and "RPTP"=1
+
+"ERK" 1 -> 0 when "MEK"=0
+"ERK" 0 -> 1 when "MEK"=1
+
+"FAK_SRC_b1" 0 -> 1 when "ROS"=0 and "EGFR"=0 and "HGFR"=0 and "ITG_AB"=1
+"FAK_SRC_b1" 0 -> 1 when "ROS"=0 and "EGFR"=0 and "HGFR"=1
+"FAK_SRC_b1" 1 -> 0 when "ROS"=0 and "EGFR"=0 and "FAK_SRC_b2"=0 and "HGFR"=0 and "ITG_AB"=0
+"FAK_SRC_b1" 0 -> 1 when "ROS"=0 and "EGFR"=1
+"FAK_SRC_b1" 0 -> 1 when "ROS"=1
+
+"FAK_SRC_b2" 1 -> 0 when "ROS"=0 and "EGFR"=0
+"FAK_SRC_b2" 1 -> 0 when "ROS"=0 and "EGFR"=1 and "FAK_SRC_b1"=0
+"FAK_SRC_b2" 1 -> 0 when "ROS"=0 and "EGFR"=1 and "FAK_SRC_b1"=1 and "HGFR"=0
+"FAK_SRC_b2" 1 -> 0 when "ROS"=0 and "EGFR"=1 and "FAK_SRC_b1"=1 and "HGFR"=1 and "ITG_AB"=0
+"FAK_SRC_b2" 0 -> 1 when "ROS"=0 and "EGFR"=1 and "FAK_SRC_b1"=1 and "HGFR"=1 and "ITG_AB"=1
+"FAK_SRC_b2" 1 -> 0 when "ROS"=1 and "FAK_SRC_b1"=0
+"FAK_SRC_b2" 1 -> 0 when "ROS"=1 and "FAK_SRC_b1"=1 and "ITG_AB"=0
+"FAK_SRC_b2" 0 -> 1 when "ROS"=1 and "FAK_SRC_b1"=1 and "ITG_AB"=1
+
+"FAT4" 1 -> 0 when "FAT4_L"=0
+"FAT4" 0 -> 1 when "FAT4_L"=1 and "ERK"=0
+"FAT4" 1 -> 0 when "FAT4_L"=1 and "ERK"=1
+
+"FA_b1" 0 -> 1 when "FAK_SRC_b1"=0 and "PAK"=1
+"FA_b1" 1 -> 0 when "FAK_SRC_b1"=0 and "FA_b2"=0 and "PAK"=0
+"FA_b1" 0 -> 1 when "FAK_SRC_b1"=1
+
+"FA_b2" 1 -> 0 when "FAK_SRC_b1"=0 and "FA_b1"=0
+"FA_b2" 1 -> 0 when "FAK_SRC_b1"=0 and "FA_b1"=1 and "FA_b3"=0
+"FA_b2" 1 -> 0 when "FAK_SRC_b1"=1 and "FA_b1"=0
+"FA_b2" 0 -> 1 when "FAK_SRC_b1"=1 and "FA_b1"=1 and "PAK"=1
+"FA_b2" 1 -> 0 when "FAK_SRC_b1"=1 and "FA_b1"=1 and "FA_b3"=0 and "PAK"=0
+
+"FA_b3" 1 -> 0 when "FAK_SRC_b1"=0
+"FA_b3" 1 -> 0 when "FAK_SRC_b1"=1 and "FA_b1"=0
+"FA_b3" 1 -> 0 when "FAK_SRC_b1"=1 and "FA_b1"=1 and "FA_b2"=0
+"FA_b3" 1 -> 0 when "FAK_SRC_b1"=1 and "FA_b1"=1 and "FA_b2"=1 and "ITG_AB"=0
+"FA_b3" 1 -> 0 when "FAK_SRC_b1"=1 and "FA_b1"=1 and "FA_b2"=1 and "ITG_AB"=1 and "PAK"=0
+"FA_b3" 0 -> 1 when "FAK_SRC_b1"=1 and "FA_b1"=1 and "FA_b2"=1 and "ITG_AB"=1 and "PAK"=1
+
+"GSK3B" 0 -> 1 when "AKT"=0 and "DVL"=0 and "ERK"=0
+"GSK3B" 1 -> 0 when "AKT"=0 and "DVL"=0 and "ERK"=1
+"GSK3B" 1 -> 0 when "AKT"=0 and "DVL"=1
+"GSK3B" 1 -> 0 when "AKT"=1
+
+"HGFR" 1 -> 0 when "HGF"=0 and "ITG_AB"=0
+"HGFR" 0 -> 1 when "HGF"=0 and "ITG_AB"=1 and "RPTP"=0
+"HGFR" 1 -> 0 when "HGF"=0 and "ITG_AB"=1 and "RPTP"=1
+"HGFR" 0 -> 1 when "HGF"=1 and "RPTP"=0
+"HGFR" 1 -> 0 when "HGF"=1 and "RPTP"=1
+
+"HIF1a" 1 -> 0 when "NFkB"=0
+"HIF1a" 1 -> 0 when "NFkB"=1 and "STAT3"=0
+"HIF1a" 0 -> 1 when "NFkB"=1 and "STAT3"=1
+
+"ILK" 1 -> 0 when "ITG_AB"=0
+"ILK" 1 -> 0 when "ITG_AB"=1 and "PI3K"=0
+"ILK" 0 -> 1 when "ITG_AB"=1 and "PI3K"=1
+
+"ITG_AB" 1 -> 0 when "ECM"=0
+"ITG_AB" 1 -> 0 when "ECM"=1 and "RAP1"=0
+"ITG_AB" 0 -> 1 when "ECM"=1 and "RAP1"=1
+
+"JAK" 1 -> 0 when "IL6"=0 and "EGFR"=0
+"JAK" 0 -> 1 when "IL6"=0 and "EGFR"=1
+"JAK" 0 -> 1 when "IL6"=1
+
+"JNK" 1 -> 0 when "ROS"=0 and "FAK_SRC_b1"=0 and "RPTP"=0 and "TGFBR"=0
+"JNK" 0 -> 1 when "ROS"=0 and "FAK_SRC_b1"=0 and "RPTP"=0 and "TGFBR"=1
+"JNK" 1 -> 0 when "ROS"=0 and "FAK_SRC_b1"=0 and "RPTP"=1
+"JNK" 0 -> 1 when "ROS"=0 and "FAK_SRC_b1"=1 and "RPTP"=0
+"JNK" 1 -> 0 when "ROS"=0 and "FAK_SRC_b1"=1 and "RPTP"=1
+"JNK" 0 -> 1 when "ROS"=1 and "RPTP"=0
+"JNK" 1 -> 0 when "ROS"=1 and "RPTP"=1
+
+"LATS" 1 -> 0 when "BCat_AJ"=0 and "FAT4"=0
+"LATS" 0 -> 1 when "BCat_AJ"=0 and "FAT4"=1 and "PI3K"=0
+"LATS" 1 -> 0 when "BCat_AJ"=0 and "FAT4"=1 and "PI3K"=1
+"LATS" 1 -> 0 when "BCat_AJ"=1 and "ECad_AJ_b1"=0 and "FAT4"=0
+"LATS" 0 -> 1 when "BCat_AJ"=1 and "ECad_AJ_b1"=0 and "FAT4"=1 and "PI3K"=0
+"LATS" 1 -> 0 when "BCat_AJ"=1 and "ECad_AJ_b1"=0 and "FAT4"=1 and "PI3K"=1
+"LATS" 1 -> 0 when "BCat_AJ"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0 and "FAT4"=0
+"LATS" 0 -> 1 when "BCat_AJ"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0 and "FAT4"=1 and "PI3K"=0
+"LATS" 1 -> 0 when "BCat_AJ"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0 and "FAT4"=1 and "PI3K"=1
+"LATS" 0 -> 1 when "BCat_AJ"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1 and "PI3K"=0
+"LATS" 1 -> 0 when "BCat_AJ"=1 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1 and "PI3K"=1
+
+"MEK" 1 -> 0 when "RAF1"=0
+"MEK" 0 -> 1 when "RAF1"=1
+
+"NFkB" 1 -> 0 when "ROS"=0 and "AKT"=0 and "CSL"=0 and "TGFBR"=0
+"NFkB" 0 -> 1 when "ROS"=0 and "AKT"=0 and "CSL"=0 and "TGFBR"=1
+"NFkB" 0 -> 1 when "ROS"=0 and "AKT"=0 and "CSL"=1
+"NFkB" 0 -> 1 when "ROS"=0 and "AKT"=1
+"NFkB" 0 -> 1 when "ROS"=1
+
+"NOTCH" 1 -> 0 when "DELTA"=0
+"NOTCH" 0 -> 1 when "DELTA"=1
+
+"PAK" 1 -> 0 when "FAK_SRC_b1"=0 and "PI3K"=0
+"PAK" 0 -> 1 when "FAK_SRC_b1"=0 and "PI3K"=1
+"PAK" 0 -> 1 when "FAK_SRC_b1"=1
+
+"PI3K" 1 -> 0 when "FAK_SRC_b1"=0 and "RAS"=0
+"PI3K" 0 -> 1 when "FAK_SRC_b1"=0 and "RAS"=1
+"PI3K" 0 -> 1 when "FAK_SRC_b1"=1
+
+"RAF1" 1 -> 0 when "RAS"=0
+"RAF1" 0 -> 1 when "RAS"=1
+
+"RAP1" 1 -> 0 when "ECad_AJ_b1"=0 and "FAK_SRC_b1"=0
+"RAP1" 0 -> 1 when "ECad_AJ_b1"=0 and "FAK_SRC_b1"=1
+"RAP1" 1 -> 0 when "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0 and "FAK_SRC_b1"=0
+"RAP1" 0 -> 1 when "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0 and "FAK_SRC_b1"=1
+"RAP1" 0 -> 1 when "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1 and "FAK_SRC_b1"=0 and "p120_AJ"=0
+"RAP1" 1 -> 0 when "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1 and "FAK_SRC_b1"=0 and "p120_AJ"=1
+"RAP1" 0 -> 1 when "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1 and "FAK_SRC_b1"=1
+
+"RAS" 1 -> 0 when "EGFR"=0 and "FAK_SRC_b1"=0 and "HGFR"=0 and "JAK"=0 and "TGFBR"=0
+"RAS" 0 -> 1 when "EGFR"=0 and "FAK_SRC_b1"=0 and "HGFR"=0 and "JAK"=0 and "TGFBR"=1
+"RAS" 0 -> 1 when "EGFR"=0 and "FAK_SRC_b1"=0 and "HGFR"=0 and "JAK"=1
+"RAS" 0 -> 1 when "EGFR"=0 and "FAK_SRC_b1"=0 and "HGFR"=1
+"RAS" 0 -> 1 when "EGFR"=0 and "FAK_SRC_b1"=1
+"RAS" 0 -> 1 when "EGFR"=1
+
+"RPTP" 1 -> 0 when "ROS"=0 and "RPTP_L"=0
+"RPTP" 0 -> 1 when "ROS"=0 and "RPTP_L"=1 and "FAK_SRC_b1"=0
+"RPTP" 0 -> 1 when "ROS"=0 and "RPTP_L"=1 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=0
+"RPTP" 1 -> 0 when "ROS"=0 and "RPTP_L"=1 and "FAK_SRC_b1"=1 and "FAK_SRC_b2"=1
+"RPTP" 1 -> 0 when "ROS"=1
+
+"SLUG" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "HIF1a"=0 and "TCF_LEF"=0
+"SLUG" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "HIF1a"=0 and "TCF_LEF"=1 and "miR200"=0
+"SLUG" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "HIF1a"=0 and "TCF_LEF"=1 and "miR200"=1
+"SLUG" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "HIF1a"=1 and "miR200"=0
+"SLUG" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "HIF1a"=1 and "miR200"=1
+"SLUG" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1
+"SLUG" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "miR200"=0
+"SLUG" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "miR200"=1
+"SLUG" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1
+"SLUG" 0 -> 1 when "CSL"=1 and "GSK3B"=0 and "miR200"=0
+"SLUG" 1 -> 0 when "CSL"=1 and "GSK3B"=0 and "miR200"=1
+"SLUG" 1 -> 0 when "CSL"=1 and "GSK3B"=1
+
+"SMAD" 1 -> 0 when "TGFBR"=0
+"SMAD" 1 -> 0 when "TGFBR"=1 and "YAP_TAZ"=0
+"SMAD" 0 -> 1 when "TGFBR"=1 and "YAP_TAZ"=1
+
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "NFkB"=0 and "SMAD"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "NFkB"=0 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "NFkB"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "NFkB"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "NFkB"=1 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=1 and "SMAD"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=1 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=1 and "NFkB"=0 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=1 and "NFkB"=0 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=1 and "NFkB"=0 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=0 and "JNK"=1 and "NFkB"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=1 and "PAK"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=1 and "PAK"=0 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=0 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=1 and "PAK"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=0 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "NFkB"=0 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "NFkB"=0 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "NFkB"=0 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=0 and "JNK"=1 and "NFkB"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=0 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=1 and "PAK"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=1 and "PAK"=0 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=0 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "NFkB"=1 and "PAK"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "NFkB"=0 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "NFkB"=0 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "NFkB"=0 and "SMAD"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=0 and "JNK"=0 and "NFkB"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=0 and "JNK"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=0 and "STAT3"=1 and "TCF_LEF"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=0 and "SMAD"=1 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=0
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=1 and "SMAD"=0 and "TCF_LEF"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=0 and "PAK"=1 and "SMAD"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=0 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=0 and "NFkB"=1 and "PAK"=1
+"SNAIL" 1 -> 0 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "STAT3"=0
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=0 and "STAT3"=1
+"SNAIL" 0 -> 1 when "CSL"=1 and "ERK"=1 and "GSK3B"=1 and "HIF1a"=1 and "JNK"=1 and "PAK"=1
+
+"STAT3" 1 -> 0 when "FAK_SRC_b1"=0 and "JAK"=0
+"STAT3" 0 -> 1 when "FAK_SRC_b1"=0 and "JAK"=1
+"STAT3" 0 -> 1 when "FAK_SRC_b1"=1
+
+"TCF_LEF" 1 -> 0 when "BCat"=0
+"TCF_LEF" 0 -> 1 when "BCat"=1
+
+"TGFBR" 1 -> 0 when "TGFB"=0
+"TGFBR" 0 -> 1 when "TGFB"=1
+
+"YAP_TAZ" 0 -> 1 when "LATS"=0
+"YAP_TAZ" 1 -> 0 when "LATS"=1
+
+"ZEB" 1 -> 0 when "SLUG"=0 and "SNAIL"=0
+"ZEB" 0 -> 1 when "SLUG"=0 and "SNAIL"=1 and "miR200"=0
+"ZEB" 1 -> 0 when "SLUG"=0 and "SNAIL"=1 and "miR200"=1
+"ZEB" 0 -> 1 when "SLUG"=1 and "miR200"=0
+"ZEB" 1 -> 0 when "SLUG"=1 and "miR200"=1
+
+"miR200" 0 -> 1 when "SNAIL"=0 and "ZEB"=0
+"miR200" 1 -> 0 when "SNAIL"=0 and "ZEB"=1
+"miR200" 1 -> 0 when "SNAIL"=1
+
+"p120_AJ" 1 -> 0 when "CK1"=0 and "ECad_AJ_b1"=0
+"p120_AJ" 1 -> 0 when "CK1"=0 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=0
+"p120_AJ" 0 -> 1 when "CK1"=0 and "ECad_AJ_b1"=1 and "ECad_AJ_b2"=1 and "RAP1"=1
+"p120_AJ" 1 -> 0 when "CK1"=1
+

@@ -411,11 +411,8 @@ SccResult chainAlgBottomSpecialFWD(const Graph &fullGraph) {
 
 //Version with only one recursive call
 SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
-  auto start = std::chrono::high_resolution_clock::now();
-  auto stop = std::chrono::high_resolution_clock::now();
-  std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-
   int symbolicSteps = 0;
+  int spuriousSCCs = 0;
 
   std::list<Bdd> sccList = {};
   if(fullGraph.nodes == leaf_false()) {
@@ -431,10 +428,25 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
   // const std::deque<Relation> relationDeque = reducedGraph.first.relations;
   //End TGR
 
+  //Deadlock detection
+  // std::pair<SccResult, Graph> dl = deadlockRemoval(fullGraph);
+  // symbolicSteps += dl.first.symbolicSteps;
+  // for(Bdd bs : dl.first.sccs){
+  //   sccList.push_back(bs);
+  // }
+  // const Bdd allNodes1 = dl.second.nodes;
+  // const BddSet fullCube1 = fullGraph.cube;
+  // const std::deque<Relation> relationDeque1 = fullGraph.relations;
+  // std::cout << ";" << sccList.size();
+  // if(allNodes1 == leaf_false()) {
+  //   std::cout << ";" << spuriousSCCs;
+  //   return createSccResult(sccList, symbolicSteps);
+  // }
+  // //Deadlock detection end
 
-  //ITGR Testing:
-
-  // std::pair<Graph, int> reducedGraph = ITGR(fullGraph);
+  // //ITGR Testing:
+  // const Graph deadlockGraph = { allNodes1, fullCube1, relationDeque1 };
+  // std::pair<Graph, int> reducedGraph = ITGR(deadlockGraph);
   // symbolicSteps += reducedGraph.second;
   // const Bdd allNodes = reducedGraph.first.nodes;
   // const BddSet fullCube = reducedGraph.first.cube;
@@ -443,25 +455,12 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
 
 
   //Normal code
-  // const Bdd allNodes = fullGraph.nodes;
-  // const BddSet fullCube = fullGraph.cube;
-  // const std::deque<Relation> relationDeque = fullGraph.relations;
-  //End Normal code
-
-  //Deadlock detection
-  std::pair<SccResult, Graph> dl = deadlockRemoval(fullGraph);
-  symbolicSteps += dl.first.symbolicSteps;
-  for(Bdd bs : dl.first.sccs){
-    sccList.push_back(bs);
-  }
-  const Bdd allNodes = dl.second.nodes;
+  const Bdd allNodes = fullGraph.nodes;
   const BddSet fullCube = fullGraph.cube;
   const std::deque<Relation> relationDeque = fullGraph.relations;
-  std::cout << "DL: " << sccList.size() << std::endl;
-  if(allNodes == leaf_false()) {
-    return createSccResult(sccList, symbolicSteps);
-  }
-  //Deadlock detection end
+  //End Normal code
+
+  
 
   std::stack<std::pair<Bdd, Bdd>> callStack;
   const Bdd startNode = pick(allNodes, fullCube);
@@ -476,12 +475,6 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
   workingGraph.relations = relationDeque;
 
   while(!callStack.empty()) {
-    stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    if(duration.count() > 30000) {
-      return createSccResult({}, 0);
-    }
-
     const std::pair<Bdd, Bdd> nodeSetAndStartNode = callStack.top();
     callStack.pop();
     const Bdd nodeSet = std::get<0>(nodeSetAndStartNode);
@@ -495,12 +488,6 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
 
     //WHILE-SEARCH
     while(!bottomSCC) {
-      stop = std::chrono::high_resolution_clock::now();
-      duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-      if(duration.count() > 30000) {
-        return createSccResult({}, 0);
-      }
-
       //Compute FWD in the current forward set from a node in the last layer
       newForward = rel.forwardSetLastLayer(workingGraph, v2);
       symbolicSteps = symbolicSteps + newForward.symbolicSteps;
@@ -517,6 +504,8 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
         bscc = scc;
         sccList.push_back(bscc);
       } else {
+        spuriousSCCs++;
+
         //Not a BSCC, initialize next loop of while
         //Update the current forward set we work on and subtract the scc (which is not bscc) from the lastlayer and forwardset
         newForward.forwardSet = differenceBdd(newForward.forwardSet, scc);
@@ -548,6 +537,8 @@ SccResult chainAlgBottomSingleRecCall(const Graph &fullGraph) {
       callStack.push(recPair2);
     }
   }
+
+  std::cout << ";" << spuriousSCCs;
 
   //Return SCC list and number of symbolic steps
   return createSccResult(sccList, symbolicSteps);

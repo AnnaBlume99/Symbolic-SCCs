@@ -1,0 +1,71 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"CycD" [0, 1]
+"Cdc20" [0, 1]
+"CycA" [0, 1]
+"CycB" [0, 1]
+"CycE" [0, 1]
+"E2F" [0, 1]
+"Rb" [0, 1]
+"UbcH10" [0, 1]
+"cdh1" [0, 1]
+"p27" [0, 1]
+
+
+"Cdc20" 1 -> 0 when "CycB"=0
+"Cdc20" 0 -> 1 when "CycB"=1
+
+"CycA" 0 -> 1 when "Cdc20"=0 and "E2F"=1 and "Rb"=0 and "UbcH10"=0
+"CycA" 0 -> 1 when "Cdc20"=0 and "E2F"=1 and "Rb"=0 and "UbcH10"=1 and "cdh1"=0
+"CycA" 1 -> 0 when "Cdc20"=0 and "Rb"=0 and "UbcH10"=1 and "cdh1"=1
+"CycA" 1 -> 0 when "Cdc20"=0 and "Rb"=1
+"CycA" 1 -> 0 when "Cdc20"=1
+
+"CycB" 0 -> 1 when "Cdc20"=0 and "cdh1"=0
+"CycB" 1 -> 0 when "Cdc20"=0 and "cdh1"=1
+"CycB" 1 -> 0 when "Cdc20"=1
+
+"CycE" 1 -> 0 when "E2F"=0
+"CycE" 0 -> 1 when "E2F"=1 and "Rb"=0
+"CycE" 1 -> 0 when "E2F"=1 and "Rb"=1
+
+"E2F" 0 -> 1 when "CycA"=0 and "CycB"=0 and "Rb"=0
+"E2F" 1 -> 0 when "CycA"=0 and "CycB"=0 and "Rb"=1
+"E2F" 1 -> 0 when "CycA"=0 and "CycB"=1
+"E2F" 1 -> 0 when "CycA"=1 and "CycB"=0 and "Rb"=0 and "p27"=0
+"E2F" 0 -> 1 when "CycA"=1 and "CycB"=0 and "Rb"=0 and "p27"=1
+"E2F" 1 -> 0 when "CycA"=1 and "CycB"=0 and "Rb"=1
+"E2F" 1 -> 0 when "CycA"=1 and "CycB"=1
+
+"Rb" 0 -> 1 when "CycD"=0 and "CycA"=0 and "CycB"=0 and "CycE"=0
+"Rb" 1 -> 0 when "CycD"=0 and "CycA"=0 and "CycB"=0 and "CycE"=1 and "p27"=0
+"Rb" 0 -> 1 when "CycD"=0 and "CycA"=0 and "CycB"=0 and "CycE"=1 and "p27"=1
+"Rb" 1 -> 0 when "CycD"=0 and "CycA"=0 and "CycB"=1
+"Rb" 1 -> 0 when "CycD"=0 and "CycA"=1 and "CycB"=0 and "p27"=0
+"Rb" 0 -> 1 when "CycD"=0 and "CycA"=1 and "CycB"=0 and "p27"=1
+"Rb" 1 -> 0 when "CycD"=0 and "CycA"=1 and "CycB"=1
+"Rb" 1 -> 0 when "CycD"=1
+
+"UbcH10" 0 -> 1 when "Cdc20"=0 and "CycA"=0 and "CycB"=0 and "cdh1"=0
+"UbcH10" 1 -> 0 when "Cdc20"=0 and "CycA"=0 and "CycB"=0 and "cdh1"=1
+"UbcH10" 0 -> 1 when "Cdc20"=0 and "CycA"=0 and "CycB"=1 and "cdh1"=0
+"UbcH10" 0 -> 1 when "Cdc20"=0 and "CycA"=1 and "cdh1"=0
+"UbcH10" 0 -> 1 when "Cdc20"=1 and "cdh1"=0
+
+"cdh1" 0 -> 1 when "Cdc20"=0 and "CycA"=0 and "CycB"=0
+"cdh1" 1 -> 0 when "Cdc20"=0 and "CycA"=0 and "CycB"=1
+"cdh1" 1 -> 0 when "Cdc20"=0 and "CycA"=1 and "CycB"=0 and "p27"=0
+"cdh1" 0 -> 1 when "Cdc20"=0 and "CycA"=1 and "CycB"=0 and "p27"=1
+"cdh1" 1 -> 0 when "Cdc20"=0 and "CycA"=1 and "CycB"=1
+"cdh1" 0 -> 1 when "Cdc20"=1
+
+"p27" 0 -> 1 when "CycD"=0 and "CycA"=0 and "CycB"=0 and "CycE"=0
+"p27" 1 -> 0 when "CycD"=0 and "CycA"=0 and "CycB"=1
+"p27" 1 -> 0 when "CycD"=0 and "CycA"=1 and "CycB"=0 and "CycE"=1
+"p27" 1 -> 0 when "CycD"=0 and "CycA"=1 and "CycB"=1
+"p27" 1 -> 0 when "CycD"=1
+

@@ -1,0 +1,589 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"CGC" [0, 1]
+"GP130" [0, 1]
+"IFNAR1" [0, 1]
+"IFNAR2" [0, 1]
+"IFNGR1" [0, 1]
+"IFNGR2" [0, 1]
+"IL10RA" [0, 1]
+"IL10RB" [0, 1]
+"IL12RB1" [0, 1]
+"IL15RA" [0, 1]
+"IL17RB" [0, 1]
+"IL18RA" [0, 1]
+"IL18RAP" [0, 1]
+"IL1RAP" [0, 1]
+"IL1RL2" [0, 1]
+"IL27RA" [0, 1]
+"IL28RA" [0, 1]
+"IL2RB" [0, 1]
+"IL4RA" [0, 1]
+"IL6RA" [0, 1]
+"APC" [0, 1]
+"IFNA_e" [0, 1]
+"IFNB_e" [0, 1]
+"IFNG_e" [0, 1]
+"IL10_e" [0, 1]
+"IL12_e" [0, 1]
+"IL15_e" [0, 1]
+"IL18_e" [0, 1]
+"IL1A_e" [0, 1]
+"IL1B_e" [0, 1]
+"IL21_e" [0, 1]
+"IL23_e" [0, 1]
+"IL25_e" [0, 1]
+"IL27_e" [0, 1]
+"IL29_e" [0, 1]
+"IL2_e" [0, 1]
+"IL33_e" [0, 1]
+"IL36_e" [0, 1]
+"IL4_e" [0, 1]
+"IL6_e" [0, 1]
+"TGFB_e" [0, 1]
+"BCL6" [0, 1]
+"CD28" [0, 1]
+"FOXP3" [0, 1]
+"GATA3" [0, 1]
+"IFNAR" [0, 1]
+"IFNG" [0, 1]
+"IFNGR" [0, 1]
+"IKB" [0, 1]
+"IL12R" [0, 1]
+"IL12RB2" [0, 1]
+"IL15R" [0, 1]
+"IL18R" [0, 1]
+"IL1R" [0, 1]
+"IL1R1" [0, 1]
+"IL2" [0, 1]
+"IL21" [0, 1]
+"IL21R" [0, 1]
+"IL23R" [0, 1]
+"IL25" [0, 1]
+"IL25R" [0, 1]
+"IL27R" [0, 1]
+"IL29R" [0, 1]
+"IL2RA" [0, 1]
+"IL2R_b1" [0, 1]
+"IL2R_b2" [0, 1]
+"IL36R" [0, 1]
+"IL4" [0, 1]
+"IL4R" [0, 1]
+"IL6" [0, 1]
+"IL6R" [0, 1]
+"IRF1" [0, 1]
+"NFAT" [0, 1]
+"NFKB" [0, 1]
+"PU1" [0, 1]
+"RORGT" [0, 1]
+"RUNX3" [0, 1]
+"SMAD3" [0, 1]
+"STAT1" [0, 1]
+"STAT3" [0, 1]
+"STAT4" [0, 1]
+"STAT5_b1" [0, 1]
+"STAT5_b2" [0, 1]
+"STAT6" [0, 1]
+"TBET" [0, 1]
+"TCR" [0, 1]
+"TGFB" [0, 1]
+"TGFBR" [0, 1]
+"cMAF" [0, 1]
+"proliferation" [0, 1]
+"IL10" [0, 1]
+"IL10R" [0, 1]
+"IL13" [0, 1]
+"IL17" [0, 1]
+"IL22" [0, 1]
+"IL24" [0, 1]
+"IL3" [0, 1]
+"IL31" [0, 1]
+"IL33R" [0, 1]
+"IL35" [0, 1]
+"IL5" [0, 1]
+"IL9" [0, 1]
+"ST2" [0, 1]
+
+"CGC" 0 -> 1
+
+"GP130" 0 -> 1
+
+"IFNAR1" 0 -> 1
+
+"IFNAR2" 0 -> 1
+
+"IFNGR1" 0 -> 1
+
+"IFNGR2" 0 -> 1
+
+"IL10RA" 0 -> 1
+
+"IL10RB" 0 -> 1
+
+"IL12RB1" 0 -> 1
+
+"IL15RA" 0 -> 1
+
+"IL17RB" 0 -> 1
+
+"IL18RA" 0 -> 1
+
+"IL18RAP" 0 -> 1
+
+"IL1RAP" 0 -> 1
+
+"IL1RL2" 0 -> 1
+
+"IL27RA" 0 -> 1
+
+"IL28RA" 0 -> 1
+
+"IL2RB" 0 -> 1
+
+"IL4RA" 0 -> 1
+
+"IL6RA" 0 -> 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"BCL6" 1 -> 0 when "STAT1"=0 and "STAT3"=0 and "STAT4"=0
+"BCL6" 0 -> 1 when "STAT1"=0 and "STAT3"=0 and "STAT4"=1 and "STAT5_b1"=0 and "TBET"=0
+"BCL6" 1 -> 0 when "STAT1"=0 and "STAT3"=0 and "STAT4"=1 and "STAT5_b1"=0 and "TBET"=1
+"BCL6" 1 -> 0 when "STAT1"=0 and "STAT3"=0 and "STAT4"=1 and "STAT5_b1"=1
+"BCL6" 0 -> 1 when "STAT1"=0 and "STAT3"=1 and "STAT4"=0 and "STAT5_b1"=0 and "TBET"=0
+"BCL6" 1 -> 0 when "STAT1"=0 and "STAT3"=1 and "STAT4"=0 and "STAT5_b1"=0 and "TBET"=1
+"BCL6" 1 -> 0 when "STAT1"=0 and "STAT3"=1 and "STAT4"=0 and "STAT5_b1"=1
+"BCL6" 0 -> 1 when "STAT1"=0 and "STAT3"=1 and "STAT4"=1 and "TBET"=0
+"BCL6" 1 -> 0 when "STAT1"=0 and "STAT3"=1 and "STAT4"=1 and "TBET"=1
+"BCL6" 0 -> 1 when "STAT1"=1 and "STAT3"=0 and "STAT5_b1"=0 and "TBET"=0
+"BCL6" 1 -> 0 when "STAT1"=1 and "STAT3"=0 and "STAT5_b1"=0 and "TBET"=1
+"BCL6" 1 -> 0 when "STAT1"=1 and "STAT3"=0 and "STAT5_b1"=1
+"BCL6" 0 -> 1 when "STAT1"=1 and "STAT3"=1 and "STAT4"=0 and "STAT5_b1"=0 and "TBET"=0
+"BCL6" 1 -> 0 when "STAT1"=1 and "STAT3"=1 and "STAT4"=0 and "STAT5_b1"=0 and "TBET"=1
+"BCL6" 1 -> 0 when "STAT1"=1 and "STAT3"=1 and "STAT4"=0 and "STAT5_b1"=1
+"BCL6" 0 -> 1 when "STAT1"=1 and "STAT3"=1 and "STAT4"=1 and "TBET"=0
+"BCL6" 1 -> 0 when "STAT1"=1 and "STAT3"=1 and "STAT4"=1 and "TBET"=1
+
+"CD28" 1 -> 0 when "APC"=0
+"CD28" 0 -> 1 when "APC"=1
+
+"FOXP3" 0 -> 1 when "NFAT"=1 and "RORGT"=0 and "SMAD3"=1 and "STAT1"=0 and "STAT5_b1"=1 and "STAT6"=0
+"FOXP3" 0 -> 1 when "NFAT"=1 and "RORGT"=1 and "SMAD3"=1 and "STAT1"=0 and "STAT3"=0 and "STAT5_b1"=1 and "STAT6"=0
+"FOXP3" 1 -> 0 when "NFAT"=0
+"FOXP3" 1 -> 0 when "NFAT"=1 and "STAT5_b1"=0
+"FOXP3" 1 -> 0 when "NFAT"=1 and "STAT5_b1"=1 and "STAT6"=1
+
+"GATA3" 0 -> 1 when "BCL6"=0 and "IL25R"=0 and "IL29R"=0 and "PU1"=0 and "STAT6"=1 and "TBET"=0
+"GATA3" 0 -> 1 when "BCL6"=0 and "IL25R"=1 and "IL29R"=0 and "PU1"=0 and "TBET"=0
+"GATA3" 1 -> 0 when "BCL6"=0 and "IL29R"=0 and "PU1"=1
+"GATA3" 1 -> 0 when "BCL6"=0 and "IL29R"=1
+"GATA3" 1 -> 0 when "BCL6"=1
+
+"IFNAR" 1 -> 0 when "IFNAR1"=0
+"IFNAR" 1 -> 0 when "IFNAR1"=1 and "IFNAR2"=0
+"IFNAR" 1 -> 0 when "IFNAR1"=1 and "IFNAR2"=1 and "IFNA_e"=0 and "IFNB_e"=0
+"IFNAR" 0 -> 1 when "IFNAR1"=1 and "IFNAR2"=1 and "IFNA_e"=0 and "IFNB_e"=1
+"IFNAR" 0 -> 1 when "IFNAR1"=1 and "IFNAR2"=1 and "IFNA_e"=1
+
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=0
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT4"=0
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT4"=1 and "proliferation"=0
+"IFNG" 0 -> 1 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT4"=1 and "proliferation"=1
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT4"=0 and "TBET"=0
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT4"=0 and "TBET"=1 and "proliferation"=0
+"IFNG" 0 -> 1 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT4"=0 and "TBET"=1 and "proliferation"=1
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT4"=1 and "proliferation"=0
+"IFNG" 0 -> 1 when "FOXP3"=0 and "IL18R"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT4"=1 and "proliferation"=1
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=1 and "NFAT"=0
+"IFNG" 1 -> 0 when "FOXP3"=0 and "IL18R"=1 and "NFAT"=1 and "proliferation"=0
+"IFNG" 0 -> 1 when "FOXP3"=0 and "IL18R"=1 and "NFAT"=1 and "proliferation"=1
+"IFNG" 1 -> 0 when "FOXP3"=1
+
+"IFNGR" 1 -> 0 when "IFNGR1"=0
+"IFNGR" 1 -> 0 when "IFNGR1"=1 and "IFNGR2"=0
+"IFNGR" 1 -> 0 when "IFNGR1"=1 and "IFNGR2"=1 and "IFNG_e"=0 and "IFNG"=0
+"IFNGR" 0 -> 1 when "IFNGR1"=1 and "IFNGR2"=1 and "IFNG_e"=0 and "IFNG"=1
+"IFNGR" 0 -> 1 when "IFNGR1"=1 and "IFNGR2"=1 and "IFNG_e"=1
+
+"IKB" 0 -> 1 when "TCR"=0
+"IKB" 1 -> 0 when "TCR"=1
+
+"IL12R" 1 -> 0 when "IL12RB1"=0
+"IL12R" 1 -> 0 when "IL12RB1"=1 and "IL12_e"=0
+"IL12R" 1 -> 0 when "IL12RB1"=1 and "IL12_e"=1 and "IL12RB2"=0
+"IL12R" 0 -> 1 when "IL12RB1"=1 and "IL12_e"=1 and "IL12RB2"=1
+
+"IL12RB2" 0 -> 1 when "STAT6"=0
+"IL12RB2" 1 -> 0 when "STAT6"=1
+
+"IL15R" 1 -> 0 when "CGC"=0
+"IL15R" 1 -> 0 when "CGC"=1 and "IL15RA"=0
+"IL15R" 1 -> 0 when "CGC"=1 and "IL15RA"=1 and "IL2RB"=0
+"IL15R" 1 -> 0 when "CGC"=1 and "IL15RA"=1 and "IL2RB"=1 and "IL15_e"=0
+"IL15R" 0 -> 1 when "CGC"=1 and "IL15RA"=1 and "IL2RB"=1 and "IL15_e"=1
+
+"IL18R" 1 -> 0 when "IL18RA"=0
+"IL18R" 1 -> 0 when "IL18RA"=1 and "IL18RAP"=0
+"IL18R" 1 -> 0 when "IL18RA"=1 and "IL18RAP"=1 and "IL18_e"=0
+"IL18R" 1 -> 0 when "IL18RA"=1 and "IL18RAP"=1 and "IL18_e"=1 and "STAT4"=0
+"IL18R" 0 -> 1 when "IL18RA"=1 and "IL18RAP"=1 and "IL18_e"=1 and "STAT4"=1
+
+"IL1R" 1 -> 0 when "IL1RAP"=0
+"IL1R" 1 -> 0 when "IL1RAP"=1 and "IL1A_e"=0 and "IL1B_e"=0
+"IL1R" 1 -> 0 when "IL1RAP"=1 and "IL1A_e"=0 and "IL1B_e"=1 and "IL1R1"=0
+"IL1R" 0 -> 1 when "IL1RAP"=1 and "IL1A_e"=0 and "IL1B_e"=1 and "IL1R1"=1
+"IL1R" 1 -> 0 when "IL1RAP"=1 and "IL1A_e"=1 and "IL1R1"=0
+"IL1R" 0 -> 1 when "IL1RAP"=1 and "IL1A_e"=1 and "IL1R1"=1
+
+"IL1R1" 1 -> 0 when "STAT3"=0
+"IL1R1" 0 -> 1 when "STAT3"=1
+
+"IL2" 1 -> 0 when "FOXP3"=0 and "NFAT"=0 and "NFKB"=0
+"IL2" 0 -> 1 when "FOXP3"=0 and "NFAT"=0 and "NFKB"=1 and "STAT5_b1"=0 and "TBET"=0
+"IL2" 1 -> 0 when "FOXP3"=0 and "NFAT"=0 and "NFKB"=1 and "STAT5_b1"=0 and "TBET"=1
+"IL2" 0 -> 1 when "FOXP3"=0 and "NFAT"=0 and "NFKB"=1 and "STAT5_b1"=1 and "STAT6"=0 and "TBET"=0
+"IL2" 1 -> 0 when "FOXP3"=0 and "NFAT"=0 and "NFKB"=1 and "STAT5_b1"=1 and "STAT6"=0 and "TBET"=1
+"IL2" 1 -> 0 when "FOXP3"=0 and "NFAT"=0 and "NFKB"=1 and "STAT5_b1"=1 and "STAT6"=1
+"IL2" 0 -> 1 when "FOXP3"=0 and "NFAT"=1 and "STAT5_b1"=0
+"IL2" 0 -> 1 when "FOXP3"=0 and "NFAT"=1 and "STAT5_b1"=1 and "STAT6"=0
+"IL2" 1 -> 0 when "FOXP3"=0 and "NFAT"=1 and "STAT5_b1"=1 and "STAT6"=1
+"IL2" 1 -> 0 when "FOXP3"=1
+
+"IL21" 1 -> 0 when "NFAT"=0
+"IL21" 1 -> 0 when "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=0
+"IL21" 1 -> 0 when "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=1 and "proliferation"=0
+"IL21" 0 -> 1 when "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=1 and "proliferation"=1
+"IL21" 1 -> 0 when "NFAT"=1 and "STAT3"=0 and "STAT4"=1 and "proliferation"=0
+"IL21" 0 -> 1 when "NFAT"=1 and "STAT3"=0 and "STAT4"=1 and "proliferation"=1
+"IL21" 1 -> 0 when "NFAT"=1 and "STAT3"=1 and "proliferation"=0
+"IL21" 0 -> 1 when "NFAT"=1 and "STAT3"=1 and "proliferation"=1
+
+"IL21R" 1 -> 0 when "CGC"=0
+"IL21R" 1 -> 0 when "CGC"=1 and "GP130"=0
+"IL21R" 1 -> 0 when "CGC"=1 and "GP130"=1 and "IL21_e"=0 and "IL21"=0
+"IL21R" 0 -> 1 when "CGC"=1 and "GP130"=1 and "IL21_e"=0 and "IL21"=1
+"IL21R" 0 -> 1 when "CGC"=1 and "GP130"=1 and "IL21_e"=1
+
+"IL23R" 1 -> 0 when "GP130"=0
+"IL23R" 1 -> 0 when "GP130"=1 and "IL12RB1"=0
+"IL23R" 1 -> 0 when "GP130"=1 and "IL12RB1"=1 and "IL23_e"=0
+"IL23R" 1 -> 0 when "GP130"=1 and "IL12RB1"=1 and "IL23_e"=1 and "RORGT"=0
+"IL23R" 1 -> 0 when "GP130"=1 and "IL12RB1"=1 and "IL23_e"=1 and "RORGT"=1 and "STAT3"=0
+"IL23R" 0 -> 1 when "GP130"=1 and "IL12RB1"=1 and "IL23_e"=1 and "RORGT"=1 and "STAT3"=1
+
+"IL25" 1 -> 0 when "GATA3"=0
+"IL25" 1 -> 0 when "GATA3"=1 and "NFAT"=0
+"IL25" 1 -> 0 when "GATA3"=1 and "NFAT"=1 and "proliferation"=0
+"IL25" 0 -> 1 when "GATA3"=1 and "NFAT"=1 and "proliferation"=1
+
+"IL25R" 1 -> 0 when "IL17RB"=0
+"IL25R" 1 -> 0 when "IL17RB"=1 and "IL25_e"=0 and "IL25"=0
+"IL25R" 0 -> 1 when "IL17RB"=1 and "IL25_e"=0 and "IL25"=1
+"IL25R" 0 -> 1 when "IL17RB"=1 and "IL25_e"=1
+
+"IL27R" 1 -> 0 when "GP130"=0
+"IL27R" 1 -> 0 when "GP130"=1 and "IL27RA"=0
+"IL27R" 1 -> 0 when "GP130"=1 and "IL27RA"=1 and "IL27_e"=0
+"IL27R" 0 -> 1 when "GP130"=1 and "IL27RA"=1 and "IL27_e"=1
+
+"IL29R" 1 -> 0 when "IL10RB"=0
+"IL29R" 1 -> 0 when "IL10RB"=1 and "IL28RA"=0
+"IL29R" 1 -> 0 when "IL10RB"=1 and "IL28RA"=1 and "IL29_e"=0
+"IL29R" 0 -> 1 when "IL10RB"=1 and "IL28RA"=1 and "IL29_e"=1
+
+"IL2RA" 1 -> 0 when "FOXP3"=0 and "NFAT"=0
+"IL2RA" 1 -> 0 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=0 and "SMAD3"=0 and "STAT5_b1"=0
+"IL2RA" 0 -> 1 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=0 and "SMAD3"=0 and "STAT5_b1"=1
+"IL2RA" 0 -> 1 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=0 and "SMAD3"=1
+"IL2RA" 0 -> 1 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=1
+"IL2RA" 1 -> 0 when "FOXP3"=1 and "NFAT"=0
+"IL2RA" 0 -> 1 when "FOXP3"=1 and "NFAT"=1
+
+"IL2R_b1" 1 -> 0 when "CGC"=0 and "IL2R_b2"=0
+"IL2R_b1" 0 -> 1 when "CGC"=0 and "IL2R_b2"=1
+"IL2R_b1" 1 -> 0 when "CGC"=1 and "IL2RB"=0 and "IL2R_b2"=0
+"IL2R_b1" 0 -> 1 when "CGC"=1 and "IL2RB"=0 and "IL2R_b2"=1
+"IL2R_b1" 1 -> 0 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=0 and "IL2R_b2"=0
+"IL2R_b1" 0 -> 1 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=0 and "IL2R_b2"=1
+"IL2R_b1" 0 -> 1 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=1
+"IL2R_b1" 0 -> 1 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=1
+
+"IL2R_b2" 1 -> 0 when "CGC"=0
+"IL2R_b2" 1 -> 0 when "CGC"=1 and "IL2RB"=0
+"IL2R_b2" 1 -> 0 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=0
+"IL2R_b2" 1 -> 0 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=1 and "IL2RA"=0
+"IL2R_b2" 1 -> 0 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=1 and "IL2RA"=1 and "IL2R_b1"=0
+"IL2R_b2" 0 -> 1 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=0 and "IL2"=1 and "IL2RA"=1 and "IL2R_b1"=1
+"IL2R_b2" 1 -> 0 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=1 and "IL2RA"=0
+"IL2R_b2" 1 -> 0 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=1 and "IL2RA"=1 and "IL2R_b1"=0
+"IL2R_b2" 0 -> 1 when "CGC"=1 and "IL2RB"=1 and "IL2_e"=1 and "IL2RA"=1 and "IL2R_b1"=1
+
+"IL36R" 1 -> 0 when "IL1RAP"=0
+"IL36R" 1 -> 0 when "IL1RAP"=1 and "IL1RL2"=0
+"IL36R" 1 -> 0 when "IL1RAP"=1 and "IL1RL2"=1 and "IL36_e"=0
+"IL36R" 0 -> 1 when "IL1RAP"=1 and "IL1RL2"=1 and "IL36_e"=1
+
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=0
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=0
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT5_b1"=0 and "cMAF"=0
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT5_b1"=0 and "cMAF"=1 and "proliferation"=0
+"IL4" 0 -> 1 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT5_b1"=0 and "cMAF"=1 and "proliferation"=1
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT5_b1"=1 and "proliferation"=0
+"IL4" 0 -> 1 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=0 and "STAT5_b1"=1 and "proliferation"=1
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=0 and "TBET"=0 and "cMAF"=0
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=0 and "TBET"=0 and "cMAF"=1 and "proliferation"=0
+"IL4" 0 -> 1 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=0 and "TBET"=0 and "cMAF"=1 and "proliferation"=1
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=0 and "TBET"=1
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=1 and "TBET"=0 and "proliferation"=0
+"IL4" 0 -> 1 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=1 and "TBET"=0 and "proliferation"=1
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=0 and "NFAT"=1 and "RUNX3"=1 and "STAT5_b1"=1 and "TBET"=1
+"IL4" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "IRF1"=1
+"IL4" 1 -> 0 when "FOXP3"=1
+
+"IL4R" 1 -> 0 when "CGC"=0
+"IL4R" 1 -> 0 when "CGC"=1 and "IL4RA"=0
+"IL4R" 1 -> 0 when "CGC"=1 and "IL4RA"=1 and "IL4_e"=0 and "IL4"=0
+"IL4R" 0 -> 1 when "CGC"=1 and "IL4RA"=1 and "IL4_e"=0 and "IL4"=1
+"IL4R" 0 -> 1 when "CGC"=1 and "IL4RA"=1 and "IL4_e"=1
+
+"IL6" 1 -> 0 when "NFAT"=0
+"IL6" 1 -> 0 when "NFAT"=1 and "STAT3"=0
+"IL6" 1 -> 0 when "NFAT"=1 and "STAT3"=1 and "proliferation"=0
+"IL6" 0 -> 1 when "NFAT"=1 and "STAT3"=1 and "proliferation"=1
+
+"IL6R" 1 -> 0 when "GP130"=0
+"IL6R" 1 -> 0 when "GP130"=1 and "IL6RA"=0
+"IL6R" 1 -> 0 when "GP130"=1 and "IL6RA"=1 and "IL6_e"=0 and "IL6"=0
+"IL6R" 0 -> 1 when "GP130"=1 and "IL6RA"=1 and "IL6_e"=0 and "IL6"=1
+"IL6R" 0 -> 1 when "GP130"=1 and "IL6RA"=1 and "IL6_e"=1
+
+"IRF1" 1 -> 0 when "STAT1"=0
+"IRF1" 0 -> 1 when "STAT1"=1
+
+"NFAT" 1 -> 0 when "CD28"=0
+"NFAT" 1 -> 0 when "CD28"=1 and "TCR"=0
+"NFAT" 0 -> 1 when "CD28"=1 and "TCR"=1
+
+"NFKB" 0 -> 1 when "FOXP3"=0 and "IKB"=0
+"NFKB" 1 -> 0 when "FOXP3"=0 and "IKB"=1
+"NFKB" 1 -> 0 when "FOXP3"=1
+
+"PU1" 1 -> 0 when "TGFBR"=0
+"PU1" 0 -> 1 when "TGFBR"=1
+
+"RORGT" 1 -> 0 when "BCL6"=0 and "FOXP3"=0 and "STAT3"=0
+"RORGT" 1 -> 0 when "BCL6"=0 and "FOXP3"=0 and "STAT3"=1 and "TGFBR"=0
+"RORGT" 0 -> 1 when "BCL6"=0 and "FOXP3"=0 and "STAT3"=1 and "TGFBR"=1
+"RORGT" 1 -> 0 when "BCL6"=0 and "FOXP3"=1
+"RORGT" 1 -> 0 when "BCL6"=1
+
+"RUNX3" 1 -> 0 when "TBET"=0
+"RUNX3" 0 -> 1 when "TBET"=1
+
+"SMAD3" 1 -> 0 when "TGFBR"=0
+"SMAD3" 0 -> 1 when "TGFBR"=1
+
+"STAT1" 1 -> 0 when "IFNAR"=0 and "IFNGR"=0 and "IL27R"=0
+"STAT1" 0 -> 1 when "IFNAR"=0 and "IFNGR"=0 and "IL27R"=1
+"STAT1" 0 -> 1 when "IFNAR"=0 and "IFNGR"=1
+"STAT1" 0 -> 1 when "IFNAR"=1
+
+"STAT3" 1 -> 0 when "IL1R"=0 and "IL21R"=0 and "IL23R"=0 and "IL27R"=0 and "IL6R"=0
+"STAT3" 0 -> 1 when "IL1R"=0 and "IL21R"=0 and "IL23R"=0 and "IL27R"=0 and "IL6R"=1
+"STAT3" 0 -> 1 when "IL1R"=0 and "IL21R"=0 and "IL23R"=0 and "IL27R"=1
+"STAT3" 0 -> 1 when "IL1R"=0 and "IL21R"=0 and "IL23R"=1
+"STAT3" 0 -> 1 when "IL1R"=0 and "IL21R"=1
+"STAT3" 0 -> 1 when "IL1R"=1
+
+"STAT4" 1 -> 0 when "GATA3"=0 and "IL12R"=0
+"STAT4" 0 -> 1 when "GATA3"=0 and "IL12R"=1
+"STAT4" 1 -> 0 when "GATA3"=1
+
+"STAT5_b1" 1 -> 0 when "IL15R"=0 and "IL2R_b1"=0 and "STAT5_b2"=0
+"STAT5_b1" 0 -> 1 when "IL15R"=0 and "IL2R_b1"=0 and "STAT5_b2"=1
+"STAT5_b1" 0 -> 1 when "IL15R"=0 and "IL2R_b1"=1
+"STAT5_b1" 0 -> 1 when "IL15R"=1
+
+"STAT5_b2" 1 -> 0 when "IL2R_b1"=0
+"STAT5_b2" 1 -> 0 when "IL2R_b1"=1 and "IL2R_b2"=0
+"STAT5_b2" 1 -> 0 when "IL2R_b1"=1 and "IL2R_b2"=1 and "STAT5_b1"=0
+"STAT5_b2" 0 -> 1 when "IL2R_b1"=1 and "IL2R_b2"=1 and "STAT5_b1"=1
+
+"STAT6" 1 -> 0 when "IL4R"=0
+"STAT6" 0 -> 1 when "IL4R"=1
+
+"TBET" 0 -> 1 when "BCL6"=0 and "IL36R"=0 and "RORGT"=0 and "STAT1"=1
+"TBET" 1 -> 0 when "BCL6"=0 and "IL36R"=0 and "RORGT"=1
+"TBET" 0 -> 1 when "BCL6"=0 and "IL36R"=1 and "RORGT"=0
+"TBET" 1 -> 0 when "BCL6"=0 and "IL36R"=1 and "RORGT"=1
+"TBET" 1 -> 0 when "BCL6"=1
+
+"TCR" 1 -> 0 when "APC"=0
+"TCR" 0 -> 1 when "APC"=1
+
+"TGFB" 1 -> 0 when "FOXP3"=0
+"TGFB" 1 -> 0 when "FOXP3"=1 and "NFAT"=0
+"TGFB" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "proliferation"=0
+"TGFB" 0 -> 1 when "FOXP3"=1 and "NFAT"=1 and "proliferation"=1
+
+"TGFBR" 1 -> 0 when "TGFB_e"=0 and "TGFB"=0
+"TGFBR" 0 -> 1 when "TGFB_e"=0 and "TGFB"=1
+"TGFBR" 0 -> 1 when "TGFB_e"=1
+
+"cMAF" 1 -> 0 when "STAT3"=0
+"cMAF" 1 -> 0 when "STAT3"=1 and "TGFBR"=0
+"cMAF" 0 -> 1 when "STAT3"=1 and "TGFBR"=1
+
+"proliferation" 0 -> 1 when "STAT5_b1"=1 and "STAT5_b2"=1
+
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=1 and "proliferation"=0
+"IL10" 0 -> 1 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=1 and "proliferation"=1 and "IL33R"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=0 and "cMAF"=1 and "proliferation"=1 and "IL33R"=1
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=1 and "proliferation"=0
+"IL10" 0 -> 1 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=1 and "proliferation"=1 and "IL33R"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=0 and "STAT4"=1 and "proliferation"=1 and "IL33R"=1
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=1 and "proliferation"=0
+"IL10" 0 -> 1 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=1 and "proliferation"=1 and "IL33R"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=0 and "NFAT"=1 and "STAT3"=1 and "proliferation"=1 and "IL33R"=1
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=1 and "NFAT"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=1 and "NFAT"=1 and "proliferation"=0
+"IL10" 0 -> 1 when "GATA3"=0 and "IL18R"=0 and "IRF1"=1 and "NFAT"=1 and "proliferation"=1 and "IL33R"=0
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=0 and "IRF1"=1 and "NFAT"=1 and "proliferation"=1 and "IL33R"=1
+"IL10" 1 -> 0 when "GATA3"=0 and "IL18R"=1
+"IL10" 1 -> 0 when "GATA3"=1 and "IL18R"=0 and "NFAT"=0
+"IL10" 1 -> 0 when "GATA3"=1 and "IL18R"=0 and "NFAT"=1 and "proliferation"=0
+"IL10" 0 -> 1 when "GATA3"=1 and "IL18R"=0 and "NFAT"=1 and "proliferation"=1 and "IL33R"=0
+"IL10" 1 -> 0 when "GATA3"=1 and "IL18R"=0 and "NFAT"=1 and "proliferation"=1 and "IL33R"=1
+"IL10" 1 -> 0 when "GATA3"=1 and "IL18R"=1
+
+"IL10R" 1 -> 0 when "IL10RA"=0
+"IL10R" 1 -> 0 when "IL10RA"=1 and "IL10RB"=0
+"IL10R" 1 -> 0 when "IL10RA"=1 and "IL10RB"=1 and "IL10_e"=0 and "IL10"=0
+"IL10R" 0 -> 1 when "IL10RA"=1 and "IL10RB"=1 and "IL10_e"=0 and "IL10"=1
+"IL10R" 0 -> 1 when "IL10RA"=1 and "IL10RB"=1 and "IL10_e"=1
+
+"IL13" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=0
+"IL13" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=0 and "proliferation"=0
+"IL13" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=0 and "proliferation"=1 and "IL33R"=0
+"IL13" 0 -> 1 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=0 and "proliferation"=1 and "IL33R"=1
+"IL13" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=1 and "proliferation"=0
+"IL13" 0 -> 1 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=1 and "proliferation"=1
+"IL13" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "NFAT"=0
+"IL13" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "NFAT"=1 and "proliferation"=0
+"IL13" 0 -> 1 when "FOXP3"=0 and "GATA3"=1 and "NFAT"=1 and "proliferation"=1
+"IL13" 1 -> 0 when "FOXP3"=1
+
+"IL17" 1 -> 0 when "FOXP3"=0 and "NFAT"=0
+"IL17" 1 -> 0 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=0
+"IL17" 1 -> 0 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=1 and "RORGT"=0
+"IL17" 1 -> 0 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT3"=0
+"IL17" 1 -> 0 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT3"=1 and "proliferation"=0
+"IL17" 0 -> 1 when "FOXP3"=0 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT3"=1 and "proliferation"=1
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=0
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=0
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=0
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=0 and "STAT3"=0
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=0 and "STAT3"=1 and "proliferation"=0
+"IL17" 0 -> 1 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=0 and "STAT3"=1 and "proliferation"=1
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=1 and "STAT3"=0
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=1 and "STAT3"=1 and "STAT5_b1"=0 and "proliferation"=0
+"IL17" 0 -> 1 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=1 and "STAT3"=1 and "STAT5_b1"=0 and "proliferation"=1
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=1 and "STAT3"=1 and "STAT5_b1"=1 and "STAT6"=0 and "proliferation"=0
+"IL17" 0 -> 1 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=1 and "STAT3"=1 and "STAT5_b1"=1 and "STAT6"=0 and "proliferation"=1
+"IL17" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "NFKB"=1 and "RORGT"=1 and "STAT1"=1 and "STAT3"=1 and "STAT5_b1"=1 and "STAT6"=1
+
+"IL22" 1 -> 0 when "NFAT"=0
+"IL22" 1 -> 0 when "NFAT"=1 and "STAT1"=0 and "STAT3"=0
+"IL22" 1 -> 0 when "NFAT"=1 and "STAT1"=0 and "STAT3"=1 and "cMAF"=0 and "proliferation"=0
+"IL22" 0 -> 1 when "NFAT"=1 and "STAT1"=0 and "STAT3"=1 and "cMAF"=0 and "proliferation"=1
+"IL22" 1 -> 0 when "NFAT"=1 and "STAT1"=0 and "STAT3"=1 and "cMAF"=1
+"IL22" 1 -> 0 when "NFAT"=1 and "STAT1"=1 and "cMAF"=0 and "proliferation"=0
+"IL22" 0 -> 1 when "NFAT"=1 and "STAT1"=1 and "cMAF"=0 and "proliferation"=1
+"IL22" 1 -> 0 when "NFAT"=1 and "STAT1"=1 and "cMAF"=1
+
+"IL24" 1 -> 0 when "NFAT"=0
+"IL24" 1 -> 0 when "NFAT"=1 and "STAT6"=0
+"IL24" 1 -> 0 when "NFAT"=1 and "STAT6"=1 and "proliferation"=0
+"IL24" 0 -> 1 when "NFAT"=1 and "STAT6"=1 and "proliferation"=1
+
+"IL3" 1 -> 0 when "GATA3"=0
+"IL3" 1 -> 0 when "GATA3"=1 and "NFAT"=0
+"IL3" 1 -> 0 when "GATA3"=1 and "NFAT"=1 and "proliferation"=0
+"IL3" 0 -> 1 when "GATA3"=1 and "NFAT"=1 and "proliferation"=1
+
+"IL31" 1 -> 0 when "NFAT"=0
+"IL31" 1 -> 0 when "NFAT"=1 and "STAT6"=0
+"IL31" 1 -> 0 when "NFAT"=1 and "STAT6"=1 and "proliferation"=0
+"IL31" 0 -> 1 when "NFAT"=1 and "STAT6"=1 and "proliferation"=1
+
+"IL33R" 1 -> 0 when "IL1RAP"=0
+"IL33R" 1 -> 0 when "IL1RAP"=1 and "IL33_e"=0
+"IL33R" 1 -> 0 when "IL1RAP"=1 and "IL33_e"=1 and "ST2"=0
+"IL33R" 0 -> 1 when "IL1RAP"=1 and "IL33_e"=1 and "ST2"=1
+
+"IL35" 1 -> 0 when "FOXP3"=0
+"IL35" 1 -> 0 when "FOXP3"=1 and "NFAT"=0
+"IL35" 1 -> 0 when "FOXP3"=1 and "NFAT"=1 and "proliferation"=0
+"IL35" 0 -> 1 when "FOXP3"=1 and "NFAT"=1 and "proliferation"=1
+
+"IL5" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=0
+"IL5" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=0 and "proliferation"=0
+"IL5" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=0 and "proliferation"=1 and "IL33R"=0
+"IL5" 0 -> 1 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=0 and "proliferation"=1 and "IL33R"=1
+"IL5" 1 -> 0 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=1 and "proliferation"=0
+"IL5" 0 -> 1 when "FOXP3"=0 and "GATA3"=0 and "NFAT"=1 and "cMAF"=1 and "proliferation"=1
+"IL5" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "NFAT"=0
+"IL5" 1 -> 0 when "FOXP3"=0 and "GATA3"=1 and "NFAT"=1 and "proliferation"=0
+"IL5" 0 -> 1 when "FOXP3"=0 and "GATA3"=1 and "NFAT"=1 and "proliferation"=1
+"IL5" 1 -> 0 when "FOXP3"=1
+
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=0
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=0
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=1 and "proliferation"=0
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=1 and "proliferation"=1 and "IL33R"=0
+"IL9" 0 -> 1 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=1 and "proliferation"=1 and "IL33R"=1
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=1 and "STAT6"=0
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=1 and "STAT6"=1 and "proliferation"=0
+"IL9" 0 -> 1 when "NFAT"=0 and "NFKB"=1 and "PU1"=0 and "SMAD3"=1 and "STAT6"=1 and "proliferation"=1
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=1 and "STAT6"=0
+"IL9" 1 -> 0 when "NFAT"=0 and "NFKB"=1 and "PU1"=1 and "STAT6"=1 and "proliferation"=0
+"IL9" 0 -> 1 when "NFAT"=0 and "NFKB"=1 and "PU1"=1 and "STAT6"=1 and "proliferation"=1
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=0
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=1 and "proliferation"=0
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=1 and "proliferation"=1 and "IL33R"=0
+"IL9" 0 -> 1 when "NFAT"=1 and "PU1"=0 and "SMAD3"=0 and "STAT6"=1 and "proliferation"=1 and "IL33R"=1
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=0 and "SMAD3"=1 and "STAT6"=0
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=0 and "SMAD3"=1 and "STAT6"=1 and "proliferation"=0
+"IL9" 0 -> 1 when "NFAT"=1 and "PU1"=0 and "SMAD3"=1 and "STAT6"=1 and "proliferation"=1
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=1 and "STAT6"=0
+"IL9" 1 -> 0 when "NFAT"=1 and "PU1"=1 and "STAT6"=1 and "proliferation"=0
+"IL9" 0 -> 1 when "NFAT"=1 and "PU1"=1 and "STAT6"=1 and "proliferation"=1
+
+"ST2" 1 -> 0 when "GATA3"=0
+"ST2" 0 -> 1 when "GATA3"=1
+

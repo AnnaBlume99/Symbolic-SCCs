@@ -1,0 +1,240 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"DNA_damage" [0, 1]
+"EGFR_stimulus" [0, 1]
+"FGFR3_stimulus" [0, 1]
+"Growth_inhibitors" [0, 1]
+"AKT" [0, 1]
+"ATM_high" [0, 1]
+"ATM_medium" [0, 1]
+"Apoptosis_high" [0, 1]
+"Apoptosis_medium" [0, 1]
+"CDC25A" [0, 1]
+"CHEK1_2_high" [0, 1]
+"CHEK1_2_medium" [0, 1]
+"CyclinA" [0, 1]
+"CyclinD1" [0, 1]
+"CyclinE1" [0, 1]
+"E2F1_high" [0, 1]
+"E2F1_medium" [0, 1]
+"E2F3_high" [0, 1]
+"E2F3_medium" [0, 1]
+"EGFR" [0, 1]
+"FGFR3" [0, 1]
+"GRB2" [0, 1]
+"MDM2" [0, 1]
+"PI3K" [0, 1]
+"PTEN" [0, 1]
+"RAS" [0, 1]
+"RB1" [0, 1]
+"RBL2" [0, 1]
+"SPRY" [0, 1]
+"TP53" [0, 1]
+"p14ARF" [0, 1]
+"p16INK4a" [0, 1]
+"p21CIP" [0, 1]
+"Growth_arrest" [0, 1]
+"Proliferation" [0, 1]
+
+
+
+
+
+"AKT" 1 -> 0 when "PI3K"=0
+"AKT" 0 -> 1 when "PI3K"=1
+
+"ATM_high" 1 -> 0 when "DNA_damage"=0
+"ATM_high" 1 -> 0 when "DNA_damage"=1 and "ATM_medium"=0
+"ATM_high" 1 -> 0 when "DNA_damage"=1 and "ATM_medium"=1 and "E2F1_medium"=0
+"ATM_high" 0 -> 1 when "DNA_damage"=1 and "ATM_medium"=1 and "E2F1_medium"=1
+
+"ATM_medium" 1 -> 0 when "DNA_damage"=0 and "ATM_high"=0
+"ATM_medium" 0 -> 1 when "DNA_damage"=1
+
+"Apoptosis_high" 1 -> 0 when "Apoptosis_medium"=0
+"Apoptosis_high" 1 -> 0 when "Apoptosis_medium"=1 and "E2F1_high"=0
+"Apoptosis_high" 1 -> 0 when "Apoptosis_medium"=1 and "E2F1_high"=1 and "E2F1_medium"=0
+"Apoptosis_high" 0 -> 1 when "Apoptosis_medium"=1 and "E2F1_high"=1 and "E2F1_medium"=1
+
+"Apoptosis_medium" 1 -> 0 when "Apoptosis_high"=0 and "E2F1_high"=0 and "TP53"=0
+"Apoptosis_medium" 0 -> 1 when "Apoptosis_high"=0 and "E2F1_high"=0 and "TP53"=1
+"Apoptosis_medium" 1 -> 0 when "Apoptosis_high"=0 and "E2F1_high"=1 and "E2F1_medium"=0 and "TP53"=0
+"Apoptosis_medium" 0 -> 1 when "Apoptosis_high"=0 and "E2F1_high"=1 and "E2F1_medium"=0 and "TP53"=1
+"Apoptosis_medium" 0 -> 1 when "Apoptosis_high"=0 and "E2F1_high"=1 and "E2F1_medium"=1
+"Apoptosis_medium" 0 -> 1 when "Apoptosis_high"=1 and "E2F1_high"=0 and "TP53"=1
+"Apoptosis_medium" 0 -> 1 when "Apoptosis_high"=1 and "E2F1_high"=1 and "E2F1_medium"=0 and "TP53"=1
+"Apoptosis_medium" 0 -> 1 when "Apoptosis_high"=1 and "E2F1_high"=1 and "E2F1_medium"=1
+
+"CDC25A" 1 -> 0 when "CHEK1_2_medium"=0 and "E2F1_medium"=0 and "E2F3_medium"=0
+"CDC25A" 0 -> 1 when "CHEK1_2_medium"=0 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=0
+"CDC25A" 1 -> 0 when "CHEK1_2_medium"=0 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=1
+"CDC25A" 0 -> 1 when "CHEK1_2_medium"=0 and "E2F1_medium"=1 and "RBL2"=0
+"CDC25A" 1 -> 0 when "CHEK1_2_medium"=0 and "E2F1_medium"=1 and "RBL2"=1
+"CDC25A" 1 -> 0 when "CHEK1_2_medium"=1
+
+"CHEK1_2_high" 1 -> 0 when "ATM_medium"=0
+"CHEK1_2_high" 1 -> 0 when "ATM_medium"=1 and "CHEK1_2_medium"=0
+"CHEK1_2_high" 1 -> 0 when "ATM_medium"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=0
+"CHEK1_2_high" 0 -> 1 when "ATM_medium"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1
+
+"CHEK1_2_medium" 1 -> 0 when "ATM_medium"=0 and "CHEK1_2_high"=0
+"CHEK1_2_medium" 0 -> 1 when "ATM_medium"=1
+
+"CyclinA" 1 -> 0 when "CDC25A"=0
+"CyclinA" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=0
+"CyclinA" 0 -> 1 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=0 and "p21CIP"=0
+"CyclinA" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=0 and "p21CIP"=1
+"CyclinA" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=1
+"CyclinA" 0 -> 1 when "CDC25A"=1 and "E2F1_medium"=1 and "RBL2"=0 and "p21CIP"=0
+"CyclinA" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=1 and "RBL2"=0 and "p21CIP"=1
+"CyclinA" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=1 and "RBL2"=1
+
+"CyclinD1" 1 -> 0 when "AKT"=0 and "RAS"=0
+"CyclinD1" 0 -> 1 when "AKT"=0 and "RAS"=1 and "p16INK4a"=0 and "p21CIP"=0
+"CyclinD1" 1 -> 0 when "AKT"=0 and "RAS"=1 and "p16INK4a"=0 and "p21CIP"=1
+"CyclinD1" 1 -> 0 when "AKT"=0 and "RAS"=1 and "p16INK4a"=1
+"CyclinD1" 0 -> 1 when "AKT"=1 and "p16INK4a"=0 and "p21CIP"=0
+"CyclinD1" 1 -> 0 when "AKT"=1 and "p16INK4a"=0 and "p21CIP"=1
+"CyclinD1" 1 -> 0 when "AKT"=1 and "p16INK4a"=1
+
+"CyclinE1" 1 -> 0 when "CDC25A"=0
+"CyclinE1" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=0
+"CyclinE1" 0 -> 1 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=0 and "p21CIP"=0
+"CyclinE1" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=0 and "p21CIP"=1
+"CyclinE1" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=0 and "E2F3_medium"=1 and "RBL2"=1
+"CyclinE1" 0 -> 1 when "CDC25A"=1 and "E2F1_medium"=1 and "RBL2"=0 and "p21CIP"=0
+"CyclinE1" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=1 and "RBL2"=0 and "p21CIP"=1
+"CyclinE1" 1 -> 0 when "CDC25A"=1 and "E2F1_medium"=1 and "RBL2"=1
+
+"E2F1_high" 1 -> 0 when "ATM_high"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=0 and "RAS"=0
+"E2F1_high" 0 -> 1 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=1
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=0 and "RAS"=1 and "RB1"=1
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=0 and "RAS"=0
+"E2F1_high" 0 -> 1 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=1
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=1
+"E2F1_high" 0 -> 1 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=1 and "RB1"=0 and "RBL2"=0
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=1 and "RB1"=0 and "RBL2"=1
+"E2F1_high" 1 -> 0 when "ATM_high"=1 and "ATM_medium"=1 and "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F1_medium"=1 and "E2F3_high"=1 and "E2F3_medium"=1 and "RB1"=1
+
+"E2F1_medium" 1 -> 0 when "E2F1_high"=0 and "E2F3_medium"=0 and "RAS"=0
+"E2F1_medium" 0 -> 1 when "E2F1_high"=0 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=0
+"E2F1_medium" 1 -> 0 when "E2F1_high"=0 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=1
+"E2F1_medium" 1 -> 0 when "E2F1_high"=0 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=1
+"E2F1_medium" 0 -> 1 when "E2F1_high"=0 and "E2F3_medium"=1 and "RB1"=0 and "RBL2"=0
+"E2F1_medium" 1 -> 0 when "E2F1_high"=0 and "E2F3_medium"=1 and "RB1"=0 and "RBL2"=1
+"E2F1_medium" 1 -> 0 when "E2F1_high"=0 and "E2F3_medium"=1 and "RB1"=1
+"E2F1_medium" 0 -> 1 when "E2F1_high"=1 and "E2F3_medium"=0 and "RAS"=1 and "RB1"=0 and "RBL2"=0
+"E2F1_medium" 0 -> 1 when "E2F1_high"=1 and "E2F3_medium"=1 and "RB1"=0 and "RBL2"=0
+
+"E2F3_high" 1 -> 0 when "CHEK1_2_high"=0
+"E2F3_high" 1 -> 0 when "CHEK1_2_high"=1 and "CHEK1_2_medium"=0
+"E2F3_high" 1 -> 0 when "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F3_medium"=0
+"E2F3_high" 1 -> 0 when "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F3_medium"=1 and "RAS"=0
+"E2F3_high" 0 -> 1 when "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F3_medium"=1 and "RAS"=1 and "RB1"=0
+"E2F3_high" 1 -> 0 when "CHEK1_2_high"=1 and "CHEK1_2_medium"=1 and "E2F3_medium"=1 and "RAS"=1 and "RB1"=1
+
+"E2F3_medium" 1 -> 0 when "E2F3_high"=0 and "RAS"=0
+"E2F3_medium" 0 -> 1 when "E2F3_high"=0 and "RAS"=1 and "RB1"=0
+"E2F3_medium" 1 -> 0 when "E2F3_high"=0 and "RAS"=1 and "RB1"=1
+"E2F3_medium" 0 -> 1 when "E2F3_high"=1 and "RAS"=1 and "RB1"=0
+
+"EGFR" 1 -> 0 when "EGFR_stimulus"=0 and "FGFR3"=0 and "GRB2"=0 and "SPRY"=0
+"EGFR" 0 -> 1 when "EGFR_stimulus"=0 and "FGFR3"=0 and "GRB2"=0 and "SPRY"=1
+"EGFR" 1 -> 0 when "EGFR_stimulus"=0 and "FGFR3"=0 and "GRB2"=1
+"EGFR" 1 -> 0 when "EGFR_stimulus"=0 and "FGFR3"=1
+"EGFR" 0 -> 1 when "EGFR_stimulus"=1 and "FGFR3"=0 and "GRB2"=0
+"EGFR" 1 -> 0 when "EGFR_stimulus"=1 and "FGFR3"=0 and "GRB2"=1
+"EGFR" 1 -> 0 when "EGFR_stimulus"=1 and "FGFR3"=1
+
+"FGFR3" 1 -> 0 when "FGFR3_stimulus"=0
+"FGFR3" 0 -> 1 when "FGFR3_stimulus"=1 and "EGFR"=0 and "GRB2"=0
+"FGFR3" 1 -> 0 when "FGFR3_stimulus"=1 and "EGFR"=0 and "GRB2"=1
+"FGFR3" 1 -> 0 when "FGFR3_stimulus"=1 and "EGFR"=1
+
+"GRB2" 1 -> 0 when "EGFR"=0 and "FGFR3"=0
+"GRB2" 0 -> 1 when "EGFR"=0 and "FGFR3"=1 and "SPRY"=0
+"GRB2" 1 -> 0 when "EGFR"=0 and "FGFR3"=1
+"GRB2" 0 -> 1 when "EGFR"=1
+
+"MDM2" 1 -> 0 when "AKT"=0 and "ATM_medium"=0 and "RB1"=0 and "TP53"=0
+"MDM2" 0 -> 1 when "AKT"=0 and "ATM_medium"=0 and "RB1"=0 and "TP53"=1 and "p14ARF"=0
+"MDM2" 1 -> 0 when "AKT"=0 and "ATM_medium"=0 and "RB1"=0 and "TP53"=1 and "p14ARF"=1
+"MDM2" 1 -> 0 when "AKT"=0 and "ATM_medium"=0 and "RB1"=1
+"MDM2" 1 -> 0 when "AKT"=0 and "ATM_medium"=1
+"MDM2" 0 -> 1 when "AKT"=1 and "ATM_medium"=0 and "RB1"=0 and "p14ARF"=0
+"MDM2" 1 -> 0 when "AKT"=1 and "ATM_medium"=0 and "RB1"=0 and "p14ARF"=1
+"MDM2" 1 -> 0 when "AKT"=1 and "ATM_medium"=0 and "RB1"=1
+"MDM2" 1 -> 0 when "AKT"=1 and "ATM_medium"=1
+
+"PI3K" 1 -> 0 when "GRB2"=0
+"PI3K" 1 -> 0 when "GRB2"=1 and "PTEN"=0 and "RAS"=0
+"PI3K" 0 -> 1 when "GRB2"=1 and "PTEN"=0 and "RAS"=1
+"PI3K" 1 -> 0 when "GRB2"=1 and "PTEN"=1
+
+"PTEN" 1 -> 0 when "TP53"=0
+"PTEN" 0 -> 1 when "TP53"=1
+
+"RAS" 1 -> 0 when "EGFR"=0 and "FGFR3"=0 and "GRB2"=0
+"RAS" 0 -> 1 when "EGFR"=0 and "FGFR3"=0 and "GRB2"=1
+"RAS" 0 -> 1 when "EGFR"=0 and "FGFR3"=1
+"RAS" 0 -> 1 when "EGFR"=1
+
+"RB1" 0 -> 1 when "CyclinA"=0 and "CyclinD1"=0 and "CyclinE1"=0 and "p16INK4a"=0
+"RB1" 1 -> 0 when "CyclinA"=0 and "CyclinD1"=0 and "CyclinE1"=0 and "p16INK4a"=1
+"RB1" 1 -> 0 when "CyclinA"=0 and "CyclinD1"=0 and "CyclinE1"=1
+"RB1" 1 -> 0 when "CyclinA"=0 and "CyclinD1"=1
+"RB1" 1 -> 0 when "CyclinA"=1
+
+"RBL2" 0 -> 1 when "CyclinD1"=0 and "CyclinE1"=0
+"RBL2" 1 -> 0 when "CyclinD1"=0 and "CyclinE1"=1
+"RBL2" 1 -> 0 when "CyclinD1"=1
+
+"SPRY" 1 -> 0 when "RAS"=0
+"SPRY" 0 -> 1 when "RAS"=1
+
+"TP53" 1 -> 0 when "ATM_medium"=0 and "E2F1_high"=0
+"TP53" 1 -> 0 when "ATM_medium"=0 and "E2F1_high"=1 and "E2F1_medium"=0
+"TP53" 0 -> 1 when "ATM_medium"=0 and "E2F1_high"=1 and "E2F1_medium"=1 and "MDM2"=0
+"TP53" 1 -> 0 when "ATM_medium"=0 and "E2F1_high"=1 and "E2F1_medium"=1 and "MDM2"=1
+"TP53" 1 -> 0 when "ATM_medium"=1 and "CHEK1_2_medium"=0 and "E2F1_high"=0
+"TP53" 1 -> 0 when "ATM_medium"=1 and "CHEK1_2_medium"=0 and "E2F1_high"=1 and "E2F1_medium"=0
+"TP53" 0 -> 1 when "ATM_medium"=1 and "CHEK1_2_medium"=0 and "E2F1_high"=1 and "E2F1_medium"=1 and "MDM2"=0
+"TP53" 1 -> 0 when "ATM_medium"=1 and "CHEK1_2_medium"=0 and "E2F1_high"=1 and "E2F1_medium"=1 and "MDM2"=1
+"TP53" 0 -> 1 when "ATM_medium"=1 and "CHEK1_2_medium"=1 and "MDM2"=0
+"TP53" 1 -> 0 when "ATM_medium"=1 and "CHEK1_2_medium"=1 and "MDM2"=1
+
+"p14ARF" 1 -> 0 when "E2F1_medium"=0
+"p14ARF" 0 -> 1 when "E2F1_medium"=1
+
+"p16INK4a" 1 -> 0 when "Growth_inhibitors"=0
+"p16INK4a" 0 -> 1 when "Growth_inhibitors"=1 and "RB1"=0
+"p16INK4a" 1 -> 0 when "Growth_inhibitors"=1 and "RB1"=1
+
+"p21CIP" 1 -> 0 when "Growth_inhibitors"=0 and "AKT"=0 and "CyclinE1"=0 and "TP53"=0
+"p21CIP" 0 -> 1 when "Growth_inhibitors"=0 and "AKT"=0 and "CyclinE1"=0 and "TP53"=1
+"p21CIP" 1 -> 0 when "Growth_inhibitors"=0 and "AKT"=0 and "CyclinE1"=1
+"p21CIP" 1 -> 0 when "Growth_inhibitors"=0 and "AKT"=1
+"p21CIP" 0 -> 1 when "Growth_inhibitors"=1 and "AKT"=0 and "CyclinE1"=0
+"p21CIP" 1 -> 0 when "Growth_inhibitors"=1 and "AKT"=0 and "CyclinE1"=1
+"p21CIP" 1 -> 0 when "Growth_inhibitors"=1 and "AKT"=1
+
+"Growth_arrest" 1 -> 0 when "RB1"=0 and "RBL2"=0 and "p21CIP"=0
+"Growth_arrest" 0 -> 1 when "RB1"=0 and "RBL2"=0 and "p21CIP"=1
+"Growth_arrest" 0 -> 1 when "RB1"=0 and "RBL2"=1
+"Growth_arrest" 0 -> 1 when "RB1"=1
+
+"Proliferation" 1 -> 0 when "CyclinA"=0 and "CyclinE1"=0
+"Proliferation" 0 -> 1 when "CyclinA"=0 and "CyclinE1"=1
+"Proliferation" 0 -> 1 when "CyclinA"=1
+

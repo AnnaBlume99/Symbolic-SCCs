@@ -1,0 +1,421 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Bptf" [0, 1]
+"Cbfa2t3h" [0, 1]
+"Erg" [0, 1]
+"Ets1" [0, 1]
+"Ets2" [0, 1]
+"Etv6" [0, 1]
+"Fli1" [0, 1]
+"Gata1" [0, 1]
+"Gata2" [0, 1]
+"Gata3" [0, 1]
+"Gfi1b" [0, 1]
+"Hoxa5" [0, 1]
+"Hoxa9" [0, 1]
+"Hoxb4" [0, 1]
+"Ikzf1" [0, 1]
+"Ldb1" [0, 1]
+"Lmo2" [0, 1]
+"Lyl1" [0, 1]
+"Meis1" [0, 1]
+"Myb" [0, 1]
+"Nfe2" [0, 1]
+"Nkx2pt3" [0, 1]
+"Notch" [0, 1]
+"Pbx1" [0, 1]
+"Prdm16" [0, 1]
+"Runx1" [0, 1]
+"Smarcc1" [0, 1]
+"Tal1" [0, 1]
+"Tcf7" [0, 1]
+
+"Bptf" 1 -> 0 when "Erg"=0 and "Ikzf1"=0 and "Lmo2"=0 and "Myb"=0 and "Nfe2"=0 and "Smarcc1"=0
+"Bptf" 0 -> 1 when "Erg"=0 and "Ikzf1"=0 and "Lmo2"=0 and "Myb"=0 and "Nfe2"=0 and "Smarcc1"=1
+"Bptf" 0 -> 1 when "Erg"=0 and "Ikzf1"=0 and "Lmo2"=0 and "Myb"=0 and "Nfe2"=1
+"Bptf" 0 -> 1 when "Erg"=0 and "Ikzf1"=0 and "Lmo2"=0 and "Myb"=1
+"Bptf" 0 -> 1 when "Erg"=0 and "Ikzf1"=0 and "Lmo2"=1
+"Bptf" 0 -> 1 when "Erg"=0 and "Ikzf1"=1
+"Bptf" 0 -> 1 when "Erg"=1
+
+"Cbfa2t3h" 1 -> 0 when "Fli1"=0 and "Ikzf1"=0 and "Meis1"=0 and "Nfe2"=0
+"Cbfa2t3h" 0 -> 1 when "Fli1"=0 and "Ikzf1"=0 and "Meis1"=0 and "Nfe2"=1
+"Cbfa2t3h" 0 -> 1 when "Fli1"=0 and "Ikzf1"=0 and "Meis1"=1
+"Cbfa2t3h" 0 -> 1 when "Fli1"=0 and "Ikzf1"=1
+"Cbfa2t3h" 0 -> 1 when "Fli1"=1
+
+"Erg" 1 -> 0 when "Bptf"=0 and "Fli1"=0 and "Meis1"=0
+"Erg" 0 -> 1 when "Bptf"=0 and "Fli1"=0 and "Meis1"=1
+"Erg" 0 -> 1 when "Bptf"=0 and "Fli1"=1
+"Erg" 0 -> 1 when "Bptf"=1
+
+"Ets1" 1 -> 0 when "Notch"=0
+
+
+"Etv6" 1 -> 0 when "Fli1"=0 and "Meis1"=0
+"Etv6" 0 -> 1 when "Fli1"=0 and "Meis1"=1
+"Etv6" 0 -> 1 when "Fli1"=1
+
+"Fli1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Meis1"=0 and "Nfe2"=0 and "Runx1"=0 and "Smarcc1"=0
+"Fli1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Meis1"=0 and "Nfe2"=0 and "Runx1"=0 and "Smarcc1"=1
+"Fli1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Meis1"=0 and "Nfe2"=0 and "Runx1"=1
+"Fli1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Meis1"=0 and "Nfe2"=1
+"Fli1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Meis1"=1
+"Fli1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=1
+"Fli1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1
+"Fli1" 0 -> 1 when "Cbfa2t3h"=1
+
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=0 and "Gata2"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=0 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=0 and "Gfi1b"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=0 and "Gata2"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=0 and "Smarcc1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=1 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=1 and "Smarcc1"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=0 and "Tal1"=0 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=0 and "Tal1"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Nkx2pt3"=0 and "Smarcc1"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Myb"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=0 and "Fli1"=1 and "Gfi1b"=1 and "Hoxa5"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=0 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0 and "Tcf7"=1
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=0 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=0 and "Lyl1"=1 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=0 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=0 and "Nkx2pt3"=1 and "Tcf7"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=0 and "Lyl1"=1 and "Myb"=1
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=0
+"Gata1" 1 -> 0 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=0
+"Gata1" 0 -> 1 when "Cbfa2t3h"=1 and "Erg"=1 and "Fli1"=1 and "Gata2"=1 and "Gfi1b"=1 and "Hoxa5"=1 and "Hoxa9"=1 and "Lyl1"=1 and "Tcf7"=1
+
+
+"Gata3" 1 -> 0 when "Tal1"=0
+
+"Gfi1b" 1 -> 0 when "Gata2"=0
+"Gfi1b" 1 -> 0 when "Gata2"=1 and "Notch"=1
+
+"Hoxa5" 1 -> 0 when "Prdm16"=0
+"Hoxa5" 1 -> 0 when "Prdm16"=1 and "Tcf7"=0
+"Hoxa5" 0 -> 1 when "Prdm16"=1 and "Tcf7"=1
+
+"Hoxa9" 1 -> 0 when "Ets1"=0 and "Hoxa5"=0 and "Ikzf1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nkx2pt3"=0
+"Hoxa9" 0 -> 1 when "Ets1"=0 and "Hoxa5"=0 and "Ikzf1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nkx2pt3"=1
+"Hoxa9" 0 -> 1 when "Ets1"=0 and "Hoxa5"=0 and "Ikzf1"=0 and "Lyl1"=0 and "Meis1"=1
+"Hoxa9" 0 -> 1 when "Ets1"=0 and "Hoxa5"=0 and "Ikzf1"=0 and "Lyl1"=1
+"Hoxa9" 0 -> 1 when "Ets1"=0 and "Hoxa5"=0 and "Ikzf1"=1
+"Hoxa9" 0 -> 1 when "Ets1"=0 and "Hoxa5"=1
+"Hoxa9" 0 -> 1 when "Ets1"=1
+
+"Hoxb4" 1 -> 0 when "Tcf7"=0
+"Hoxb4" 0 -> 1 when "Tcf7"=1
+
+"Ikzf1" 1 -> 0 when "Bptf"=0 and "Cbfa2t3h"=0 and "Hoxa9"=0 and "Myb"=0 and "Smarcc1"=0
+"Ikzf1" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Hoxa9"=0 and "Myb"=0 and "Smarcc1"=1
+"Ikzf1" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Hoxa9"=0 and "Myb"=1
+"Ikzf1" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Hoxa9"=1
+"Ikzf1" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=1
+"Ikzf1" 0 -> 1 when "Bptf"=1
+
+"Ldb1" 1 -> 0 when "Ikzf1"=0 and "Lmo2"=0 and "Myb"=0 and "Smarcc1"=0
+"Ldb1" 0 -> 1 when "Ikzf1"=0 and "Lmo2"=0 and "Myb"=0 and "Smarcc1"=1
+"Ldb1" 0 -> 1 when "Ikzf1"=0 and "Lmo2"=0 and "Myb"=1
+"Ldb1" 0 -> 1 when "Ikzf1"=0 and "Lmo2"=1
+"Ldb1" 0 -> 1 when "Ikzf1"=1
+
+"Lmo2" 1 -> 0 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nfe2"=0 and "Nkx2pt3"=0 and "Notch"=0 and "Tal1"=0
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nfe2"=0 and "Nkx2pt3"=0 and "Notch"=0 and "Tal1"=1
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nfe2"=0 and "Nkx2pt3"=0 and "Notch"=1
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nfe2"=0 and "Nkx2pt3"=1
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=0 and "Meis1"=0 and "Nfe2"=1
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=0 and "Meis1"=1
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=0 and "Lyl1"=1
+"Lmo2" 0 -> 1 when "Bptf"=0 and "Ldb1"=1
+"Lmo2" 0 -> 1 when "Bptf"=1
+
+"Lyl1" 1 -> 0 when "Erg"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Myb"=0 and "Nfe2"=0 and "Smarcc1"=0
+"Lyl1" 0 -> 1 when "Erg"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Myb"=0 and "Nfe2"=0 and "Smarcc1"=1
+"Lyl1" 0 -> 1 when "Erg"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Myb"=0 and "Nfe2"=1
+"Lyl1" 0 -> 1 when "Erg"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Myb"=1
+"Lyl1" 0 -> 1 when "Erg"=0 and "Hoxa9"=0 and "Lmo2"=1
+"Lyl1" 0 -> 1 when "Erg"=0 and "Hoxa9"=1
+"Lyl1" 0 -> 1 when "Erg"=1
+
+"Meis1" 1 -> 0 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Nfe2"=0 and "Nkx2pt3"=0 and "Runx1"=0
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Nfe2"=0 and "Nkx2pt3"=0 and "Runx1"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Nfe2"=0 and "Nkx2pt3"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=0 and "Hoxa9"=0 and "Lmo2"=0 and "Nfe2"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=0 and "Hoxa9"=0 and "Lmo2"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=0 and "Hoxa9"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=0 and "Fli1"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=0 and "Etv6"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=0 and "Erg"=1
+"Meis1" 0 -> 1 when "Cbfa2t3h"=1
+
+"Myb" 0 -> 1 when "Gata3"=0 and "Ldb1"=1
+"Myb" 1 -> 0 when "Gata3"=1 and "Ldb1"=0 and "Prdm16"=1
+"Myb" 0 -> 1 when "Gata3"=1 and "Ldb1"=1 and "Prdm16"=0
+"Myb" 1 -> 0 when "Gata3"=1 and "Ldb1"=1 and "Prdm16"=1
+
+"Nfe2" 1 -> 0 when "Bptf"=0 and "Cbfa2t3h"=0 and "Fli1"=0 and "Lmo2"=0 and "Lyl1"=0 and "Meis1"=0 and "Myb"=0
+"Nfe2" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Fli1"=0 and "Lmo2"=0 and "Lyl1"=0 and "Meis1"=0 and "Myb"=1
+"Nfe2" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Fli1"=0 and "Lmo2"=0 and "Lyl1"=0 and "Meis1"=1
+"Nfe2" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Fli1"=0 and "Lmo2"=0 and "Lyl1"=1
+"Nfe2" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Fli1"=0 and "Lmo2"=1
+"Nfe2" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=0 and "Fli1"=1
+"Nfe2" 0 -> 1 when "Bptf"=0 and "Cbfa2t3h"=1
+"Nfe2" 0 -> 1 when "Bptf"=1
+
+"Nkx2pt3" 1 -> 0 when "Hoxa9"=0 and "Lmo2"=0 and "Lyl1"=0 and "Meis1"=0
+"Nkx2pt3" 0 -> 1 when "Hoxa9"=0 and "Lmo2"=0 and "Lyl1"=0 and "Meis1"=1
+"Nkx2pt3" 0 -> 1 when "Hoxa9"=0 and "Lmo2"=0 and "Lyl1"=1
+"Nkx2pt3" 0 -> 1 when "Hoxa9"=0 and "Lmo2"=1
+"Nkx2pt3" 0 -> 1 when "Hoxa9"=1
+
+"Notch" 1 -> 0 when "Gata2"=0 and "Lmo2"=0
+"Notch" 0 -> 1 when "Gata2"=0 and "Lmo2"=1
+"Notch" 1 -> 0 when "Gata2"=1 and "Gfi1b"=0 and "Lmo2"=0
+"Notch" 0 -> 1 when "Gata2"=1 and "Gfi1b"=0 and "Lmo2"=1
+"Notch" 1 -> 0 when "Gata2"=1 and "Gfi1b"=1
+
+"Pbx1" 1 -> 0 when "Gata2"=0 and "Runx1"=0
+"Pbx1" 0 -> 1 when "Gata2"=0 and "Runx1"=1
+"Pbx1" 0 -> 1 when "Gata2"=1
+
+"Prdm16" 1 -> 0 when "Hoxa5"=0
+"Prdm16" 0 -> 1 when "Hoxa5"=1 and "Myb"=0
+"Prdm16" 1 -> 0 when "Hoxa5"=1 and "Myb"=1
+
+"Runx1" 1 -> 0 when "Fli1"=0 and "Meis1"=0
+"Runx1" 0 -> 1 when "Fli1"=0 and "Meis1"=1
+"Runx1" 0 -> 1 when "Fli1"=1
+
+"Smarcc1" 1 -> 0 when "Bptf"=0 and "Ets2"=0 and "Etv6"=0 and "Fli1"=0 and "Ikzf1"=0 and "Ldb1"=0 and "Lyl1"=0 and "Myb"=0
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=0 and "Etv6"=0 and "Fli1"=0 and "Ikzf1"=0 and "Ldb1"=0 and "Lyl1"=0 and "Myb"=1
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=0 and "Etv6"=0 and "Fli1"=0 and "Ikzf1"=0 and "Ldb1"=0 and "Lyl1"=1
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=0 and "Etv6"=0 and "Fli1"=0 and "Ikzf1"=0 and "Ldb1"=1
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=0 and "Etv6"=0 and "Fli1"=0 and "Ikzf1"=1
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=0 and "Etv6"=0 and "Fli1"=1
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=0 and "Etv6"=1
+"Smarcc1" 0 -> 1 when "Bptf"=0 and "Ets2"=1
+"Smarcc1" 0 -> 1 when "Bptf"=1
+
+"Tal1" 0 -> 1 when "Gata2"=1
+
+"Tcf7" 1 -> 0 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=0 and "Ikzf1"=0 and "Nkx2pt3"=0 and "Notch"=0 and "Runx1"=0
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=0 and "Ikzf1"=0 and "Nkx2pt3"=0 and "Notch"=0 and "Runx1"=1
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=0 and "Ikzf1"=0 and "Nkx2pt3"=0 and "Notch"=1
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=0 and "Ikzf1"=0 and "Nkx2pt3"=1
+"Tcf7" 1 -> 0 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=0 and "Ikzf1"=1
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=1 and "Ikzf1"=0
+"Tcf7" 1 -> 0 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=0 and "Hoxb4"=1 and "Ikzf1"=1
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=1 and "Ikzf1"=0
+"Tcf7" 1 -> 0 when "Ets1"=0 and "Gata1"=0 and "Gata3"=0 and "Hoxa5"=1 and "Ikzf1"=1
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=0 and "Gata3"=1 and "Ikzf1"=0
+"Tcf7" 1 -> 0 when "Ets1"=0 and "Gata1"=0 and "Gata3"=1 and "Ikzf1"=1
+"Tcf7" 0 -> 1 when "Ets1"=0 and "Gata1"=1 and "Ikzf1"=0
+"Tcf7" 1 -> 0 when "Ets1"=0 and "Gata1"=1 and "Ikzf1"=1
+"Tcf7" 0 -> 1 when "Ets1"=1 and "Ikzf1"=0
+"Tcf7" 1 -> 0 when "Ets1"=1 and "Ikzf1"=1
+

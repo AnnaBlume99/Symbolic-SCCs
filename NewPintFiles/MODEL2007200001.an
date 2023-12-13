@@ -1,0 +1,1677 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Lte1L_Cytoplasm" [0, 1]
+"Mob1L_Cytoplasm" [0, 1]
+"Elm1L_Cytoplasm" [0, 1]
+"Dbf2L_Cytoplasm" [0, 1]
+"Kin4L_Cytoplasm" [0, 1]
+"Cla4L_Cytoplasm" [0, 1]
+"Nud1L_Cytoplasm" [0, 1]
+"Spc72L_Cytoplasm" [0, 1]
+"PP2ARts1L_Cytoplasm" [0, 1]
+"Amn1L_Cytoplasm" [0, 1]
+"Bmh1L_Cytoplasm" [0, 1]
+"PolarityL_Cytoplasm" [0, 1]
+"Bfa1highL_Cytoplasm" [0, 1]
+"Bfa1lowL_Cytoplasm" [0, 1]
+"Tem1lowL_Cytoplasm" [0, 1]
+"Tem1highL_Cytoplasm" [0, 1]
+"Cdc15lowL_Cytoplasm" [0, 1]
+"Cdc15highL_Cytoplasm" [0, 1]
+"Bub2lowL_Cytoplasm" [0, 1]
+"Bub2highL_Cytoplasm" [0, 1]
+"Rsa1L_Cytoplasm" [0, 1]
+"Hit1L_Cytoplasm" [0, 1]
+"APCCdc20L_Cytoplasm" [0, 1]
+"Pds1L_Cytoplasm" [0, 1]
+"Esp1L_Cytoplasm" [0, 1]
+"Slk19L_Cytoplasm" [0, 1]
+"Zds1L_Cytoplasm" [0, 1]
+"Cdc5L_Cytoplasm" [0, 1]
+"PP2ACdc55L_Cytoplasm" [0, 1]
+"CDKlowL_Cytoplasm" [0, 1]
+"CDKhighL_Cytoplasm" [0, 1]
+"Fob1L_Cytoplasm" [0, 1]
+"Spo12L_Cytoplasm" [0, 1]
+"SACL_Cytoplasm" [0, 1]
+"Cdc14lowL_Cytoplasm" [0, 1]
+"Cdc14highL_Cytoplasm" [0, 1]
+"Net1L_Cytoplasm" [0, 1]
+"Lte1L_Bud" [0, 1]
+"Mob1L_Bud" [0, 1]
+"Elm1L_Bud" [0, 1]
+"Dbf2L_Bud" [0, 1]
+"Kin4L_Bud" [0, 1]
+"Cla4L_Bud" [0, 1]
+"Nud1L_Bud" [0, 1]
+"Spc72L_Bud" [0, 1]
+"PP2ARts1L_Bud" [0, 1]
+"Amn1L_Bud" [0, 1]
+"Bmh1L_Bud" [0, 1]
+"PolarityL_Bud" [0, 1]
+"Bfa1highL_Bud" [0, 1]
+"Bfa1lowL_Bud" [0, 1]
+"Tem1lowL_Bud" [0, 1]
+"Tem1highL_Bud" [0, 1]
+"Cdc15lowL_Bud" [0, 1]
+"Cdc15highL_Bud" [0, 1]
+"Bub2lowL_Bud" [0, 1]
+"Bub2highL_Bud" [0, 1]
+"Rsa1L_Bud" [0, 1]
+"Hit1L_Bud" [0, 1]
+"APCCdc20L_Bud" [0, 1]
+"Pds1L_Bud" [0, 1]
+"Esp1L_Bud" [0, 1]
+"Slk19L_Bud" [0, 1]
+"Zds1L_Bud" [0, 1]
+"Cdc5L_Bud" [0, 1]
+"PP2ACdc55L_Bud" [0, 1]
+"CDKlowL_Bud" [0, 1]
+"CDKhighL_Bud" [0, 1]
+"Fob1L_Bud" [0, 1]
+"Spo12L_Bud" [0, 1]
+"SACL_Bud" [0, 1]
+"Cdc14lowL_Bud" [0, 1]
+"Cdc14highL_Bud" [0, 1]
+"Net1L_Bud" [0, 1]
+"Lte1L_Nucleus" [0, 1]
+"Mob1L_Nucleus" [0, 1]
+"Elm1L_Nucleus" [0, 1]
+"Dbf2L_Nucleus" [0, 1]
+"Kin4L_Nucleus" [0, 1]
+"Cla4L_Nucleus" [0, 1]
+"Nud1L_Nucleus" [0, 1]
+"Spc72L_Nucleus" [0, 1]
+"PP2ARts1L_Nucleus" [0, 1]
+"Amn1L_Nucleus" [0, 1]
+"Bmh1L_Nucleus" [0, 1]
+"PolarityL_Nucleus" [0, 1]
+"Bfa1highL_Nucleus" [0, 1]
+"Bfa1lowL_Nucleus" [0, 1]
+"Tem1lowL_Nucleus" [0, 1]
+"Tem1highL_Nucleus" [0, 1]
+"Cdc15lowL_Nucleus" [0, 1]
+"Cdc15highL_Nucleus" [0, 1]
+"Bub2lowL_Nucleus" [0, 1]
+"Bub2highL_Nucleus" [0, 1]
+"Rsa1L_Nucleus" [0, 1]
+"Hit1L_Nucleus" [0, 1]
+"APCCdc20L_Nucleus" [0, 1]
+"Pds1L_Nucleus" [0, 1]
+"Esp1L_Nucleus" [0, 1]
+"Slk19L_Nucleus" [0, 1]
+"Zds1L_Nucleus" [0, 1]
+"Cdc5L_Nucleus" [0, 1]
+"PP2ACdc55L_Nucleus" [0, 1]
+"CDKlowL_Nucleus" [0, 1]
+"CDKhighL_Nucleus" [0, 1]
+"Fob1L_Nucleus" [0, 1]
+"Spo12L_Nucleus" [0, 1]
+"SACL_Nucleus" [0, 1]
+"Cdc14lowL_Nucleus" [0, 1]
+"Cdc14highL_Nucleus" [0, 1]
+"Net1L_Nucleus" [0, 1]
+"Spo12L_Nucleolus" [0, 1]
+"Fob1L_Nucleolus" [0, 1]
+"Hit1L_Nucleolus" [0, 1]
+"Rsa1L_Nucleolus" [0, 1]
+"Net1L_Nucleolus" [0, 1]
+"Cdc14lowL_Nucleolus" [0, 1]
+"Cdc14highL_Nucleolus" [0, 1]
+"Kin4L_mSPB" [0, 1]
+"Cdc5L_mSPB" [0, 1]
+"Nud1L_mSPB" [0, 1]
+"Spc72L_mSPB" [0, 1]
+"CDKlowL_mSPB" [0, 1]
+"Cdc14lowL_mSPB" [0, 1]
+"Bub2highL_mSPB" [0, 1]
+"Bfa1highL_mSPB" [0, 1]
+"Tem1lowL_mSPB" [0, 1]
+"Bub2lowL_mSPB" [0, 1]
+"Bfa1lowL_mSPB" [0, 1]
+"Tem1highL_mSPB" [0, 1]
+"Dbf2L_mSPB" [0, 1]
+"Mob1L_mSPB" [0, 1]
+"Cdc15lowL_mSPB" [0, 1]
+"Cdc15highL_mSPB" [0, 1]
+"Kin4L_dSPB" [0, 1]
+"Cdc5L_dSPB" [0, 1]
+"Nud1L_dSPB" [0, 1]
+"Spc72L_dSPB" [0, 1]
+"CDKlowL_dSPB" [0, 1]
+"Cdc14lowL_dSPB" [0, 1]
+"Bub2highL_dSPB" [0, 1]
+"Bfa1highL_dSPB" [0, 1]
+"Tem1lowL_dSPB" [0, 1]
+"Bub2lowL_dSPB" [0, 1]
+"Bfa1lowL_dSPB" [0, 1]
+"Tem1highL_dSPB" [0, 1]
+"Dbf2L_dSPB" [0, 1]
+"Mob1L_dSPB" [0, 1]
+"Cdc15lowL_dSPB" [0, 1]
+"Cdc15highL_dSPB" [0, 1]
+"Lte1A_Cytoplasm" [0, 1]
+"Mob1A_Cytoplasm" [0, 1]
+"Elm1A_Cytoplasm" [0, 1]
+"Dbf2A_Cytoplasm" [0, 1]
+"Kin4A_Cytoplasm" [0, 1]
+"Cla4A_Cytoplasm" [0, 1]
+"Nud1A_Cytoplasm" [0, 1]
+"Spc72A_Cytoplasm" [0, 1]
+"PP2ARts1A_Cytoplasm" [0, 1]
+"Amn1A_Cytoplasm" [0, 1]
+"Bmh1A_Cytoplasm" [0, 1]
+"PolarityA_Cytoplasm" [0, 1]
+"Bfa1highA_Cytoplasm" [0, 1]
+"Bfa1lowA_Cytoplasm" [0, 1]
+"Tem1lowA_Cytoplasm" [0, 1]
+"Tem1highA_Cytoplasm" [0, 1]
+"Cdc15lowA_Cytoplasm" [0, 1]
+"Cdc15highA_Cytoplasm" [0, 1]
+"Bub2lowA_Cytoplasm" [0, 1]
+"Bub2highA_Cytoplasm" [0, 1]
+"Rsa1A_Cytoplasm" [0, 1]
+"Hit1A_Cytoplasm" [0, 1]
+"APCCdc20A_Cytoplasm" [0, 1]
+"Pds1A_Cytoplasm" [0, 1]
+"Esp1A_Cytoplasm" [0, 1]
+"Slk19A_Cytoplasm" [0, 1]
+"Zds1A_Cytoplasm" [0, 1]
+"Cdc5A_Cytoplasm" [0, 1]
+"PP2ACdc55A_Cytoplasm" [0, 1]
+"CDKlowA_Cytoplasm" [0, 1]
+"CDKhighA_Cytoplasm" [0, 1]
+"Fob1A_Cytoplasm" [0, 1]
+"Spo12A_Cytoplasm" [0, 1]
+"SACA_Cytoplasm" [0, 1]
+"Cdc14lowA_Cytoplasm" [0, 1]
+"Cdc14highA_Cytoplasm" [0, 1]
+"Net1A_Cytoplasm" [0, 1]
+"Lte1A_Bud" [0, 1]
+"Mob1A_Bud" [0, 1]
+"Elm1A_Bud" [0, 1]
+"Dbf2A_Bud" [0, 1]
+"Kin4A_Bud" [0, 1]
+"Cla4A_Bud" [0, 1]
+"Nud1A_Bud" [0, 1]
+"Spc72A_Bud" [0, 1]
+"PP2ARts1A_Bud" [0, 1]
+"Amn1A_Bud" [0, 1]
+"Bmh1A_Bud" [0, 1]
+"PolarityA_Bud" [0, 1]
+"Bfa1highA_Bud" [0, 1]
+"Bfa1lowA_Bud" [0, 1]
+"Tem1lowA_Bud" [0, 1]
+"Tem1highA_Bud" [0, 1]
+"Cdc15lowA_Bud" [0, 1]
+"Cdc15highA_Bud" [0, 1]
+"Bub2lowA_Bud" [0, 1]
+"Bub2highA_Bud" [0, 1]
+"Rsa1A_Bud" [0, 1]
+"Hit1A_Bud" [0, 1]
+"APCCdc20A_Bud" [0, 1]
+"Pds1A_Bud" [0, 1]
+"Esp1A_Bud" [0, 1]
+"Slk19A_Bud" [0, 1]
+"Zds1A_Bud" [0, 1]
+"Cdc5A_Bud" [0, 1]
+"PP2ACdc55A_Bud" [0, 1]
+"CDKlowA_Bud" [0, 1]
+"CDKhighA_Bud" [0, 1]
+"Fob1A_Bud" [0, 1]
+"Spo12A_Bud" [0, 1]
+"SACA_Bud" [0, 1]
+"Cdc14lowA_Bud" [0, 1]
+"Cdc14highA_Bud" [0, 1]
+"Net1A_Bud" [0, 1]
+"Lte1A_Nucleus" [0, 1]
+"Mob1A_Nucleus" [0, 1]
+"Elm1A_Nucleus" [0, 1]
+"Dbf2A_Nucleus" [0, 1]
+"Kin4A_Nucleus" [0, 1]
+"Cla4A_Nucleus" [0, 1]
+"Nud1A_Nucleus" [0, 1]
+"Spc72A_Nucleus" [0, 1]
+"PP2ARts1A_Nucleus" [0, 1]
+"Amn1A_Nucleus" [0, 1]
+"Bmh1A_Nucleus" [0, 1]
+"PolarityA_Nucleus" [0, 1]
+"Bfa1highA_Nucleus" [0, 1]
+"Bfa1lowA_Nucleus" [0, 1]
+"Tem1lowA_Nucleus" [0, 1]
+"Tem1highA_Nucleus" [0, 1]
+"Cdc15lowA_Nucleus" [0, 1]
+"Cdc15highA_Nucleus" [0, 1]
+"Bub2lowA_Nucleus" [0, 1]
+"Bub2highA_Nucleus" [0, 1]
+"Rsa1A_Nucleus" [0, 1]
+"Hit1A_Nucleus" [0, 1]
+"APCCdc20A_Nucleus" [0, 1]
+"Pds1A_Nucleus" [0, 1]
+"Esp1A_Nucleus" [0, 1]
+"Slk19A_Nucleus" [0, 1]
+"Zds1A_Nucleus" [0, 1]
+"Cdc5A_Nucleus" [0, 1]
+"PP2ACdc55A_Nucleus" [0, 1]
+"CDKlowA_Nucleus" [0, 1]
+"CDKhighA_Nucleus" [0, 1]
+"Fob1A_Nucleus" [0, 1]
+"Spo12A_Nucleus" [0, 1]
+"SACA_Nucleus" [0, 1]
+"Cdc14lowA_Nucleus" [0, 1]
+"Cdc14highA_Nucleus" [0, 1]
+"Net1A_Nucleus" [0, 1]
+"Spo12A_Nucleolus" [0, 1]
+"Fob1A_Nucleolus" [0, 1]
+"Hit1A_Nucleolus" [0, 1]
+"Rsa1A_Nucleolus" [0, 1]
+"Net1A_Nucleolus" [0, 1]
+"Cdc14lowA_Nucleolus" [0, 1]
+"Cdc14highA_Nucleolus" [0, 1]
+"Kin4A_mSPB" [0, 1]
+"Cdc5A_mSPB" [0, 1]
+"Nud1A_mSPB" [0, 1]
+"Spc72A_mSPB" [0, 1]
+"CDKlowA_mSPB" [0, 1]
+"Cdc14lowA_mSPB" [0, 1]
+"Bub2highA_mSPB" [0, 1]
+"Bfa1highA_mSPB" [0, 1]
+"Tem1lowA_mSPB" [0, 1]
+"Bub2lowA_mSPB" [0, 1]
+"Bfa1lowA_mSPB" [0, 1]
+"Tem1highA_mSPB" [0, 1]
+"Dbf2A_mSPB" [0, 1]
+"Mob1A_mSPB" [0, 1]
+"Cdc15lowA_mSPB" [0, 1]
+"Cdc15highA_mSPB" [0, 1]
+"Kin4A_dSPB" [0, 1]
+"Cdc5A_dSPB" [0, 1]
+"Nud1A_dSPB" [0, 1]
+"Spc72A_dSPB" [0, 1]
+"CDKlowA_dSPB" [0, 1]
+"Cdc14lowA_dSPB" [0, 1]
+"Bub2highA_dSPB" [0, 1]
+"Bfa1highA_dSPB" [0, 1]
+"Tem1lowA_dSPB" [0, 1]
+"Bub2lowA_dSPB" [0, 1]
+"Bfa1lowA_dSPB" [0, 1]
+"Tem1highA_dSPB" [0, 1]
+"Dbf2A_dSPB" [0, 1]
+"Mob1A_dSPB" [0, 1]
+"Cdc15lowA_dSPB" [0, 1]
+"Cdc15highA_dSPB" [0, 1]
+"SpindleAlign" [0, 1]
+"ME" [0, 1]
+
+"Lte1L_Cytoplasm" 1 -> 0 when "PolarityA_Cytoplasm"=0
+"Lte1L_Cytoplasm" 0 -> 1 when "PolarityA_Cytoplasm"=1
+
+
+
+
+"Kin4L_Cytoplasm" 0 -> 1 when "PolarityA_Cytoplasm"=0
+"Kin4L_Cytoplasm" 1 -> 0 when "PolarityA_Cytoplasm"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"APCCdc20L_Cytoplasm" 1 -> 0 when "APCCdc20A_Nucleus"=0
+"APCCdc20L_Cytoplasm" 0 -> 1 when "APCCdc20A_Nucleus"=1
+
+
+
+
+
+
+
+
+"CDKhighL_Cytoplasm" 0 -> 1 when "APCCdc20A_Cytoplasm"=0
+"CDKhighL_Cytoplasm" 1 -> 0 when "APCCdc20A_Cytoplasm"=1
+
+
+
+
+"Cdc14lowL_Cytoplasm" 1 -> 0 when "Cdc14highL_Nucleus"=0
+"Cdc14lowL_Cytoplasm" 0 -> 1 when "Cdc14highL_Nucleus"=1
+
+"Cdc14highL_Cytoplasm" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0
+"Cdc14highL_Cytoplasm" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Mob1L_Nucleus"=0
+"Cdc14highL_Cytoplasm" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Mob1L_Nucleus"=1 and "Cdc14highL_Nucleus"=0
+"Cdc14highL_Cytoplasm" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Mob1L_Nucleus"=1 and "Cdc14highL_Nucleus"=1 and "Dbf2A_Nucleus"=0
+"Cdc14highL_Cytoplasm" 0 -> 1 when "Cdc14lowL_Cytoplasm"=1 and "Mob1L_Nucleus"=1 and "Cdc14highL_Nucleus"=1 and "Dbf2A_Nucleus"=1
+
+
+"Lte1L_Bud" 1 -> 0 when "PolarityA_Bud"=0
+"Lte1L_Bud" 0 -> 1 when "PolarityA_Bud"=1
+
+
+
+
+"Kin4L_Bud" 0 -> 1 when "PolarityA_Bud"=0
+"Kin4L_Bud" 1 -> 0 when "PolarityA_Bud"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"APCCdc20L_Bud" 1 -> 0 when "APCCdc20A_Nucleus"=0
+"APCCdc20L_Bud" 0 -> 1 when "APCCdc20A_Nucleus"=1
+
+
+
+
+
+
+
+
+"CDKhighL_Bud" 0 -> 1 when "APCCdc20A_Bud"=0
+"CDKhighL_Bud" 1 -> 0 when "APCCdc20A_Bud"=1
+
+
+
+
+"Cdc14lowL_Bud" 1 -> 0 when "Cdc14highL_Nucleus"=0
+"Cdc14lowL_Bud" 0 -> 1 when "Cdc14highL_Nucleus"=1
+
+"Cdc14highL_Bud" 1 -> 0 when "Cdc14lowL_Bud"=0
+"Cdc14highL_Bud" 1 -> 0 when "Cdc14lowL_Bud"=1 and "Mob1L_Nucleus"=0
+"Cdc14highL_Bud" 1 -> 0 when "Cdc14lowL_Bud"=1 and "Mob1L_Nucleus"=1 and "Cdc14highL_Nucleus"=0
+"Cdc14highL_Bud" 1 -> 0 when "Cdc14lowL_Bud"=1 and "Mob1L_Nucleus"=1 and "Cdc14highL_Nucleus"=1 and "Dbf2A_Nucleus"=0
+"Cdc14highL_Bud" 0 -> 1 when "Cdc14lowL_Bud"=1 and "Mob1L_Nucleus"=1 and "Cdc14highL_Nucleus"=1 and "Dbf2A_Nucleus"=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"APCCdc20L_Nucleus" 0 -> 1 when "SACA_Nucleus"=0
+"APCCdc20L_Nucleus" 1 -> 0 when "SACA_Nucleus"=1
+
+"Pds1L_Nucleus" 0 -> 1 when "APCCdc20A_Nucleus"=0
+"Pds1L_Nucleus" 1 -> 0 when "APCCdc20A_Nucleus"=1
+
+
+
+
+
+"PP2ACdc55L_Nucleus" 0 -> 1 when "Slk19A_Nucleus"=0
+"PP2ACdc55L_Nucleus" 0 -> 1 when "Slk19A_Nucleus"=1 and "Zds1A_Nucleus"=0
+"PP2ACdc55L_Nucleus" 1 -> 0 when "Slk19A_Nucleus"=1 and "Zds1A_Nucleus"=1
+
+
+"CDKhighL_Nucleus" 0 -> 1 when "APCCdc20A_Nucleus"=0
+"CDKhighL_Nucleus" 1 -> 0 when "APCCdc20A_Nucleus"=1
+
+
+
+
+"Cdc14lowL_Nucleus" 0 -> 1 when "Cdc14lowL_Nucleolus"=1 and "Net1A_Nucleolus"=0
+"Cdc14lowL_Nucleus" 1 -> 0 when "Net1A_Nucleolus"=1
+
+"Cdc14highL_Nucleus" 1 -> 0 when "Cdc14lowL_Nucleus"=0
+"Cdc14highL_Nucleus" 0 -> 1 when "Cdc14lowL_Nucleus"=1 and "Net1A_Nucleolus"=0
+"Cdc14highL_Nucleus" 1 -> 0 when "Cdc14lowL_Nucleus"=1 and "Net1A_Nucleolus"=1
+
+
+
+
+
+
+
+"Cdc14lowL_Nucleolus" 0 -> 1 when "Cdc14lowL_Nucleus"=0
+"Cdc14lowL_Nucleolus" 1 -> 0 when "Cdc14lowL_Nucleus"=1
+
+"Cdc14highL_Nucleolus" 1 -> 0 when "Cdc14lowL_Nucleolus"=0
+"Cdc14highL_Nucleolus" 0 -> 1 when "Cdc14lowL_Nucleolus"=1
+
+"Kin4L_mSPB" 1 -> 0 when "Kin4L_Cytoplasm"=0
+"Kin4L_mSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0
+"Kin4L_mSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Spc72A_mSPB"=0
+"Kin4L_mSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Spc72A_mSPB"=1
+"Kin4L_mSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=1
+
+"Cdc5L_mSPB" 1 -> 0 when "Bub2lowL_mSPB"=0
+"Cdc5L_mSPB" 1 -> 0 when "Bub2lowL_mSPB"=1 and "Bfa1lowL_mSPB"=0
+"Cdc5L_mSPB" 1 -> 0 when "Bub2lowL_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "APCCdc20A_Cytoplasm"=0
+"Cdc5L_mSPB" 0 -> 1 when "Bub2lowL_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "APCCdc20A_Cytoplasm"=1
+
+
+
+"CDKlowL_mSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=0
+"CDKlowL_mSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "Nud1A_mSPB"=0
+"CDKlowL_mSPB" 0 -> 1 when "CDKlowL_Cytoplasm"=1 and "Nud1A_mSPB"=1 and "Dbf2A_mSPB"=0 and "Mob1A_mSPB"=0
+"CDKlowL_mSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "Nud1A_mSPB"=1 and "Dbf2A_mSPB"=0 and "Mob1A_mSPB"=1
+"CDKlowL_mSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "Nud1A_mSPB"=1 and "Dbf2A_mSPB"=1
+
+"Cdc14lowL_mSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0
+"Cdc14lowL_mSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Bub2highL_mSPB"=0
+"Cdc14lowL_mSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Bub2highL_mSPB"=1 and "Bfa1highL_mSPB"=0
+"Cdc14lowL_mSPB" 0 -> 1 when "Cdc14lowL_Cytoplasm"=1 and "Bub2highL_mSPB"=1 and "Bfa1highL_mSPB"=1
+
+"Bub2highL_mSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=0
+"Bub2highL_mSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bfa1highL_mSPB"=0
+"Bub2highL_mSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bfa1highL_mSPB"=1 and "Bub2lowL_mSPB"=0
+"Bub2highL_mSPB" 0 -> 1 when "Bub2highL_Cytoplasm"=1 and "Bfa1highL_mSPB"=1 and "Bub2lowL_mSPB"=1
+
+"Bfa1highL_mSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0
+"Bfa1highL_mSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=0 and "Bub2highL_mSPB"=0
+"Bfa1highL_mSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=0 and "Bub2highL_mSPB"=1 and "Bfa1lowL_mSPB"=0
+"Bfa1highL_mSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=0 and "Bub2highL_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "Kin4A_mSPB"=0
+"Bfa1highL_mSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=0 and "Bub2highL_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "Kin4A_mSPB"=1
+"Bfa1highL_mSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bfa1lowL_mSPB"=0
+"Bfa1highL_mSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "Bmh1A_Cytoplasm"=0
+"Bfa1highL_mSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Kin4A_mSPB"=0
+"Bfa1highL_mSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bfa1lowL_mSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Kin4A_mSPB"=1
+
+"Tem1lowL_mSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1highA_Cytoplasm"=0
+"Tem1lowL_mSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1highA_Cytoplasm"=1
+"Tem1lowL_mSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=0 and "Tem1highA_Cytoplasm"=0
+"Tem1lowL_mSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=0 and "Tem1highA_Cytoplasm"=1
+"Tem1lowL_mSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bub2highL_mSPB"=0 and "Tem1highA_Cytoplasm"=0
+"Tem1lowL_mSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bub2highL_mSPB"=0 and "Tem1highA_Cytoplasm"=1
+"Tem1lowL_mSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bub2highL_mSPB"=1 and "Bfa1highL_mSPB"=0 and "Tem1highA_Cytoplasm"=0
+"Tem1lowL_mSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bub2highL_mSPB"=1 and "Bfa1highL_mSPB"=0 and "Tem1highA_Cytoplasm"=1
+"Tem1lowL_mSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "Bub2highL_mSPB"=1 and "Bfa1highL_mSPB"=1
+
+"Bub2lowL_mSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=0
+"Bub2lowL_mSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=1 and "Nud1L_mSPB"=0
+"Bub2lowL_mSPB" 0 -> 1 when "Bub2lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1
+
+"Bfa1lowL_mSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=0
+"Bfa1lowL_mSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=0
+"Bfa1lowL_mSPB" 0 -> 1 when "Bfa1lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1
+
+"Tem1highL_mSPB" 1 -> 0 when "Tem1lowL_mSPB"=0
+"Tem1highL_mSPB" 1 -> 0 when "Tem1lowL_mSPB"=1 and "Tem1highA_Cytoplasm"=0
+"Tem1highL_mSPB" 0 -> 1 when "Tem1lowL_mSPB"=1 and "Tem1highA_Cytoplasm"=1
+
+"Dbf2L_mSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=0
+"Dbf2L_mSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Mob1L_mSPB"=0
+"Dbf2L_mSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Mob1L_mSPB"=1 and "Nud1A_mSPB"=0
+"Dbf2L_mSPB" 0 -> 1 when "Dbf2L_Cytoplasm"=1 and "Mob1L_mSPB"=1 and "Nud1A_mSPB"=1
+
+"Mob1L_mSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0
+"Mob1L_mSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=0
+"Mob1L_mSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=0 and "Nud1A_mSPB"=0
+"Mob1L_mSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=0 and "Nud1A_mSPB"=1
+"Mob1L_mSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_mSPB"=0
+"Mob1L_mSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_mSPB"=1 and "Tem1highA_mSPB"=0
+"Mob1L_mSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_mSPB"=1 and "Tem1highA_mSPB"=1
+"Mob1L_mSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "Nud1A_mSPB"=0
+"Mob1L_mSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Cdc15highL_mSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "Nud1A_mSPB"=1
+
+"Cdc15lowL_mSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0
+"Cdc15lowL_mSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=0
+"Cdc15lowL_mSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=0 and "CDKhighA_Cytoplasm"=0
+"Cdc15lowL_mSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_mSPB"=0 and "Tem1highA_mSPB"=0
+"Cdc15lowL_mSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_mSPB"=0 and "Tem1highA_mSPB"=1
+"Cdc15lowL_mSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_mSPB"=1
+"Cdc15lowL_mSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Tem1highA_mSPB"=0
+"Cdc15lowL_mSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Tem1highA_mSPB"=1
+"Cdc15lowL_mSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Nud1L_mSPB"=1 and "CDKlowL_mSPB"=1 and "Cdc14lowA_mSPB"=1
+
+"Cdc15highL_mSPB" 1 -> 0 when "Nud1L_mSPB"=0
+"Cdc15highL_mSPB" 1 -> 0 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=0
+"Cdc15highL_mSPB" 1 -> 0 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Tem1lowA_mSPB"=0 and "Tem1highA_mSPB"=0
+"Cdc15highL_mSPB" 0 -> 1 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Tem1lowA_mSPB"=0 and "Tem1highA_mSPB"=1
+"Cdc15highL_mSPB" 0 -> 1 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Tem1lowA_mSPB"=1
+"Cdc15highL_mSPB" 0 -> 1 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=1
+"Cdc15highL_mSPB" 1 -> 0 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=0 and "Tem1highA_mSPB"=0
+"Cdc15highL_mSPB" 0 -> 1 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=0 and "Tem1highA_mSPB"=1
+"Cdc15highL_mSPB" 1 -> 0 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Tem1lowA_mSPB"=0 and "Tem1highA_mSPB"=0
+"Cdc15highL_mSPB" 0 -> 1 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Tem1lowA_mSPB"=0 and "Tem1highA_mSPB"=1
+"Cdc15highL_mSPB" 0 -> 1 when "Nud1L_mSPB"=1 and "Cdc15lowL_mSPB"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Tem1lowA_mSPB"=1
+
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=0 and "Kin4L_Bud"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=0 and "Kin4L_Bud"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=0 and "Kin4L_Bud"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=0 and "Kin4L_Bud"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=0 and "Kin4L_Bud"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=0 and "Kin4L_Bud"=1 and "Lte1A_Bud"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=0 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=0 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=0 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=0 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=0 and "Lte1A_Cytoplasm"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=0 and "Lte1A_Bud"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=0 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=0 and "Spc72A_dSPB"=1 and "SpindleAlign"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=0 and "Spc72A_dSPB"=1 and "SpindleAlign"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=0 and "PP2ARts1A_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=0
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=0
+"Kin4L_dSPB" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "PP2ARts1A_Bud"=1 and "Spc72A_dSPB"=1 and "SpindleAlign"=1
+"Kin4L_dSPB" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Kin4L_Bud"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=1
+
+"Cdc5L_dSPB" 1 -> 0 when "Bub2lowL_dSPB"=0
+"Cdc5L_dSPB" 1 -> 0 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Cdc5L_dSPB" 1 -> 0 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "APCCdc20A_Cytoplasm"=0 and "APCCdc20A_Bud"=0
+"Cdc5L_dSPB" 1 -> 0 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "APCCdc20A_Cytoplasm"=0 and "APCCdc20A_Bud"=1 and "SpindleAlign"=0
+"Cdc5L_dSPB" 0 -> 1 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "APCCdc20A_Cytoplasm"=0 and "APCCdc20A_Bud"=1 and "SpindleAlign"=1
+"Cdc5L_dSPB" 0 -> 1 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "APCCdc20A_Cytoplasm"=1 and "APCCdc20A_Bud"=0 and "SpindleAlign"=0
+"Cdc5L_dSPB" 1 -> 0 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "APCCdc20A_Cytoplasm"=1 and "APCCdc20A_Bud"=0 and "SpindleAlign"=1
+"Cdc5L_dSPB" 0 -> 1 when "Bub2lowL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "APCCdc20A_Cytoplasm"=1 and "APCCdc20A_Bud"=1
+
+
+
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=0 and "CDKlowL_Bud"=0
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=0 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=0
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=0 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=0 and "SpindleAlign"=0
+"CDKlowL_dSPB" 0 -> 1 when "CDKlowL_Cytoplasm"=0 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=0 and "SpindleAlign"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=0 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=0 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=0 and "Nud1A_dSPB"=0
+"CDKlowL_dSPB" 0 -> 1 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=0 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=0 and "SpindleAlign"=0
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=0 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=0 and "SpindleAlign"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=0 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=0 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=0
+"CDKlowL_dSPB" 0 -> 1 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=0
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=0 and "Mob1A_dSPB"=1
+"CDKlowL_dSPB" 1 -> 0 when "CDKlowL_Cytoplasm"=1 and "CDKlowL_Bud"=1 and "Nud1A_dSPB"=1 and "Dbf2A_dSPB"=1
+
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0 and "Cdc14lowL_Bud"=0
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=0
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "SpindleAlign"=0
+"Cdc14lowL_dSPB" 0 -> 1 when "Cdc14lowL_Cytoplasm"=0 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "SpindleAlign"=1
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=0 and "Bub2highL_dSPB"=0
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=0 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0
+"Cdc14lowL_dSPB" 0 -> 1 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=0 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "SpindleAlign"=0
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=0 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "SpindleAlign"=1
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=0
+"Cdc14lowL_dSPB" 1 -> 0 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0
+"Cdc14lowL_dSPB" 0 -> 1 when "Cdc14lowL_Cytoplasm"=1 and "Cdc14lowL_Bud"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1
+
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=0 and "Bub2highL_Bud"=0
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=0 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=0
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=0 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=0
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=0 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=1 and "SpindleAlign"=0
+"Bub2highL_dSPB" 0 -> 1 when "Bub2highL_Cytoplasm"=0 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=1 and "SpindleAlign"=1
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=0 and "Bfa1highL_dSPB"=0
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=0 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=0
+"Bub2highL_dSPB" 0 -> 1 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=0 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=1 and "SpindleAlign"=0
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=0 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=1 and "SpindleAlign"=1
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=0
+"Bub2highL_dSPB" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=0
+"Bub2highL_dSPB" 0 -> 1 when "Bub2highL_Cytoplasm"=1 and "Bub2highL_Bud"=1 and "Bfa1highL_dSPB"=1 and "Bub2lowL_dSPB"=1
+
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Bud"=0 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Bud"=0 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=0 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=0 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=0 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Kin4A_dSPB"=0 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=0 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Kin4A_dSPB"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=0 and "Bub2highL_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Kin4A_dSPB"=1
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=0 and "Bmh1A_Bud"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=0 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=0 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=0 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Bmh1A_Bud"=0 and "Kin4A_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Bmh1A_Bud"=0 and "Kin4A_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Bmh1A_Bud"=0 and "Kin4A_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highL_dSPB" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=0
+"Bfa1highL_dSPB" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Bfa1highL_Bud"=1 and "Nud1L_dSPB"=1 and "Bfa1lowL_dSPB"=1 and "Bmh1A_Cytoplasm"=1 and "Bmh1A_Bud"=1 and "Kin4A_dSPB"=1
+
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "Tem1highA_Cytoplasm"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "Tem1highA_Cytoplasm"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=0 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "Tem1highA_Cytoplasm"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1lowL_dSPB" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=0 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+"Tem1lowL_dSPB" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Tem1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "Bub2highL_dSPB"=1 and "Bfa1highL_dSPB"=1
+
+"Bub2lowL_dSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=0 and "Bub2lowL_Bud"=0
+"Bub2lowL_dSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=0 and "Bub2lowL_Bud"=1 and "Nud1L_dSPB"=0
+"Bub2lowL_dSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=0 and "Bub2lowL_Bud"=1 and "Nud1L_dSPB"=1 and "SpindleAlign"=0
+"Bub2lowL_dSPB" 0 -> 1 when "Bub2lowL_Cytoplasm"=0 and "Bub2lowL_Bud"=1 and "Nud1L_dSPB"=1 and "SpindleAlign"=1
+"Bub2lowL_dSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=1 and "Bub2lowL_Bud"=0 and "Nud1L_dSPB"=0
+"Bub2lowL_dSPB" 0 -> 1 when "Bub2lowL_Cytoplasm"=1 and "Bub2lowL_Bud"=0 and "Nud1L_dSPB"=1 and "SpindleAlign"=0
+"Bub2lowL_dSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=1 and "Bub2lowL_Bud"=0 and "Nud1L_dSPB"=1 and "SpindleAlign"=1
+"Bub2lowL_dSPB" 1 -> 0 when "Bub2lowL_Cytoplasm"=1 and "Bub2lowL_Bud"=1 and "Nud1L_dSPB"=0
+"Bub2lowL_dSPB" 0 -> 1 when "Bub2lowL_Cytoplasm"=1 and "Bub2lowL_Bud"=1 and "Nud1L_dSPB"=1
+
+"Bfa1lowL_dSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=0 and "Bfa1lowL_Bud"=0
+"Bfa1lowL_dSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=0 and "Bfa1lowL_Bud"=1 and "Nud1L_dSPB"=0
+"Bfa1lowL_dSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=0 and "Bfa1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "SpindleAlign"=0
+"Bfa1lowL_dSPB" 0 -> 1 when "Bfa1lowL_Cytoplasm"=0 and "Bfa1lowL_Bud"=1 and "Nud1L_dSPB"=1 and "SpindleAlign"=1
+"Bfa1lowL_dSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=1 and "Bfa1lowL_Bud"=0 and "Nud1L_dSPB"=0
+"Bfa1lowL_dSPB" 0 -> 1 when "Bfa1lowL_Cytoplasm"=1 and "Bfa1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "SpindleAlign"=0
+"Bfa1lowL_dSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=1 and "Bfa1lowL_Bud"=0 and "Nud1L_dSPB"=1 and "SpindleAlign"=1
+"Bfa1lowL_dSPB" 1 -> 0 when "Bfa1lowL_Cytoplasm"=1 and "Bfa1lowL_Bud"=1 and "Nud1L_dSPB"=0
+"Bfa1lowL_dSPB" 0 -> 1 when "Bfa1lowL_Cytoplasm"=1 and "Bfa1lowL_Bud"=1 and "Nud1L_dSPB"=1
+
+"Tem1highL_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=0
+"Tem1highL_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=1 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=0
+"Tem1highL_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=1 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=0
+"Tem1highL_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Tem1highA_Cytoplasm"=0 and "Tem1highA_Bud"=1 and "SpindleAlign"=1
+"Tem1highL_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=0
+"Tem1highL_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=1 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=0 and "SpindleAlign"=1
+"Tem1highL_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Tem1highA_Cytoplasm"=1 and "Tem1highA_Bud"=1
+
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=0 and "Dbf2L_Bud"=0
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=0 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=0
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=0 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=0
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=0 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=0
+"Dbf2L_dSPB" 0 -> 1 when "Dbf2L_Cytoplasm"=0 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=1
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=0 and "Mob1L_dSPB"=0
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=0 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=0
+"Dbf2L_dSPB" 0 -> 1 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=0 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=0
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=0 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=1
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=0
+"Dbf2L_dSPB" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=0
+"Dbf2L_dSPB" 0 -> 1 when "Dbf2L_Cytoplasm"=1 and "Dbf2L_Bud"=1 and "Mob1L_dSPB"=1 and "Nud1A_dSPB"=1
+
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1 and "SpindleAlign"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1 and "SpindleAlign"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1 and "SpindleAlign"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1 and "SpindleAlign"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=0 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "Nud1A_dSPB"=1 and "SpindleAlign"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "Nud1A_dSPB"=1 and "SpindleAlign"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1 and "SpindleAlign"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1 and "SpindleAlign"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=0 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "Nud1A_dSPB"=1 and "SpindleAlign"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=0 and "Nud1A_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=0 and "Nud1A_dSPB"=1 and "Tem1highA_dSPB"=1
+"Mob1L_dSPB" 1 -> 0 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=0
+"Mob1L_dSPB" 0 -> 1 when "Mob1L_Cytoplasm"=1 and "Mob1L_Bud"=1 and "Cdc15highL_dSPB"=1 and "CDKhighA_Cytoplasm"=1 and "Cdc14highA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14highA_Bud"=1 and "Nud1A_dSPB"=1
+
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=0 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=0 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=0 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=0 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=1 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=0 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=0 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=0 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=0 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=0 and "Cdc14lowA_dSPB"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=0 and "CDKhighA_Cytoplasm"=1 and "CDKhighA_Bud"=1 and "Cdc14lowA_dSPB"=1
+"Cdc15lowL_dSPB" 1 -> 0 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15lowL_dSPB" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1 and "Cdc15lowL_Bud"=1 and "Nud1L_dSPB"=1 and "CDKlowL_dSPB"=1 and "Cdc14lowA_dSPB"=1
+
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=0
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=0
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=1
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Tem1lowA_dSPB"=1 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0 and "SpindleAlign"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=1
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 1 -> 0 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=0
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=0 and "Tem1highA_dSPB"=1
+"Cdc15highL_dSPB" 0 -> 1 when "Nud1L_dSPB"=1 and "Cdc15lowL_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Tem1lowA_dSPB"=1
+
+"Lte1A_Cytoplasm" 1 -> 0 when "Lte1L_Cytoplasm"=0
+"Lte1A_Cytoplasm" 1 -> 0 when "Lte1L_Cytoplasm"=1 and "Cla4A_Cytoplasm"=0
+"Lte1A_Cytoplasm" 0 -> 1 when "Lte1L_Cytoplasm"=1 and "Cla4A_Cytoplasm"=1
+
+"Mob1A_Cytoplasm" 1 -> 0 when "Mob1L_Cytoplasm"=0
+"Mob1A_Cytoplasm" 0 -> 1 when "Mob1L_Cytoplasm"=1
+
+"Elm1A_Cytoplasm" 1 -> 0 when "Elm1L_Cytoplasm"=0
+"Elm1A_Cytoplasm" 0 -> 1 when "Elm1L_Cytoplasm"=1
+
+"Dbf2A_Cytoplasm" 1 -> 0 when "Dbf2L_Cytoplasm"=0
+"Dbf2A_Cytoplasm" 1 -> 0 when "Dbf2L_Cytoplasm"=1 and "Dbf2A_mSPB"=0
+"Dbf2A_Cytoplasm" 0 -> 1 when "Dbf2L_Cytoplasm"=1 and "Dbf2A_mSPB"=1
+
+"Kin4A_Cytoplasm" 1 -> 0 when "Kin4L_Cytoplasm"=0
+"Kin4A_Cytoplasm" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=0
+"Kin4A_Cytoplasm" 0 -> 1 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1
+"Kin4A_Cytoplasm" 1 -> 0 when "Kin4L_Cytoplasm"=1 and "Lte1A_Cytoplasm"=1
+
+"Cla4A_Cytoplasm" 1 -> 0 when "Cla4L_Cytoplasm"=0
+"Cla4A_Cytoplasm" 0 -> 1 when "Cla4L_Cytoplasm"=1
+
+"Nud1A_Cytoplasm" 1 -> 0 when "Nud1L_Cytoplasm"=0
+"Nud1A_Cytoplasm" 0 -> 1 when "Nud1L_Cytoplasm"=1
+
+"Spc72A_Cytoplasm" 1 -> 0 when "Spc72L_Cytoplasm"=0
+"Spc72A_Cytoplasm" 0 -> 1 when "Spc72L_Cytoplasm"=1
+
+"PP2ARts1A_Cytoplasm" 1 -> 0 when "PP2ARts1L_Cytoplasm"=0
+"PP2ARts1A_Cytoplasm" 0 -> 1 when "PP2ARts1L_Cytoplasm"=1
+
+"Amn1A_Cytoplasm" 1 -> 0 when "Amn1L_Cytoplasm"=0
+"Amn1A_Cytoplasm" 0 -> 1 when "Amn1L_Cytoplasm"=1
+
+"Bmh1A_Cytoplasm" 1 -> 0 when "Bmh1L_Cytoplasm"=0
+"Bmh1A_Cytoplasm" 0 -> 1 when "Bmh1L_Cytoplasm"=1
+
+"PolarityA_Cytoplasm" 1 -> 0 when "PolarityL_Cytoplasm"=0
+"PolarityA_Cytoplasm" 0 -> 1 when "PolarityL_Cytoplasm"=1
+
+"Bfa1highA_Cytoplasm" 1 -> 0 when "Bfa1highL_Cytoplasm"=0
+"Bfa1highA_Cytoplasm" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Bfa1lowA_Cytoplasm"=0
+"Bfa1highA_Cytoplasm" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Bfa1lowA_Cytoplasm"=1 and "Cdc5A_Cytoplasm"=0
+"Bfa1highA_Cytoplasm" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Bfa1lowA_Cytoplasm"=1 and "Cdc5A_Cytoplasm"=1 and "CDKlowA_Cytoplasm"=0
+"Bfa1highA_Cytoplasm" 0 -> 1 when "Bfa1highL_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Bfa1lowA_Cytoplasm"=1 and "Cdc5A_Cytoplasm"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc14lowA_Cytoplasm"=0
+"Bfa1highA_Cytoplasm" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Lte1A_Cytoplasm"=0 and "Bfa1lowA_Cytoplasm"=1 and "Cdc5A_Cytoplasm"=1 and "CDKlowA_Cytoplasm"=1 and "Cdc14lowA_Cytoplasm"=1
+"Bfa1highA_Cytoplasm" 1 -> 0 when "Bfa1highL_Cytoplasm"=1 and "Lte1A_Cytoplasm"=1
+
+"Bfa1lowA_Cytoplasm" 1 -> 0 when "Bfa1lowL_Cytoplasm"=0
+"Bfa1lowA_Cytoplasm" 0 -> 1 when "Bfa1lowL_Cytoplasm"=1
+
+"Tem1lowA_Cytoplasm" 1 -> 0 when "Tem1lowL_Cytoplasm"=0
+"Tem1lowA_Cytoplasm" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=0
+"Tem1lowA_Cytoplasm" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1highA_Cytoplasm"=0
+"Tem1lowA_Cytoplasm" 0 -> 1 when "Tem1lowL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1highA_Cytoplasm"=1 and "Bub2highA_Cytoplasm"=0
+"Tem1lowA_Cytoplasm" 1 -> 0 when "Tem1lowL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1highA_Cytoplasm"=1 and "Bub2highA_Cytoplasm"=1
+
+"Tem1highA_Cytoplasm" 1 -> 0 when "Tem1highL_Cytoplasm"=0
+"Tem1highA_Cytoplasm" 1 -> 0 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=0 and "Tem1lowA_Cytoplasm"=0
+"Tem1highA_Cytoplasm" 0 -> 1 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=0 and "Tem1lowA_Cytoplasm"=1
+"Tem1highA_Cytoplasm" 1 -> 0 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1lowA_Cytoplasm"=0 and "Tem1lowA_Cytoplasm"=0
+"Tem1highA_Cytoplasm" 0 -> 1 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1lowA_Cytoplasm"=0 and "Tem1lowA_Cytoplasm"=1
+"Tem1highA_Cytoplasm" 1 -> 0 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1lowA_Cytoplasm"=1 and "Tem1lowA_Cytoplasm"=0
+"Tem1highA_Cytoplasm" 0 -> 1 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1lowA_Cytoplasm"=1 and "Tem1lowA_Cytoplasm"=1 and "Bub2lowA_Cytoplasm"=0
+"Tem1highA_Cytoplasm" 1 -> 0 when "Tem1highL_Cytoplasm"=1 and "Amn1A_Cytoplasm"=1 and "Bfa1lowA_Cytoplasm"=1 and "Tem1lowA_Cytoplasm"=1 and "Bub2lowA_Cytoplasm"=1
+
+"Cdc15lowA_Cytoplasm" 1 -> 0 when "Cdc15lowL_Cytoplasm"=0
+"Cdc15lowA_Cytoplasm" 0 -> 1 when "Cdc15lowL_Cytoplasm"=1
+
+"Cdc15highA_Cytoplasm" 1 -> 0 when "Cdc15highL_Cytoplasm"=0
+"Cdc15highA_Cytoplasm" 1 -> 0 when "Cdc15highL_Cytoplasm"=1 and "Cdc15lowA_Cytoplasm"=0
+"Cdc15highA_Cytoplasm" 0 -> 1 when "Cdc15highL_Cytoplasm"=1 and "Cdc15lowA_Cytoplasm"=1
+
+"Bub2lowA_Cytoplasm" 1 -> 0 when "Bub2lowL_Cytoplasm"=0
+"Bub2lowA_Cytoplasm" 0 -> 1 when "Bub2lowL_Cytoplasm"=1
+
+"Bub2highA_Cytoplasm" 1 -> 0 when "Bub2highL_Cytoplasm"=0
+"Bub2highA_Cytoplasm" 1 -> 0 when "Bub2highL_Cytoplasm"=1 and "Bub2lowA_Cytoplasm"=0
+"Bub2highA_Cytoplasm" 0 -> 1 when "Bub2highL_Cytoplasm"=1 and "Bub2lowA_Cytoplasm"=1
+
+"Rsa1A_Cytoplasm" 1 -> 0 when "Rsa1L_Cytoplasm"=0
+"Rsa1A_Cytoplasm" 0 -> 1 when "Rsa1L_Cytoplasm"=1
+
+"Hit1A_Cytoplasm" 1 -> 0 when "Hit1L_Cytoplasm"=0
+"Hit1A_Cytoplasm" 0 -> 1 when "Hit1L_Cytoplasm"=1
+
+"APCCdc20A_Cytoplasm" 1 -> 0 when "APCCdc20L_Cytoplasm"=0
+"APCCdc20A_Cytoplasm" 0 -> 1 when "APCCdc20L_Cytoplasm"=1
+
+"Pds1A_Cytoplasm" 1 -> 0 when "Pds1L_Cytoplasm"=0
+"Pds1A_Cytoplasm" 0 -> 1 when "Pds1L_Cytoplasm"=1 and "APCCdc20A_Cytoplasm"=0
+"Pds1A_Cytoplasm" 1 -> 0 when "Pds1L_Cytoplasm"=1 and "APCCdc20A_Cytoplasm"=1
+
+"Esp1A_Cytoplasm" 1 -> 0 when "Esp1L_Cytoplasm"=0
+"Esp1A_Cytoplasm" 0 -> 1 when "Esp1L_Cytoplasm"=1 and "Pds1A_Cytoplasm"=0
+"Esp1A_Cytoplasm" 1 -> 0 when "Esp1L_Cytoplasm"=1 and "Pds1A_Cytoplasm"=1
+
+"Slk19A_Cytoplasm" 1 -> 0 when "Slk19L_Cytoplasm"=0
+"Slk19A_Cytoplasm" 1 -> 0 when "Slk19L_Cytoplasm"=1 and "Esp1A_Cytoplasm"=0
+"Slk19A_Cytoplasm" 0 -> 1 when "Slk19L_Cytoplasm"=1 and "Esp1A_Cytoplasm"=1
+
+"Zds1A_Cytoplasm" 1 -> 0 when "Zds1L_Cytoplasm"=0
+"Zds1A_Cytoplasm" 1 -> 0 when "Zds1L_Cytoplasm"=1 and "Esp1A_Cytoplasm"=0
+"Zds1A_Cytoplasm" 1 -> 0 when "Zds1L_Cytoplasm"=1 and "Esp1A_Cytoplasm"=1 and "Slk19A_Cytoplasm"=0
+"Zds1A_Cytoplasm" 0 -> 1 when "Zds1L_Cytoplasm"=1 and "Esp1A_Cytoplasm"=1 and "Slk19A_Cytoplasm"=1
+
+"Cdc5A_Cytoplasm" 1 -> 0 when "Cdc5L_Cytoplasm"=0
+"Cdc5A_Cytoplasm" 1 -> 0 when "Cdc5L_Cytoplasm"=1 and "CDKlowA_Cytoplasm"=0
+"Cdc5A_Cytoplasm" 0 -> 1 when "Cdc5L_Cytoplasm"=1 and "CDKlowA_Cytoplasm"=1
+
+"PP2ACdc55A_Cytoplasm" 1 -> 0 when "PP2ACdc55L_Cytoplasm"=0
+"PP2ACdc55A_Cytoplasm" 0 -> 1 when "PP2ACdc55L_Cytoplasm"=1
+
+"CDKlowA_Cytoplasm" 1 -> 0 when "CDKlowL_Cytoplasm"=0
+"CDKlowA_Cytoplasm" 0 -> 1 when "CDKlowL_Cytoplasm"=1
+
+"CDKhighA_Cytoplasm" 1 -> 0 when "CDKhighL_Cytoplasm"=0
+"CDKhighA_Cytoplasm" 0 -> 1 when "CDKhighL_Cytoplasm"=1
+
+"Fob1A_Cytoplasm" 1 -> 0 when "Fob1L_Cytoplasm"=0
+"Fob1A_Cytoplasm" 0 -> 1 when "Fob1L_Cytoplasm"=1 and "Spo12A_Cytoplasm"=0
+"Fob1A_Cytoplasm" 1 -> 0 when "Fob1L_Cytoplasm"=1 and "Spo12A_Cytoplasm"=1
+
+"Spo12A_Cytoplasm" 1 -> 0 when "Spo12L_Cytoplasm"=0
+"Spo12A_Cytoplasm" 0 -> 1 when "Spo12L_Cytoplasm"=1
+
+"SACA_Cytoplasm" 1 -> 0 when "SACL_Cytoplasm"=0
+"SACA_Cytoplasm" 0 -> 1 when "SACL_Cytoplasm"=1
+
+"Cdc14lowA_Cytoplasm" 1 -> 0 when "Cdc14lowL_Cytoplasm"=0
+"Cdc14lowA_Cytoplasm" 0 -> 1 when "Cdc14lowL_Cytoplasm"=1
+
+"Cdc14highA_Cytoplasm" 1 -> 0 when "Cdc14highL_Cytoplasm"=0
+"Cdc14highA_Cytoplasm" 0 -> 1 when "Cdc14highL_Cytoplasm"=1
+
+"Net1A_Cytoplasm" 1 -> 0 when "Net1L_Cytoplasm"=0
+"Net1A_Cytoplasm" 0 -> 1 when "Net1L_Cytoplasm"=1
+
+"Lte1A_Bud" 1 -> 0 when "Lte1L_Bud"=0
+"Lte1A_Bud" 1 -> 0 when "Lte1L_Bud"=1 and "Cla4A_Bud"=0
+"Lte1A_Bud" 0 -> 1 when "Lte1L_Bud"=1 and "Cla4A_Bud"=1
+
+"Mob1A_Bud" 1 -> 0 when "Mob1L_Bud"=0
+"Mob1A_Bud" 0 -> 1 when "Mob1L_Bud"=1
+
+"Elm1A_Bud" 1 -> 0 when "Elm1L_Bud"=0
+"Elm1A_Bud" 0 -> 1 when "Elm1L_Bud"=1
+
+"Dbf2A_Bud" 1 -> 0 when "Dbf2L_Bud"=0
+"Dbf2A_Bud" 1 -> 0 when "Dbf2L_Bud"=1 and "Dbf2A_dSPB"=0
+"Dbf2A_Bud" 0 -> 1 when "Dbf2L_Bud"=1 and "Dbf2A_dSPB"=1
+
+"Kin4A_Bud" 1 -> 0 when "Kin4L_Bud"=0
+"Kin4A_Bud" 1 -> 0 when "Kin4L_Bud"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=0
+"Kin4A_Bud" 0 -> 1 when "Kin4L_Bud"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=1
+"Kin4A_Bud" 1 -> 0 when "Kin4L_Bud"=1 and "Lte1A_Bud"=1
+
+"Cla4A_Bud" 1 -> 0 when "Cla4L_Bud"=0
+"Cla4A_Bud" 0 -> 1 when "Cla4L_Bud"=1
+
+"Nud1A_Bud" 1 -> 0 when "Nud1L_Bud"=0
+"Nud1A_Bud" 0 -> 1 when "Nud1L_Bud"=1
+
+"Spc72A_Bud" 1 -> 0 when "Spc72L_Bud"=0
+"Spc72A_Bud" 0 -> 1 when "Spc72L_Bud"=1
+
+"PP2ARts1A_Bud" 1 -> 0 when "PP2ARts1L_Bud"=0
+"PP2ARts1A_Bud" 0 -> 1 when "PP2ARts1L_Bud"=1
+
+"Amn1A_Bud" 1 -> 0 when "Amn1L_Bud"=0
+"Amn1A_Bud" 0 -> 1 when "Amn1L_Bud"=1
+
+"Bmh1A_Bud" 1 -> 0 when "Bmh1L_Bud"=0
+"Bmh1A_Bud" 0 -> 1 when "Bmh1L_Bud"=1
+
+"PolarityA_Bud" 1 -> 0 when "PolarityL_Bud"=0
+"PolarityA_Bud" 0 -> 1 when "PolarityL_Bud"=1
+
+"Bfa1highA_Bud" 1 -> 0 when "Bfa1highL_Bud"=0
+"Bfa1highA_Bud" 1 -> 0 when "Bfa1highL_Bud"=1 and "Lte1A_Bud"=0 and "Bfa1lowA_Bud"=0
+"Bfa1highA_Bud" 0 -> 1 when "Bfa1highL_Bud"=1 and "Lte1A_Bud"=0 and "Bfa1lowA_Bud"=1 and "Cdc5A_Bud"=0
+"Bfa1highA_Bud" 1 -> 0 when "Bfa1highL_Bud"=1 and "Lte1A_Bud"=0 and "Bfa1lowA_Bud"=1 and "Cdc5A_Bud"=1 and "CDKlowA_Bud"=0
+"Bfa1highA_Bud" 0 -> 1 when "Bfa1highL_Bud"=1 and "Lte1A_Bud"=0 and "Bfa1lowA_Bud"=1 and "Cdc5A_Bud"=1 and "CDKlowA_Bud"=1 and "Cdc14lowA_Bud"=0
+"Bfa1highA_Bud" 1 -> 0 when "Bfa1highL_Bud"=1 and "Lte1A_Bud"=0 and "Bfa1lowA_Bud"=1 and "Cdc5A_Bud"=1 and "CDKlowA_Bud"=1 and "Cdc14lowA_Bud"=1
+"Bfa1highA_Bud" 1 -> 0 when "Bfa1highL_Bud"=1 and "Lte1A_Bud"=1
+
+"Bfa1lowA_Bud" 1 -> 0 when "Bfa1lowL_Bud"=0
+"Bfa1lowA_Bud" 0 -> 1 when "Bfa1lowL_Bud"=1
+
+"Tem1lowA_Bud" 1 -> 0 when "Tem1lowL_Bud"=0
+"Tem1lowA_Bud" 0 -> 1 when "Tem1lowL_Bud"=1 and "Amn1A_Bud"=0
+"Tem1lowA_Bud" 0 -> 1 when "Tem1lowL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1highA_Bud"=0
+"Tem1lowA_Bud" 0 -> 1 when "Tem1lowL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1highA_Bud"=1 and "Bub2highA_Bud"=0
+"Tem1lowA_Bud" 1 -> 0 when "Tem1lowL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1highA_Bud"=1 and "Bub2highA_Bud"=1
+
+"Tem1highA_Bud" 1 -> 0 when "Tem1highL_Bud"=0
+"Tem1highA_Bud" 1 -> 0 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=0 and "Tem1lowA_Bud"=0
+"Tem1highA_Bud" 0 -> 1 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=0 and "Tem1lowA_Bud"=1
+"Tem1highA_Bud" 1 -> 0 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1lowA_Bud"=0 and "Tem1lowA_Bud"=0
+"Tem1highA_Bud" 0 -> 1 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1lowA_Bud"=0 and "Tem1lowA_Bud"=1
+"Tem1highA_Bud" 1 -> 0 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1lowA_Bud"=1 and "Tem1lowA_Bud"=0
+"Tem1highA_Bud" 0 -> 1 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1lowA_Bud"=1 and "Tem1lowA_Bud"=1 and "Bub2lowA_Bud"=0
+"Tem1highA_Bud" 1 -> 0 when "Tem1highL_Bud"=1 and "Amn1A_Bud"=1 and "Bfa1lowA_Bud"=1 and "Tem1lowA_Bud"=1 and "Bub2lowA_Bud"=1
+
+"Cdc15lowA_Bud" 1 -> 0 when "Cdc15lowL_Bud"=0
+"Cdc15lowA_Bud" 0 -> 1 when "Cdc15lowL_Bud"=1
+
+"Cdc15highA_Bud" 1 -> 0 when "Cdc15highL_Bud"=0
+"Cdc15highA_Bud" 1 -> 0 when "Cdc15highL_Bud"=1 and "Cdc15lowA_Bud"=0
+"Cdc15highA_Bud" 0 -> 1 when "Cdc15highL_Bud"=1 and "Cdc15lowA_Bud"=1
+
+"Bub2lowA_Bud" 1 -> 0 when "Bub2lowL_Bud"=0
+"Bub2lowA_Bud" 0 -> 1 when "Bub2lowL_Bud"=1
+
+"Bub2highA_Bud" 1 -> 0 when "Bub2highL_Bud"=0
+"Bub2highA_Bud" 1 -> 0 when "Bub2highL_Bud"=1 and "Bub2lowA_Bud"=0
+"Bub2highA_Bud" 0 -> 1 when "Bub2highL_Bud"=1 and "Bub2lowA_Bud"=1
+
+"Rsa1A_Bud" 1 -> 0 when "Rsa1L_Bud"=0
+"Rsa1A_Bud" 0 -> 1 when "Rsa1L_Bud"=1
+
+"Hit1A_Bud" 1 -> 0 when "Hit1L_Bud"=0
+"Hit1A_Bud" 0 -> 1 when "Hit1L_Bud"=1
+
+"APCCdc20A_Bud" 1 -> 0 when "APCCdc20L_Bud"=0
+"APCCdc20A_Bud" 0 -> 1 when "APCCdc20L_Bud"=1
+
+"Pds1A_Bud" 1 -> 0 when "Pds1L_Bud"=0
+"Pds1A_Bud" 0 -> 1 when "Pds1L_Bud"=1 and "APCCdc20A_Bud"=0
+"Pds1A_Bud" 1 -> 0 when "Pds1L_Bud"=1 and "APCCdc20A_Bud"=1
+
+"Esp1A_Bud" 1 -> 0 when "Esp1L_Bud"=0
+"Esp1A_Bud" 0 -> 1 when "Esp1L_Bud"=1 and "Pds1A_Bud"=0
+"Esp1A_Bud" 1 -> 0 when "Esp1L_Bud"=1 and "Pds1A_Bud"=1
+
+"Slk19A_Bud" 1 -> 0 when "Slk19L_Bud"=0
+"Slk19A_Bud" 1 -> 0 when "Slk19L_Bud"=1 and "Esp1A_Bud"=0
+"Slk19A_Bud" 0 -> 1 when "Slk19L_Bud"=1 and "Esp1A_Bud"=1
+
+"Zds1A_Bud" 1 -> 0 when "Zds1L_Bud"=0
+"Zds1A_Bud" 1 -> 0 when "Zds1L_Bud"=1 and "Esp1A_Bud"=0
+"Zds1A_Bud" 1 -> 0 when "Zds1L_Bud"=1 and "Esp1A_Bud"=1 and "Slk19A_Bud"=0
+"Zds1A_Bud" 0 -> 1 when "Zds1L_Bud"=1 and "Esp1A_Bud"=1 and "Slk19A_Bud"=1
+
+"Cdc5A_Bud" 1 -> 0 when "Cdc5L_Bud"=0
+"Cdc5A_Bud" 1 -> 0 when "Cdc5L_Bud"=1 and "CDKlowA_Bud"=0
+"Cdc5A_Bud" 0 -> 1 when "Cdc5L_Bud"=1 and "CDKlowA_Bud"=1
+
+"PP2ACdc55A_Bud" 1 -> 0 when "PP2ACdc55L_Bud"=0
+"PP2ACdc55A_Bud" 0 -> 1 when "PP2ACdc55L_Bud"=1
+
+"CDKlowA_Bud" 1 -> 0 when "CDKlowL_Bud"=0
+"CDKlowA_Bud" 0 -> 1 when "CDKlowL_Bud"=1
+
+"CDKhighA_Bud" 1 -> 0 when "CDKhighL_Bud"=0
+"CDKhighA_Bud" 0 -> 1 when "CDKhighL_Bud"=1
+
+"Fob1A_Bud" 1 -> 0 when "Fob1L_Bud"=0
+"Fob1A_Bud" 0 -> 1 when "Fob1L_Bud"=1 and "Spo12A_Bud"=0
+"Fob1A_Bud" 1 -> 0 when "Fob1L_Bud"=1 and "Spo12A_Bud"=1
+
+"Spo12A_Bud" 1 -> 0 when "Spo12L_Bud"=0
+"Spo12A_Bud" 0 -> 1 when "Spo12L_Bud"=1
+
+"SACA_Bud" 1 -> 0 when "SACL_Bud"=0
+"SACA_Bud" 0 -> 1 when "SACL_Bud"=1
+
+"Cdc14lowA_Bud" 1 -> 0 when "Cdc14lowL_Bud"=0
+"Cdc14lowA_Bud" 0 -> 1 when "Cdc14lowL_Bud"=1
+
+"Cdc14highA_Bud" 1 -> 0 when "Cdc14highL_Bud"=0
+"Cdc14highA_Bud" 0 -> 1 when "Cdc14highL_Bud"=1
+
+"Net1A_Bud" 1 -> 0 when "Net1L_Bud"=0
+"Net1A_Bud" 0 -> 1 when "Net1L_Bud"=1
+
+"Lte1A_Nucleus" 1 -> 0 when "Lte1L_Nucleus"=0
+"Lte1A_Nucleus" 1 -> 0 when "Lte1L_Nucleus"=1 and "Cla4A_Nucleus"=0
+"Lte1A_Nucleus" 0 -> 1 when "Lte1L_Nucleus"=1 and "Cla4A_Nucleus"=1
+
+"Mob1A_Nucleus" 1 -> 0 when "Mob1L_Nucleus"=0
+"Mob1A_Nucleus" 0 -> 1 when "Mob1L_Nucleus"=1
+
+"Elm1A_Nucleus" 1 -> 0 when "Elm1L_Nucleus"=0
+"Elm1A_Nucleus" 0 -> 1 when "Elm1L_Nucleus"=1
+
+"Dbf2A_Nucleus" 1 -> 0 when "Dbf2L_Nucleus"=0
+"Dbf2A_Nucleus" 1 -> 0 when "Dbf2L_Nucleus"=1 and "Dbf2A_Cytoplasm"=0 and "Dbf2A_Bud"=0
+"Dbf2A_Nucleus" 0 -> 1 when "Dbf2L_Nucleus"=1 and "Dbf2A_Cytoplasm"=0 and "Dbf2A_Bud"=1
+"Dbf2A_Nucleus" 0 -> 1 when "Dbf2L_Nucleus"=1 and "Dbf2A_Cytoplasm"=1
+
+"Kin4A_Nucleus" 1 -> 0 when "Kin4L_Nucleus"=0
+"Kin4A_Nucleus" 1 -> 0 when "Kin4L_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Elm1A_Nucleus"=0
+"Kin4A_Nucleus" 0 -> 1 when "Kin4L_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Elm1A_Nucleus"=1
+"Kin4A_Nucleus" 1 -> 0 when "Kin4L_Nucleus"=1 and "Lte1A_Nucleus"=1
+
+"Cla4A_Nucleus" 1 -> 0 when "Cla4L_Nucleus"=0
+"Cla4A_Nucleus" 0 -> 1 when "Cla4L_Nucleus"=1
+
+"Nud1A_Nucleus" 1 -> 0 when "Nud1L_Nucleus"=0
+"Nud1A_Nucleus" 0 -> 1 when "Nud1L_Nucleus"=1
+
+"Spc72A_Nucleus" 1 -> 0 when "Spc72L_Nucleus"=0
+"Spc72A_Nucleus" 0 -> 1 when "Spc72L_Nucleus"=1
+
+"PP2ARts1A_Nucleus" 1 -> 0 when "PP2ARts1L_Nucleus"=0
+"PP2ARts1A_Nucleus" 0 -> 1 when "PP2ARts1L_Nucleus"=1
+
+"Amn1A_Nucleus" 1 -> 0 when "Amn1L_Nucleus"=0
+"Amn1A_Nucleus" 0 -> 1 when "Amn1L_Nucleus"=1
+
+"Bmh1A_Nucleus" 1 -> 0 when "Bmh1L_Nucleus"=0
+"Bmh1A_Nucleus" 0 -> 1 when "Bmh1L_Nucleus"=1
+
+"PolarityA_Nucleus" 1 -> 0 when "PolarityL_Nucleus"=0
+"PolarityA_Nucleus" 0 -> 1 when "PolarityL_Nucleus"=1
+
+"Bfa1highA_Nucleus" 1 -> 0 when "Bfa1highL_Nucleus"=0
+"Bfa1highA_Nucleus" 1 -> 0 when "Bfa1highL_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Bfa1lowA_Nucleus"=0
+"Bfa1highA_Nucleus" 0 -> 1 when "Bfa1highL_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Bfa1lowA_Nucleus"=1 and "Cdc5A_Nucleus"=0
+"Bfa1highA_Nucleus" 1 -> 0 when "Bfa1highL_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Bfa1lowA_Nucleus"=1 and "Cdc5A_Nucleus"=1 and "CDKlowA_Nucleus"=0
+"Bfa1highA_Nucleus" 0 -> 1 when "Bfa1highL_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Bfa1lowA_Nucleus"=1 and "Cdc5A_Nucleus"=1 and "CDKlowA_Nucleus"=1 and "Cdc14lowA_Nucleus"=0
+"Bfa1highA_Nucleus" 1 -> 0 when "Bfa1highL_Nucleus"=1 and "Lte1A_Nucleus"=0 and "Bfa1lowA_Nucleus"=1 and "Cdc5A_Nucleus"=1 and "CDKlowA_Nucleus"=1 and "Cdc14lowA_Nucleus"=1
+"Bfa1highA_Nucleus" 1 -> 0 when "Bfa1highL_Nucleus"=1 and "Lte1A_Nucleus"=1
+
+"Bfa1lowA_Nucleus" 1 -> 0 when "Bfa1lowL_Nucleus"=0
+"Bfa1lowA_Nucleus" 0 -> 1 when "Bfa1lowL_Nucleus"=1
+
+"Tem1lowA_Nucleus" 1 -> 0 when "Tem1lowL_Nucleus"=0
+"Tem1lowA_Nucleus" 0 -> 1 when "Tem1lowL_Nucleus"=1 and "Amn1A_Nucleus"=0
+"Tem1lowA_Nucleus" 0 -> 1 when "Tem1lowL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1highA_Nucleus"=0
+"Tem1lowA_Nucleus" 0 -> 1 when "Tem1lowL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1highA_Nucleus"=1 and "Bub2highA_Nucleus"=0
+"Tem1lowA_Nucleus" 1 -> 0 when "Tem1lowL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1highA_Nucleus"=1 and "Bub2highA_Nucleus"=1
+
+"Tem1highA_Nucleus" 1 -> 0 when "Tem1highL_Nucleus"=0
+"Tem1highA_Nucleus" 1 -> 0 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=0 and "Tem1lowA_Nucleus"=0
+"Tem1highA_Nucleus" 0 -> 1 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=0 and "Tem1lowA_Nucleus"=1
+"Tem1highA_Nucleus" 1 -> 0 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1lowA_Nucleus"=0 and "Tem1lowA_Nucleus"=0
+"Tem1highA_Nucleus" 0 -> 1 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1lowA_Nucleus"=0 and "Tem1lowA_Nucleus"=1
+"Tem1highA_Nucleus" 1 -> 0 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1lowA_Nucleus"=1 and "Tem1lowA_Nucleus"=0
+"Tem1highA_Nucleus" 0 -> 1 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1lowA_Nucleus"=1 and "Tem1lowA_Nucleus"=1 and "Bub2lowA_Nucleus"=0
+"Tem1highA_Nucleus" 1 -> 0 when "Tem1highL_Nucleus"=1 and "Amn1A_Nucleus"=1 and "Bfa1lowA_Nucleus"=1 and "Tem1lowA_Nucleus"=1 and "Bub2lowA_Nucleus"=1
+
+"Cdc15lowA_Nucleus" 1 -> 0 when "Cdc15lowL_Nucleus"=0
+"Cdc15lowA_Nucleus" 0 -> 1 when "Cdc15lowL_Nucleus"=1
+
+"Cdc15highA_Nucleus" 1 -> 0 when "Cdc15highL_Nucleus"=0
+"Cdc15highA_Nucleus" 1 -> 0 when "Cdc15highL_Nucleus"=1 and "Cdc15lowA_Nucleus"=0
+"Cdc15highA_Nucleus" 0 -> 1 when "Cdc15highL_Nucleus"=1 and "Cdc15lowA_Nucleus"=1
+
+"Bub2lowA_Nucleus" 1 -> 0 when "Bub2lowL_Nucleus"=0
+"Bub2lowA_Nucleus" 0 -> 1 when "Bub2lowL_Nucleus"=1
+
+"Bub2highA_Nucleus" 1 -> 0 when "Bub2highL_Nucleus"=0
+"Bub2highA_Nucleus" 1 -> 0 when "Bub2highL_Nucleus"=1 and "Bub2lowA_Nucleus"=0
+"Bub2highA_Nucleus" 0 -> 1 when "Bub2highL_Nucleus"=1 and "Bub2lowA_Nucleus"=1
+
+"Rsa1A_Nucleus" 1 -> 0 when "Rsa1L_Nucleus"=0
+"Rsa1A_Nucleus" 0 -> 1 when "Rsa1L_Nucleus"=1
+
+"Hit1A_Nucleus" 1 -> 0 when "Hit1L_Nucleus"=0
+"Hit1A_Nucleus" 0 -> 1 when "Hit1L_Nucleus"=1
+
+"APCCdc20A_Nucleus" 1 -> 0 when "APCCdc20L_Nucleus"=0
+"APCCdc20A_Nucleus" 0 -> 1 when "APCCdc20L_Nucleus"=1
+
+"Pds1A_Nucleus" 1 -> 0 when "Pds1L_Nucleus"=0
+"Pds1A_Nucleus" 0 -> 1 when "Pds1L_Nucleus"=1 and "APCCdc20A_Nucleus"=0
+"Pds1A_Nucleus" 1 -> 0 when "Pds1L_Nucleus"=1 and "APCCdc20A_Nucleus"=1
+
+"Esp1A_Nucleus" 1 -> 0 when "Esp1L_Nucleus"=0
+"Esp1A_Nucleus" 0 -> 1 when "Esp1L_Nucleus"=1 and "Pds1A_Nucleus"=0
+"Esp1A_Nucleus" 1 -> 0 when "Esp1L_Nucleus"=1 and "Pds1A_Nucleus"=1
+
+"Slk19A_Nucleus" 1 -> 0 when "Slk19L_Nucleus"=0
+"Slk19A_Nucleus" 1 -> 0 when "Slk19L_Nucleus"=1 and "Esp1A_Nucleus"=0
+"Slk19A_Nucleus" 0 -> 1 when "Slk19L_Nucleus"=1 and "Esp1A_Nucleus"=1
+
+"Zds1A_Nucleus" 1 -> 0 when "Zds1L_Nucleus"=0
+"Zds1A_Nucleus" 1 -> 0 when "Zds1L_Nucleus"=1 and "Esp1A_Nucleus"=0
+"Zds1A_Nucleus" 1 -> 0 when "Zds1L_Nucleus"=1 and "Esp1A_Nucleus"=1 and "Slk19A_Nucleus"=0
+"Zds1A_Nucleus" 0 -> 1 when "Zds1L_Nucleus"=1 and "Esp1A_Nucleus"=1 and "Slk19A_Nucleus"=1
+
+"Cdc5A_Nucleus" 1 -> 0 when "Cdc5L_Nucleus"=0
+"Cdc5A_Nucleus" 1 -> 0 when "Cdc5L_Nucleus"=1 and "CDKlowA_Nucleus"=0
+"Cdc5A_Nucleus" 0 -> 1 when "Cdc5L_Nucleus"=1 and "CDKlowA_Nucleus"=1
+
+"PP2ACdc55A_Nucleus" 1 -> 0 when "PP2ACdc55L_Nucleus"=0
+"PP2ACdc55A_Nucleus" 0 -> 1 when "PP2ACdc55L_Nucleus"=1
+
+"CDKlowA_Nucleus" 1 -> 0 when "CDKlowL_Nucleus"=0
+"CDKlowA_Nucleus" 0 -> 1 when "CDKlowL_Nucleus"=1
+
+"CDKhighA_Nucleus" 1 -> 0 when "CDKhighL_Nucleus"=0
+"CDKhighA_Nucleus" 0 -> 1 when "CDKhighL_Nucleus"=1
+
+"Fob1A_Nucleus" 1 -> 0 when "Fob1L_Nucleus"=0
+"Fob1A_Nucleus" 0 -> 1 when "Fob1L_Nucleus"=1 and "Spo12A_Nucleus"=0
+"Fob1A_Nucleus" 1 -> 0 when "Fob1L_Nucleus"=1 and "Spo12A_Nucleus"=1
+
+"Spo12A_Nucleus" 1 -> 0 when "Spo12L_Nucleus"=0
+"Spo12A_Nucleus" 0 -> 1 when "Spo12L_Nucleus"=1
+
+
+"Cdc14lowA_Nucleus" 1 -> 0 when "Cdc14lowL_Nucleus"=0
+"Cdc14lowA_Nucleus" 0 -> 1 when "Cdc14lowL_Nucleus"=1
+
+"Cdc14highA_Nucleus" 1 -> 0 when "Cdc14highL_Nucleus"=0
+"Cdc14highA_Nucleus" 0 -> 1 when "Cdc14highL_Nucleus"=1
+
+"Net1A_Nucleus" 1 -> 0 when "Net1L_Nucleus"=0
+"Net1A_Nucleus" 0 -> 1 when "Net1L_Nucleus"=1
+
+"Spo12A_Nucleolus" 1 -> 0 when "Spo12L_Nucleolus"=0
+"Spo12A_Nucleolus" 1 -> 0 when "Spo12L_Nucleolus"=1 and "CDKlowA_Nucleus"=0
+"Spo12A_Nucleolus" 0 -> 1 when "Spo12L_Nucleolus"=1 and "CDKlowA_Nucleus"=1
+
+"Fob1A_Nucleolus" 1 -> 0 when "Fob1L_Nucleolus"=0
+"Fob1A_Nucleolus" 0 -> 1 when "Fob1L_Nucleolus"=1 and "Spo12A_Nucleolus"=0
+"Fob1A_Nucleolus" 1 -> 0 when "Fob1L_Nucleolus"=1 and "Spo12A_Nucleolus"=1
+
+"Hit1A_Nucleolus" 1 -> 0 when "Hit1L_Nucleolus"=0
+"Hit1A_Nucleolus" 0 -> 1 when "Hit1L_Nucleolus"=1
+
+"Rsa1A_Nucleolus" 1 -> 0 when "Rsa1L_Nucleolus"=0
+"Rsa1A_Nucleolus" 0 -> 1 when "Rsa1L_Nucleolus"=1
+
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=0
+"Net1A_Nucleolus" 1 -> 0 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=0
+"Net1A_Nucleolus" 1 -> 0 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=0
+"Net1A_Nucleolus" 1 -> 0 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "CDKhighA_Nucleus"=1 and "Fob1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=0 and "PP2ACdc55A_Nucleus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=0
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=0
+"Net1A_Nucleolus" 1 -> 0 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=0 and "Hit1A_Nucleolus"=1 and "Rsa1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=0 and "CDKlowA_Nucleus"=1 and "Fob1A_Nucleolus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=0 and "Cdc5A_Nucleus"=1 and "PP2ACdc55A_Nucleus"=1
+"Net1A_Nucleolus" 0 -> 1 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=1 and "CDKlowA_Nucleus"=0
+"Net1A_Nucleolus" 1 -> 0 when "Mob1A_Nucleus"=1 and "Dbf2A_Nucleus"=1 and "CDKlowA_Nucleus"=1
+
+"Cdc14lowA_Nucleolus" 1 -> 0 when "Cdc14lowL_Nucleolus"=0
+"Cdc14lowA_Nucleolus" 0 -> 1 when "Cdc14lowL_Nucleolus"=1
+
+"Cdc14highA_Nucleolus" 1 -> 0 when "Cdc14highL_Nucleolus"=0
+"Cdc14highA_Nucleolus" 0 -> 1 when "Cdc14highL_Nucleolus"=1
+
+"Kin4A_mSPB" 1 -> 0 when "Kin4L_mSPB"=0
+"Kin4A_mSPB" 1 -> 0 when "Kin4L_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=0
+"Kin4A_mSPB" 0 -> 1 when "Kin4L_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1
+"Kin4A_mSPB" 1 -> 0 when "Kin4L_mSPB"=1 and "Lte1A_Cytoplasm"=1
+
+"Cdc5A_mSPB" 1 -> 0 when "Cdc5L_mSPB"=0
+"Cdc5A_mSPB" 1 -> 0 when "Cdc5L_mSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_mSPB"=0
+"Cdc5A_mSPB" 0 -> 1 when "Cdc5L_mSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_mSPB"=1
+"Cdc5A_mSPB" 0 -> 1 when "Cdc5L_mSPB"=1 and "CDKlowA_Cytoplasm"=1
+
+"Nud1A_mSPB" 1 -> 0 when "Cdc15lowA_mSPB"=0
+"Nud1A_mSPB" 0 -> 1 when "Cdc15lowA_mSPB"=1
+
+"Spc72A_mSPB" 1 -> 0 when "Spc72L_mSPB"=0
+"Spc72A_mSPB" 0 -> 1 when "Spc72L_mSPB"=1
+
+"CDKlowA_mSPB" 1 -> 0 when "CDKlowL_mSPB"=0
+"CDKlowA_mSPB" 0 -> 1 when "CDKlowL_mSPB"=1
+
+"Cdc14lowA_mSPB" 1 -> 0 when "Cdc14lowL_mSPB"=0
+"Cdc14lowA_mSPB" 0 -> 1 when "Cdc14lowL_mSPB"=1
+
+"Bub2highA_mSPB" 1 -> 0 when "Bub2highL_mSPB"=0
+"Bub2highA_mSPB" 1 -> 0 when "Bub2highL_mSPB"=1 and "Bub2lowA_mSPB"=0
+"Bub2highA_mSPB" 0 -> 1 when "Bub2highL_mSPB"=1 and "Bub2lowA_mSPB"=1
+
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Cdc14lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=0 and "Lte1A_Cytoplasm"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=1 and "CDKlowA_mSPB"=0
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=1 and "CDKlowA_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=1 and "CDKlowA_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Cdc5A_mSPB"=1 and "CDKlowA_mSPB"=1 and "Cdc14lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Bfa1lowA_mSPB"=0
+"Bfa1highA_mSPB" 0 -> 1 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Cdc14lowA_mSPB"=0 and "Bfa1lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Cdc5A_mSPB"=1 and "Cdc14lowA_mSPB"=1
+"Bfa1highA_mSPB" 1 -> 0 when "Bfa1highL_mSPB"=1 and "Lte1A_Cytoplasm"=1
+
+"Tem1lowA_mSPB" 1 -> 0 when "Tem1lowL_mSPB"=0
+"Tem1lowA_mSPB" 0 -> 1 when "Tem1lowL_mSPB"=1 and "Amn1A_Cytoplasm"=0
+"Tem1lowA_mSPB" 0 -> 1 when "Tem1lowL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Bub2highA_mSPB"=0
+"Tem1lowA_mSPB" 0 -> 1 when "Tem1lowL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Bub2highA_mSPB"=1 and "Bfa1highA_mSPB"=0
+"Tem1lowA_mSPB" 1 -> 0 when "Tem1lowL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Bub2highA_mSPB"=1 and "Bfa1highA_mSPB"=1
+
+"Bub2lowA_mSPB" 1 -> 0 when "Bub2lowL_mSPB"=0
+"Bub2lowA_mSPB" 0 -> 1 when "Bub2lowL_mSPB"=1
+
+"Bfa1lowA_mSPB" 1 -> 0 when "Bfa1lowL_mSPB"=0
+"Bfa1lowA_mSPB" 0 -> 1 when "Bfa1lowL_mSPB"=1
+
+"Tem1highA_mSPB" 1 -> 0 when "Tem1highL_mSPB"=0
+"Tem1highA_mSPB" 1 -> 0 when "Tem1highL_mSPB"=1 and "Amn1A_Cytoplasm"=0 and "Tem1lowA_mSPB"=0
+"Tem1highA_mSPB" 0 -> 1 when "Tem1highL_mSPB"=1 and "Amn1A_Cytoplasm"=0 and "Tem1lowA_mSPB"=1
+"Tem1highA_mSPB" 1 -> 0 when "Tem1highL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Tem1lowA_mSPB"=0
+"Tem1highA_mSPB" 0 -> 1 when "Tem1highL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Tem1lowA_mSPB"=1 and "Bub2lowA_mSPB"=0
+"Tem1highA_mSPB" 0 -> 1 when "Tem1highL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Tem1lowA_mSPB"=1 and "Bub2lowA_mSPB"=1 and "Bfa1lowA_mSPB"=0
+"Tem1highA_mSPB" 1 -> 0 when "Tem1highL_mSPB"=1 and "Amn1A_Cytoplasm"=1 and "Tem1lowA_mSPB"=1 and "Bub2lowA_mSPB"=1 and "Bfa1lowA_mSPB"=1
+
+"Dbf2A_mSPB" 1 -> 0 when "Dbf2L_mSPB"=0
+"Dbf2A_mSPB" 1 -> 0 when "Dbf2L_mSPB"=1 and "Cdc15highL_mSPB"=0
+"Dbf2A_mSPB" 1 -> 0 when "Dbf2L_mSPB"=1 and "Cdc15highL_mSPB"=1 and "Mob1A_mSPB"=0
+"Dbf2A_mSPB" 0 -> 1 when "Dbf2L_mSPB"=1 and "Cdc15highL_mSPB"=1 and "Mob1A_mSPB"=1
+
+"Mob1A_mSPB" 1 -> 0 when "Mob1L_mSPB"=0
+"Mob1A_mSPB" 0 -> 1 when "Mob1L_mSPB"=1
+
+"Cdc15lowA_mSPB" 1 -> 0 when "Cdc15lowL_mSPB"=0
+"Cdc15lowA_mSPB" 0 -> 1 when "Cdc15lowL_mSPB"=1
+
+"Cdc15highA_mSPB" 1 -> 0 when "Cdc15highL_mSPB"=0
+"Cdc15highA_mSPB" 1 -> 0 when "Cdc15highL_mSPB"=1 and "Cdc15lowA_mSPB"=0
+"Cdc15highA_mSPB" 0 -> 1 when "Cdc15highL_mSPB"=1 and "Cdc15lowA_mSPB"=1
+
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=0
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "Elm1A_Bud"=0
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "Elm1A_Bud"=1 and "SpindleAlign"=0
+"Kin4A_dSPB" 0 -> 1 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=0 and "Lte1A_Bud"=0 and "Elm1A_Bud"=1 and "SpindleAlign"=1
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=0 and "Lte1A_Bud"=1
+"Kin4A_dSPB" 0 -> 1 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=0 and "SpindleAlign"=0
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=0 and "SpindleAlign"=1
+"Kin4A_dSPB" 0 -> 1 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=1
+"Kin4A_dSPB" 0 -> 1 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1 and "Lte1A_Bud"=1 and "SpindleAlign"=0
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "Elm1A_Cytoplasm"=1 and "Lte1A_Bud"=1 and "SpindleAlign"=1
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=0
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=1 and "SpindleAlign"=0
+"Kin4A_dSPB" 0 -> 1 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "Elm1A_Bud"=1 and "SpindleAlign"=1
+"Kin4A_dSPB" 1 -> 0 when "Kin4L_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=1
+
+"Cdc5A_dSPB" 1 -> 0 when "Cdc5L_dSPB"=0
+"Cdc5A_dSPB" 1 -> 0 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=0 and "CDKlowA_dSPB"=0
+"Cdc5A_dSPB" 0 -> 1 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=0 and "CDKlowA_dSPB"=1
+"Cdc5A_dSPB" 1 -> 0 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "CDKlowA_dSPB"=0 and "SpindleAlign"=0
+"Cdc5A_dSPB" 0 -> 1 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "CDKlowA_dSPB"=0 and "SpindleAlign"=1
+"Cdc5A_dSPB" 0 -> 1 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=0 and "CDKlowA_Bud"=1 and "CDKlowA_dSPB"=1
+"Cdc5A_dSPB" 0 -> 1 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "CDKlowA_dSPB"=0 and "SpindleAlign"=0
+"Cdc5A_dSPB" 1 -> 0 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "CDKlowA_dSPB"=0 and "SpindleAlign"=1
+"Cdc5A_dSPB" 0 -> 1 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=0 and "CDKlowA_dSPB"=1
+"Cdc5A_dSPB" 0 -> 1 when "Cdc5L_dSPB"=1 and "CDKlowA_Cytoplasm"=1 and "CDKlowA_Bud"=1
+
+"Nud1A_dSPB" 1 -> 0 when "Cdc15lowA_dSPB"=0
+"Nud1A_dSPB" 0 -> 1 when "Cdc15lowA_dSPB"=1
+
+"Spc72A_dSPB" 1 -> 0 when "Spc72L_dSPB"=0
+"Spc72A_dSPB" 0 -> 1 when "Spc72L_dSPB"=1
+
+"CDKlowA_dSPB" 1 -> 0 when "CDKlowL_dSPB"=0
+"CDKlowA_dSPB" 0 -> 1 when "CDKlowL_dSPB"=1
+
+"Cdc14lowA_dSPB" 1 -> 0 when "Cdc14lowL_dSPB"=0
+"Cdc14lowA_dSPB" 0 -> 1 when "Cdc14lowL_dSPB"=1
+
+"Bub2highA_dSPB" 1 -> 0 when "Bub2highL_dSPB"=0
+"Bub2highA_dSPB" 1 -> 0 when "Bub2highL_dSPB"=1 and "Bub2lowA_dSPB"=0
+"Bub2highA_dSPB" 0 -> 1 when "Bub2highL_dSPB"=1 and "Bub2lowA_dSPB"=1
+
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=0 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=0 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=0 and "CDKlowA_Cytoplasm"=1 and "Lte1A_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=0 and "Cdc5A_dSPB"=1 and "CDKlowA_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=0
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Bfa1highA_dSPB" 0 -> 1 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=0 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=0 and "CDKlowA_Bud"=1 and "Cdc5A_dSPB"=1 and "Cdc14lowA_dSPB"=1
+"Bfa1highA_dSPB" 1 -> 0 when "Bfa1highL_dSPB"=1 and "Lte1A_Cytoplasm"=1 and "Lte1A_Bud"=1
+
+"Tem1lowA_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=1 and "SpindleAlign"=0
+"Tem1lowA_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=1 and "SpindleAlign"=1
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Bub2highA_dSPB"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=0
+"Tem1lowA_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=1 and "SpindleAlign"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=1 and "SpindleAlign"=1
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=0
+"Tem1lowA_dSPB" 0 -> 1 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=0
+"Tem1lowA_dSPB" 1 -> 0 when "Tem1lowL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Bub2highA_dSPB"=1 and "Bfa1highA_dSPB"=1
+
+"Bub2lowA_dSPB" 1 -> 0 when "Bub2lowL_dSPB"=0
+"Bub2lowA_dSPB" 0 -> 1 when "Bub2lowL_dSPB"=1
+
+"Bfa1lowA_dSPB" 1 -> 0 when "Bfa1lowL_dSPB"=0
+"Bfa1lowA_dSPB" 0 -> 1 when "Bfa1lowL_dSPB"=1
+
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=0
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=1
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=0 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=0
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=0 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=1 and "SpindleAlign"=1
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=0
+"Tem1highA_dSPB" 0 -> 1 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=0
+"Tem1highA_dSPB" 1 -> 0 when "Tem1highL_dSPB"=1 and "Amn1A_Cytoplasm"=1 and "Amn1A_Bud"=1 and "Tem1lowA_dSPB"=1 and "Bub2lowA_dSPB"=1 and "Bfa1lowA_dSPB"=1
+
+"Dbf2A_dSPB" 1 -> 0 when "Dbf2L_dSPB"=0
+"Dbf2A_dSPB" 1 -> 0 when "Dbf2L_dSPB"=1 and "Cdc15highL_dSPB"=0
+"Dbf2A_dSPB" 1 -> 0 when "Dbf2L_dSPB"=1 and "Cdc15highL_dSPB"=1 and "Mob1A_dSPB"=0
+"Dbf2A_dSPB" 0 -> 1 when "Dbf2L_dSPB"=1 and "Cdc15highL_dSPB"=1 and "Mob1A_dSPB"=1
+
+"Mob1A_dSPB" 1 -> 0 when "Mob1L_dSPB"=0
+"Mob1A_dSPB" 0 -> 1 when "Mob1L_dSPB"=1
+
+"Cdc15lowA_dSPB" 1 -> 0 when "Cdc15lowL_dSPB"=0
+"Cdc15lowA_dSPB" 0 -> 1 when "Cdc15lowL_dSPB"=1
+
+"Cdc15highA_dSPB" 1 -> 0 when "Cdc15highL_dSPB"=0
+"Cdc15highA_dSPB" 1 -> 0 when "Cdc15highL_dSPB"=1 and "Cdc15lowA_dSPB"=0
+"Cdc15highA_dSPB" 0 -> 1 when "Cdc15highL_dSPB"=1 and "Cdc15lowA_dSPB"=1
+
+
+"ME" 1 -> 0 when "Cdc14highA_Cytoplasm"=0
+"ME" 0 -> 1 when "Cdc14highA_Cytoplasm"=1
+

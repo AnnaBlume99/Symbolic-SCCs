@@ -1,0 +1,391 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"A20" [0, 1]
+"Apoptosis" [0, 1]
+"BID" [0, 1]
+"BclxL" [0, 1]
+"CD45" [0, 1]
+"CREB" [0, 1]
+"CTLA4" [0, 1]
+"Caspase" [0, 1]
+"Ceramide" [0, 1]
+"Cyt_sign" [0, 1]
+"DISC" [0, 1]
+"ERK" [0, 1]
+"FLIP" [0, 1]
+"FYN" [0, 1]
+"Fas" [0, 1]
+"FasL" [0, 1]
+"FasT" [0, 1]
+"GAP" [0, 1]
+"GPCR" [0, 1]
+"GRB2" [0, 1]
+"GZMB" [0, 1]
+"IAP" [0, 1]
+"IFNg" [0, 1]
+"IFNgT" [0, 1]
+"IL15" [0, 1]
+"IL2" [0, 1]
+"IL2RA" [0, 1]
+"IL2RAT" [0, 1]
+"IL2RB" [0, 1]
+"IL2RBT" [0, 1]
+"JAK" [0, 1]
+"LCK" [0, 1]
+"MCL1" [0, 1]
+"MEK" [0, 1]
+"NFAT" [0, 1]
+"NFkB" [0, 1]
+"P2" [0, 1]
+"P27" [0, 1]
+"PDGF" [0, 1]
+"PDGFR" [0, 1]
+"PI3K" [0, 1]
+"PLCG1" [0, 1]
+"Proliferation" [0, 1]
+"RANTES" [0, 1]
+"RAS" [0, 1]
+"S1P" [0, 1]
+"SMAD" [0, 1]
+"SOCS" [0, 1]
+"SPHK1" [0, 1]
+"STAT3" [0, 1]
+"Stimuli" [0, 1]
+"Stimuli2" [0, 1]
+"TAX" [0, 1]
+"TCR" [0, 1]
+"TNF" [0, 1]
+"TPL2" [0, 1]
+"TRADD" [0, 1]
+"Tbet" [0, 1]
+"ZAP70" [0, 1]
+"sFas" [0, 1]
+
+"A20" 1 -> 0 when "Apoptosis"=0 and "NFkB"=0
+"A20" 0 -> 1 when "Apoptosis"=0 and "NFkB"=1
+"A20" 1 -> 0 when "Apoptosis"=1
+
+"Apoptosis" 0 -> 1 when "Caspase"=1
+
+"BID" 1 -> 0 when "Apoptosis"=0 and "BclxL"=0 and "Caspase"=0 and "GZMB"=0
+"BID" 0 -> 1 when "Apoptosis"=0 and "BclxL"=0 and "Caspase"=0 and "GZMB"=1 and "MCL1"=0
+"BID" 1 -> 0 when "Apoptosis"=0 and "BclxL"=0 and "Caspase"=0 and "GZMB"=1 and "MCL1"=1
+"BID" 0 -> 1 when "Apoptosis"=0 and "BclxL"=0 and "Caspase"=1 and "MCL1"=0
+"BID" 1 -> 0 when "Apoptosis"=0 and "BclxL"=0 and "Caspase"=1 and "MCL1"=1
+"BID" 1 -> 0 when "Apoptosis"=0 and "BclxL"=1
+"BID" 1 -> 0 when "Apoptosis"=1
+
+"BclxL" 1 -> 0 when "Apoptosis"=0 and "BID"=0 and "DISC"=0 and "GZMB"=0 and "NFkB"=0 and "STAT3"=0
+"BclxL" 0 -> 1 when "Apoptosis"=0 and "BID"=0 and "DISC"=0 and "GZMB"=0 and "NFkB"=0 and "STAT3"=1
+"BclxL" 0 -> 1 when "Apoptosis"=0 and "BID"=0 and "DISC"=0 and "GZMB"=0 and "NFkB"=1
+"BclxL" 1 -> 0 when "Apoptosis"=0 and "BID"=0 and "DISC"=0 and "GZMB"=1
+"BclxL" 1 -> 0 when "Apoptosis"=0 and "BID"=0 and "DISC"=1
+"BclxL" 1 -> 0 when "Apoptosis"=0 and "BID"=1
+"BclxL" 1 -> 0 when "Apoptosis"=1
+
+
+"CREB" 1 -> 0 when "Apoptosis"=0 and "ERK"=0
+"CREB" 1 -> 0 when "Apoptosis"=0 and "ERK"=1 and "IFNg"=0
+"CREB" 0 -> 1 when "Apoptosis"=0 and "ERK"=1 and "IFNg"=1
+"CREB" 1 -> 0 when "Apoptosis"=1
+
+"CTLA4" 1 -> 0 when "Apoptosis"=0 and "TCR"=0
+"CTLA4" 0 -> 1 when "Apoptosis"=0 and "TCR"=1
+"CTLA4" 1 -> 0 when "Apoptosis"=1
+
+"Caspase" 1 -> 0 when "Apoptosis"=0 and "BID"=0 and "DISC"=0
+"Caspase" 0 -> 1 when "Apoptosis"=0 and "BID"=0 and "DISC"=1
+"Caspase" 1 -> 0 when "Apoptosis"=0 and "BID"=1 and "DISC"=0 and "GZMB"=0 and "IAP"=0 and "TRADD"=0
+"Caspase" 0 -> 1 when "Apoptosis"=0 and "BID"=1 and "DISC"=0 and "GZMB"=0 and "IAP"=0 and "TRADD"=1
+"Caspase" 1 -> 0 when "Apoptosis"=0 and "BID"=1 and "DISC"=0 and "GZMB"=0 and "IAP"=1
+"Caspase" 0 -> 1 when "Apoptosis"=0 and "BID"=1 and "DISC"=0 and "GZMB"=1 and "IAP"=0
+"Caspase" 1 -> 0 when "Apoptosis"=0 and "BID"=1 and "DISC"=0 and "GZMB"=1 and "IAP"=1
+"Caspase" 0 -> 1 when "Apoptosis"=0 and "BID"=1 and "DISC"=1
+"Caspase" 1 -> 0 when "Apoptosis"=1
+
+"Ceramide" 1 -> 0 when "Apoptosis"=0 and "Fas"=0
+"Ceramide" 0 -> 1 when "Apoptosis"=0 and "Fas"=1 and "S1P"=0
+"Ceramide" 1 -> 0 when "Apoptosis"=0 and "Fas"=1 and "S1P"=1
+"Ceramide" 1 -> 0 when "Apoptosis"=1
+
+"Cyt_sign" 1 -> 0 when "Apoptosis"=0 and "FYN"=0
+"Cyt_sign" 0 -> 1 when "Apoptosis"=0 and "FYN"=1
+"Cyt_sign" 1 -> 0 when "Apoptosis"=1
+
+"DISC" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=0 and "Fas"=0
+"DISC" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=0 and "Fas"=1 and "FasT"=0
+"DISC" 0 -> 1 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=0 and "Fas"=1 and "FasT"=1
+"DISC" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=1 and "Fas"=0
+"DISC" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=1 and "Fas"=1 and "FasT"=0
+"DISC" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=1 and "Fas"=1 and "FasT"=1 and "IL2"=0
+"DISC" 0 -> 1 when "Apoptosis"=0 and "Ceramide"=0 and "FLIP"=1 and "Fas"=1 and "FasT"=1 and "IL2"=1
+"DISC" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=1 and "FasT"=0
+"DISC" 0 -> 1 when "Apoptosis"=0 and "Ceramide"=1 and "FasT"=1
+"DISC" 1 -> 0 when "Apoptosis"=1
+
+"ERK" 1 -> 0 when "Apoptosis"=0 and "MEK"=0
+"ERK" 1 -> 0 when "Apoptosis"=0 and "MEK"=1 and "PI3K"=0
+"ERK" 0 -> 1 when "Apoptosis"=0 and "MEK"=1 and "PI3K"=1
+"ERK" 1 -> 0 when "Apoptosis"=1
+
+"FLIP" 1 -> 0 when "Apoptosis"=0 and "CREB"=0 and "DISC"=0 and "NFkB"=0
+"FLIP" 0 -> 1 when "Apoptosis"=0 and "CREB"=0 and "DISC"=0 and "NFkB"=1
+"FLIP" 1 -> 0 when "Apoptosis"=0 and "CREB"=0 and "DISC"=1
+"FLIP" 1 -> 0 when "Apoptosis"=0 and "CREB"=1 and "DISC"=0 and "IFNg"=0 and "NFkB"=0
+"FLIP" 0 -> 1 when "Apoptosis"=0 and "CREB"=1 and "DISC"=0 and "IFNg"=0 and "NFkB"=1
+"FLIP" 0 -> 1 when "Apoptosis"=0 and "CREB"=1 and "DISC"=0 and "IFNg"=1
+"FLIP" 1 -> 0 when "Apoptosis"=0 and "CREB"=1 and "DISC"=1
+"FLIP" 1 -> 0 when "Apoptosis"=1
+
+"FYN" 1 -> 0 when "Apoptosis"=0 and "IL2RB"=0 and "TCR"=0
+"FYN" 0 -> 1 when "Apoptosis"=0 and "IL2RB"=0 and "TCR"=1
+"FYN" 0 -> 1 when "Apoptosis"=0 and "IL2RB"=1
+"FYN" 1 -> 0 when "Apoptosis"=1
+
+"Fas" 1 -> 0 when "Apoptosis"=0 and "FasL"=0
+"Fas" 1 -> 0 when "Apoptosis"=0 and "FasL"=1 and "FasT"=0
+"Fas" 0 -> 1 when "Apoptosis"=0 and "FasL"=1 and "FasT"=1 and "sFas"=0
+"Fas" 1 -> 0 when "Apoptosis"=0 and "FasL"=1 and "FasT"=1 and "sFas"=1
+"Fas" 1 -> 0 when "Apoptosis"=1
+
+"FasL" 1 -> 0 when "Apoptosis"=0 and "ERK"=0 and "NFAT"=0 and "NFkB"=0 and "STAT3"=0
+"FasL" 0 -> 1 when "Apoptosis"=0 and "ERK"=0 and "NFAT"=0 and "NFkB"=0 and "STAT3"=1
+"FasL" 0 -> 1 when "Apoptosis"=0 and "ERK"=0 and "NFAT"=0 and "NFkB"=1
+"FasL" 0 -> 1 when "Apoptosis"=0 and "ERK"=0 and "NFAT"=1
+"FasL" 0 -> 1 when "Apoptosis"=0 and "ERK"=1
+"FasL" 1 -> 0 when "Apoptosis"=1
+
+"FasT" 1 -> 0 when "Apoptosis"=0 and "NFkB"=0
+"FasT" 0 -> 1 when "Apoptosis"=0 and "NFkB"=1
+"FasT" 1 -> 0 when "Apoptosis"=1
+
+"GAP" 0 -> 1 when "Apoptosis"=0 and "IL15"=0 and "IL2"=0 and "RAS"=1
+"GAP" 1 -> 0 when "Apoptosis"=0 and "IL15"=0 and "IL2"=0 and "PDGFR"=0 and "RAS"=0
+"GAP" 1 -> 0 when "Apoptosis"=0 and "IL15"=0 and "IL2"=1
+"GAP" 1 -> 0 when "Apoptosis"=0 and "IL15"=1
+"GAP" 1 -> 0 when "Apoptosis"=1
+
+"GPCR" 1 -> 0 when "Apoptosis"=0 and "S1P"=0
+"GPCR" 0 -> 1 when "Apoptosis"=0 and "S1P"=1
+"GPCR" 1 -> 0 when "Apoptosis"=1
+
+"GRB2" 1 -> 0 when "Apoptosis"=0 and "IL2RB"=0 and "ZAP70"=0
+"GRB2" 0 -> 1 when "Apoptosis"=0 and "IL2RB"=0 and "ZAP70"=1
+"GRB2" 0 -> 1 when "Apoptosis"=0 and "IL2RB"=1
+"GRB2" 1 -> 0 when "Apoptosis"=1
+
+"GZMB" 1 -> 0 when "Apoptosis"=0 and "CREB"=0 and "Tbet"=0
+"GZMB" 0 -> 1 when "Apoptosis"=0 and "CREB"=0 and "Tbet"=1
+"GZMB" 1 -> 0 when "Apoptosis"=0 and "CREB"=1 and "IFNg"=0 and "Tbet"=0
+"GZMB" 0 -> 1 when "Apoptosis"=0 and "CREB"=1 and "IFNg"=0 and "Tbet"=1
+"GZMB" 0 -> 1 when "Apoptosis"=0 and "CREB"=1 and "IFNg"=1
+"GZMB" 1 -> 0 when "Apoptosis"=1
+
+"IAP" 1 -> 0 when "Apoptosis"=0 and "BID"=0 and "NFkB"=0
+"IAP" 0 -> 1 when "Apoptosis"=0 and "BID"=0 and "NFkB"=1
+"IAP" 1 -> 0 when "Apoptosis"=0 and "BID"=1
+"IAP" 1 -> 0 when "Apoptosis"=1
+
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=0
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=0 and "P2"=0 and "SMAD"=0 and "Stimuli"=0
+"IFNg" 0 -> 1 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=0 and "P2"=0 and "SMAD"=0 and "Stimuli"=1
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=0 and "P2"=0 and "SMAD"=1
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=0 and "P2"=1
+"IFNg" 0 -> 1 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=1 and "P2"=0 and "SMAD"=0
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=1 and "P2"=0 and "SMAD"=1
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=0 and "IL2"=1 and "P2"=1
+"IFNg" 0 -> 1 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=1 and "P2"=0 and "SMAD"=0
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=1 and "P2"=0 and "SMAD"=1
+"IFNg" 1 -> 0 when "Apoptosis"=0 and "IFNgT"=1 and "IL15"=1 and "P2"=1
+"IFNg" 1 -> 0 when "Apoptosis"=1
+
+"IFNgT" 1 -> 0 when "Apoptosis"=0 and "NFAT"=0 and "STAT3"=0 and "Tbet"=0
+"IFNgT" 0 -> 1 when "Apoptosis"=0 and "NFAT"=0 and "STAT3"=0 and "Tbet"=1
+"IFNgT" 0 -> 1 when "Apoptosis"=0 and "NFAT"=0 and "STAT3"=1
+"IFNgT" 0 -> 1 when "Apoptosis"=0 and "NFAT"=1
+"IFNgT" 1 -> 0 when "Apoptosis"=1
+
+
+"IL2" 1 -> 0 when "Apoptosis"=0 and "NFAT"=0 and "NFkB"=0 and "STAT3"=0
+"IL2" 0 -> 1 when "Apoptosis"=0 and "NFAT"=0 and "NFkB"=0 and "STAT3"=1 and "Tbet"=0
+"IL2" 1 -> 0 when "Apoptosis"=0 and "NFAT"=0 and "NFkB"=0 and "STAT3"=1 and "Tbet"=1
+"IL2" 0 -> 1 when "Apoptosis"=0 and "NFAT"=0 and "NFkB"=1 and "Tbet"=0
+"IL2" 1 -> 0 when "Apoptosis"=0 and "NFAT"=0 and "NFkB"=1 and "Tbet"=1
+"IL2" 0 -> 1 when "Apoptosis"=0 and "NFAT"=1 and "Tbet"=0
+"IL2" 1 -> 0 when "Apoptosis"=0 and "NFAT"=1 and "Tbet"=1
+"IL2" 1 -> 0 when "Apoptosis"=1
+
+"IL2RA" 1 -> 0 when "Apoptosis"=0 and "IL2"=0
+"IL2RA" 0 -> 1 when "Apoptosis"=0 and "IL2"=1 and "IL2RAT"=1
+"IL2RA" 1 -> 0 when "Apoptosis"=0 and "IL2"=1
+"IL2RA" 1 -> 0 when "Apoptosis"=1
+
+"IL2RAT" 1 -> 0 when "Apoptosis"=0 and "IL2"=0
+"IL2RAT" 1 -> 0 when "Apoptosis"=0 and "IL2"=1 and "NFkB"=0 and "STAT3"=0
+"IL2RAT" 0 -> 1 when "Apoptosis"=0 and "IL2"=1 and "NFkB"=0 and "STAT3"=1
+"IL2RAT" 0 -> 1 when "Apoptosis"=0 and "IL2"=1 and "NFkB"=1
+"IL2RAT" 1 -> 0 when "Apoptosis"=1
+
+"IL2RB" 1 -> 0 when "Apoptosis"=0 and "IL15"=0 and "IL2"=0
+"IL2RB" 1 -> 0 when "Apoptosis"=0 and "IL15"=0 and "IL2"=1 and "IL2RBT"=0
+"IL2RB" 0 -> 1 when "Apoptosis"=0 and "IL15"=0 and "IL2"=1 and "IL2RBT"=1
+"IL2RB" 1 -> 0 when "Apoptosis"=0 and "IL15"=1 and "IL2RBT"=0
+"IL2RB" 0 -> 1 when "Apoptosis"=0 and "IL15"=1 and "IL2RBT"=1
+"IL2RB" 1 -> 0 when "Apoptosis"=1
+
+"IL2RBT" 1 -> 0 when "Apoptosis"=0 and "ERK"=0
+"IL2RBT" 1 -> 0 when "Apoptosis"=0 and "ERK"=1 and "Tbet"=0
+"IL2RBT" 0 -> 1 when "Apoptosis"=0 and "ERK"=1 and "Tbet"=1
+"IL2RBT" 1 -> 0 when "Apoptosis"=1
+
+"JAK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=0 and "IL2RB"=0 and "RANTES"=0
+"JAK" 0 -> 1 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=0 and "IL2RB"=0 and "RANTES"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=0 and "IL2RB"=0 and "RANTES"=1 and "SOCS"=1
+"JAK" 0 -> 1 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=0 and "IL2RB"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=0 and "IL2RB"=1 and "SOCS"=1
+"JAK" 0 -> 1 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=0 and "IL2RA"=1 and "SOCS"=1
+"JAK" 0 -> 1 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=1 and "SOCS"=0
+"JAK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IFNg"=1 and "SOCS"=1
+"JAK" 1 -> 0 when "Apoptosis"=0 and "CD45"=1
+"JAK" 1 -> 0 when "Apoptosis"=1
+
+"LCK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IL2RB"=0 and "TCR"=0
+"LCK" 0 -> 1 when "Apoptosis"=0 and "CD45"=0 and "IL2RB"=0 and "TCR"=1 and "ZAP70"=0
+"LCK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IL2RB"=0 and "TCR"=1 and "ZAP70"=1
+"LCK" 0 -> 1 when "Apoptosis"=0 and "CD45"=0 and "IL2RB"=1 and "ZAP70"=0
+"LCK" 1 -> 0 when "Apoptosis"=0 and "CD45"=0 and "IL2RB"=1 and "ZAP70"=1
+"LCK" 0 -> 1 when "Apoptosis"=0 and "CD45"=1
+"LCK" 1 -> 0 when "Apoptosis"=1
+
+"MCL1" 1 -> 0 when "Apoptosis"=0 and "IL2RB"=0
+"MCL1" 1 -> 0 when "Apoptosis"=0 and "IL2RB"=1 and "NFkB"=0
+"MCL1" 1 -> 0 when "Apoptosis"=0 and "IL2RB"=1 and "NFkB"=1 and "PI3K"=0
+"MCL1" 1 -> 0 when "Apoptosis"=0 and "IL2RB"=1 and "NFkB"=1 and "PI3K"=1 and "STAT3"=0
+"MCL1" 0 -> 1 when "Apoptosis"=0 and "IL2RB"=1 and "NFkB"=1 and "PI3K"=1 and "STAT3"=1
+"MCL1" 1 -> 0 when "Apoptosis"=1
+
+"MEK" 1 -> 0 when "Apoptosis"=0 and "RAS"=0
+"MEK" 0 -> 1 when "Apoptosis"=0 and "RAS"=1
+"MEK" 1 -> 0 when "Apoptosis"=1
+
+"NFAT" 1 -> 0 when "Apoptosis"=0 and "PI3K"=0
+"NFAT" 0 -> 1 when "Apoptosis"=0 and "PI3K"=1
+"NFAT" 1 -> 0 when "Apoptosis"=1
+
+"NFkB" 1 -> 0 when "Apoptosis"=0 and "FLIP"=0 and "PI3K"=0 and "TPL2"=0
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=0 and "PI3K"=0 and "TPL2"=1
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=0 and "PI3K"=1
+"NFkB" 1 -> 0 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=0 and "PI3K"=0 and "TPL2"=0
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=0 and "PI3K"=0 and "TPL2"=1
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=0 and "PI3K"=1
+"NFkB" 1 -> 0 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=1 and "PI3K"=0 and "TPL2"=0 and "TRADD"=0
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=1 and "PI3K"=0 and "TPL2"=0 and "TRADD"=1
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=1 and "PI3K"=0 and "TPL2"=1
+"NFkB" 0 -> 1 when "Apoptosis"=0 and "FLIP"=1 and "IAP"=1 and "PI3K"=1
+"NFkB" 1 -> 0 when "Apoptosis"=1
+
+"P2" 1 -> 0 when "Apoptosis"=0 and "IFNg"=0 and "Stimuli2"=1
+"P2" 0 -> 1 when "Apoptosis"=0 and "IFNg"=1 and "Stimuli2"=0
+"P2" 1 -> 0 when "Apoptosis"=0 and "IFNg"=1 and "Stimuli2"=1
+"P2" 1 -> 0 when "Apoptosis"=1
+
+"P27" 1 -> 0 when "Apoptosis"=0 and "STAT3"=0
+"P27" 0 -> 1 when "Apoptosis"=0 and "STAT3"=1
+"P27" 1 -> 0 when "Apoptosis"=1
+
+
+"PDGFR" 1 -> 0 when "Apoptosis"=0 and "PDGF"=0 and "S1P"=0
+"PDGFR" 0 -> 1 when "Apoptosis"=0 and "PDGF"=0 and "S1P"=1
+"PDGFR" 0 -> 1 when "Apoptosis"=0 and "PDGF"=1
+"PDGFR" 1 -> 0 when "Apoptosis"=1
+
+"PI3K" 1 -> 0 when "Apoptosis"=0 and "PDGFR"=0 and "RAS"=0
+"PI3K" 0 -> 1 when "Apoptosis"=0 and "PDGFR"=0 and "RAS"=1
+"PI3K" 0 -> 1 when "Apoptosis"=0 and "PDGFR"=1
+"PI3K" 1 -> 0 when "Apoptosis"=1
+
+"PLCG1" 1 -> 0 when "Apoptosis"=0 and "GRB2"=0 and "PDGFR"=0
+"PLCG1" 0 -> 1 when "Apoptosis"=0 and "GRB2"=0 and "PDGFR"=1
+"PLCG1" 0 -> 1 when "Apoptosis"=0 and "GRB2"=1
+"PLCG1" 1 -> 0 when "Apoptosis"=1
+
+"Proliferation" 1 -> 0 when "Apoptosis"=0 and "P27"=0 and "STAT3"=0
+"Proliferation" 0 -> 1 when "Apoptosis"=0 and "P27"=0 and "STAT3"=1
+"Proliferation" 1 -> 0 when "Apoptosis"=0 and "P27"=1
+"Proliferation" 1 -> 0 when "Apoptosis"=1
+
+"RANTES" 1 -> 0 when "Apoptosis"=0 and "NFkB"=0
+"RANTES" 0 -> 1 when "Apoptosis"=0 and "NFkB"=1
+"RANTES" 1 -> 0 when "Apoptosis"=1
+
+"RAS" 1 -> 0 when "Apoptosis"=0 and "GAP"=0 and "GRB2"=0 and "PLCG1"=0
+"RAS" 0 -> 1 when "Apoptosis"=0 and "GAP"=0 and "GRB2"=0 and "PLCG1"=1
+"RAS" 0 -> 1 when "Apoptosis"=0 and "GAP"=0 and "GRB2"=1
+"RAS" 1 -> 0 when "Apoptosis"=0 and "GAP"=1
+"RAS" 1 -> 0 when "Apoptosis"=1
+
+"S1P" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=0 and "SPHK1"=0
+"S1P" 0 -> 1 when "Apoptosis"=0 and "Ceramide"=0 and "SPHK1"=1
+"S1P" 1 -> 0 when "Apoptosis"=0 and "Ceramide"=1
+"S1P" 1 -> 0 when "Apoptosis"=1
+
+"SMAD" 1 -> 0 when "Apoptosis"=0 and "GPCR"=0
+"SMAD" 0 -> 1 when "Apoptosis"=0 and "GPCR"=1
+"SMAD" 1 -> 0 when "Apoptosis"=1
+
+"SOCS" 1 -> 0 when "Apoptosis"=0 and "IL15"=0 and "IL2"=0 and "JAK"=0
+"SOCS" 0 -> 1 when "Apoptosis"=0 and "IL15"=0 and "IL2"=0 and "JAK"=1
+"SOCS" 1 -> 0 when "Apoptosis"=0 and "IL15"=0 and "IL2"=1
+"SOCS" 1 -> 0 when "Apoptosis"=0 and "IL15"=1
+"SOCS" 1 -> 0 when "Apoptosis"=1
+
+"SPHK1" 1 -> 0 when "Apoptosis"=0 and "PDGFR"=0
+"SPHK1" 0 -> 1 when "Apoptosis"=0 and "PDGFR"=1
+"SPHK1" 1 -> 0 when "Apoptosis"=1
+
+"STAT3" 1 -> 0 when "Apoptosis"=0 and "JAK"=0
+"STAT3" 0 -> 1 when "Apoptosis"=0 and "JAK"=1
+"STAT3" 1 -> 0 when "Apoptosis"=1
+
+
+
+
+"TCR" 1 -> 0 when "Apoptosis"=0 and "CTLA4"=0 and "Stimuli"=0
+"TCR" 0 -> 1 when "Apoptosis"=0 and "CTLA4"=0 and "Stimuli"=1
+"TCR" 1 -> 0 when "Apoptosis"=0 and "CTLA4"=1
+"TCR" 1 -> 0 when "Apoptosis"=1
+
+"TNF" 1 -> 0 when "Apoptosis"=0 and "NFkB"=0
+"TNF" 0 -> 1 when "Apoptosis"=0 and "NFkB"=1
+"TNF" 1 -> 0 when "Apoptosis"=1
+
+"TPL2" 1 -> 0 when "Apoptosis"=0 and "PI3K"=0 and "TAX"=0
+"TPL2" 0 -> 1 when "Apoptosis"=0 and "PI3K"=0 and "TAX"=1
+"TPL2" 1 -> 0 when "Apoptosis"=0 and "PI3K"=1 and "TAX"=0 and "TNF"=0
+"TPL2" 0 -> 1 when "Apoptosis"=0 and "PI3K"=1 and "TAX"=0 and "TNF"=1
+"TPL2" 0 -> 1 when "Apoptosis"=0 and "PI3K"=1 and "TAX"=1
+"TPL2" 1 -> 0 when "Apoptosis"=1
+
+"TRADD" 1 -> 0 when "A20"=0 and "Apoptosis"=0 and "IAP"=0 and "TNF"=0
+"TRADD" 0 -> 1 when "A20"=0 and "Apoptosis"=0 and "IAP"=0 and "TNF"=1
+"TRADD" 1 -> 0 when "A20"=0 and "Apoptosis"=0 and "IAP"=1
+"TRADD" 1 -> 0 when "A20"=0 and "Apoptosis"=1
+"TRADD" 1 -> 0 when "A20"=1
+
+"Tbet" 0 -> 1 when "Apoptosis"=0 and "JAK"=1
+"Tbet" 1 -> 0 when "Apoptosis"=1
+
+"ZAP70" 1 -> 0 when "Apoptosis"=0 and "FYN"=0 and "LCK"=0
+"ZAP70" 0 -> 1 when "Apoptosis"=0 and "FYN"=0 and "LCK"=1
+"ZAP70" 1 -> 0 when "Apoptosis"=0 and "FYN"=1
+"ZAP70" 1 -> 0 when "Apoptosis"=1
+
+"sFas" 1 -> 0 when "Apoptosis"=0 and "FasT"=0
+"sFas" 0 -> 1 when "Apoptosis"=0 and "FasT"=1
+"sFas" 1 -> 0 when "Apoptosis"=1
+

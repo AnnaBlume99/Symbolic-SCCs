@@ -13,6 +13,8 @@
 #include "reachability.h"
 #include "bdd_utilities.h"
 #include "scc.h"
+#include "tgr.h"
+#include "deadlock.h"
 
 using sylvan::Bdd;
 using sylvan::BddSet;
@@ -46,12 +48,7 @@ void printRelationMatrix(const Graph &graph);
 template<class ReachType>
 SccResult xieBeerelBottom(const Graph &fullGraph) {
   int symbolicSteps = 0;
-  long long nodeCount = 0;
   int recCalls = 0;
-
-  //callstack used to emulate recursive calls
-  std::stack<Bdd> callStack;
-  callStack.push(fullGraph.nodes);
 
   std::list<Bdd> bsccList = {};
   //Return if graph is empty
@@ -59,9 +56,41 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
     return createSccResult(bsccList, symbolicSteps);
   }
 
-  //Initialize the set of relations and graph
+  //ITGR Testing:
+
+  std::pair<Graph, int> reducedGraph = ITGR(fullGraph);
+  symbolicSteps += reducedGraph.second;
+  const Bdd allNodes = reducedGraph.first.nodes;
+  const BddSet fullCube = reducedGraph.first.cube;
+  const std::deque<Relation> relationDeque = reducedGraph.first.relations;
+  //End ITGR
+
+
+  //Normal code
+  // const Bdd allNodes = fullGraph.nodes;
+  // const BddSet fullCube = fullGraph.cube;
+  // const std::deque<Relation> relationDeque = fullGraph.relations;
+  //End Normal code
+
+  //Deadlock detection
+  /*std::pair<SccResult, Graph> dl = deadlockRemoval(fullGraph);
+  symbolicSteps += dl.first.symbolicSteps;
+  for(Bdd bs : dl.first.sccs){
+    bsccList.push_back(bs);
+  }
+  const Bdd allNodes = dl.second.nodes;
   const BddSet fullCube = fullGraph.cube;
   const std::deque<Relation> relationDeque = fullGraph.relations;
+  std::cout << ";" << bsccList.size();
+  if(allNodes == leaf_false()) {
+    std::cout << ";" << recCalls;
+    return createSccResult(bsccList, symbolicSteps);
+  }*/
+  //Deadlock detection end
+
+  //callstack used to emulate recursive calls
+  std::stack<Bdd> callStack;
+  callStack.push(allNodes);
 
   Graph workingGraph;
   workingGraph.cube = fullCube;
@@ -83,14 +112,12 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
     ReachResult res1 = reach.backwardSet(workingGraph, v);
     symbolicSteps = symbolicSteps + res1.symbolicSteps;
     backwardSet = res1.set;
-    nodeCount += res1.set.SatCount(fullCube);
 
     //Find the forwardset and stop quickly if the forwardset goes beyond the backwardset since the SCC is not a BSCC
     ReachResultBottom res2 = reach.forwardSetShortcut(workingGraph, v, backwardSet);
     symbolicSteps = symbolicSteps + res2.symbolicSteps;
     forwardSet = res2.set;
     bool isBscc = res2.isBscc;
-    nodeCount += res2.set.SatCount(fullCube);
 
     //Add scc to bscclist if it is a BSCC
     if(isBscc) {
@@ -106,7 +133,7 @@ SccResult xieBeerelBottom(const Graph &fullGraph) {
       callStack.push(recBdd);
     }
   }
-  //std::cout << ";" << recCalls << ";" << nodeCount;
+  std::cout << ";" << recCalls;
   return createSccResult(bsccList, symbolicSteps);  
 }
 

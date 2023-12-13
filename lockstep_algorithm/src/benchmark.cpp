@@ -28,13 +28,13 @@ std::list<std::string> getPintStrings() {
   std::list<std::string> resultList = {};
 
   resultList.push_back("../PintFiles/model.an");
-  resultList.push_back("../PintFiles/apoptosis_network.an");
+  //resultList.push_back("../PintFiles/apoptosis_network.an");
   resultList.push_back("../PintFiles/apoptosis_stable.an");
-  resultList.push_back("../PintFiles/cell_collective_vut.an");
+  //resultList.push_back("../PintFiles/cell_collective_vut.an");
   resultList.push_back("../PintFiles/g2a.an");
   resultList.push_back("../PintFiles/g2a_with_names.an");
-  resultList.push_back("../PintFiles/hmox1_pathway.an");
-  resultList.push_back("../PintFiles/[v101]__[r158]__[T-CELL-RECEPTOR-SIGNALING]__[cellcollective].an");
+  //resultList.push_back("../PintFiles/hmox1_pathway.an");
+  //resultList.push_back("../PintFiles/[v101]__[r158]__[T-CELL-RECEPTOR-SIGNALING]__[cellcollective].an");
   resultList.push_back("../PintFiles/[v102]__[r157]__[INTERFERON-1]__[covid-uni-lu].an");
   resultList.push_back("../PintFiles/[v104]__[r166]__[ETC]__[covid-uni-lu].an");
   resultList.push_back("../PintFiles/[v104]__[r226]__[EGFR-ERBB-SIGNALING]__[cellcollective].an");
@@ -404,9 +404,9 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
 
   //Read all the files, create their graphs and run the algorithms on them
   for(std::string pathString : pathStrings) {
-    std::cout << "###### Running experiment on file at path: " << pathString << std::endl;
+    //std::cout << "###### Running experiment on file at path: " << pathString << std::endl;
     //Create the graph from the PNML-file
-    Graph graph = parseFileToGraph(pathString);
+    Graph graph = parseFileToGraph2(pathString);
     //Graph graph = PNMLtoGraph(pathString, useInitialMarking); //THIS IS NORMAL LINE
 
     //Write number of places and relations to csv-file
@@ -417,6 +417,7 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
       grid[csvRow+i].insert(grid[csvRow+i].end(), {pathString, noOfPlaces, noOfRelations});
       i++;
     }
+    std::cout << ";" << noOfRelations;
     grid = preprocessAndRun(graph, maxPreprocess, minPreprocess, runTypes, grid, csvRow);
 
     //Move down in the csv grid to make way for running all algorithms on next graph
@@ -428,8 +429,8 @@ void experiment(std::list<std::string> pathStrings, int minPreprocess, int maxPr
     totalSteps = totalSteps + stoi(grid[i][7]);
     totalTime = totalTime + stoi(grid[i][6]);
   }
-  std::cout << "---------------------------------------------" << std::endl;
-  std::cout << "Total steps: " << totalSteps << ", total time: " << totalTime << std::endl;
+  //std::cout << "---------------------------------------------" << std::endl;
+  //std::cout << "Total steps: " << totalSteps << ", total time: " << totalTime << std::endl;
   grid[grid.size()-1].insert(grid[grid.size()-1].end(), {"Total", "", "", "", "", "", std::to_string(totalTime), std::to_string(totalSteps) });
 
   writeToCSV(fileName, grid);
@@ -441,13 +442,13 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
                                                        std::list<algorithmType> runTypes,
                                                        std::vector<std::vector<std::string>> grid, int row) {
   if(maxPruning < 0) {
-    std::cout << "### With pre-processing (fixed point)" << std::endl;
+    //std::cout << "### With pre-processing (fixed point)" << std::endl;
     Graph processedGraph = graphPreprocessingFixedPoint(graph);
 
 
     //std::cout << "Counting with SatCount..:" << std::endl;
     double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
-    std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
+    //std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
     std::string nodeCountString =  std::to_string(nodeCount);
     std::replace(nodeCountString.begin(), nodeCountString.end(), '.', ',');
@@ -457,19 +458,21 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
     }
 
     grid = timeAll(processedGraph, runTypes, grid, row);
-    std::cout << std::endl;
+    //std::cout << std::endl;
   }
   else {
     if(maxPruning == 0) {
-      std::cout << "### With no pre-processing" << std::endl;
+      //std::cout << "### With no pre-processing" << std::endl;
       Graph processedGraph = graphPreprocessing(graph, 0);
 
       //std::cout << "Counting with SatCount..:" << std::endl;
       double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
-      std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
+      //std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
       std::string nodeCountString =  std::to_string(nodeCount);
       std::replace(nodeCountString.begin(), nodeCountString.end(), '.', ',');
+
+      std::cout << ";" << nodeCount;
 
       for(int i = 1 ; i <= runTypes.size() ; i++) {
         grid[row+i].push_back(nodeCountString);
@@ -478,13 +481,13 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
       grid = timeAll(graph, runTypes, grid, row);
     }
     else {
-      std::cout << "### With pre-processing (" << std::to_string(maxPruning) << " or fixed-point)" << std::endl;
+      //std::cout << "### With pre-processing (" << std::to_string(maxPruning) << " or fixed-point)" << std::endl;
       std::pair<Graph, int> result = graphPreprocessingFixedPointWithMax(graph, maxPruning);
       Graph processedGraph = result.first;
 
       //std::cout << "Counting with SatCount..:" << std::endl;
       double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
-      std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
+      //std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
       std::string nodeCountString =  std::to_string(nodeCount);
       std::replace(nodeCountString.begin(), nodeCountString.end(), '.', ',');
@@ -497,16 +500,16 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
       int newMax2Pow = pow(2,floor(log2(newMax-1)));
 
       grid = timeAll(processedGraph, runTypes, grid, row);
-      std::cout << std::endl;
+      //std::cout << std::endl;
       grid[row].insert(grid[row].end(), {"Nodes", "SCC's", "Algorithm type", std::to_string(newMax) + " pruning steps (ms)", "Symbolic steps" });
 
       for(int i = newMax2Pow; i >= minPruning; i = floor(i/2)) {
-        std::cout << "### With pre-processing (" << std::to_string(i) << ")" << std::endl;
+        //std::cout << "### With pre-processing (" << std::to_string(i) << ")" << std::endl;
         processedGraph = graphPreprocessing(graph, i);
 
         //std::cout << "Counting with SatCount..:" << std::endl;
         double nodeCount = processedGraph.nodes.SatCount(processedGraph.cube);
-        std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
+        //std::cout << "Graph size: " << std::to_string(nodeCount) << " nodes" << std::endl;
 
         std::string nodeCountString =  std::to_string(nodeCount);
         std::replace(nodeCountString.begin(), nodeCountString.end(), '.', ',');
@@ -516,7 +519,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
         }
 
         grid = timeAll(processedGraph, runTypes, grid, row);
-        std::cout << std::endl;
+        //std::cout << std::endl;
 
         grid[row].insert(grid[row].end(), {"Nodes", "SCC's","Algorithm type", std::to_string(i) + " pruning steps runtime (ms)", "Symbolic steps" });
 
@@ -534,7 +537,7 @@ std::vector<std::vector<std::string>> preprocessAndRun(const Graph &graph, int m
 std::vector<std::vector<std::string>> timeAll(const Graph &graph, std::list<algorithmType> runTypes, std::vector<std::vector<std::string>> grid, int row) {
   int i = 1;
   for(algorithmType runType : runTypes) {
-    std::cout << "Running algorithm: " << algoToString(runType) << std::endl;
+    //std::cout << "Running algorithm: " << algoToString(runType) << std::endl;
     std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int> runResults = timeRun(graph, runType);
     std::list<sylvan::Bdd> sccList = std::get<0>(runResults);
     std::chrono::duration<long, std::milli> duration = std::get<1>(runResults);
@@ -626,9 +629,12 @@ std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int>
   std::chrono::duration<long, std::milli> duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
   sccList = sccAndSteps.sccs;
   steps = sccAndSteps.symbolicSteps;
-  std::cout << "Time elapsed (" << algoToString(runType) << "): " << duration.count() << " milliseconds" << std::endl;
-  std::cout << "Found " << sccList.size() << " SCCs" << std::endl;
-  std::cout << "Used " << steps << " symbolic steps" << std::endl << std::endl;
+
+  std::cout << ";" << sccList.size() << ";" << duration.count() << ";" << steps << std::endl;
+
+  // std::cout << "Time elapsed (" << algoToString(runType) << "): " << duration.count() << " milliseconds" << std::endl;
+  // std::cout << "Found " << sccList.size() << " SCCs" << std::endl;
+  // std::cout << "Used " << steps << " symbolic steps" << std::endl << std::endl;
   std::tuple<std::list<sylvan::Bdd>, std::chrono::duration<long, std::milli>, int> result = {sccList, duration, steps};
   return result;
 }
@@ -678,8 +684,8 @@ Graph graphPreprocessing(const Graph &graph, int pruningSteps) {
 
   double prunedNodes = differenceBdd(graph.nodes, resultGraph.nodes).SatCount(graph.cube);
   if(prunedNodes > 0) {
-    std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
-    std::cout << "Finished pre-processing of graph" << std::endl;
+    // std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
+    // std::cout << "Finished pre-processing of graph" << std::endl;
   }
   return resultGraph;
 }
@@ -692,8 +698,8 @@ Graph graphPreprocessingFixedPoint(const Graph &graph) {
   resultGraph = fixedPointPruning(resultGraph);
 
   double prunedNodes = differenceBdd(graph.nodes, resultGraph.nodes).SatCount(graph.cube);
-  std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
-  std::cout << "Finished pre-processing of graph" << std::endl;
+  // std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
+  // std::cout << "Finished pre-processing of graph" << std::endl;
   return resultGraph;
 }
 
@@ -706,8 +712,8 @@ std::pair<Graph, int> graphPreprocessingFixedPointWithMax(const Graph &graph, in
   std::pair<Graph, int> result = fixedPointPruningWithMax(resultGraph, maxPruning);
 
   double prunedNodes = differenceBdd(graph.nodes, resultGraph.nodes).SatCount(graph.cube);
-  std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
-  std::cout << "Finished pre-processing of graph" << std::endl;
+  // std::cout << "Pruned " << std::to_string(prunedNodes) << " nodes" << std::endl;
+  // std::cout << "Finished pre-processing of graph" << std::endl;
   return result;
 }
 
@@ -719,15 +725,15 @@ std::pair<Graph, int> graphPreprocessingFixedPointWithMax(const Graph &graph, in
 void validateAlgoSccResults(const std::list<sylvan::Bdd> resultSccList, const Graph originalGraph) {
   bool hasDuplicates = containsDuplicateSccs(resultSccList);
   if(hasDuplicates) {
-    std::cout << "Lockstep saturation gave two or more equal SCCs" << std::endl;
+    // std::cout << "Lockstep saturation gave two or more equal SCCs" << std::endl;
   }
   bool hasOverlap = sccListContainsDifferentSccsWithDuplicateNodes(resultSccList);
   if(hasOverlap) {
-    std::cout << "Lockstep saturation gave overlapping SCCs" << std::endl;
+    // std::cout << "Lockstep saturation gave overlapping SCCs" << std::endl;
   }
   bool foundAllSCCs = sccUnionIsWholeBdd(resultSccList, originalGraph.nodes);
   if(!foundAllSCCs) {
-    std::cout << "Lockstep saturation did not find SCCs covering all nodes" << std::endl;
+    // std::cout << "Lockstep saturation did not find SCCs covering all nodes" << std::endl;
   }
 }
 
@@ -783,16 +789,16 @@ bool sccUnionIsWholeBdd(const std::list<sylvan::Bdd> sccList, const sylvan::Bdd 
 //Checks that two SCC lists contain the same SCCs
 bool sccListCorrectness(const std::list<sylvan::Bdd> sccList1, const std::list<sylvan::Bdd> sccList2) {
   if(sccList1.size() != sccList2.size()) {
-    std::cout << "The size of the scc lists were different" << std::endl;
+    // std::cout << "The size of the scc lists were different" << std::endl;
     return false;
   }
   if(containsDuplicateSccs(sccList1) || containsDuplicateSccs(sccList2)) {
-    std::cout << "One of the lists contained duplicate sccs" << std::endl;
+    // std::cout << "One of the lists contained duplicate sccs" << std::endl;
     return false;
   }
   for(sylvan::Bdd scc : sccList1) {
     if(!sccListContains(scc, sccList2)) {
-      std::cout << "The lists didn't contain the same scc" << std::endl;
+      // std::cout << "The lists didn't contain the same scc" << std::endl;
       return false;
     }
   }

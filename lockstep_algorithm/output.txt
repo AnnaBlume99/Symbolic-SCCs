@@ -1,0 +1,73 @@
+-- CMake build configuration for lock-step algorithm
+--   OS: Linux
+--   Compiler: GNU
+--     C Flags: -O3 
+--     CXX Flags: -O3 
+-- 
+-- CMake build configuration for Sylvan 1.6.1
+-- OS: Linux
+-- Compiler: GNU
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/anna/Symbolic-SCCs/lockstep_algorithm/build
+make[1]: Entering directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+make[2]: Entering directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+make[3]: Entering directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+make[4]: Entering directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+Consolidate compiler generated dependencies of target Sylvan
+make[4]: Leaving directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+[ 51%] Built target Sylvan
+make[4]: Entering directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+Consolidate compiler generated dependencies of target main
+make[4]: Leaving directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+make[4]: Entering directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+[ 54%] Building CXX object src/CMakeFiles/main.dir/benchmark.cpp.o
+[ 58%] Linking CXX executable main
+make[4]: Leaving directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+[100%] Built target main
+make[3]: Leaving directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+make[2]: Leaving directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+make[1]: Leaving directory '/home/anna/Symbolic-SCCs/lockstep_algorithm/build'
+
+
+Hello SCC-finding World!
+###### Running experiment on file at path: ../PintFiles/model.an
+### With no pre-processing
+Graph size: 65536.000000 nodes
+Running algorithm: Chain bottom single recursion
+DL: 2388
+Time elapsed (Chain bottom single recursion): 271 milliseconds
+Found 2388 SCCs
+Used 42 symbolic steps
+
+###### Running experiment on file at path: ../PintFiles/apoptosis_stable.an
+### With no pre-processing
+Graph size: 2147483648.000000 nodes
+Running algorithm: Chain bottom single recursion
+DL: 32768
+Time elapsed (Chain bottom single recursion): 4447 milliseconds
+Found 32768 SCCs
+Used 272 symbolic steps
+
+###### Running experiment on file at path: ../PintFiles/g2a.an
+### With no pre-processing
+Graph size: 32.000000 nodes
+Running algorithm: Chain bottom single recursion
+DL: 1
+Time elapsed (Chain bottom single recursion): 0 milliseconds
+Found 1 SCCs
+Used 30 symbolic steps
+
+###### Running experiment on file at path: ../PintFiles/g2a_with_names.an
+### With no pre-processing
+Graph size: 32.000000 nodes
+Running algorithm: Chain bottom single recursion
+DL: 1
+Time elapsed (Chain bottom single recursion): 0 milliseconds
+Found 1 SCCs
+Used 30 symbolic steps
+
+###### Running experiment on file at path: ../PintFiles/[v102]__[r157]__[INTERFERON-1]__[covid-uni-lu].an
+### With no pre-processing
+Graph size: 5070602400912917605986812821504.000000 nodes
+Running algorithm: Chain bottom single recursion

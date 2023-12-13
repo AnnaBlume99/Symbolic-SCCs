@@ -1,0 +1,705 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"TCR" [0, 1]
+"CD28" [0, 1]
+"TLR5" [0, 1]
+"CD4" [0, 1]
+"CD45" [0, 1]
+"CD6" [0, 1]
+"MyD88" [0, 1]
+"TICAM1" [0, 1]
+"TRAF6" [0, 1]
+"TCRp" [0, 1]
+"CD28p" [0, 1]
+"CD6p" [0, 1]
+"LCKr" [0, 1]
+"LCK" [0, 1]
+"FYN" [0, 1]
+"ABL1" [0, 1]
+"ZAP70" [0, 1]
+"LAT" [0, 1]
+"LCP2" [0, 1]
+"PI3K" [0, 1]
+"PIK3AP1" [0, 1]
+"IRAK4" [0, 1]
+"IRAK1" [0, 1]
+"CSK" [0, 1]
+"DAG" [0, 1]
+"DGKZ" [0, 1]
+"MAP4K3" [0, 1]
+"PKCtheta" [0, 1]
+"GAB2" [0, 1]
+"GRAP2" [0, 1]
+"RASA1" [0, 1]
+"VAV1" [0, 1]
+"VAV2" [0, 1]
+"GRB2" [0, 1]
+"SOS" [0, 1]
+"GSK3b" [0, 1]
+"MAP4K1" [0, 1]
+"GADD45A" [0, 1]
+"IKBKG" [0, 1]
+"NFKBIA" [0, 1]
+"IKBKB" [0, 1]
+"JNK" [0, 1]
+"ERK" [0, 1]
+"P38a" [0, 1]
+"IP3" [0, 1]
+"ITK" [0, 1]
+"Malt1" [0, 1]
+"MAP2K1" [0, 1]
+"MAP3K1" [0, 1]
+"MAP2K4" [0, 1]
+"MAP3K11" [0, 1]
+"PDPK1" [0, 1]
+"PIK3R1" [0, 1]
+"PIP3" [0, 1]
+"Akt" [0, 1]
+"PLCg" [0, 1]
+"Foxo1" [0, 1]
+"CDKN1B" [0, 1]
+"CDKN1A" [0, 1]
+"Bclxl" [0, 1]
+"RHEBL1" [0, 1]
+"CBLB" [0, 1]
+"CCBLp" [0, 1]
+"CCBL" [0, 1]
+"CDC42" [0, 1]
+"PTEN" [0, 1]
+"INPP5D" [0, 1]
+"PTPN6" [0, 1]
+"PTPN11" [0, 1]
+"PTPN22" [0, 1]
+"TNFAIP3" [0, 1]
+"DUSP" [0, 1]
+"PAG1" [0, 1]
+"PPP3C" [0, 1]
+"RCAN1" [0, 1]
+"CALM1" [0, 1]
+"Camk2" [0, 1]
+"Camk4" [0, 1]
+"CARD11a" [0, 1]
+"CARD11" [0, 1]
+"Akap5" [0, 1]
+"BAD" [0, 1]
+"Bcl10" [0, 1]
+"Ca" [0, 1]
+"Cabin1" [0, 1]
+"RAC1p1" [0, 1]
+"RAC1p2" [0, 1]
+"RAC1" [0, 1]
+"RAF1" [0, 1]
+"HRAS" [0, 1]
+"RASGRP1" [0, 1]
+"TXK" [0, 1]
+"RPS6KA1" [0, 1]
+"SH3BP2" [0, 1]
+"WAVE" [0, 1]
+"WAS" [0, 1]
+"HCLS1" [0, 1]
+"ARP" [0, 1]
+"mTOR" [0, 1]
+"MAP3K8" [0, 1]
+"Kinases" [0, 1]
+"NFKB1" [0, 1]
+"TAK1" [0, 1]
+"TAB" [0, 1]
+"TAK1c" [0, 1]
+"MAP2K2" [0, 1]
+"MAP2K3" [0, 1]
+"MAP2K7" [0, 1]
+"RPS6KA2" [0, 1]
+"MKNK1" [0, 1]
+"RPS6KA5" [0, 1]
+"MAPKAPK2" [0, 1]
+"ZFP36" [0, 1]
+"Cyc1" [0, 1]
+"FOS" [0, 1]
+"JUN" [0, 1]
+"NFkB" [0, 1]
+"AP1" [0, 1]
+"NFAT" [0, 1]
+"CREB1" [0, 1]
+"CTNNB1" [0, 1]
+"SRF" [0, 1]
+"ActinRem" [0, 1]
+"PICytokines" [0, 1]
+"AICytokines" [0, 1]
+"CellCycleProg" [0, 1]
+"Survival" [0, 1]
+"Anergy" [0, 1]
+
+
+
+
+"CD4" 0 -> 1
+
+"CD45" 0 -> 1
+
+"CD6" 0 -> 1
+
+"MyD88" 1 -> 0 when "TLR5"=0
+"MyD88" 0 -> 1 when "TLR5"=1
+
+"TICAM1" 1 -> 0 when "TLR5"=0
+"TICAM1" 0 -> 1 when "TLR5"=1
+
+"TRAF6" 1 -> 0 when "IRAK1"=0
+"TRAF6" 0 -> 1 when "IRAK1"=1
+
+"TCRp" 1 -> 0 when "TCR"=0
+"TCRp" 1 -> 0 when "TCR"=1 and "LCK"=0 and "FYN"=0
+"TCRp" 0 -> 1 when "TCR"=1 and "LCK"=0 and "FYN"=1 and "CCBLp"=0 and "PTPN22"=0
+"TCRp" 1 -> 0 when "TCR"=1 and "LCK"=0 and "FYN"=1 and "CCBLp"=0 and "PTPN22"=1
+"TCRp" 1 -> 0 when "TCR"=1 and "LCK"=0 and "FYN"=1 and "CCBLp"=1
+"TCRp" 0 -> 1 when "TCR"=1 and "LCK"=1 and "FYN"=0 and "CCBLp"=0 and "PTPN22"=0
+"TCRp" 1 -> 0 when "TCR"=1 and "LCK"=1 and "FYN"=0 and "CCBLp"=0 and "PTPN22"=1
+"TCRp" 1 -> 0 when "TCR"=1 and "LCK"=1 and "FYN"=0 and "CCBLp"=1
+"TCRp" 0 -> 1 when "TCR"=1 and "LCK"=1 and "FYN"=1
+
+"CD28p" 1 -> 0 when "CD28"=0
+"CD28p" 1 -> 0 when "CD28"=1 and "LCK"=0 and "FYN"=0
+"CD28p" 0 -> 1 when "CD28"=1 and "LCK"=0 and "FYN"=1
+"CD28p" 0 -> 1 when "CD28"=1 and "LCK"=1
+
+"CD6p" 1 -> 0 when "CD6"=0
+"CD6p" 1 -> 0 when "CD6"=1 and "ZAP70"=0
+"CD6p" 0 -> 1 when "CD6"=1 and "ZAP70"=1
+
+"LCKr" 0 -> 1 when "CD45"=1
+
+"LCK" 1 -> 0 when "TCR"=0
+"LCK" 1 -> 0 when "TCR"=1 and "CD4"=0
+"LCK" 1 -> 0 when "TCR"=1 and "CD4"=1 and "LCKr"=0
+"LCK" 0 -> 1 when "TCR"=1 and "CD4"=1 and "LCKr"=1
+
+"FYN" 1 -> 0 when "TCR"=0
+"FYN" 1 -> 0 when "TCR"=1 and "LCK"=0
+"FYN" 0 -> 1 when "TCR"=1 and "LCK"=1 and "PTPN6"=0
+"FYN" 1 -> 0 when "TCR"=1 and "LCK"=1 and "PTPN6"=1
+
+"ABL1" 1 -> 0 when "LCK"=0 and "FYN"=0
+"ABL1" 0 -> 1 when "LCK"=0 and "FYN"=1
+"ABL1" 0 -> 1 when "LCK"=1
+
+"ZAP70" 1 -> 0 when "TCRp"=0
+"ZAP70" 1 -> 0 when "TCRp"=1 and "LCK"=0 and "FYN"=0 and "ABL1"=0
+"ZAP70" 0 -> 1 when "TCRp"=1 and "LCK"=0 and "FYN"=0 and "ABL1"=1
+"ZAP70" 0 -> 1 when "TCRp"=1 and "LCK"=0 and "FYN"=1
+"ZAP70" 0 -> 1 when "TCRp"=1 and "LCK"=1
+
+"LAT" 1 -> 0 when "LCK"=0 and "ZAP70"=0
+"LAT" 0 -> 1 when "LCK"=0 and "ZAP70"=1
+"LAT" 0 -> 1 when "LCK"=1
+
+"LCP2" 1 -> 0 when "CD6p"=0 and "ZAP70"=0
+"LCP2" 1 -> 0 when "CD6p"=0 and "ZAP70"=1 and "LAT"=0
+"LCP2" 0 -> 1 when "CD6p"=0 and "ZAP70"=1 and "LAT"=1 and "GRAP2"=0 and "PTPN6"=0
+"LCP2" 1 -> 0 when "CD6p"=0 and "ZAP70"=1 and "LAT"=1 and "GRAP2"=0 and "PTPN6"=1
+"LCP2" 0 -> 1 when "CD6p"=0 and "ZAP70"=1 and "LAT"=1 and "GRAP2"=1 and "VAV1"=0 and "PTPN6"=0
+"LCP2" 1 -> 0 when "CD6p"=0 and "ZAP70"=1 and "LAT"=1 and "GRAP2"=1 and "VAV1"=0 and "PTPN6"=1
+"LCP2" 0 -> 1 when "CD6p"=0 and "ZAP70"=1 and "LAT"=1 and "GRAP2"=1 and "VAV1"=1
+"LCP2" 1 -> 0 when "CD6p"=1 and "ZAP70"=0
+"LCP2" 0 -> 1 when "CD6p"=1 and "ZAP70"=1 and "GRAP2"=0 and "PTPN6"=0
+"LCP2" 1 -> 0 when "CD6p"=1 and "ZAP70"=1 and "GRAP2"=0 and "PTPN6"=1
+"LCP2" 0 -> 1 when "CD6p"=1 and "ZAP70"=1 and "GRAP2"=1 and "VAV1"=0 and "PTPN6"=0
+"LCP2" 1 -> 0 when "CD6p"=1 and "ZAP70"=1 and "GRAP2"=1 and "VAV1"=0 and "PTPN6"=1
+"LCP2" 0 -> 1 when "CD6p"=1 and "ZAP70"=1 and "GRAP2"=1 and "VAV1"=1
+
+"PI3K" 1 -> 0 when "PIK3R1"=0
+"PI3K" 0 -> 1 when "PIK3R1"=1
+
+"PIK3AP1" 1 -> 0 when "MyD88"=0
+"PIK3AP1" 0 -> 1 when "MyD88"=1
+
+"IRAK4" 1 -> 0 when "MyD88"=0 and "TICAM1"=0
+"IRAK4" 0 -> 1 when "MyD88"=0 and "TICAM1"=1
+"IRAK4" 0 -> 1 when "MyD88"=1
+
+"IRAK1" 1 -> 0 when "MyD88"=0 and "TICAM1"=0
+"IRAK1" 1 -> 0 when "MyD88"=0 and "TICAM1"=1 and "IRAK4"=0
+"IRAK1" 0 -> 1 when "MyD88"=0 and "TICAM1"=1 and "IRAK4"=1
+"IRAK1" 1 -> 0 when "MyD88"=1 and "IRAK4"=0
+"IRAK1" 0 -> 1 when "MyD88"=1 and "IRAK4"=1
+
+"CSK" 1 -> 0 when "PTPN11"=0 and "PAG1"=0
+"CSK" 0 -> 1 when "PTPN11"=0 and "PAG1"=1
+"CSK" 1 -> 0 when "PTPN11"=1
+
+"DAG" 1 -> 0 when "PLCg"=0
+"DAG" 0 -> 1 when "PLCg"=1
+
+"DGKZ" 1 -> 0 when "RASGRP1"=0
+"DGKZ" 0 -> 1 when "RASGRP1"=1
+
+"MAP4K3" 1 -> 0 when "LCK"=0
+"MAP4K3" 1 -> 0 when "LCK"=1 and "PDPK1"=0
+"MAP4K3" 0 -> 1 when "LCK"=1 and "PDPK1"=1
+
+"PKCtheta" 1 -> 0 when "LCK"=0 and "DAG"=0
+"PKCtheta" 1 -> 0 when "LCK"=0 and "DAG"=1 and "MAP4K3"=0 and "VAV1"=0
+"PKCtheta" 1 -> 0 when "LCK"=0 and "DAG"=1 and "MAP4K3"=0 and "VAV1"=1 and "PDPK1"=0 and "Akt"=0
+"PKCtheta" 0 -> 1 when "LCK"=0 and "DAG"=1 and "MAP4K3"=0 and "VAV1"=1 and "PDPK1"=0 and "Akt"=1
+"PKCtheta" 0 -> 1 when "LCK"=0 and "DAG"=1 and "MAP4K3"=0 and "VAV1"=1 and "PDPK1"=1
+"PKCtheta" 1 -> 0 when "LCK"=0 and "DAG"=1 and "MAP4K3"=1 and "VAV1"=0
+"PKCtheta" 0 -> 1 when "LCK"=0 and "DAG"=1 and "MAP4K3"=1 and "VAV1"=1
+"PKCtheta" 1 -> 0 when "LCK"=1 and "DAG"=0
+"PKCtheta" 1 -> 0 when "LCK"=1 and "DAG"=1 and "VAV1"=0
+"PKCtheta" 0 -> 1 when "LCK"=1 and "DAG"=1 and "VAV1"=1
+
+"GAB2" 1 -> 0 when "ZAP70"=0
+"GAB2" 1 -> 0 when "ZAP70"=1 and "LAT"=0
+"GAB2" 1 -> 0 when "ZAP70"=1 and "LAT"=1 and "GRAP2"=0
+"GAB2" 1 -> 0 when "ZAP70"=1 and "LAT"=1 and "GRAP2"=1 and "GRB2"=0
+"GAB2" 0 -> 1 when "ZAP70"=1 and "LAT"=1 and "GRAP2"=1 and "GRB2"=1
+
+"GRAP2" 1 -> 0 when "LAT"=0
+"GRAP2" 0 -> 1 when "LAT"=1
+
+"RASA1" 0 -> 1
+
+"VAV1" 1 -> 0 when "ZAP70"=0
+"VAV1" 1 -> 0 when "ZAP70"=1 and "PIP3"=0
+"VAV1" 1 -> 0 when "ZAP70"=1 and "PIP3"=1 and "SH3BP2"=0
+"VAV1" 0 -> 1 when "ZAP70"=1 and "PIP3"=1 and "SH3BP2"=1
+
+"VAV2" 1 -> 0 when "PIP3"=0
+"VAV2" 1 -> 0 when "PIP3"=1 and "SH3BP2"=0
+"VAV2" 0 -> 1 when "PIP3"=1 and "SH3BP2"=1
+
+"GRB2" 1 -> 0 when "CD28p"=0 and "LAT"=0
+"GRB2" 0 -> 1 when "CD28p"=0 and "LAT"=1
+"GRB2" 0 -> 1 when "CD28p"=1
+
+"SOS" 1 -> 0 when "GRB2"=0
+"SOS" 0 -> 1 when "GRB2"=1
+
+"GSK3b" 0 -> 1 when "Akt"=0
+"GSK3b" 1 -> 0 when "Akt"=1
+
+"MAP4K1" 1 -> 0 when "LAT"=0
+"MAP4K1" 0 -> 1 when "LAT"=1
+
+"GADD45A" 0 -> 1
+
+"IKBKG" 1 -> 0 when "TRAF6"=0 and "CARD11a"=0
+"IKBKG" 0 -> 1 when "TRAF6"=0 and "CARD11a"=1
+"IKBKG" 1 -> 0 when "TRAF6"=1 and "CARD11a"=0 and "TAK1c"=0
+"IKBKG" 0 -> 1 when "TRAF6"=1 and "CARD11a"=0 and "TAK1c"=1
+"IKBKG" 0 -> 1 when "TRAF6"=1 and "CARD11a"=1
+
+"NFKBIA" 0 -> 1 when "IKBKB"=0
+"NFKBIA" 1 -> 0 when "IKBKB"=1
+
+"IKBKB" 1 -> 0 when "PKCtheta"=0 and "IKBKG"=0
+"IKBKB" 1 -> 0 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=0 and "Camk2"=0 and "MAP3K8"=0 and "TAK1c"=0
+"IKBKB" 0 -> 1 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=0 and "Camk2"=0 and "MAP3K8"=0 and "TAK1c"=1
+"IKBKB" 0 -> 1 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=0 and "Camk2"=0 and "MAP3K8"=1
+"IKBKB" 0 -> 1 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=0 and "Camk2"=1
+"IKBKB" 1 -> 0 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=0 and "MAP3K8"=0
+"IKBKB" 1 -> 0 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=0 and "MAP3K8"=1 and "TAK1c"=0
+"IKBKB" 0 -> 1 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=0 and "MAP3K8"=1 and "TAK1c"=1
+"IKBKB" 1 -> 0 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=1 and "MAP3K8"=0 and "TAK1c"=0
+"IKBKB" 0 -> 1 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=1 and "MAP3K8"=0 and "TAK1c"=1
+"IKBKB" 0 -> 1 when "PKCtheta"=0 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=1 and "MAP3K8"=1
+"IKBKB" 1 -> 0 when "PKCtheta"=1 and "IKBKG"=0
+"IKBKB" 0 -> 1 when "PKCtheta"=1 and "IKBKG"=1 and "TNFAIP3"=0
+"IKBKB" 1 -> 0 when "PKCtheta"=1 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=0 and "MAP3K8"=0 and "TAK1c"=0
+"IKBKB" 0 -> 1 when "PKCtheta"=1 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=0 and "MAP3K8"=0 and "TAK1c"=1
+"IKBKB" 0 -> 1 when "PKCtheta"=1 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=0 and "MAP3K8"=1
+"IKBKB" 0 -> 1 when "PKCtheta"=1 and "IKBKG"=1 and "TNFAIP3"=1 and "Camk2"=1
+
+"JNK" 1 -> 0 when "MAP3K1"=0 and "MAP2K4"=0 and "DUSP"=0 and "MAP2K7"=0
+"JNK" 0 -> 1 when "MAP3K1"=0 and "MAP2K4"=0 and "DUSP"=0 and "MAP2K7"=1
+"JNK" 1 -> 0 when "MAP3K1"=0 and "MAP2K4"=0 and "DUSP"=1
+"JNK" 0 -> 1 when "MAP3K1"=0 and "MAP2K4"=1 and "DUSP"=0
+"JNK" 1 -> 0 when "MAP3K1"=0 and "MAP2K4"=1 and "DUSP"=1 and "MAP2K7"=0
+"JNK" 0 -> 1 when "MAP3K1"=0 and "MAP2K4"=1 and "DUSP"=1 and "MAP2K7"=1
+"JNK" 0 -> 1 when "MAP3K1"=1 and "MAP2K4"=0 and "DUSP"=0
+"JNK" 1 -> 0 when "MAP3K1"=1 and "MAP2K4"=0 and "DUSP"=1 and "MAP2K7"=0
+"JNK" 0 -> 1 when "MAP3K1"=1 and "MAP2K4"=0 and "DUSP"=1 and "MAP2K7"=1
+"JNK" 0 -> 1 when "MAP3K1"=1 and "MAP2K4"=1
+
+"ERK" 1 -> 0 when "MAP2K1"=0 and "MAP3K8"=0 and "MAP2K2"=0
+"ERK" 0 -> 1 when "MAP2K1"=0 and "MAP3K8"=0 and "MAP2K2"=1
+"ERK" 0 -> 1 when "MAP2K1"=0 and "MAP3K8"=1
+"ERK" 0 -> 1 when "MAP2K1"=1
+
+"P38a" 1 -> 0 when "ZAP70"=0 and "MAP3K1"=0 and "DUSP"=0 and "RAC1p1"=0 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=0 and "MAP3K1"=0 and "DUSP"=0 and "RAC1p1"=0 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=0 and "MAP3K1"=0 and "DUSP"=0 and "RAC1p1"=1
+"P38a" 1 -> 0 when "ZAP70"=0 and "MAP3K1"=0 and "DUSP"=1
+"P38a" 0 -> 1 when "ZAP70"=0 and "MAP3K1"=1 and "DUSP"=0
+"P38a" 1 -> 0 when "ZAP70"=0 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=0
+"P38a" 1 -> 0 when "ZAP70"=0 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=1 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=0 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=1 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=0 and "DUSP"=0
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=0 and "DUSP"=1 and "RAC1p1"=0
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=0 and "DUSP"=1 and "RAC1p1"=1 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=0 and "DUSP"=1 and "RAC1p1"=1 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=1 and "DUSP"=0
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=0 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=0 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=0 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=1
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=0 and "DUSP"=0 and "RAC1p1"=0 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=0 and "DUSP"=0 and "RAC1p1"=0 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=0 and "DUSP"=0 and "RAC1p1"=1
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=0 and "DUSP"=1 and "RAC1p1"=0
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=0 and "DUSP"=1 and "RAC1p1"=1 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=0 and "DUSP"=1 and "RAC1p1"=1 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=1 and "DUSP"=0
+"P38a" 1 -> 0 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=0 and "MAP2K3"=0
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=0 and "MAP2K3"=1
+"P38a" 0 -> 1 when "ZAP70"=1 and "GADD45A"=1 and "MAP3K1"=1 and "DUSP"=1 and "RAC1p1"=1
+
+"IP3" 1 -> 0 when "PLCg"=0
+"IP3" 0 -> 1 when "PLCg"=1
+
+"ITK" 1 -> 0 when "LCK"=0
+"ITK" 1 -> 0 when "LCK"=1 and "ZAP70"=0
+"ITK" 1 -> 0 when "LCK"=1 and "ZAP70"=1 and "LCP2"=0
+"ITK" 1 -> 0 when "LCK"=1 and "ZAP70"=1 and "LCP2"=1 and "PIP3"=0
+"ITK" 0 -> 1 when "LCK"=1 and "ZAP70"=1 and "LCP2"=1 and "PIP3"=1
+
+"Malt1" 0 -> 1
+
+"MAP2K1" 1 -> 0 when "MAP3K1"=0 and "CDC42"=0 and "RAC1p2"=0 and "RAF1"=0
+"MAP2K1" 0 -> 1 when "MAP3K1"=0 and "CDC42"=0 and "RAC1p2"=0 and "RAF1"=1
+"MAP2K1" 0 -> 1 when "MAP3K1"=0 and "CDC42"=0 and "RAC1p2"=1
+"MAP2K1" 0 -> 1 when "MAP3K1"=0 and "CDC42"=1
+"MAP2K1" 0 -> 1 when "MAP3K1"=1
+
+"MAP3K1" 1 -> 0 when "MAP4K1"=0 and "CDC42"=0 and "RAC1p2"=0
+"MAP3K1" 0 -> 1 when "MAP4K1"=0 and "CDC42"=0 and "RAC1p2"=1
+"MAP3K1" 0 -> 1 when "MAP4K1"=0 and "CDC42"=1
+"MAP3K1" 0 -> 1 when "MAP4K1"=1
+
+"MAP2K4" 1 -> 0 when "MAP3K1"=0 and "MAP3K11"=0
+"MAP2K4" 0 -> 1 when "MAP3K1"=0 and "MAP3K11"=1
+"MAP2K4" 0 -> 1 when "MAP3K1"=1
+
+"MAP3K11" 1 -> 0 when "MAP4K1"=0 and "RAC1p1"=0
+"MAP3K11" 0 -> 1 when "MAP4K1"=0 and "RAC1p1"=1
+"MAP3K11" 0 -> 1 when "MAP4K1"=1
+
+"PDPK1" 1 -> 0 when "PIP3"=0 and "MAPKAPK2"=0
+"PDPK1" 0 -> 1 when "PIP3"=0 and "MAPKAPK2"=1
+"PDPK1" 0 -> 1 when "PIP3"=1
+
+"PIK3R1" 1 -> 0 when "CD28p"=0 and "LCP2"=0 and "PIK3AP1"=0
+"PIK3R1" 0 -> 1 when "CD28p"=0 and "LCP2"=0 and "PIK3AP1"=1 and "CBLB"=0
+"PIK3R1" 1 -> 0 when "CD28p"=0 and "LCP2"=0 and "PIK3AP1"=1 and "CBLB"=1
+"PIK3R1" 1 -> 0 when "CD28p"=0 and "LCP2"=1 and "PIK3AP1"=0
+"PIK3R1" 0 -> 1 when "CD28p"=0 and "LCP2"=1 and "PIK3AP1"=1
+"PIK3R1" 1 -> 0 when "CD28p"=1 and "LCP2"=0 and "PIK3AP1"=0
+"PIK3R1" 0 -> 1 when "CD28p"=1 and "LCP2"=0 and "PIK3AP1"=1
+"PIK3R1" 0 -> 1 when "CD28p"=1 and "LCP2"=1
+
+"PIP3" 1 -> 0 when "PI3K"=0
+"PIP3" 0 -> 1 when "PI3K"=1 and "PTEN"=0 and "INPP5D"=0
+"PIP3" 1 -> 0 when "PI3K"=1 and "PTEN"=0 and "INPP5D"=1
+"PIP3" 1 -> 0 when "PI3K"=1 and "PTEN"=1
+
+"Akt" 1 -> 0 when "PDPK1"=0 and "PIP3"=0
+"Akt" 1 -> 0 when "PDPK1"=0 and "PIP3"=1 and "mTOR"=0
+"Akt" 0 -> 1 when "PDPK1"=0 and "PIP3"=1 and "mTOR"=1
+"Akt" 1 -> 0 when "PDPK1"=1 and "PIP3"=0
+"Akt" 0 -> 1 when "PDPK1"=1 and "PIP3"=1
+
+"PLCg" 1 -> 0 when "ZAP70"=0 and "LAT"=0
+"PLCg" 1 -> 0 when "ZAP70"=0 and "LAT"=1 and "LCP2"=0
+"PLCg" 1 -> 0 when "ZAP70"=0 and "LAT"=1 and "LCP2"=1 and "ITK"=0 and "TXK"=0
+"PLCg" 0 -> 1 when "ZAP70"=0 and "LAT"=1 and "LCP2"=1 and "ITK"=0 and "TXK"=1
+"PLCg" 0 -> 1 when "ZAP70"=0 and "LAT"=1 and "LCP2"=1 and "ITK"=1
+"PLCg" 1 -> 0 when "ZAP70"=1 and "LAT"=0
+"PLCg" 1 -> 0 when "ZAP70"=1 and "LAT"=1 and "LCP2"=0
+"PLCg" 0 -> 1 when "ZAP70"=1 and "LAT"=1 and "LCP2"=1
+
+"Foxo1" 0 -> 1 when "Akt"=0
+"Foxo1" 1 -> 0 when "Akt"=1
+
+"CDKN1B" 1 -> 0 when "Foxo1"=0
+"CDKN1B" 0 -> 1 when "Foxo1"=1
+
+"CDKN1A" 0 -> 1 when "Akt"=0
+"CDKN1A" 1 -> 0 when "Akt"=1
+
+"Bclxl" 1 -> 0 when "BAD"=0 and "NFkB"=0
+"Bclxl" 0 -> 1 when "BAD"=0 and "NFkB"=1
+"Bclxl" 1 -> 0 when "BAD"=1
+
+"RHEBL1" 1 -> 0 when "PDPK1"=0 and "Akt"=0
+"RHEBL1" 0 -> 1 when "PDPK1"=0 and "Akt"=1
+"RHEBL1" 0 -> 1 when "PDPK1"=1
+
+"CBLB" 0 -> 1 when "LCK"=0 and "PKCtheta"=0
+"CBLB" 1 -> 0 when "LCK"=0 and "PKCtheta"=1
+"CBLB" 1 -> 0 when "LCK"=1
+
+"CCBLp" 1 -> 0 when "FYN"=0
+"CCBLp" 1 -> 0 when "FYN"=1 and "CCBL"=0
+"CCBLp" 0 -> 1 when "FYN"=1 and "CCBL"=1
+
+"CCBL" 0 -> 1
+
+"CDC42" 1 -> 0 when "VAV1"=0
+"CDC42" 0 -> 1 when "VAV1"=1
+
+"PTEN" 1 -> 0 when "LCK"=0 and "Foxo1"=0
+"PTEN" 0 -> 1 when "LCK"=0 and "Foxo1"=1
+"PTEN" 1 -> 0 when "LCK"=1
+
+"INPP5D" 0 -> 1 when "LCK"=0
+"INPP5D" 1 -> 0 when "LCK"=1
+
+"PTPN6" 1 -> 0 when "LCK"=0 and "FYN"=0
+"PTPN6" 0 -> 1 when "LCK"=0 and "FYN"=1 and "ERK"=0
+"PTPN6" 1 -> 0 when "LCK"=0 and "FYN"=1 and "ERK"=1
+"PTPN6" 0 -> 1 when "LCK"=1 and "ERK"=0
+"PTPN6" 1 -> 0 when "LCK"=1 and "ERK"=1
+
+"PTPN11" 1 -> 0 when "GAB2"=0
+"PTPN11" 0 -> 1 when "GAB2"=1
+
+"PTPN22" 0 -> 1
+
+"TNFAIP3" 1 -> 0 when "NFkB"=0
+"TNFAIP3" 0 -> 1 when "NFkB"=1
+
+"DUSP" 1 -> 0 when "AP1"=0
+"DUSP" 1 -> 0 when "AP1"=1 and "CREB1"=0
+"DUSP" 0 -> 1 when "AP1"=1 and "CREB1"=1
+
+"PAG1" 1 -> 0 when "TCR"=0 and "FYN"=0
+"PAG1" 0 -> 1 when "TCR"=0 and "FYN"=1
+"PAG1" 1 -> 0 when "TCR"=1
+
+"PPP3C" 1 -> 0 when "RCAN1"=0 and "CALM1"=0
+"PPP3C" 0 -> 1 when "RCAN1"=0 and "CALM1"=1 and "Akap5"=0 and "Cabin1"=0
+"PPP3C" 1 -> 0 when "RCAN1"=0 and "CALM1"=1 and "Akap5"=0 and "Cabin1"=1
+"PPP3C" 1 -> 0 when "RCAN1"=0 and "CALM1"=1 and "Akap5"=1
+"PPP3C" 1 -> 0 when "RCAN1"=1
+
+"RCAN1" 1 -> 0
+
+"CALM1" 1 -> 0 when "Ca"=0
+"CALM1" 0 -> 1 when "Ca"=1
+
+"Camk2" 1 -> 0 when "CALM1"=0
+"Camk2" 0 -> 1 when "CALM1"=1
+
+"Camk4" 1 -> 0 when "CALM1"=0
+"Camk4" 0 -> 1 when "CALM1"=1
+
+"CARD11a" 1 -> 0 when "Malt1"=0
+"CARD11a" 1 -> 0 when "Malt1"=1 and "CARD11"=0
+"CARD11a" 1 -> 0 when "Malt1"=1 and "CARD11"=1 and "Bcl10"=0
+"CARD11a" 0 -> 1 when "Malt1"=1 and "CARD11"=1 and "Bcl10"=1
+
+"CARD11" 1 -> 0 when "PKCtheta"=0
+"CARD11" 0 -> 1 when "PKCtheta"=1
+
+"Akap5" 1 -> 0
+
+"BAD" 0 -> 1 when "Akt"=0
+"BAD" 1 -> 0 when "Akt"=1
+
+"Bcl10" 0 -> 1
+
+"Ca" 1 -> 0 when "IP3"=0
+"Ca" 0 -> 1 when "IP3"=1
+
+"Cabin1" 0 -> 1 when "Camk4"=0
+"Cabin1" 1 -> 0 when "Camk4"=1
+
+"RAC1p1" 1 -> 0 when "VAV1"=0
+"RAC1p1" 1 -> 0 when "VAV1"=1 and "RAC1"=0
+"RAC1p1" 0 -> 1 when "VAV1"=1 and "RAC1"=1
+
+"RAC1p2" 1 -> 0 when "VAV2"=0
+"RAC1p2" 1 -> 0 when "VAV2"=1 and "RAC1"=0
+"RAC1p2" 0 -> 1 when "VAV2"=1 and "RAC1"=1
+
+"RAC1" 0 -> 1
+
+"RAF1" 1 -> 0 when "HRAS"=0
+"RAF1" 0 -> 1 when "HRAS"=1
+
+"HRAS" 1 -> 0 when "RASA1"=0 and "SOS"=0 and "RASGRP1"=0
+"HRAS" 0 -> 1 when "RASA1"=0 and "SOS"=0 and "RASGRP1"=1
+"HRAS" 0 -> 1 when "RASA1"=0 and "SOS"=1
+"HRAS" 1 -> 0 when "RASA1"=1 and "SOS"=0
+"HRAS" 1 -> 0 when "RASA1"=1 and "SOS"=1 and "RASGRP1"=0
+"HRAS" 0 -> 1 when "RASA1"=1 and "SOS"=1 and "RASGRP1"=1
+
+"RASGRP1" 1 -> 0 when "DAG"=0
+"RASGRP1" 1 -> 0 when "DAG"=1 and "PKCtheta"=0
+"RASGRP1" 1 -> 0 when "DAG"=1 and "PKCtheta"=1 and "Ca"=0
+"RASGRP1" 0 -> 1 when "DAG"=1 and "PKCtheta"=1 and "Ca"=1
+
+"TXK" 1 -> 0 when "LCK"=0
+"TXK" 0 -> 1 when "LCK"=1
+
+"RPS6KA1" 1 -> 0 when "ERK"=0
+"RPS6KA1" 0 -> 1 when "ERK"=1
+
+"SH3BP2" 1 -> 0 when "ZAP70"=0
+"SH3BP2" 1 -> 0 when "ZAP70"=1 and "LAT"=0
+"SH3BP2" 0 -> 1 when "ZAP70"=1 and "LAT"=1
+
+"WAVE" 1 -> 0 when "ABL1"=0
+"WAVE" 1 -> 0 when "ABL1"=1 and "RAC1p1"=0
+"WAVE" 0 -> 1 when "ABL1"=1 and "RAC1p1"=1
+
+"WAS" 1 -> 0 when "CDC42"=0
+"WAS" 0 -> 1 when "CDC42"=1
+
+"HCLS1" 1 -> 0 when "ABL1"=0
+"HCLS1" 1 -> 0 when "ABL1"=1 and "ITK"=0
+"HCLS1" 0 -> 1 when "ABL1"=1 and "ITK"=1
+
+"ARP" 1 -> 0 when "WAVE"=0 and "WAS"=0
+"ARP" 1 -> 0 when "WAVE"=0 and "WAS"=1 and "HCLS1"=0
+"ARP" 0 -> 1 when "WAVE"=0 and "WAS"=1 and "HCLS1"=1
+"ARP" 1 -> 0 when "WAVE"=1 and "HCLS1"=0
+"ARP" 0 -> 1 when "WAVE"=1 and "HCLS1"=1
+
+"mTOR" 1 -> 0 when "P38a"=0
+"mTOR" 0 -> 1 when "P38a"=1
+
+"MAP3K8" 1 -> 0 when "IKBKB"=0 and "Akt"=0
+"MAP3K8" 0 -> 1 when "IKBKB"=0 and "Akt"=1 and "NFKB1"=0
+"MAP3K8" 1 -> 0 when "IKBKB"=0 and "Akt"=1 and "NFKB1"=1
+"MAP3K8" 0 -> 1 when "IKBKB"=1 and "Akt"=0 and "NFKB1"=0
+"MAP3K8" 1 -> 0 when "IKBKB"=1 and "Akt"=0 and "NFKB1"=1
+"MAP3K8" 0 -> 1 when "IKBKB"=1 and "Akt"=1
+
+"Kinases" 1 -> 0
+
+"NFKB1" 0 -> 1 when "IKBKB"=0 and "MAP3K8"=0
+"NFKB1" 1 -> 0 when "IKBKB"=0 and "MAP3K8"=1
+"NFKB1" 1 -> 0 when "IKBKB"=1
+
+"TAK1" 1 -> 0 when "TRAF6"=0
+"TAK1" 1 -> 0 when "TRAF6"=1 and "TAB"=0
+"TAK1" 0 -> 1 when "TRAF6"=1 and "TAB"=1
+
+"TAB" 1 -> 0 when "TRAF6"=0
+"TAB" 0 -> 1 when "TRAF6"=1
+
+"TAK1c" 1 -> 0 when "TAK1"=0
+"TAK1c" 0 -> 1 when "TAK1"=1
+
+"MAP2K2" 1 -> 0 when "MAP3K8"=0
+"MAP2K2" 0 -> 1 when "MAP3K8"=1
+
+"MAP2K3" 1 -> 0 when "TAK1c"=0
+"MAP2K3" 0 -> 1 when "TAK1c"=1
+
+"MAP2K7" 1 -> 0 when "TAK1c"=0
+"MAP2K7" 0 -> 1 when "TAK1c"=1
+
+"RPS6KA2" 1 -> 0 when "ERK"=0 and "MAPKAPK2"=0
+"RPS6KA2" 0 -> 1 when "ERK"=0 and "MAPKAPK2"=1
+"RPS6KA2" 0 -> 1 when "ERK"=1
+
+"MKNK1" 1 -> 0 when "ERK"=0 and "P38a"=0
+"MKNK1" 0 -> 1 when "ERK"=0 and "P38a"=1
+"MKNK1" 0 -> 1 when "ERK"=1
+
+"RPS6KA5" 1 -> 0 when "ERK"=0 and "P38a"=0
+"RPS6KA5" 0 -> 1 when "ERK"=0 and "P38a"=1
+"RPS6KA5" 0 -> 1 when "ERK"=1
+
+"MAPKAPK2" 1 -> 0 when "P38a"=0
+"MAPKAPK2" 0 -> 1 when "P38a"=1
+
+"ZFP36" 0 -> 1 when "MAPKAPK2"=0 and "CREB1"=1
+"ZFP36" 1 -> 0 when "MAPKAPK2"=0
+"ZFP36" 1 -> 0 when "MAPKAPK2"=1
+
+"Cyc1" 0 -> 1 when "GSK3b"=0
+"Cyc1" 1 -> 0 when "GSK3b"=1
+
+"FOS" 1 -> 0 when "ERK"=0 and "RPS6KA5"=0
+"FOS" 1 -> 0 when "ERK"=0 and "RPS6KA5"=1 and "SRF"=0
+"FOS" 0 -> 1 when "ERK"=0 and "RPS6KA5"=1 and "SRF"=1
+"FOS" 1 -> 0 when "ERK"=1 and "SRF"=0
+"FOS" 0 -> 1 when "ERK"=1 and "SRF"=1
+
+"JUN" 1 -> 0 when "GSK3b"=0 and "JNK"=0
+"JUN" 0 -> 1 when "GSK3b"=0 and "JNK"=1
+"JUN" 1 -> 0 when "GSK3b"=1
+
+"NFkB" 1 -> 0 when "NFKBIA"=0 and "IKBKB"=0 and "Akt"=0 and "Camk4"=0
+"NFkB" 0 -> 1 when "NFKBIA"=0 and "IKBKB"=0 and "Akt"=0 and "Camk4"=1 and "NFKB1"=0
+"NFkB" 1 -> 0 when "NFKBIA"=0 and "IKBKB"=0 and "Akt"=0 and "Camk4"=1 and "NFKB1"=1
+"NFkB" 0 -> 1 when "NFKBIA"=0 and "IKBKB"=0 and "Akt"=1 and "NFKB1"=0
+"NFkB" 1 -> 0 when "NFKBIA"=0 and "IKBKB"=0 and "Akt"=1 and "NFKB1"=1
+"NFkB" 0 -> 1 when "NFKBIA"=0 and "IKBKB"=1 and "NFKB1"=0
+"NFkB" 1 -> 0 when "NFKBIA"=0 and "IKBKB"=1 and "NFKB1"=1
+"NFkB" 1 -> 0 when "NFKBIA"=1
+
+"AP1" 1 -> 0 when "FOS"=0
+"AP1" 1 -> 0 when "FOS"=1 and "JUN"=0
+"AP1" 0 -> 1 when "FOS"=1 and "JUN"=1
+
+"NFAT" 1 -> 0 when "PPP3C"=0
+"NFAT" 0 -> 1 when "PPP3C"=1 and "Kinases"=0
+"NFAT" 1 -> 0 when "PPP3C"=1 and "Kinases"=1
+
+"CREB1" 1 -> 0 when "Camk2"=0 and "Camk4"=0 and "RPS6KA1"=0 and "RPS6KA2"=0 and "RPS6KA5"=0
+"CREB1" 0 -> 1 when "Camk2"=0 and "Camk4"=0 and "RPS6KA1"=0 and "RPS6KA2"=0 and "RPS6KA5"=1
+"CREB1" 0 -> 1 when "Camk2"=0 and "Camk4"=0 and "RPS6KA1"=0 and "RPS6KA2"=1
+"CREB1" 0 -> 1 when "Camk2"=0 and "Camk4"=0 and "RPS6KA1"=1
+"CREB1" 0 -> 1 when "Camk2"=0 and "Camk4"=1
+"CREB1" 0 -> 1 when "Camk2"=1
+
+"CTNNB1" 0 -> 1 when "GSK3b"=0
+"CTNNB1" 1 -> 0 when "GSK3b"=1
+
+"SRF" 1 -> 0 when "ERK"=0 and "CDC42"=0 and "RAC1p2"=0
+"SRF" 0 -> 1 when "ERK"=0 and "CDC42"=0 and "RAC1p2"=1
+"SRF" 0 -> 1 when "ERK"=0 and "CDC42"=1
+"SRF" 0 -> 1 when "ERK"=1
+
+"ActinRem" 1 -> 0 when "ARP"=0
+"ActinRem" 0 -> 1 when "ARP"=1
+
+"PICytokines" 1 -> 0 when "ZFP36"=0 and "NFkB"=0
+"PICytokines" 1 -> 0 when "ZFP36"=0 and "NFkB"=1 and "AP1"=0
+"PICytokines" 1 -> 0 when "ZFP36"=0 and "NFkB"=1 and "AP1"=1 and "NFAT"=0
+"PICytokines" 0 -> 1 when "ZFP36"=0 and "NFkB"=1 and "AP1"=1 and "NFAT"=1
+"PICytokines" 1 -> 0 when "ZFP36"=1
+
+"AICytokines" 1 -> 0 when "ZFP36"=0 and "AP1"=0
+"AICytokines" 1 -> 0 when "ZFP36"=0 and "AP1"=1 and "NFAT"=0
+"AICytokines" 1 -> 0 when "ZFP36"=0 and "AP1"=1 and "NFAT"=1 and "CREB1"=0
+"AICytokines" 0 -> 1 when "ZFP36"=0 and "AP1"=1 and "NFAT"=1 and "CREB1"=1
+"AICytokines" 1 -> 0 when "ZFP36"=1
+
+"CellCycleProg" 1 -> 0 when "CDKN1B"=0 and "CDKN1A"=0 and "NFkB"=0
+"CellCycleProg" 1 -> 0 when "CDKN1B"=0 and "CDKN1A"=0 and "NFkB"=1 and "AP1"=0
+"CellCycleProg" 1 -> 0 when "CDKN1B"=0 and "CDKN1A"=0 and "NFkB"=1 and "AP1"=1 and "NFAT"=0
+"CellCycleProg" 1 -> 0 when "CDKN1B"=0 and "CDKN1A"=0 and "NFkB"=1 and "AP1"=1 and "NFAT"=1 and "CREB1"=0
+"CellCycleProg" 1 -> 0 when "CDKN1B"=0 and "CDKN1A"=0 and "NFkB"=1 and "AP1"=1 and "NFAT"=1 and "CREB1"=1 and "SRF"=0
+"CellCycleProg" 0 -> 1 when "CDKN1B"=0 and "CDKN1A"=0 and "NFkB"=1 and "AP1"=1 and "NFAT"=1 and "CREB1"=1 and "SRF"=1
+"CellCycleProg" 1 -> 0 when "CDKN1B"=0 and "CDKN1A"=1
+"CellCycleProg" 1 -> 0 when "CDKN1B"=1
+
+"Survival" 1 -> 0 when "Foxo1"=0 and "Bclxl"=0
+"Survival" 1 -> 0 when "Foxo1"=0 and "Bclxl"=1 and "NFkB"=0
+"Survival" 1 -> 0 when "Foxo1"=0 and "Bclxl"=1 and "NFkB"=1 and "AP1"=0
+"Survival" 1 -> 0 when "Foxo1"=0 and "Bclxl"=1 and "NFkB"=1 and "AP1"=1 and "NFAT"=0
+"Survival" 1 -> 0 when "Foxo1"=0 and "Bclxl"=1 and "NFkB"=1 and "AP1"=1 and "NFAT"=1 and "CREB1"=0
+"Survival" 0 -> 1 when "Foxo1"=0 and "Bclxl"=1 and "NFkB"=1 and "AP1"=1 and "NFAT"=1 and "CREB1"=1
+"Survival" 1 -> 0 when "Foxo1"=1
+
+"Anergy" 1 -> 0 when "AP1"=0 and "NFAT"=0
+"Anergy" 0 -> 1 when "AP1"=0 and "NFAT"=1
+"Anergy" 1 -> 0 when "AP1"=1
+

@@ -1,0 +1,238 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Mac1_gene" [0, 1]
+"Mac1" [0, 1]
+"Id2" [0, 1]
+"Egr2" [0, 1]
+"Cebpb" [0, 1]
+"Cebpa_gene" [0, 1]
+"Cebpa" [0, 1]
+"Csf1r" [0, 1]
+"Csf1r_act" [0, 1]
+"Spi1_b1" [0, 1]
+"Spi1_b2" [0, 1]
+"Runx1" [0, 1]
+"Gfi1" [0, 1]
+"Ikzf1" [0, 1]
+"Flt3" [0, 1]
+"Mef2c" [0, 1]
+"Ets1" [0, 1]
+"Il7ra" [0, 1]
+"Il7r_act" [0, 1]
+"E2a_gene" [0, 1]
+"E2a" [0, 1]
+"E2a_prot_Active" [0, 1]
+"Foxo1_gene" [0, 1]
+"Foxo1" [0, 1]
+"Ebf1" [0, 1]
+"Ebf1_gene" [0, 1]
+"Pax5_gene" [0, 1]
+"Pax5" [0, 1]
+"Pax5_prot_active" [0, 1]
+"Cd19_gene" [0, 1]
+"Cd19" [0, 1]
+"Csf1" [0, 1]
+"Il7" [0, 1]
+"Cebpa_ER" [0, 1]
+
+"Mac1_gene" 1 -> 0 when "Spi1_b1"=0
+"Mac1_gene" 1 -> 0 when "Spi1_b1"=1 and "Spi1_b2"=0
+"Mac1_gene" 0 -> 1 when "Spi1_b1"=1 and "Spi1_b2"=1
+
+"Mac1" 1 -> 0 when "Mac1_gene"=0
+"Mac1" 0 -> 1 when "Mac1_gene"=1
+
+"Id2" 1 -> 0 when "Cebpb"=0
+"Id2" 1 -> 0 when "Cebpb"=1 and "Cebpa"=0
+"Id2" 1 -> 0 when "Cebpb"=1 and "Cebpa"=1 and "Spi1_b1"=0
+"Id2" 0 -> 1 when "Cebpb"=1 and "Cebpa"=1 and "Spi1_b1"=1 and "Gfi1"=0 and "Ebf1"=0
+"Id2" 1 -> 0 when "Cebpb"=1 and "Cebpa"=1 and "Spi1_b1"=1 and "Gfi1"=0 and "Ebf1"=1
+"Id2" 1 -> 0 when "Cebpb"=1 and "Cebpa"=1 and "Spi1_b1"=1 and "Gfi1"=1
+
+"Egr2" 1 -> 0 when "Spi1_b1"=0 and "Pax5_prot_active"=0
+"Egr2" 0 -> 1 when "Spi1_b1"=0 and "Pax5_prot_active"=1
+"Egr2" 0 -> 1 when "Spi1_b1"=1 and "Spi1_b2"=0 and "Gfi1"=0
+"Egr2" 1 -> 0 when "Spi1_b1"=1 and "Spi1_b2"=0 and "Gfi1"=1 and "Pax5_prot_active"=0
+"Egr2" 0 -> 1 when "Spi1_b1"=1 and "Spi1_b2"=0 and "Gfi1"=1 and "Pax5_prot_active"=1
+"Egr2" 0 -> 1 when "Spi1_b1"=1 and "Spi1_b2"=1
+
+"Cebpb" 0 -> 1 when "Cebpa"=1 and "Spi1_b1"=1 and "Spi1_b2"=1
+"Cebpb" 1 -> 0 when "Spi1_b1"=0
+"Cebpb" 1 -> 0 when "Spi1_b1"=1 and "Spi1_b2"=0
+
+"Cebpa_gene" 1 -> 0 when "Spi1_b1"=0
+"Cebpa_gene" 1 -> 0 when "Spi1_b1"=1 and "Runx1"=0
+"Cebpa_gene" 0 -> 1 when "Spi1_b1"=1 and "Runx1"=1 and "Foxo1"=0
+"Cebpa_gene" 1 -> 0 when "Spi1_b1"=1 and "Runx1"=1 and "Foxo1"=1
+
+"Cebpa" 1 -> 0 when "Cebpa_gene"=0 and "Cebpa_ER"=0
+"Cebpa" 0 -> 1 when "Cebpa_gene"=0 and "Cebpa_ER"=1
+"Cebpa" 0 -> 1 when "Cebpa_gene"=1
+
+"Csf1r" 1 -> 0 when "Spi1_b1"=0
+"Csf1r" 0 -> 1 when "Spi1_b1"=1 and "Pax5_prot_active"=0
+"Csf1r" 1 -> 0 when "Spi1_b1"=1 and "Pax5_prot_active"=1
+
+"Csf1r_act" 1 -> 0 when "Csf1r"=0
+"Csf1r_act" 1 -> 0 when "Csf1r"=1 and "Csf1"=0
+"Csf1r_act" 0 -> 1 when "Csf1r"=1 and "Csf1"=1
+
+"Spi1_b1" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Runx1"=0 and "Ikzf1"=1 and "Foxo1"=1 and "Ebf1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b2"=0 and "Runx1"=0
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b2"=0 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b2"=0 and "Runx1"=1 and "Gfi1"=1 and "Ikzf1"=0 and "Foxo1"=1
+"Spi1_b1" 0 -> 1 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Runx1"=0 and "Ikzf1"=1 and "Foxo1"=1 and "Ebf1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b2"=0 and "Runx1"=0
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b2"=0 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b2"=0 and "Runx1"=1 and "Gfi1"=1 and "Ikzf1"=0 and "Foxo1"=1
+"Spi1_b1" 0 -> 1 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=1 and "Runx1"=0 and "Ikzf1"=1 and "Foxo1"=1 and "Ebf1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=1 and "Spi1_b2"=0 and "Runx1"=0
+"Spi1_b1" 0 -> 1 when "Cebpb"=1 and "Csf1r_act"=0 and "Runx1"=0 and "Ikzf1"=1 and "Foxo1"=1 and "Ebf1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b2"=0 and "Runx1"=0
+"Spi1_b1" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b2"=0 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b2"=0 and "Runx1"=1 and "Gfi1"=1 and "Ikzf1"=0 and "Foxo1"=1
+"Spi1_b1" 0 -> 1 when "Cebpb"=1 and "Csf1r_act"=1 and "Runx1"=0 and "Ikzf1"=1 and "Foxo1"=1 and "Ebf1"=1
+"Spi1_b1" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=1 and "Spi1_b2"=0 and "Runx1"=0
+
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=1 and "Spi1_b1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=1 and "Spi1_b1"=1 and "Runx1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=0 and "Cebpa"=1 and "Csf1r_act"=1 and "Spi1_b1"=1 and "Runx1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=0 and "Ikzf1"=1 and "Foxo1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Gfi1"=1
+"Spi1_b2" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=1 and "Spi1_b1"=0
+"Spi1_b2" 1 -> 0 when "Cebpb"=1 and "Csf1r_act"=1 and "Spi1_b1"=1 and "Runx1"=0
+"Spi1_b2" 0 -> 1 when "Cebpb"=1 and "Csf1r_act"=1 and "Spi1_b1"=1 and "Runx1"=1
+
+"Runx1" 1 -> 0 when "Spi1_b1"=0
+"Runx1" 0 -> 1 when "Spi1_b1"=1
+
+"Gfi1" 1 -> 0 when "Egr2"=0 and "Cebpa"=0 and "Ikzf1"=0 and "Pax5_prot_active"=0
+"Gfi1" 0 -> 1 when "Egr2"=0 and "Cebpa"=0 and "Ikzf1"=0 and "Pax5_prot_active"=1
+"Gfi1" 0 -> 1 when "Egr2"=0 and "Cebpa"=0 and "Ikzf1"=1
+"Gfi1" 0 -> 1 when "Egr2"=0 and "Cebpa"=1
+"Gfi1" 1 -> 0 when "Egr2"=1 and "Pax5_prot_active"=0
+"Gfi1" 0 -> 1 when "Egr2"=1 and "Pax5_prot_active"=1
+
+"Ikzf1" 1 -> 0 when "Mef2c"=0 and "Pax5_prot_active"=0
+"Ikzf1" 0 -> 1 when "Mef2c"=0 and "Pax5_prot_active"=1
+"Ikzf1" 0 -> 1 when "Mef2c"=1
+
+"Flt3" 1 -> 0 when "Spi1_b1"=0
+"Flt3" 1 -> 0 when "Spi1_b1"=1 and "Ikzf1"=0
+"Flt3" 0 -> 1 when "Spi1_b1"=1 and "Ikzf1"=1 and "Pax5_prot_active"=0
+"Flt3" 1 -> 0 when "Spi1_b1"=1 and "Ikzf1"=1 and "Pax5_prot_active"=1
+
+"Mef2c" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0
+"Mef2c" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1
+"Mef2c" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1
+"Mef2c" 1 -> 0 when "Cebpb"=1
+
+"Ets1" 1 -> 0 when "E2a_prot_Active"=0
+"Ets1" 0 -> 1 when "E2a_prot_Active"=1
+
+"Il7ra" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Foxo1"=0
+"Il7ra" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Foxo1"=1 and "Ebf1"=0
+"Il7ra" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Foxo1"=1 and "Ebf1"=1
+"Il7ra" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Mef2c"=0 and "Foxo1"=0
+"Il7ra" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Mef2c"=0 and "Foxo1"=1 and "Ebf1"=0
+"Il7ra" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Mef2c"=0 and "Foxo1"=1 and "Ebf1"=1
+"Il7ra" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Mef2c"=1
+"Il7ra" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1
+"Il7ra" 1 -> 0 when "Cebpb"=1
+
+"Il7r_act" 1 -> 0 when "Il7ra"=0
+"Il7r_act" 1 -> 0 when "Il7ra"=1 and "Il7"=0
+"Il7r_act" 0 -> 1 when "Il7ra"=1 and "Il7"=1
+
+"E2a_gene" 1 -> 0 when "Spi1_b1"=0 and "Ikzf1"=0
+"E2a_gene" 1 -> 0 when "Spi1_b1"=0 and "Ikzf1"=1 and "Ebf1"=0
+"E2a_gene" 1 -> 0 when "Spi1_b1"=0 and "Ikzf1"=1 and "Ebf1"=1 and "Pax5_prot_active"=0
+"E2a_gene" 0 -> 1 when "Spi1_b1"=0 and "Ikzf1"=1 and "Ebf1"=1 and "Pax5_prot_active"=1
+"E2a_gene" 1 -> 0 when "Spi1_b1"=1 and "Ikzf1"=0
+"E2a_gene" 0 -> 1 when "Spi1_b1"=1 and "Ikzf1"=1
+
+"E2a" 1 -> 0 when "E2a_gene"=0
+"E2a" 0 -> 1 when "E2a_gene"=1
+
+"E2a_prot_Active" 1 -> 0 when "Id2"=0 and "E2a"=0
+"E2a_prot_Active" 0 -> 1 when "Id2"=0 and "E2a"=1
+"E2a_prot_Active" 1 -> 0 when "Id2"=1
+
+"Foxo1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "E2a_prot_Active"=0
+"Foxo1_gene" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "E2a_prot_Active"=1
+"Foxo1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1
+"Foxo1_gene" 1 -> 0 when "Cebpb"=1
+
+"Foxo1" 1 -> 0 when "Foxo1_gene"=0
+"Foxo1" 0 -> 1 when "Foxo1_gene"=1
+
+"Ebf1" 1 -> 0 when "Ebf1_gene"=0
+"Ebf1" 0 -> 1 when "Ebf1_gene"=1
+
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Ets1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Ets1"=1 and "E2a_prot_Active"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=1 and "Pax5_prot_active"=0
+"Ebf1_gene" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=1 and "Pax5_prot_active"=1
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0 and "Ets1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0 and "Ets1"=1 and "E2a_prot_Active"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=1 and "Pax5_prot_active"=0
+"Ebf1_gene" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=0 and "Ets1"=1 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=1 and "Pax5_prot_active"=1
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=0 and "E2a_prot_Active"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=0 and "E2a_prot_Active"=1 and "Foxo1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=0 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=0 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=1 and "Pax5_prot_active"=0
+"Ebf1_gene" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=0 and "E2a_prot_Active"=1 and "Foxo1"=1 and "Ebf1"=1 and "Pax5_prot_active"=1
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=1 and "E2a_prot_Active"=0
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=1 and "E2a_prot_Active"=1 and "Foxo1"=0
+"Ebf1_gene" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Spi1_b1"=1 and "Runx1"=1 and "Ets1"=1 and "Il7r_act"=1 and "E2a_prot_Active"=1 and "Foxo1"=1
+"Ebf1_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1
+"Ebf1_gene" 1 -> 0 when "Cebpb"=1
+
+"Pax5_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=0 and "Ebf1"=0
+"Pax5_gene" 0 -> 1 when "Cebpb"=0 and "Cebpa"=0 and "Ebf1"=1
+"Pax5_gene" 1 -> 0 when "Cebpb"=0 and "Cebpa"=1
+"Pax5_gene" 1 -> 0 when "Cebpb"=1
+
+"Pax5" 1 -> 0 when "Pax5_gene"=0
+"Pax5" 0 -> 1 when "Pax5_gene"=1
+
+"Pax5_prot_active" 1 -> 0 when "Id2"=0 and "Pax5"=0
+"Pax5_prot_active" 0 -> 1 when "Id2"=0 and "Pax5"=1
+"Pax5_prot_active" 1 -> 0 when "Id2"=1
+
+"Cd19_gene" 1 -> 0 when "Cebpa"=0 and "Pax5_prot_active"=0
+"Cd19_gene" 0 -> 1 when "Cebpa"=0 and "Pax5_prot_active"=1
+"Cd19_gene" 1 -> 0 when "Cebpa"=1
+
+"Cd19" 1 -> 0 when "Cd19_gene"=0
+"Cd19" 0 -> 1 when "Cd19_gene"=1
+
+
+
+"Cebpa_ER" 1 -> 0
+

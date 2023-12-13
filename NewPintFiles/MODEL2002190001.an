@@ -1,0 +1,216 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Nodal_In_b1" [0, 1]
+"Nodal_In_b2" [0, 1]
+"Nodal_In_b3" [0, 1]
+"Lefty_In" [0, 1]
+"Panda" [0, 1]
+"Bmp2_4_In_b1" [0, 1]
+"Bmp2_4_In_b2" [0, 1]
+"Chordin_In_b1" [0, 1]
+"Chordin_In_b2" [0, 1]
+"Tolloid_In" [0, 1]
+"Admp1_In" [0, 1]
+"Admp2_Trans" [0, 1]
+"Wnt_In" [0, 1]
+"Alk4_5_7_b1" [0, 1]
+"Alk4_5_7_b2" [0, 1]
+"Smad2_3_4_b1" [0, 1]
+"Smad2_3_4_b2" [0, 1]
+"Nodal_b1" [0, 1]
+"Nodal_b2" [0, 1]
+"Bmp2_4_b1" [0, 1]
+"Bmp2_4_b2" [0, 1]
+"Lefty" [0, 1]
+"Chordin_b1" [0, 1]
+"Chordin_b2" [0, 1]
+"Admp1" [0, 1]
+"Goosecoid" [0, 1]
+"FoxA" [0, 1]
+"Brachyury" [0, 1]
+"Onecut" [0, 1]
+"FGFA" [0, 1]
+"Repressor_R1" [0, 1]
+"Alk1_2_3_6_b1" [0, 1]
+"Alk1_2_3_6_b2" [0, 1]
+"Smad1_4_5_8_b1" [0, 1]
+"Smad1_4_5_8_b2" [0, 1]
+"Tbx2_3" [0, 1]
+"Smad6" [0, 1]
+"IrxA" [0, 1]
+"Admp2" [0, 1]
+"Frz" [0, 1]
+"Glypican5" [0, 1]
+"Univin" [0, 1]
+
+
+"Nodal_In_b2" 1 -> 0 when "Nodal_In_b1"=0
+
+"Nodal_In_b3" 1 -> 0 when "Nodal_In_b1"=0
+"Nodal_In_b3" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=0
+
+
+"Panda" 1 -> 0
+
+
+"Bmp2_4_In_b2" 1 -> 0 when "Bmp2_4_In_b1"=0
+
+
+"Chordin_In_b2" 1 -> 0 when "Chordin_In_b1"=0
+
+
+
+"Admp2_Trans" 1 -> 0
+
+
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=0 and "Alk4_5_7_b2"=0
+"Alk4_5_7_b1" 0 -> 1 when "Nodal_In_b1"=1 and "Nodal_In_b2"=0 and "Lefty_In"=0 and "Panda"=0 and "Univin"=1
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=0 and "Lefty_In"=0 and "Panda"=0 and "Alk4_5_7_b2"=0 and "Univin"=0
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=0 and "Lefty_In"=0 and "Panda"=1 and "Alk4_5_7_b2"=0
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=0 and "Lefty_In"=1 and "Alk4_5_7_b2"=0
+"Alk4_5_7_b1" 0 -> 1 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=0 and "Panda"=0 and "Univin"=1
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=0 and "Panda"=0 and "Alk4_5_7_b2"=0 and "Univin"=0
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=0 and "Panda"=1 and "Alk4_5_7_b2"=0
+"Alk4_5_7_b1" 0 -> 1 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=1 and "Univin"=1
+"Alk4_5_7_b1" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=1 and "Alk4_5_7_b2"=0 and "Univin"=0
+
+"Alk4_5_7_b2" 1 -> 0 when "Nodal_In_b1"=0
+"Alk4_5_7_b2" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=0
+"Alk4_5_7_b2" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=0
+"Alk4_5_7_b2" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=1 and "Alk4_5_7_b1"=0
+"Alk4_5_7_b2" 1 -> 0 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=1 and "Alk4_5_7_b1"=1 and "Univin"=0
+"Alk4_5_7_b2" 0 -> 1 when "Nodal_In_b1"=1 and "Nodal_In_b2"=1 and "Nodal_In_b3"=1 and "Alk4_5_7_b1"=1 and "Univin"=1
+
+"Smad2_3_4_b1" 1 -> 0 when "Alk4_5_7_b1"=0 and "Smad2_3_4_b2"=0
+"Smad2_3_4_b1" 0 -> 1 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=0 and "Smad1_4_5_8_b1"=0 and "Smad6"=0
+"Smad2_3_4_b1" 1 -> 0 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=0 and "Smad2_3_4_b2"=0 and "Smad1_4_5_8_b1"=0 and "Smad6"=1
+"Smad2_3_4_b1" 1 -> 0 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=0 and "Smad2_3_4_b2"=0 and "Smad1_4_5_8_b1"=1
+"Smad2_3_4_b1" 0 -> 1 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=1
+
+"Smad2_3_4_b2" 1 -> 0 when "Alk4_5_7_b1"=0
+"Smad2_3_4_b2" 1 -> 0 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=0
+"Smad2_3_4_b2" 1 -> 0 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=1 and "Smad2_3_4_b1"=0
+"Smad2_3_4_b2" 0 -> 1 when "Alk4_5_7_b1"=1 and "Alk4_5_7_b2"=1 and "Smad2_3_4_b1"=1
+
+"Nodal_b1" 1 -> 0 when "Smad2_3_4_b1"=0 and "Nodal_b2"=0
+"Nodal_b1" 0 -> 1 when "Smad2_3_4_b1"=1
+
+"Nodal_b2" 1 -> 0 when "Smad2_3_4_b1"=0
+"Nodal_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Nodal_b1"=0
+"Nodal_b2" 0 -> 1 when "Smad2_3_4_b1"=1 and "Nodal_b1"=1
+
+"Bmp2_4_b1" 1 -> 0 when "Smad2_3_4_b1"=0 and "Bmp2_4_b2"=0
+"Bmp2_4_b1" 0 -> 1 when "Smad2_3_4_b1"=1
+
+"Bmp2_4_b2" 1 -> 0 when "Smad2_3_4_b1"=0
+"Bmp2_4_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=0
+"Bmp2_4_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=1 and "Bmp2_4_b1"=0
+"Bmp2_4_b2" 0 -> 1 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=1 and "Bmp2_4_b1"=1
+
+"Lefty" 1 -> 0 when "Smad2_3_4_b1"=0
+"Lefty" 0 -> 1 when "Smad2_3_4_b1"=1
+
+"Chordin_b1" 1 -> 0 when "Smad2_3_4_b1"=0 and "Chordin_b2"=0
+"Chordin_b1" 0 -> 1 when "Smad2_3_4_b1"=1
+
+"Chordin_b2" 1 -> 0 when "Smad2_3_4_b1"=0
+"Chordin_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Chordin_b1"=0
+"Chordin_b2" 0 -> 1 when "Smad2_3_4_b1"=1 and "Chordin_b1"=1
+
+"Admp1" 1 -> 0 when "Smad2_3_4_b1"=0
+"Admp1" 0 -> 1 when "Smad2_3_4_b1"=1 and "Smad1_4_5_8_b1"=0
+"Admp1" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad1_4_5_8_b1"=1
+
+"Goosecoid" 1 -> 0 when "Smad2_3_4_b1"=0
+"Goosecoid" 0 -> 1 when "Smad2_3_4_b1"=1
+
+"FoxA" 0 -> 1 when "Brachyury"=1 and "Repressor_R1"=0
+"FoxA" 1 -> 0 when "Repressor_R1"=1
+
+"Brachyury" 0 -> 1 when "FoxA"=0 and "Repressor_R1"=0
+"Brachyury" 1 -> 0 when "FoxA"=0 and "Repressor_R1"=1
+"Brachyury" 0 -> 1 when "FoxA"=1
+
+"Onecut" 0 -> 1 when "Smad2_3_4_b1"=0 and "Goosecoid"=0 and "IrxA"=0
+"Onecut" 1 -> 0 when "Smad2_3_4_b1"=0 and "Goosecoid"=0 and "IrxA"=1
+"Onecut" 1 -> 0 when "Smad2_3_4_b1"=0 and "Goosecoid"=1
+"Onecut" 1 -> 0 when "Smad2_3_4_b1"=1
+
+"FGFA" 0 -> 1 when "Smad2_3_4_b1"=0 and "Smad1_4_5_8_b1"=0
+"FGFA" 0 -> 1 when "Smad2_3_4_b1"=0 and "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0
+"FGFA" 1 -> 0 when "Smad2_3_4_b1"=0 and "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=1
+"FGFA" 1 -> 0 when "Smad2_3_4_b1"=1
+
+"Repressor_R1" 0 -> 1 when "Goosecoid"=0
+"Repressor_R1" 1 -> 0 when "Goosecoid"=1
+
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=0 and "Chordin_In_b1"=0 and "Admp2_Trans"=0 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=0 and "Chordin_In_b1"=0 and "Admp2_Trans"=1
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=0 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=1 and "Admp2_Trans"=0 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=1 and "Admp2_Trans"=1
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=1 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=0 and "Admp1_In"=0 and "Admp2_Trans"=0 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=0 and "Admp1_In"=0 and "Admp2_Trans"=1
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=0 and "Admp1_In"=1
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=0 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=1 and "Admp1_In"=0 and "Admp2_Trans"=0 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=1 and "Admp1_In"=0 and "Admp2_Trans"=1
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=0 and "Tolloid_In"=1 and "Admp1_In"=1
+"Alk1_2_3_6_b1" 1 -> 0 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0 and "Chordin_In_b1"=1 and "Chordin_In_b2"=1 and "Alk1_2_3_6_b2"=0
+"Alk1_2_3_6_b1" 0 -> 1 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=1
+
+"Alk1_2_3_6_b2" 1 -> 0 when "Bmp2_4_In_b1"=0
+"Alk1_2_3_6_b2" 1 -> 0 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=0
+"Alk1_2_3_6_b2" 1 -> 0 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=1 and "Alk1_2_3_6_b1"=0
+"Alk1_2_3_6_b2" 0 -> 1 when "Bmp2_4_In_b1"=1 and "Bmp2_4_In_b2"=1 and "Alk1_2_3_6_b1"=1
+
+"Smad1_4_5_8_b1" 1 -> 0 when "Smad2_3_4_b1"=0 and "Alk1_2_3_6_b1"=0 and "Smad1_4_5_8_b2"=0
+"Smad1_4_5_8_b1" 0 -> 1 when "Smad2_3_4_b1"=0 and "Alk1_2_3_6_b1"=1
+"Smad1_4_5_8_b1" 1 -> 0 when "Smad2_3_4_b1"=1 and "Alk1_2_3_6_b1"=0 and "Smad1_4_5_8_b2"=0
+"Smad1_4_5_8_b1" 1 -> 0 when "Smad2_3_4_b1"=1 and "Alk1_2_3_6_b1"=1 and "Alk1_2_3_6_b2"=0 and "Smad1_4_5_8_b2"=0
+"Smad1_4_5_8_b1" 0 -> 1 when "Smad2_3_4_b1"=1 and "Alk1_2_3_6_b1"=1 and "Alk1_2_3_6_b2"=1
+
+"Smad1_4_5_8_b2" 1 -> 0 when "Smad2_3_4_b1"=0 and "Alk1_2_3_6_b1"=0
+"Smad1_4_5_8_b2" 1 -> 0 when "Smad2_3_4_b1"=0 and "Alk1_2_3_6_b1"=1 and "Smad1_4_5_8_b1"=0
+"Smad1_4_5_8_b2" 0 -> 1 when "Smad2_3_4_b1"=0 and "Alk1_2_3_6_b1"=1 and "Smad1_4_5_8_b1"=1
+"Smad1_4_5_8_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=0 and "Alk1_2_3_6_b1"=0
+"Smad1_4_5_8_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=0 and "Alk1_2_3_6_b1"=1 and "Alk1_2_3_6_b2"=0
+"Smad1_4_5_8_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=0 and "Alk1_2_3_6_b1"=1 and "Alk1_2_3_6_b2"=1 and "Smad1_4_5_8_b1"=0
+"Smad1_4_5_8_b2" 0 -> 1 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=0 and "Alk1_2_3_6_b1"=1 and "Alk1_2_3_6_b2"=1 and "Smad1_4_5_8_b1"=1
+"Smad1_4_5_8_b2" 1 -> 0 when "Smad2_3_4_b1"=1 and "Smad2_3_4_b2"=1
+
+"Tbx2_3" 1 -> 0 when "Smad1_4_5_8_b1"=0
+"Tbx2_3" 1 -> 0 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0
+"Tbx2_3" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=1
+
+"Smad6" 1 -> 0 when "Smad1_4_5_8_b1"=0 and "Tbx2_3"=0
+"Smad6" 0 -> 1 when "Smad1_4_5_8_b1"=0 and "Tbx2_3"=1
+"Smad6" 1 -> 0 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0 and "Tbx2_3"=0
+"Smad6" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0 and "Tbx2_3"=1
+"Smad6" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=1
+
+"IrxA" 1 -> 0 when "Tbx2_3"=0
+"IrxA" 0 -> 1 when "Tbx2_3"=1
+
+"Admp2" 1 -> 0 when "Smad1_4_5_8_b1"=0 and "Frz"=0
+"Admp2" 0 -> 1 when "Smad1_4_5_8_b1"=0 and "Frz"=1
+"Admp2" 1 -> 0 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0 and "Frz"=0
+"Admp2" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0 and "Frz"=1
+"Admp2" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=1
+
+"Frz" 1 -> 0 when "Wnt_In"=0
+"Frz" 0 -> 1 when "Wnt_In"=1
+
+"Glypican5" 1 -> 0 when "Smad1_4_5_8_b1"=0
+"Glypican5" 1 -> 0 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0
+"Glypican5" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=1
+
+"Univin" 0 -> 1 when "Smad1_4_5_8_b1"=0
+"Univin" 0 -> 1 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=0
+"Univin" 1 -> 0 when "Smad1_4_5_8_b1"=1 and "Smad1_4_5_8_b2"=1
+

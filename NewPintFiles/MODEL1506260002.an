@@ -1,0 +1,236 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"DIG2_S225" [0, 1]
+"SSK1_S351" [0, 1]
+"y_STE18" [0, 1]
+"YPD1" [0, 1]
+"PTP2_S258" [0, 1]
+"NaCl" [0, 1]
+"STE11_S326" [0, 1]
+"GPD1_S24_S27" [0, 1]
+"GPA1_S199" [0, 1]
+"DIG1_S126_S127" [0, 1]
+"SHO1" [0, 1]
+"STE20_T511" [0, 1]
+"STE2r" [0, 1]
+"SKO1_T215" [0, 1]
+"SSK1_S193_S195" [0, 1]
+"STE20_T573" [0, 1]
+"STE2_S331" [0, 1]
+"DIG1_S272" [0, 1]
+"STE20_T170_T172" [0, 1]
+"HOT1_S153" [0, 1]
+"DIG1_S395" [0, 1]
+"STEcomplex" [0, 1]
+"SSK2_S53_S54_S57" [0, 1]
+"NBP2" [0, 1]
+"SLN1_S833" [0, 1]
+"HOG1_T174_Y176" [0, 1]
+"FUS3_T180" [0, 1]
+"STE20_T203_T207" [0, 1]
+"a" [0, 1]
+"b_STE4" [0, 1]
+"SKO1_S94_S108_T113" [0, 1]
+"STE20_S195" [0, 1]
+"STE20_S192" [0, 1]
+"STE50_S202" [0, 1]
+"STE12_S400" [0, 1]
+"HOG1_T174__Y176" [0, 1]
+"STE7" [0, 1]
+"PBS2_S248" [0, 1]
+"STE5" [0, 1]
+"PTC1" [0, 1]
+"DIG1_S272_T277_S279" [0, 1]
+"STE20_S196_T197" [0, 1]
+"FUS3_S177_T180_Y182" [0, 1]
+"PBS2_S269" [0, 1]
+"PBS2_S68" [0, 1]
+
+"DIG2_S225" 0 -> 1 when "FUS3_T180"=0
+"DIG2_S225" 0 -> 1 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=0
+"DIG2_S225" 1 -> 0 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=1
+
+"SSK1_S351" 1 -> 0 when "YPD1"=0
+"SSK1_S351" 0 -> 1 when "YPD1"=1
+
+"y_STE18" 1 -> 0 when "GPA1_S199"=0
+"y_STE18" 0 -> 1 when "GPA1_S199"=1
+
+"YPD1" 1 -> 0 when "SLN1_S833"=0
+"YPD1" 0 -> 1 when "SLN1_S833"=1
+
+"PTP2_S258" 1 -> 0 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=0
+"PTP2_S258" 0 -> 1 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=1
+"PTP2_S258" 0 -> 1 when "HOG1_T174_Y176"=1
+
+"NaCl" 1 -> 0
+
+"STE11_S326" 1 -> 0 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=0 and "STE20_S192"=0 and "STE20_S196_T197"=0
+"STE11_S326" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=0 and "STE20_S192"=0 and "STE20_S196_T197"=1
+"STE11_S326" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=0 and "STE20_S192"=1
+"STE11_S326" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=1
+"STE11_S326" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=1
+"STE11_S326" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=1
+"STE11_S326" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=1
+"STE11_S326" 0 -> 1 when "STE20_T511"=1
+
+"GPD1_S24_S27" 1 -> 0 when "HOT1_S153"=0
+"GPD1_S24_S27" 0 -> 1 when "HOT1_S153"=1
+
+"GPA1_S199" 1 -> 0 when "STE2r"=0
+"GPA1_S199" 0 -> 1 when "STE2r"=1
+
+"DIG1_S126_S127" 0 -> 1 when "FUS3_T180"=0
+"DIG1_S126_S127" 0 -> 1 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=0
+"DIG1_S126_S127" 1 -> 0 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=1
+
+"SHO1" 1 -> 0 when "NaCl"=0
+"SHO1" 0 -> 1 when "NaCl"=1
+
+"STE20_T511" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_T511" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_T511" 0 -> 1 when "SHO1"=1
+
+"STE2r" 0 -> 1 when "STE2_S331"=0
+"STE2r" 1 -> 0 when "STE2_S331"=1 and "a"=0
+"STE2r" 0 -> 1 when "STE2_S331"=1 and "a"=1
+
+"SKO1_T215" 1 -> 0 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=0
+"SKO1_T215" 0 -> 1 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=1
+"SKO1_T215" 0 -> 1 when "HOG1_T174_Y176"=1
+
+"SSK1_S193_S195" 1 -> 0 when "YPD1"=0
+"SSK1_S193_S195" 0 -> 1 when "YPD1"=1
+
+"STE20_T573" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_T573" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_T573" 0 -> 1 when "SHO1"=1
+
+"STE2_S331" 1 -> 0 when "STE2r"=0
+"STE2_S331" 0 -> 1 when "STE2r"=1
+
+"DIG1_S272" 0 -> 1 when "FUS3_T180"=0
+"DIG1_S272" 0 -> 1 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=0
+"DIG1_S272" 1 -> 0 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=1
+
+"STE20_T170_T172" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_T170_T172" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_T170_T172" 0 -> 1 when "SHO1"=1
+
+"HOT1_S153" 1 -> 0 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=0
+"HOT1_S153" 0 -> 1 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=1
+"HOT1_S153" 0 -> 1 when "HOG1_T174_Y176"=1
+
+"DIG1_S395" 0 -> 1 when "FUS3_T180"=0
+"DIG1_S395" 0 -> 1 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=0
+"DIG1_S395" 1 -> 0 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=1
+
+"STEcomplex" 1 -> 0 when "STE11_S326"=0
+"STEcomplex" 1 -> 0 when "STE11_S326"=1 and "STE50_S202"=0
+"STEcomplex" 0 -> 1 when "STE11_S326"=1 and "STE50_S202"=1
+
+"SSK2_S53_S54_S57" 0 -> 1 when "SSK1_S351"=0
+"SSK2_S53_S54_S57" 0 -> 1 when "SSK1_S351"=1 and "SSK1_S193_S195"=0
+"SSK2_S53_S54_S57" 1 -> 0 when "SSK1_S351"=1 and "SSK1_S193_S195"=1
+
+"NBP2" 0 -> 1 when "PBS2_S248"=0
+"NBP2" 0 -> 1 when "PBS2_S248"=1 and "PBS2_S269"=0
+"NBP2" 0 -> 1 when "PBS2_S248"=1 and "PBS2_S269"=1 and "PBS2_S68"=0
+"NBP2" 1 -> 0 when "PBS2_S248"=1 and "PBS2_S269"=1 and "PBS2_S68"=1
+
+"SLN1_S833" 0 -> 1 when "NaCl"=0
+"SLN1_S833" 1 -> 0 when "NaCl"=1
+
+"HOG1_T174_Y176" 0 -> 1 when "PTP2_S258"=0
+"HOG1_T174_Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=0
+"HOG1_T174_Y176" 1 -> 0 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=1 and "PBS2_S269"=0 and "PBS2_S68"=0
+"HOG1_T174_Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=1 and "PBS2_S269"=0 and "PBS2_S68"=1
+"HOG1_T174_Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=1 and "PBS2_S269"=1
+"HOG1_T174_Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=1
+
+"FUS3_T180" 1 -> 0 when "STE7"=0
+"FUS3_T180" 0 -> 1 when "STE7"=1
+
+"STE20_T203_T207" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_T203_T207" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_T203_T207" 0 -> 1 when "SHO1"=1
+
+"a" 1 -> 0
+
+"b_STE4" 1 -> 0 when "y_STE18"=0
+"b_STE4" 0 -> 1 when "y_STE18"=1
+
+"SKO1_S94_S108_T113" 1 -> 0 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=0
+"SKO1_S94_S108_T113" 0 -> 1 when "HOG1_T174_Y176"=0 and "HOG1_T174__Y176"=1
+"SKO1_S94_S108_T113" 0 -> 1 when "HOG1_T174_Y176"=1
+
+"STE20_S195" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_S195" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_S195" 0 -> 1 when "SHO1"=1
+
+"STE20_S192" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_S192" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_S192" 0 -> 1 when "SHO1"=1
+
+"STE50_S202" 1 -> 0 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=0 and "STE20_S192"=0 and "STE20_S196_T197"=0
+"STE50_S202" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=0 and "STE20_S192"=0 and "STE20_S196_T197"=1
+"STE50_S202" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=0 and "STE20_S192"=1
+"STE50_S202" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=0 and "STE20_S195"=1
+"STE50_S202" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=0 and "STE20_T203_T207"=1
+"STE50_S202" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=0 and "STE20_T170_T172"=1
+"STE50_S202" 0 -> 1 when "STE20_T511"=0 and "STE20_T573"=1
+"STE50_S202" 0 -> 1 when "STE20_T511"=1
+
+"STE12_S400" 0 -> 1 when "DIG2_S225"=0
+"STE12_S400" 0 -> 1 when "DIG2_S225"=1 and "DIG1_S126_S127"=0
+"STE12_S400" 0 -> 1 when "DIG2_S225"=1 and "DIG1_S126_S127"=1 and "DIG1_S272"=0
+"STE12_S400" 0 -> 1 when "DIG2_S225"=1 and "DIG1_S126_S127"=1 and "DIG1_S272"=1 and "DIG1_S395"=0
+"STE12_S400" 0 -> 1 when "DIG2_S225"=1 and "DIG1_S126_S127"=1 and "DIG1_S272"=1 and "DIG1_S395"=1 and "FUS3_T180"=0 and "DIG1_S272_T277_S279"=0
+"STE12_S400" 1 -> 0 when "DIG2_S225"=1 and "DIG1_S126_S127"=1 and "DIG1_S272"=1 and "DIG1_S395"=1 and "FUS3_T180"=0 and "DIG1_S272_T277_S279"=1 and "FUS3_S177_T180_Y182"=0
+"STE12_S400" 0 -> 1 when "DIG2_S225"=1 and "DIG1_S126_S127"=1 and "DIG1_S272"=1 and "DIG1_S395"=1 and "FUS3_T180"=0 and "DIG1_S272_T277_S279"=1 and "FUS3_S177_T180_Y182"=1
+"STE12_S400" 0 -> 1 when "DIG2_S225"=1 and "DIG1_S126_S127"=1 and "DIG1_S272"=1 and "DIG1_S395"=1 and "FUS3_T180"=1
+
+"HOG1_T174__Y176" 0 -> 1 when "PTP2_S258"=0
+"HOG1_T174__Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=0
+"HOG1_T174__Y176" 1 -> 0 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=1 and "PBS2_S269"=0 and "PBS2_S68"=0
+"HOG1_T174__Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=1 and "PBS2_S269"=0 and "PBS2_S68"=1
+"HOG1_T174__Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=0 and "PTC1"=1 and "PBS2_S269"=1
+"HOG1_T174__Y176" 0 -> 1 when "PTP2_S258"=1 and "PBS2_S248"=1
+
+"STE7" 1 -> 0 when "STE5"=0
+"STE7" 0 -> 1 when "STE5"=1
+
+"PBS2_S248" 1 -> 0 when "STEcomplex"=0 and "SSK2_S53_S54_S57"=0
+"PBS2_S248" 0 -> 1 when "STEcomplex"=0 and "SSK2_S53_S54_S57"=1
+"PBS2_S248" 0 -> 1 when "STEcomplex"=1
+
+"STE5" 1 -> 0 when "STEcomplex"=0 and "b_STE4"=0
+"STE5" 0 -> 1 when "STEcomplex"=0 and "b_STE4"=1
+"STE5" 0 -> 1 when "STEcomplex"=1
+
+"PTC1" 1 -> 0 when "NBP2"=0
+"PTC1" 0 -> 1 when "NBP2"=1
+
+"DIG1_S272_T277_S279" 0 -> 1 when "FUS3_T180"=0
+"DIG1_S272_T277_S279" 0 -> 1 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=0
+"DIG1_S272_T277_S279" 1 -> 0 when "FUS3_T180"=1 and "FUS3_S177_T180_Y182"=1
+
+"STE20_S196_T197" 1 -> 0 when "SHO1"=0 and "b_STE4"=0
+"STE20_S196_T197" 0 -> 1 when "SHO1"=0 and "b_STE4"=1
+"STE20_S196_T197" 0 -> 1 when "SHO1"=1
+
+"FUS3_S177_T180_Y182" 1 -> 0 when "STE7"=0
+"FUS3_S177_T180_Y182" 0 -> 1 when "STE7"=1
+
+"PBS2_S269" 1 -> 0 when "STEcomplex"=0 and "SSK2_S53_S54_S57"=0
+"PBS2_S269" 0 -> 1 when "STEcomplex"=0 and "SSK2_S53_S54_S57"=1
+"PBS2_S269" 0 -> 1 when "STEcomplex"=1
+
+"PBS2_S68" 1 -> 0 when "STEcomplex"=0 and "SSK2_S53_S54_S57"=0
+"PBS2_S68" 0 -> 1 when "STEcomplex"=0 and "SSK2_S53_S54_S57"=1
+"PBS2_S68" 0 -> 1 when "STEcomplex"=1
+

@@ -1,0 +1,371 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"a20" [0, 1]
+"TGFa" [0, 1]
+"map3k1" [0, 1]
+"rac" [0, 1]
+"nik" [0, 1]
+"egfr" [0, 1]
+"IRS1s" [0, 1]
+"AKT" [0, 1]
+"pdk1" [0, 1]
+"sos" [0, 1]
+"pp2a" [0, 1]
+"jak2" [0, 1]
+"ras" [0, 1]
+"tlr4" [0, 1]
+"jak1" [0, 1]
+"map3k7" [0, 1]
+"rasgap" [0, 1]
+"STAT11" [0, 1]
+"shc" [0, 1]
+"STAT33" [0, 1]
+"pip2" [0, 1]
+"STAT3" [0, 1]
+"pip3" [0, 1]
+"mkk4" [0, 1]
+"STAT13" [0, 1]
+"erk12n" [0, 1]
+"nfkbn" [0, 1]
+"casp9" [0, 1]
+"Ikb" [0, 1]
+"IFNgr" [0, 1]
+"mTOR" [0, 1]
+"sitpec" [0, 1]
+"JNK12" [0, 1]
+"IKK" [0, 1]
+"IL1a" [0, 1]
+"mdm2" [0, 1]
+"pak" [0, 1]
+"GSK3" [0, 1]
+"cJUN" [0, 1]
+"STAT1n" [0, 1]
+"p53" [0, 1]
+"IGF1" [0, 1]
+"traf6" [0, 1]
+"PI3K" [0, 1]
+"STAT3n" [0, 1]
+"LPS" [0, 1]
+"erk12" [0, 1]
+"p38" [0, 1]
+"elk1" [0, 1]
+"TNFa" [0, 1]
+"ck2" [0, 1]
+"grb2" [0, 1]
+"p38n" [0, 1]
+"atf1" [0, 1]
+"prak" [0, 1]
+"atf2" [0, 1]
+"igfr" [0, 1]
+"STAT1" [0, 1]
+"ask1" [0, 1]
+"cot" [0, 1]
+"msk12" [0, 1]
+"HSP27" [0, 1]
+"IFNg" [0, 1]
+"CREB" [0, 1]
+"irs1t" [0, 1]
+"nfkb" [0, 1]
+"p90RSKn" [0, 1]
+"p70S6" [0, 1]
+"IL6r" [0, 1]
+"IL6" [0, 1]
+"cfos" [0, 1]
+"p90RSK" [0, 1]
+"mkk7" [0, 1]
+"mkk6" [0, 1]
+"HistH3" [0, 1]
+"traf2" [0, 1]
+"mkk3" [0, 1]
+"tnfr" [0, 1]
+"raf1" [0, 1]
+"il1r" [0, 1]
+"JNK12n" [0, 1]
+"MEK12" [0, 1]
+
+"a20" 1 -> 0
+
+"TGFa" 1 -> 0
+
+"map3k1" 1 -> 0 when "rac"=0 and "ras"=0 and "sitpec"=0
+"map3k1" 0 -> 1 when "rac"=0 and "ras"=0 and "sitpec"=1
+"map3k1" 0 -> 1 when "rac"=0 and "ras"=1
+"map3k1" 0 -> 1 when "rac"=1
+
+"rac" 1 -> 0 when "PI3K"=0
+"rac" 0 -> 1 when "PI3K"=1
+
+"nik" 1 -> 0 when "map3k7"=0
+"nik" 0 -> 1 when "map3k7"=1
+
+"egfr" 1 -> 0 when "TGFa"=0
+"egfr" 0 -> 1 when "TGFa"=1
+
+"IRS1s" 1 -> 0 when "mTOR"=0 and "erk12"=0
+"IRS1s" 0 -> 1 when "mTOR"=0 and "erk12"=1
+"IRS1s" 0 -> 1 when "mTOR"=1
+
+"AKT" 0 -> 1 when "pdk1"=0 and "pp2a"=0
+"AKT" 1 -> 0 when "pdk1"=0 and "pp2a"=1
+"AKT" 0 -> 1 when "pdk1"=1
+
+"pdk1" 1 -> 0 when "pip3"=0
+"pdk1" 0 -> 1 when "pip3"=1
+
+"sos" 0 -> 1 when "erk12"=0
+"sos" 1 -> 0 when "erk12"=1 and "grb2"=0
+"sos" 0 -> 1 when "erk12"=1 and "grb2"=1
+
+"pp2a" 1 -> 0
+
+"jak2" 1 -> 0 when "IL6r"=0
+"jak2" 0 -> 1 when "IL6r"=1
+
+"ras" 0 -> 1 when "AKT"=0
+"ras" 0 -> 1 when "AKT"=1 and "sos"=0 and "rasgap"=0
+"ras" 1 -> 0 when "AKT"=1 and "sos"=0 and "rasgap"=1
+"ras" 0 -> 1 when "AKT"=1 and "sos"=1
+
+"tlr4" 1 -> 0 when "LPS"=0
+"tlr4" 0 -> 1 when "LPS"=1
+
+"jak1" 1 -> 0 when "egfr"=0 and "IFNgr"=0
+"jak1" 0 -> 1 when "egfr"=0 and "IFNgr"=1
+"jak1" 0 -> 1 when "egfr"=1
+
+"map3k7" 1 -> 0 when "traf6"=0 and "traf2"=0
+"map3k7" 0 -> 1 when "traf6"=0 and "traf2"=1
+"map3k7" 0 -> 1 when "traf6"=1
+
+"rasgap" 1 -> 0 when "egfr"=0
+"rasgap" 0 -> 1 when "egfr"=1
+
+"STAT11" 1 -> 0 when "STAT1"=0
+"STAT11" 0 -> 1 when "STAT1"=1
+
+"shc" 1 -> 0 when "egfr"=0 and "igfr"=0
+"shc" 0 -> 1 when "egfr"=0 and "igfr"=1
+"shc" 0 -> 1 when "egfr"=1
+
+"STAT33" 1 -> 0 when "STAT3"=0
+"STAT33" 0 -> 1 when "STAT3"=1
+
+"pip2" 1 -> 0
+
+"STAT3" 1 -> 0 when "jak2"=0
+"STAT3" 0 -> 1 when "jak2"=1
+
+"pip3" 1 -> 0 when "pip2"=0 and "PI3K"=0
+"pip3" 0 -> 1 when "pip2"=0 and "PI3K"=1
+"pip3" 0 -> 1 when "pip2"=1
+
+"mkk4" 1 -> 0 when "map3k1"=0 and "map3k7"=0 and "ask1"=0
+"mkk4" 0 -> 1 when "map3k1"=0 and "map3k7"=0 and "ask1"=1
+"mkk4" 0 -> 1 when "map3k1"=0 and "map3k7"=1
+"mkk4" 0 -> 1 when "map3k1"=1
+
+"STAT13" 1 -> 0 when "STAT3"=0 and "STAT1"=0
+"STAT13" 0 -> 1 when "STAT3"=0 and "STAT1"=1
+"STAT13" 0 -> 1 when "STAT3"=1
+
+"erk12n" 1 -> 0 when "erk12"=0
+"erk12n" 0 -> 1 when "erk12"=1
+
+"nfkbn" 1 -> 0 when "nfkb"=0
+"nfkbn" 0 -> 1 when "nfkb"=1
+
+"casp9" 0 -> 1 when "AKT"=0
+"casp9" 1 -> 0 when "AKT"=1
+
+"Ikb" 1 -> 0 when "IKK"=0
+"Ikb" 0 -> 1 when "IKK"=1
+
+"IFNgr" 1 -> 0 when "IFNg"=0
+"IFNgr" 0 -> 1 when "IFNg"=1
+
+"mTOR" 1 -> 0 when "AKT"=0
+"mTOR" 0 -> 1 when "AKT"=1
+
+"sitpec" 1 -> 0 when "traf6"=0
+"sitpec" 0 -> 1 when "traf6"=1
+
+"JNK12" 1 -> 0 when "mkk4"=0 and "mkk7"=0
+"JNK12" 0 -> 1 when "mkk4"=0 and "mkk7"=1
+"JNK12" 0 -> 1 when "mkk4"=1
+
+"IKK" 1 -> 0 when "map3k1"=0 and "nik"=0 and "cot"=0
+"IKK" 0 -> 1 when "map3k1"=0 and "nik"=0 and "cot"=1
+"IKK" 0 -> 1 when "map3k1"=0 and "nik"=1
+"IKK" 0 -> 1 when "map3k1"=1
+
+"IL1a" 1 -> 0
+
+"mdm2" 0 -> 1 when "AKT"=0
+"mdm2" 1 -> 0 when "AKT"=1
+
+"pak" 0 -> 1 when "rac"=0 and "AKT"=0
+"pak" 1 -> 0 when "rac"=0 and "AKT"=1
+"pak" 0 -> 1 when "rac"=1
+
+"GSK3" 1 -> 0 when "AKT"=0
+"GSK3" 0 -> 1 when "AKT"=1
+
+"cJUN" 1 -> 0 when "ck2"=0 and "JNK12n"=0
+"cJUN" 0 -> 1 when "ck2"=0 and "JNK12n"=1
+"cJUN" 0 -> 1 when "ck2"=1
+
+"STAT1n" 1 -> 0 when "STAT11"=0 and "erk12n"=0 and "p38n"=0
+"STAT1n" 0 -> 1 when "STAT11"=0 and "erk12n"=0 and "p38n"=1
+"STAT1n" 0 -> 1 when "STAT11"=0 and "erk12n"=1
+"STAT1n" 0 -> 1 when "STAT11"=1
+
+"p53" 1 -> 0 when "mdm2"=0 and "JNK12n"=0
+"p53" 0 -> 1 when "mdm2"=0 and "JNK12n"=1
+"p53" 0 -> 1 when "mdm2"=1
+
+"IGF1" 1 -> 0
+
+"traf6" 0 -> 1 when "a20"=0
+"traf6" 1 -> 0 when "a20"=1 and "tlr4"=0 and "il1r"=0
+"traf6" 0 -> 1 when "a20"=1 and "tlr4"=0 and "il1r"=1
+"traf6" 0 -> 1 when "a20"=1 and "tlr4"=1
+
+"PI3K" 1 -> 0 when "egfr"=0 and "ras"=0 and "irs1t"=0 and "tnfr"=0
+"PI3K" 0 -> 1 when "egfr"=0 and "ras"=0 and "irs1t"=0 and "tnfr"=1
+"PI3K" 0 -> 1 when "egfr"=0 and "ras"=0 and "irs1t"=1
+"PI3K" 0 -> 1 when "egfr"=0 and "ras"=1
+"PI3K" 0 -> 1 when "egfr"=1
+
+"STAT3n" 1 -> 0 when "STAT33"=0 and "erk12n"=0
+"STAT3n" 0 -> 1 when "STAT33"=0 and "erk12n"=1
+"STAT3n" 0 -> 1 when "STAT33"=1
+
+"LPS" 1 -> 0
+
+"erk12" 1 -> 0 when "MEK12"=0
+"erk12" 0 -> 1 when "MEK12"=1
+
+"p38" 1 -> 0 when "mkk4"=0 and "mkk6"=0 and "mkk3"=0
+"p38" 0 -> 1 when "mkk4"=0 and "mkk6"=0 and "mkk3"=1
+"p38" 0 -> 1 when "mkk4"=0 and "mkk6"=1
+"p38" 0 -> 1 when "mkk4"=1
+
+"elk1" 1 -> 0 when "erk12n"=0 and "p38n"=0 and "JNK12n"=0
+"elk1" 0 -> 1 when "erk12n"=0 and "p38n"=0 and "JNK12n"=1
+"elk1" 0 -> 1 when "erk12n"=0 and "p38n"=1
+"elk1" 0 -> 1 when "erk12n"=1
+
+"TNFa" 1 -> 0
+
+"ck2" 1 -> 0
+
+"grb2" 1 -> 0 when "egfr"=0 and "shc"=0
+"grb2" 0 -> 1 when "egfr"=0 and "shc"=1
+"grb2" 0 -> 1 when "egfr"=1
+
+"p38n" 1 -> 0 when "p38"=0
+"p38n" 0 -> 1 when "p38"=1
+
+"atf1" 1 -> 0 when "msk12"=0
+"atf1" 0 -> 1 when "msk12"=1
+
+"prak" 1 -> 0 when "erk12"=0 and "p38"=0 and "mkk3"=0
+"prak" 0 -> 1 when "erk12"=0 and "p38"=0 and "mkk3"=1
+"prak" 0 -> 1 when "erk12"=0 and "p38"=1
+"prak" 0 -> 1 when "erk12"=1
+
+"atf2" 1 -> 0 when "p38n"=0 and "JNK12n"=0
+"atf2" 0 -> 1 when "p38n"=0 and "JNK12n"=1
+"atf2" 0 -> 1 when "p38n"=1
+
+"igfr" 1 -> 0 when "IGF1"=0
+"igfr" 0 -> 1 when "IGF1"=1
+
+"STAT1" 1 -> 0 when "jak1"=0
+"STAT1" 0 -> 1 when "jak1"=1
+
+"ask1" 1 -> 0 when "traf2"=0
+"ask1" 0 -> 1 when "traf2"=1
+
+"cot" 1 -> 0 when "AKT"=0
+"cot" 0 -> 1 when "AKT"=1
+
+"msk12" 1 -> 0 when "erk12n"=0 and "p38n"=0
+"msk12" 0 -> 1 when "erk12n"=0 and "p38n"=1
+"msk12" 0 -> 1 when "erk12n"=1
+
+"HSP27" 1 -> 0 when "prak"=0
+"HSP27" 0 -> 1 when "prak"=1
+
+"IFNg" 1 -> 0
+
+"CREB" 1 -> 0 when "msk12"=0 and "p90RSKn"=0
+"CREB" 0 -> 1 when "msk12"=0 and "p90RSKn"=1
+"CREB" 0 -> 1 when "msk12"=1
+
+"irs1t" 0 -> 1 when "IRS1s"=0
+"irs1t" 1 -> 0 when "IRS1s"=1 and "igfr"=0
+"irs1t" 0 -> 1 when "IRS1s"=1 and "igfr"=1
+
+"nfkb" 1 -> 0 when "Ikb"=0
+"nfkb" 0 -> 1 when "Ikb"=1
+
+"p90RSKn" 1 -> 0 when "p90RSK"=0
+"p90RSKn" 0 -> 1 when "p90RSK"=1
+
+"p70S6" 1 -> 0 when "pdk1"=0 and "mTOR"=0 and "erk12"=0
+"p70S6" 0 -> 1 when "pdk1"=0 and "mTOR"=0 and "erk12"=1
+"p70S6" 0 -> 1 when "pdk1"=0 and "mTOR"=1
+"p70S6" 0 -> 1 when "pdk1"=1
+
+"IL6r" 1 -> 0 when "IL6"=0
+"IL6r" 0 -> 1 when "IL6"=1
+
+"IL6" 1 -> 0
+
+"cfos" 1 -> 0 when "cJUN"=0 and "elk1"=0 and "p90RSKn"=0
+"cfos" 0 -> 1 when "cJUN"=0 and "elk1"=0 and "p90RSKn"=1
+"cfos" 0 -> 1 when "cJUN"=0 and "elk1"=1
+"cfos" 0 -> 1 when "cJUN"=1
+
+"p90RSK" 1 -> 0 when "MEK12"=0
+"p90RSK" 0 -> 1 when "MEK12"=1
+
+"mkk7" 1 -> 0 when "map3k1"=0 and "map3k7"=0 and "ask1"=0
+"mkk7" 0 -> 1 when "map3k1"=0 and "map3k7"=0 and "ask1"=1
+"mkk7" 0 -> 1 when "map3k1"=0 and "map3k7"=1
+"mkk7" 0 -> 1 when "map3k1"=1
+
+"mkk6" 1 -> 0 when "map3k7"=0
+"mkk6" 0 -> 1 when "map3k7"=1
+
+"HistH3" 1 -> 0 when "msk12"=0
+"HistH3" 0 -> 1 when "msk12"=1
+
+"traf2" 1 -> 0 when "tnfr"=0
+"traf2" 0 -> 1 when "tnfr"=1
+
+"mkk3" 1 -> 0 when "map3k7"=0
+"mkk3" 0 -> 1 when "map3k7"=1
+
+"tnfr" 1 -> 0 when "TNFa"=0
+"tnfr" 0 -> 1 when "TNFa"=1
+
+"raf1" 1 -> 0 when "ras"=0 and "pak"=0
+"raf1" 0 -> 1 when "ras"=0 and "pak"=1
+"raf1" 0 -> 1 when "ras"=1
+
+"il1r" 1 -> 0 when "IL1a"=0
+"il1r" 0 -> 1 when "IL1a"=1
+
+"JNK12n" 1 -> 0 when "JNK12"=0
+"JNK12n" 0 -> 1 when "JNK12"=1
+
+"MEK12" 1 -> 0 when "traf6"=0 and "raf1"=0
+"MEK12" 0 -> 1 when "traf6"=0 and "raf1"=1
+"MEK12" 0 -> 1 when "traf6"=1
+

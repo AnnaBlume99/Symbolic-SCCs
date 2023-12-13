@@ -1,0 +1,114 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Gene1" [0, 1]
+"Gene2" [0, 1]
+"Gene3" [0, 1]
+"Gene4" [0, 1]
+"Gene5" [0, 1]
+"Gene6" [0, 1]
+"Gene7" [0, 1]
+"Gene8" [0, 1]
+"Gene9" [0, 1]
+"Gene10" [0, 1]
+"Gene11" [0, 1]
+"Gene12" [0, 1]
+"Gene13" [0, 1]
+"Gene14" [0, 1]
+"Gene15" [0, 1]
+
+"Gene1" 0 -> 1 when "Gene3"=0 and "Gene8"=0 and "Gene12"=0
+"Gene1" 1 -> 0 when "Gene3"=0 and "Gene8"=0 and "Gene12"=1
+"Gene1" 0 -> 1 when "Gene3"=0 and "Gene8"=1
+"Gene1" 1 -> 0 when "Gene3"=1 and "Gene8"=0
+"Gene1" 0 -> 1 when "Gene3"=1 and "Gene8"=1
+
+"Gene2" 0 -> 1 when "Gene4"=0 and "Gene12"=0
+"Gene2" 0 -> 1 when "Gene4"=0 and "Gene12"=1 and "Gene14"=0
+"Gene2" 1 -> 0 when "Gene4"=0 and "Gene12"=1 and "Gene14"=1
+"Gene2" 1 -> 0 when "Gene4"=1
+
+"Gene3" 0 -> 1 when "Gene5"=0 and "Gene6"=1
+"Gene3" 0 -> 1 when "Gene5"=1
+"Gene3" 1 -> 0 when "Gene5"=0
+
+"Gene4" 0 -> 1 when "Gene3"=0
+"Gene4" 1 -> 0 when "Gene3"=0
+"Gene4" 0 -> 1 when "Gene3"=1 and "Gene6"=0
+"Gene4" 1 -> 0 when "Gene3"=1 and "Gene6"=1
+
+"Gene5" 1 -> 0 when "Gene6"=0 and "Gene9"=0 and "Gene14"=0
+"Gene5" 0 -> 1 when "Gene6"=0 and "Gene9"=0 and "Gene14"=1
+"Gene5" 0 -> 1 when "Gene6"=0 and "Gene9"=1
+"Gene5" 0 -> 1 when "Gene6"=1 and "Gene9"=0 and "Gene14"=0
+"Gene5" 1 -> 0 when "Gene6"=1 and "Gene9"=0 and "Gene14"=1
+"Gene5" 0 -> 1 when "Gene6"=1 and "Gene9"=1
+
+"Gene6" 1 -> 0 when "Gene8"=0 and "Gene10"=0
+"Gene6" 0 -> 1 when "Gene8"=0 and "Gene10"=1
+"Gene6" 1 -> 0 when "Gene8"=1 and "Gene10"=0
+"Gene6" 1 -> 0 when "Gene8"=1 and "Gene10"=1 and "Gene14"=0
+"Gene6" 0 -> 1 when "Gene8"=1 and "Gene10"=1 and "Gene14"=1
+
+"Gene7" 1 -> 0 when "Gene10"=0 and "Gene12"=0 and "Gene13"=0
+"Gene7" 0 -> 1 when "Gene10"=0 and "Gene12"=0 and "Gene13"=1
+"Gene7" 0 -> 1 when "Gene10"=0 and "Gene12"=1 and "Gene13"=0
+"Gene7" 1 -> 0 when "Gene10"=0 and "Gene12"=1 and "Gene13"=1
+"Gene7" 0 -> 1 when "Gene10"=1 and "Gene12"=0 and "Gene13"=0
+"Gene7" 1 -> 0 when "Gene10"=1 and "Gene12"=0 and "Gene13"=1
+"Gene7" 1 -> 0 when "Gene10"=1 and "Gene12"=1
+
+"Gene8" 0 -> 1 when "Gene9"=0 and "Gene13"=1
+"Gene8" 0 -> 1 when "Gene9"=1 and "Gene13"=0
+"Gene8" 1 -> 0 when "Gene9"=0
+"Gene8" 1 -> 0 when "Gene9"=1 and "Gene13"=0
+
+"Gene9" 1 -> 0 when "Gene7"=0 and "Gene11"=0 and "Gene12"=0
+"Gene9" 0 -> 1 when "Gene7"=0 and "Gene11"=0 and "Gene12"=1
+"Gene9" 0 -> 1 when "Gene7"=0 and "Gene11"=1
+"Gene9" 0 -> 1 when "Gene7"=1
+
+"Gene10" 0 -> 1 when "Gene1"=0 and "Gene3"=0
+"Gene10" 1 -> 0 when "Gene1"=0 and "Gene3"=0
+"Gene10" 0 -> 1 when "Gene1"=1 and "Gene3"=0
+"Gene10" 1 -> 0 when "Gene1"=1 and "Gene3"=1
+
+"Gene11" 0 -> 1 when "Gene12"=0 and "Gene13"=0 and "Gene14"=0
+"Gene11" 1 -> 0 when "Gene12"=0 and "Gene13"=0 and "Gene14"=1
+"Gene11" 0 -> 1 when "Gene12"=0 and "Gene13"=1
+"Gene11" 0 -> 1 when "Gene12"=1
+
+"Gene12" 1 -> 0 when "Gene3"=0 and "Gene4"=0
+"Gene12" 1 -> 0 when "Gene3"=0 and "Gene4"=1 and "Gene8"=0
+"Gene12" 0 -> 1 when "Gene3"=0 and "Gene4"=1 and "Gene8"=1
+"Gene12" 0 -> 1 when "Gene3"=1 and "Gene4"=0
+"Gene12" 1 -> 0 when "Gene3"=1 and "Gene4"=1 and "Gene8"=0
+"Gene12" 0 -> 1 when "Gene3"=1 and "Gene4"=1 and "Gene8"=1
+
+"Gene13" 1 -> 0 when "Gene2"=0 and "Gene6"=0 and "Gene11"=0
+"Gene13" 0 -> 1 when "Gene2"=0 and "Gene6"=0 and "Gene11"=1
+"Gene13" 0 -> 1 when "Gene2"=0 and "Gene6"=1 and "Gene11"=0
+"Gene13" 1 -> 0 when "Gene2"=0 and "Gene6"=1 and "Gene11"=1
+"Gene13" 0 -> 1 when "Gene2"=1 and "Gene6"=0 and "Gene11"=0
+"Gene13" 1 -> 0 when "Gene2"=1 and "Gene6"=0 and "Gene11"=1
+"Gene13" 1 -> 0 when "Gene2"=1 and "Gene6"=1 and "Gene11"=0
+"Gene13" 0 -> 1 when "Gene2"=1 and "Gene6"=1 and "Gene11"=1
+
+"Gene14" 0 -> 1 when "Gene5"=0 and "Gene8"=0 and "Gene9"=0
+"Gene14" 1 -> 0 when "Gene5"=0 and "Gene8"=0 and "Gene9"=1
+"Gene14" 0 -> 1 when "Gene5"=0 and "Gene8"=1
+"Gene14" 1 -> 0 when "Gene5"=1 and "Gene8"=0
+"Gene14" 1 -> 0 when "Gene5"=1 and "Gene8"=1 and "Gene9"=0
+"Gene14" 0 -> 1 when "Gene5"=1 and "Gene8"=1 and "Gene9"=1
+
+"Gene15" 1 -> 0 when "Gene2"=0 and "Gene8"=0 and "Gene9"=0
+"Gene15" 0 -> 1 when "Gene2"=0 and "Gene8"=0 and "Gene9"=1
+"Gene15" 0 -> 1 when "Gene2"=0 and "Gene8"=1
+"Gene15" 1 -> 0 when "Gene2"=1 and "Gene8"=0 and "Gene9"=0
+"Gene15" 0 -> 1 when "Gene2"=1 and "Gene8"=0 and "Gene9"=1
+"Gene15" 0 -> 1 when "Gene2"=1 and "Gene8"=1 and "Gene9"=0
+"Gene15" 1 -> 0 when "Gene2"=1 and "Gene8"=1 and "Gene9"=1
+

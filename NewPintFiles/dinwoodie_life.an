@@ -1,0 +1,93 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"compuse" [0, 1]
+"mci" [0, 1]
+"meanws" [0, 1]
+"numfir" [0, 1]
+"numtrans" [0, 1]
+"numwalks" [0, 1]
+"sleeplatency" [0, 1]
+"sleeplivroom" [0, 1]
+"timeasleep" [0, 1]
+"ttib" [0, 1]
+"waso" [0, 1]
+"wscv" [0, 1]
+"wsq3" [0, 1]
+"wssigma" [0, 1]
+"oohhours" [0, 1]
+
+"compuse" 1 -> 0 when "mci"=0 and "wssigma"=0
+"compuse" 0 -> 1 when "mci"=0 and "wssigma"=1
+"compuse" 1 -> 0 when "mci"=1
+
+"mci" 1 -> 0 when "compuse"=0 and "sleeplivroom"=0 and "waso"=0
+"mci" 0 -> 1 when "compuse"=0 and "sleeplivroom"=0 and "waso"=1 and "wsq3"=0
+"mci" 1 -> 0 when "compuse"=0 and "sleeplivroom"=0 and "waso"=1 and "wsq3"=1
+"mci" 0 -> 1 when "compuse"=0 and "sleeplivroom"=1 and "wsq3"=0
+"mci" 1 -> 0 when "compuse"=0 and "sleeplivroom"=1 and "wsq3"=1
+"mci" 1 -> 0 when "compuse"=1
+
+"meanws" 1 -> 0 when "wscv"=0 and "wsq3"=0
+"meanws" 0 -> 1 when "wscv"=0 and "wsq3"=1
+"meanws" 1 -> 0 when "wscv"=1 and "wsq3"=0
+"meanws" 1 -> 0 when "wscv"=1 and "wsq3"=1 and "wssigma"=0
+"meanws" 0 -> 1 when "wscv"=1 and "wsq3"=1 and "wssigma"=1
+
+"numfir" 0 -> 1 when "numtrans"=0 and "sleeplivroom"=0 and "wsq3"=0
+"numfir" 1 -> 0 when "numtrans"=0 and "sleeplivroom"=0 and "wsq3"=1
+"numfir" 0 -> 1 when "numtrans"=0 and "sleeplivroom"=1
+"numfir" 0 -> 1 when "numtrans"=1
+
+"numtrans" 1 -> 0 when "numfir"=0
+"numtrans" 0 -> 1 when "numfir"=1
+
+"numwalks" 1 -> 0 when "wscv"=0 and "wssigma"=0
+"numwalks" 0 -> 1 when "wscv"=0 and "wssigma"=1
+"numwalks" 1 -> 0 when "wscv"=1
+
+"sleeplatency" 1 -> 0 when "ttib"=0
+"sleeplatency" 1 -> 0 when "ttib"=1 and "waso"=0
+"sleeplatency" 0 -> 1 when "ttib"=1 and "waso"=1
+
+"sleeplivroom" 1 -> 0 when "timeasleep"=0
+"sleeplivroom" 0 -> 1 when "timeasleep"=1 and "ttib"=0
+"sleeplivroom" 1 -> 0 when "timeasleep"=1 and "ttib"=1
+
+"timeasleep" 1 -> 0 when "ttib"=0
+"timeasleep" 0 -> 1 when "ttib"=1
+
+"ttib" 1 -> 0 when "timeasleep"=0
+"ttib" 0 -> 1 when "timeasleep"=1
+
+"waso" 1 -> 0 when "sleeplatency"=0
+"waso" 1 -> 0 when "sleeplatency"=1 and "ttib"=0
+"waso" 0 -> 1 when "sleeplatency"=1 and "ttib"=1
+
+"wscv" 1 -> 0 when "mci"=0 and "meanws"=0 and "wssigma"=0
+"wscv" 0 -> 1 when "mci"=0 and "meanws"=0 and "wssigma"=1
+"wscv" 1 -> 0 when "mci"=0 and "meanws"=1
+"wscv" 1 -> 0 when "mci"=1 and "wssigma"=0
+"wscv" 0 -> 1 when "mci"=1 and "wssigma"=1
+
+"wsq3" 0 -> 1 when "mci"=0 and "meanws"=0 and "numwalks"=0
+"wsq3" 1 -> 0 when "mci"=0 and "meanws"=0 and "numwalks"=1
+"wsq3" 0 -> 1 when "mci"=0 and "meanws"=1
+"wsq3" 1 -> 0 when "mci"=1 and "meanws"=0
+"wsq3" 0 -> 1 when "mci"=1 and "meanws"=1
+
+"wssigma" 1 -> 0 when "meanws"=0
+"wssigma" 1 -> 0 when "meanws"=1 and "wscv"=0
+"wssigma" 0 -> 1 when "meanws"=1 and "wscv"=1
+
+"oohhours" 0 -> 1 when "numfir"=0 and "ttib"=0
+"oohhours" 1 -> 0 when "numfir"=0 and "ttib"=1
+"oohhours" 1 -> 0 when "numfir"=1 and "numwalks"=0 and "sleeplivroom"=0
+"oohhours" 0 -> 1 when "numfir"=1 and "numwalks"=0 and "sleeplivroom"=1 and "ttib"=0
+"oohhours" 1 -> 0 when "numfir"=1 and "numwalks"=0 and "sleeplivroom"=1 and "ttib"=1
+"oohhours" 0 -> 1 when "numfir"=1 and "numwalks"=1 and "ttib"=0
+"oohhours" 1 -> 0 when "numfir"=1 and "numwalks"=1 and "ttib"=1
+

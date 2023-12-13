@@ -1,0 +1,128 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"AJUBA" [0, 1]
+"GSK3B" [0, 1]
+"MTCanAct" [0, 1]
+"STMNCanAct" [0, 1]
+"AURKAActive" [0, 1]
+"AURKAPresent" [0, 1]
+"BORA" [0, 1]
+"CDC25B" [0, 1]
+"CDK1CCNBComplex" [0, 1]
+"CentrosomeMat" [0, 1]
+"Cytokinesis" [0, 1]
+"ENSA" [0, 1]
+"GWL_MASTL" [0, 1]
+"MT" [0, 1]
+"NEDD9" [0, 1]
+"PLK1" [0, 1]
+"PP1" [0, 1]
+"PP2A" [0, 1]
+"STMN" [0, 1]
+"SpindleAssembly" [0, 1]
+"TPX2" [0, 1]
+"WEE1" [0, 1]
+"hCPEB" [0, 1]
+
+
+
+
+
+"AURKAActive" 0 -> 1 when "AJUBA"=0 and "AURKAPresent"=1 and "TPX2"=1
+"AURKAActive" 1 -> 0 when "AJUBA"=0 and "AURKAPresent"=0
+"AURKAActive" 1 -> 0 when "AJUBA"=0 and "AURKAPresent"=1 and "PP1"=0 and "TPX2"=0
+"AURKAActive" 1 -> 0 when "AJUBA"=0 and "AURKAPresent"=1 and "PP1"=1
+"AURKAActive" 0 -> 1 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=0 and "NEDD9"=0 and "TPX2"=1
+"AURKAActive" 0 -> 1 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=0 and "NEDD9"=1
+"AURKAActive" 0 -> 1 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=1
+"AURKAActive" 1 -> 0 when "AJUBA"=1 and "AURKAPresent"=0
+"AURKAActive" 1 -> 0 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=0 and "NEDD9"=0 and "PP1"=0 and "TPX2"=0
+"AURKAActive" 1 -> 0 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=0 and "NEDD9"=0 and "PP1"=1
+"AURKAActive" 1 -> 0 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=0 and "NEDD9"=1 and "PP1"=1
+"AURKAActive" 1 -> 0 when "AJUBA"=1 and "AURKAPresent"=1 and "BORA"=1 and "PP1"=1
+
+"AURKAPresent" 0 -> 1 when "PP2A"=0
+"AURKAPresent" 1 -> 0 when "PP2A"=1
+
+"BORA" 0 -> 1 when "GSK3B"=0 and "Cytokinesis"=0
+"BORA" 1 -> 0 when "GSK3B"=0 and "Cytokinesis"=1
+"BORA" 0 -> 1 when "GSK3B"=1 and "Cytokinesis"=0
+"BORA" 0 -> 1 when "GSK3B"=1 and "Cytokinesis"=1 and "PLK1"=0
+"BORA" 1 -> 0 when "GSK3B"=1 and "Cytokinesis"=1 and "PLK1"=1
+
+"CDC25B" 1 -> 0 when "AURKAActive"=0 and "Cytokinesis"=0 and "PLK1"=0
+"CDC25B" 0 -> 1 when "AURKAActive"=0 and "Cytokinesis"=0 and "PLK1"=1
+"CDC25B" 1 -> 0 when "AURKAActive"=0 and "Cytokinesis"=1
+"CDC25B" 0 -> 1 when "AURKAActive"=1 and "Cytokinesis"=0
+"CDC25B" 1 -> 0 when "AURKAActive"=1 and "Cytokinesis"=1
+
+"CDK1CCNBComplex" 0 -> 1 when "CDC25B"=0 and "Cytokinesis"=0 and "WEE1"=0
+"CDK1CCNBComplex" 1 -> 0 when "CDC25B"=0 and "Cytokinesis"=0 and "WEE1"=1 and "hCPEB"=0
+"CDK1CCNBComplex" 0 -> 1 when "CDC25B"=0 and "Cytokinesis"=0 and "WEE1"=1 and "hCPEB"=1
+"CDK1CCNBComplex" 1 -> 0 when "CDC25B"=0 and "Cytokinesis"=1
+"CDK1CCNBComplex" 0 -> 1 when "CDC25B"=1 and "Cytokinesis"=0
+"CDK1CCNBComplex" 1 -> 0 when "CDC25B"=1 and "Cytokinesis"=1
+
+"CentrosomeMat" 1 -> 0 when "CDK1CCNBComplex"=0
+"CentrosomeMat" 0 -> 1 when "CDK1CCNBComplex"=1 and "SpindleAssembly"=0
+"CentrosomeMat" 1 -> 0 when "CDK1CCNBComplex"=1 and "SpindleAssembly"=1
+
+"Cytokinesis" 1 -> 0 when "CentrosomeMat"=0 and "SpindleAssembly"=0
+"Cytokinesis" 0 -> 1 when "CentrosomeMat"=0 and "SpindleAssembly"=1
+"Cytokinesis" 1 -> 0 when "CentrosomeMat"=1
+
+"ENSA" 1 -> 0 when "GWL_MASTL"=0
+"ENSA" 0 -> 1 when "GWL_MASTL"=1
+
+"GWL_MASTL" 1 -> 0 when "CDK1CCNBComplex"=0
+"GWL_MASTL" 0 -> 1 when "CDK1CCNBComplex"=1 and "PP2A"=0
+"GWL_MASTL" 1 -> 0 when "CDK1CCNBComplex"=1 and "PP2A"=1
+
+"MT" 0 -> 1 when "STMN"=0
+"MT" 1 -> 0 when "STMN"=1
+
+"NEDD9" 1 -> 0 when "AURKAActive"=0
+"NEDD9" 0 -> 1 when "AURKAActive"=1
+
+"PLK1" 1 -> 0 when "MTCanAct"=0 and "STMNCanAct"=0 and "AURKAActive"=0
+"PLK1" 0 -> 1 when "MTCanAct"=0 and "STMNCanAct"=0 and "AURKAActive"=1
+"PLK1" 0 -> 1 when "MTCanAct"=0 and "STMNCanAct"=1 and "AURKAActive"=0 and "STMN"=0
+"PLK1" 1 -> 0 when "MTCanAct"=0 and "STMNCanAct"=1 and "AURKAActive"=0 and "STMN"=1
+"PLK1" 0 -> 1 when "MTCanAct"=0 and "STMNCanAct"=1 and "AURKAActive"=1
+"PLK1" 1 -> 0 when "MTCanAct"=1 and "STMNCanAct"=0 and "AURKAActive"=0 and "MT"=0
+"PLK1" 0 -> 1 when "MTCanAct"=1 and "STMNCanAct"=0 and "AURKAActive"=0 and "MT"=1
+"PLK1" 0 -> 1 when "MTCanAct"=1 and "STMNCanAct"=0 and "AURKAActive"=1
+"PLK1" 0 -> 1 when "MTCanAct"=1 and "STMNCanAct"=1 and "AURKAActive"=0 and "MT"=0 and "STMN"=0
+"PLK1" 1 -> 0 when "MTCanAct"=1 and "STMNCanAct"=1 and "AURKAActive"=0 and "MT"=0 and "STMN"=1
+"PLK1" 0 -> 1 when "MTCanAct"=1 and "STMNCanAct"=1 and "AURKAActive"=0 and "MT"=1
+"PLK1" 0 -> 1 when "MTCanAct"=1 and "STMNCanAct"=1 and "AURKAActive"=1
+
+"PP1" 0 -> 1 when "AURKAActive"=0 and "CDK1CCNBComplex"=0 and "Cytokinesis"=0
+"PP1" 1 -> 0 when "AURKAActive"=0 and "CDK1CCNBComplex"=0 and "Cytokinesis"=1
+"PP1" 1 -> 0 when "AURKAActive"=0 and "CDK1CCNBComplex"=1
+"PP1" 1 -> 0 when "AURKAActive"=1
+
+"PP2A" 1 -> 0 when "ENSA"=0 and "PP1"=0
+"PP2A" 0 -> 1 when "ENSA"=0 and "PP1"=1
+"PP2A" 1 -> 0 when "ENSA"=1
+
+"STMN" 0 -> 1 when "AURKAActive"=0
+"STMN" 1 -> 0 when "AURKAActive"=1
+
+"SpindleAssembly" 1 -> 0 when "CentrosomeMat"=0
+"SpindleAssembly" 0 -> 1 when "CentrosomeMat"=1 and "Cytokinesis"=0
+"SpindleAssembly" 1 -> 0 when "CentrosomeMat"=1 and "Cytokinesis"=1
+
+"TPX2" 1 -> 0 when "PLK1"=0
+"TPX2" 0 -> 1 when "PLK1"=1
+
+"WEE1" 0 -> 1 when "PLK1"=0
+"WEE1" 1 -> 0 when "PLK1"=1
+
+"hCPEB" 1 -> 0 when "AURKAActive"=0
+"hCPEB" 0 -> 1 when "AURKAActive"=1
+

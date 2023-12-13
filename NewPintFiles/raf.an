@@ -1,0 +1,20 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"Erk" [0, 1]
+"Mek" [0, 1]
+"Raf" [0, 1]
+
+"Erk" 0 -> 1 when "Mek"=1 and "Raf"=1
+"Erk" 1 -> 0 when "Mek"=0
+
+"Mek" 1 -> 0 when "Erk"=0 and "Raf"=0
+"Mek" 0 -> 1 when "Erk"=1
+
+"Raf" 0 -> 1 when "Erk"=0
+"Raf" 0 -> 1 when "Erk"=1
+"Raf" 1 -> 0 when "Erk"=1
+

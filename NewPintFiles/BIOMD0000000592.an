@@ -1,0 +1,44 @@
+(* This model has been automatically generated using colomoto/logicalmodels
+ * You may want to optimize this model for pint using the following command:
+       pint-export --simplify -i model.an -o model.an
+ * where model.an is this file.
+ *)
+
+"TBET" [0, 1]
+"GATA3" [0, 1]
+"FOXP3" [0, 1]
+"RORGT" [0, 1]
+"BCL6" [0, 1]
+"TH1e" [0, 1]
+"TH2e" [0, 1]
+"TREGe" [0, 1]
+"TH17e" [0, 1]
+"TFHe" [0, 1]
+
+"TBET" 0 -> 1 when "GATA3"=0 and "BCL6"=0 and "TH1e"=1
+"TBET" 1 -> 0 when "GATA3"=0 and "BCL6"=1
+"TBET" 1 -> 0 when "GATA3"=1
+
+"GATA3" 0 -> 1 when "TBET"=0 and "BCL6"=0 and "TH2e"=1
+"GATA3" 1 -> 0 when "TBET"=0 and "BCL6"=1
+"GATA3" 1 -> 0 when "TBET"=1
+
+"FOXP3" 0 -> 1 when "RORGT"=0 and "TREGe"=1
+"FOXP3" 1 -> 0 when "RORGT"=1
+
+"RORGT" 1 -> 0 when "TBET"=0 and "GATA3"=0 and "FOXP3"=0 and "BCL6"=0 and "TH17e"=0
+"RORGT" 0 -> 1 when "TBET"=0 and "GATA3"=0 and "FOXP3"=0 and "BCL6"=0 and "TH17e"=1
+"RORGT" 1 -> 0 when "TBET"=0 and "GATA3"=0 and "FOXP3"=0 and "BCL6"=1
+"RORGT" 1 -> 0 when "TBET"=0 and "GATA3"=0 and "FOXP3"=1
+"RORGT" 1 -> 0 when "TBET"=0 and "GATA3"=1
+"RORGT" 1 -> 0 when "TBET"=1
+
+"BCL6" 1 -> 0 when "TBET"=0 and "TFHe"=0
+"BCL6" 0 -> 1 when "TBET"=0 and "TFHe"=1
+"BCL6" 1 -> 0 when "TBET"=1
+
+
+
+
+
+
